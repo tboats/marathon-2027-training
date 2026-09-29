@@ -48,6 +48,7 @@ python3 -m http.server 8080
 
 - [**Los Angeles Marathon 2027 Master Strategy Guide**](docs/la-marathon-3-15-plan.md): Forensic Seattle analysis, 23-week periodization, mile-by-mile tactics.
 - [**BMO Vancouver Marathon 2027 Master Strategy Guide**](docs/vancouver-marathon-3-15-plan.md): 31-week periodization, Camosun Hill pacing, Seawall tactics.
+- [**Vancouver 31-Week Master Coaching & Accountability Plan**](docs/vancouver-31-week-coaching-plan.md): Complete day-by-day 217-day schedule, daily execution notes, lifting assignments, and AI agent operating directives.
 - [**Head-to-Head Decision Matrix (LA vs. Vancouver)**](docs/la-vs-vancouver-comparison.md): 8-dimension comparison (weather, elevation, logistics, 85% vs 92% probability).
 
 ---
