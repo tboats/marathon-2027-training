@@ -642,46 +642,73 @@ def build_dataset():
 
     from plan_details_generator import get_week_daily_details
     for w in weekly_plan:
-        w['daily_details'] = get_week_daily_details(w['week'])
+        details = get_week_daily_details(w['week'])
+        w['daily_details'] = details
+        # Synchronize weekly summary structure and breakdown to reflect Zero Double Days
+        parts = []
+        nums = []
+        for d in details:
+            if d['miles'] == 0:
+                if d.get('lifting_type'):
+                    if 'Leg' in d['lifting_type']:
+                        short_lift = 'Legs 1/2w'
+                    elif 'Upper' in d['lifting_type']:
+                        short_lift = 'Upper Body'
+                    else:
+                        short_lift = 'Core'
+                    parts.append(f"{d['day']}: Rest ({short_lift})")
+                else:
+                    parts.append(f"{d['day']}: Rest")
+            else:
+                w_short = d['workout'].split(' • ')[0].split(' + ')[0].split('(')[0].strip()
+                m_val = int(d['miles']) if float(d['miles']).is_integer() else d['miles']
+                parts.append(f"{d['day']}: {m_val}mi ({w_short})")
+                nums.append(f"{m_val}")
+        w['structure'] = " | ".join(parts)
+        if w['week'] == 23:
+            w['breakdown'] = " + ".join(nums) + f" = 18 mi (+ 26.2mi Race Day)"
+        else:
+            w['breakdown'] = " + ".join(nums) + f" = {w['target_miles']} mi"
 
     # Strength training & lifting architecture
     strength_training_guide = {
-        'title': 'Concurrent Strength Training & Bi-Weekly Leg Protocol',
-        'golden_rule': 'Protect the Saturday Long Run (The 72-Hour Recovery Window)',
-        'why_wednesday_over_thursday': [
-            'Delayed Onset Muscle Soreness (DOMS) and central nervous system fatigue peak 24–48 hours after heavy eccentric leg training.',
-            'Lifting legs on Thursday causes peak neuromuscular fatigue on Saturday morning (36h later), right during your 16–21 mile anchor long run with 7:26 Marathon Pace blocks.',
-            'Lifting legs on Wednesday PM (4+ hours after morning run) provides a full 72-hour recovery window (Thursday easy run + Friday total running rest) before Saturday morning!'
+        'title': 'Concurrent Strength Training: Strict Zero-Double-Days Protocol',
+        'golden_rule': 'One Focus Per Day: Never Run and Lift on the Same Day',
+        'core_principles': [
+            'No Two-A-Days: Every single day in your weekly calendar is dedicated either purely to running, purely to lifting, or pure rest. Never both.',
+            'Leg Strength Once Every Two Weeks (1/2w): Scheduled strictly on Thursday (a zero-running day). On alternate weeks, Thursday is dedicated to rotational core and pelvic stability.',
+            'Pre-Long Run Leg Flush: Friday is an easy conversational shakeout run (4–7 mi) with ZERO lifting. The gentle movement flushes metabolites from Thursday lifting and primes the legs for Saturday morning.',
+            'Protected Wednesday Aerobic Anchor: Wednesday is 100% running (midweek aerobic base / medium-long run). The evening leg session has been completely eliminated so you can focus entirely on running.'
         ],
         'weekly_lifting_rhythm': {
             'monday': {
                 'day': 'Monday (Non-Running Day)',
                 'focus': 'Upper Body (Push/Pull) + Anti-Extension Core',
                 'exercises': 'Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side).',
-                'rule': 'Zero heavy eccentric leg loading. Keeps legs completely fresh for Tuesday threshold speed workouts.'
+                'rule': 'LIFT ONLY (Zero running, zero heavy leg work). Keeps legs completely fresh for Tuesday threshold speed workouts.'
             },
-            'wednesday_week_a': {
-                'day': 'Wednesday PM (Odd Weeks: W1, W3, W5, W7, W9, W11, W13, W15, W17, W19, W21)',
+            'thursday_week_a': {
+                'day': 'Thursday (Non-Running Day • Odd Weeks: 1/2w)',
                 'focus': '🏋️ Bi-Weekly Heavy Resistance Leg Strength',
                 'exercises': 'Trap Bar Deadlift (3x5 @ 75-80% 1RM), Bulgarian Split Squats (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive).',
-                'rule': 'Heavy, low-rep (3–5 reps), explosive intent, RIR 2-3 (never train to muscle failure). Stimulates high-threshold motor unit recruitment and tendon stiffness without hypertrophy or crippling soreness. Full 72h recovery before Saturday!'
+                'rule': 'LIFT ONLY (Zero running). Low-rep (3–5 reps), heavy resistance, explosive intent, RIR 2-3 (never train to muscle failure). Stimulates high-threshold motor unit recruitment and tendon stiffness without hypertrophy. Friday easy run flushes legs before Saturday long run!'
             },
-            'wednesday_week_b': {
-                'day': 'Wednesday PM (Even Weeks: W2, W4, W6, W8, W10, W12, W14, W16, W18, W20, W22)',
+            'thursday_week_b': {
+                'day': 'Thursday (Non-Running Day • Even Weeks)',
                 'focus': '🧘 Core & Pelvic / Hip Stability (Pre-hab)',
                 'exercises': 'Copenhagen Adductor Planks (3x20s/side), Side Planks with Leg Lift (3x30s), Single-Leg RDLs (light dumbbell, 3x8/leg), Banded Glute Bridges (3x12).',
-                'rule': 'Zero heavy eccentric leg loading. Strengthens gluteus medius and adductors to stabilize pelvis and prevent IT-band friction and lower-back collapse at Mile 20.'
+                'rule': 'LIFT ONLY (Zero running, zero heavy leg weights). Strengthens gluteus medius and adductors to stabilize pelvis and prevent IT-band friction and lower-back collapse at Mile 20.'
             },
-            'friday': {
-                'day': 'Friday (Non-Running Day)',
-                'focus': 'Upper Body Posture & Pre-Long Run Mobility',
-                'exercises': 'Incline Dumbbell Press (3x8), Seated Cable Rows (3x10), Face Pulls (3x15 for posture), Planks (3x45s), Thoracic Spine & Hip Flexor Mobility.',
-                'rule': 'ZERO heavy leg work. Prepares upper torso posture without tiring quads or calves for Saturday\'s anchor long run.'
+            'running_days': {
+                'day': 'Tuesday, Wednesday, Friday, Saturday, Sunday (5 Running Days)',
+                'focus': 'Running Focus Only',
+                'exercises': 'No lifting sessions. Wednesday is your pure midweek aerobic anchor, Friday is your easy pre-long run flush, and Saturday is your key long run.',
+                'rule': 'RUN ONLY. Zero lifting on all running days.'
             }
         },
         'taper_protocol': {
-            'week_21': 'Reduce leg lifting volume by 50% (2x4 light/explosive).',
-            'week_22': 'Bodyweight core and mobility only. No external weights.',
+            'week_21': 'Reduce Thursday leg lifting volume by 50% (2x4 light/explosive). Zero running.',
+            'week_22': 'Bodyweight core and mobility only on Thursday. Zero external weights. Zero running.',
             'week_23': 'Zero lifting. Race week rest, hydration, and mental focus.'
         }
     }

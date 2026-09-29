@@ -90,14 +90,17 @@ For a runner living and training in the Pacific Northwest (Seattle area), the **
 
 ---
 
-## 4. Concurrent Strength Training Schedule (31 Weeks)
+## 4. Concurrent Strength Training: Strict Zero-Double-Days Protocol (31 Weeks)
 
-The exact same **Wednesday PM / 72-hour recovery window** rule applies throughout the 31-week Vancouver build:
-- **Monday**: Upper Body (Push/Pull) + Anti-Extension Core (Weeks 1–30).
-- **Wednesday PM**:
-  - *Odd Weeks (W1, W3, ..., W27)*: Heavy Resistance Leg Strength (Trap Bar Deadlift 3x5, Bulgarian Split Squats 3x6/leg, Heavy Calf Raises 3x10, Box Jumps 3x5).
-  - *Even Weeks (W2, W4, ..., W28)*: Core & Pelvic Hip Stability (Copenhagen adductor planks, Single-Leg RDLs, Banded glutes).
-  - *Week 29 (Taper W1)*: 50% leg volume (2x4 light/explosive).
-  - *Week 30 (Taper W2)*: Bodyweight core and mobility only.
+The exact same **Zero-Double-Days Protocol (never lift and run on the same day)** applies throughout the 31-week Vancouver build:
+- **Monday (LIFT ONLY)**: Upper Body (Push/Pull) + Anti-Extension Core (Weeks 1–30). Zero running.
+- **Thursday (LIFT ONLY)**:
+  - *Odd Weeks (W1, W3, ..., W27 • 1/2w)*: Heavy Resistance Leg Strength (Trap Bar Deadlift 3x5, Bulgarian Split Squats 3x6/leg, Heavy Calf Raises 3x10, Box Jumps 3x5). Zero running.
+  - *Even Weeks (W2, W4, ..., W28)*: Core & Pelvic Hip Stability (Copenhagen adductor planks, Single-Leg RDLs, Banded glutes). Zero running.
+  - *Week 29 (Taper W1)*: 50% leg volume (2x4 light/explosive). Zero running.
+  - *Week 30 (Taper W2)*: Bodyweight core and mobility only. Zero running.
   - *Week 31 (Race Week)*: 100% rest from lifting.
-- **Friday**: Upper Body Postural Mobility & Pre-Long Run prep (Weeks 1–30).
+- **Tuesday, Wednesday, Friday, Saturday, Sunday (RUN ONLY)**:
+  - Wednesday is your pure midweek aerobic base / medium long run anchor with zero evening gym sessions.
+  - Friday is an easy conversational shakeout run (4–7 mi, zero lifting) to flush legs from Thursday lifting before Saturday's anchor long run.
+  - Saturday is your anchor long run with fully restored energy.

@@ -152,40 +152,35 @@ Every day of the week is designed with a specific physiological purpose, balanci
 
 ---
 
-## 4. Concurrent Strength Training & Bi-Weekly Leg Protocol
+## 4. Concurrent Strength Training: Strict Zero-Double-Days Protocol
 
-Integrating strength training into a 34–58 mpw marathon build is critical for **running economy, neuromuscular power, and tendon stiffness**, but poor timing can ruin key running workouts.
+Integrating strength training into a 34–58 mpw marathon build is critical for **running economy, neuromuscular power, and tendon stiffness**, but requires **100% daily separation: NEVER lift and run on the same day.**
 
-### The 72-Hour Rule: Why Wednesday PM is the Ideal Leg Slot
-- **The DOMS Timeline**: Delayed Onset Muscle Soreness (DOMS) and central nervous system (CNS) fatigue from heavy lower-body eccentric loading peak **24 to 48 hours post-lift**.
-- **The Thursday Trap**: Lifting legs on Thursday afternoon/evening places peak muscular stiffness at 36 hours post-lift—right on **Saturday morning** during your 14–21 mile marathon long run anchor! This compromises running economy, increases injury risk, and makes holding 7:26 marathon pace agonizing.
-- **The Wednesday PM Sweet Spot**:
-  - **Wednesday AM**: Midweek medium long run (8–11 miles) when legs are freshest.
-  - **Wednesday PM (6+ hours later)**: Heavy leg lifting session.
-  - **Thursday**: Easy conversational flush run (4–7 miles) to promote blood flow and clear metabolites.
-  - **Friday**: Complete rest day from running (Upper body & mobility only).
-  - **Saturday Morning**: **A full 72 hours of recovery** since the leg workout! You arrive at your long run with fully restored glycogen and fresh legs.
+### The Core Rule: One Focus Per Day
+- **No Two-A-Days**: Every day in your training calendar is dedicated purely to running, purely to lifting, or pure rest.
+- **Bi-Weekly Leg Strength on Thursday (1/2w)**: Scheduled strictly on Thursday as a **zero-running day**. On alternate weeks, Thursday is dedicated to rotational core and pelvic stability.
+- **Friday Pre-Long Run Flush**: Friday is an easy conversational shakeout run (4–7 mi, zero lifting). The light movement flushes metabolites from Thursday lifting and primes your legs for Saturday morning.
+- **Protected Wednesday Aerobic Anchor**: Wednesday is 100% running (midweek aerobic base / medium-long run). The evening leg session has been completely eliminated so you can focus entirely on running without gym fatigue.
 
-### Alternating Weekly Microcycle Architecture
-To balance neuromuscular stimulus with tissue recovery, leg strength alternates every two weeks:
+### Weekly Microcycle Schedule (Zero Double Days)
 
-| Day | Running Focus | Strength / Lifting Focus | Key Prescriptions |
-| :--- | :--- | :--- | :--- |
-| **Monday** | Rest (or 4mi shakeout in peak weeks) | **Upper Body (Push/Pull) & Core** | DB Overhead/Bench Press (3x8), Pull-ups/Cable Rows (3x8), Pallof Press (3x12), Deadbugs (3x10). *Zero heavy leg loading.* |
-| **Tuesday** | Quality Catalyst (Intervals / Tempo) | *None (Run Quality Focus)* | Post-run mobility & foam roll only. |
-| **Wednesday** | Midweek Medium Long Run (8–11 mi) | **PM Strength: Bi-Weekly Alternation** | **Odd Weeks (W1, W3, ..., W19)**: Heavy Leg Strength (Trap Bar Deadlift 3x5, Bulgarian Split Squats 3x6/leg, Standing Heavy Calf Raises 3x10, Box Jumps 3x5 explosive).<br>**Even Weeks (W2, W4, ..., W20)**: Core & Pelvic Stability (Copenhagen adductor planks, Single-Leg RDLs, Banded Glute Clams, Side Plank leg lifts). |
-| **Thursday** | Active Aerobic Flush (4–7 mi) | *None* | Light stretching and hydration. |
-| **Friday** | Rest (Pre-Long Run) | **Upper Body & Postural Mobility** | DB Incline Press (3x10), Chest-Supported Rows (3x10), Face Pulls (3x15), Thoracic spine openers, 90/90 hip mobility. |
-| **Saturday** | The Marathon Anchor (10–21 mi) | *None* | Marathon long run execution + fueling. |
-| **Sunday** | Recovery Jog (3–6 mi) | *None* | Active recovery & restorative tissue care. |
+| Day | Activity Type | Running Focus | Strength / Lifting Focus | Key Prescriptions |
+| :--- | :--- | :--- | :--- | :--- |
+| **Monday** | **LIFT ONLY** | *None (Zero running)* | **Upper Body (Push/Pull) & Core** | DB Overhead/Bench Press (3x8), Pull-ups/Cable Rows (3x8), Pallof Press (3x12), Deadbugs (3x10). *Zero heavy leg loading.* |
+| **Tuesday** | **RUN ONLY** | Quality Catalyst (Intervals / Tempo) | *None* | Post-run mobility & foam roll only. |
+| **Wednesday** | **RUN ONLY** | Midweek Medium Long Run (8–12 mi) | *None* | Pure running focus. Capillary density and aerobic stamina. |
+| **Thursday** | **LIFT ONLY** | *None (Zero running)* | **Bi-Weekly Strength (1/2w)** | **Odd Weeks (W1, W3, ..., W19)**: Heavy Leg Strength (Trap Bar Deadlift 3x5, Bulgarian Split Squats 3x6/leg, Standing Heavy Calf Raises 3x10, Box Jumps 3x5 explosive).<br>**Even Weeks (W2, W4, ..., W20)**: Core & Pelvic Stability (Copenhagen adductor planks, Single-Leg RDLs, Banded Glute Clams, Side Plank leg lifts). |
+| **Friday** | **RUN ONLY** | Easy Pre-Long Run Shakeout (4–7 mi) | *None* | Conversational recovery run. Flushes Thursday lifting metabolites and primes legs for Saturday. |
+| **Saturday** | **RUN ONLY** | The Marathon Anchor (10–23 mi) | *None* | Marathon long run execution + fueling practice. |
+| **Sunday** | **RUN ONLY** | Recovery Shakeout (3–7 mi) | *None* | Active recovery & restorative tissue care. |
 
 ### Strength Programming Rules for Marathoners
 1. **Lift for Neural Recruitment, Not Hypertrophy**: Keep reps low (3–5 reps), load moderately heavy (75–80% 1RM), and leave **2–3 Reps in Reserve (RIR)**. Never lift to muscular failure.
 2. **Prioritize Achilles & Tendon Stiffness**: Heavy, slow standing calf raises (3x10 with 3s eccentric lowering) dramatically increase Achilles tendon energy return at 7:26 pace.
 3. **Periodized Taper**:
-   - *Phase 1–4 (Weeks 1–20)*: Maintain full bi-weekly alternation.
-   - *Week 21 (Taper W1)*: Cut leg volume by 50% (2x4 light/explosive; zero DOMS).
-   - *Week 22 (Taper W2)*: Bodyweight core and hip mobility only.
+   - *Phase 1–4 (Weeks 1–20)*: Maintain full bi-weekly alternation on Thursdays.
+   - *Week 21 (Taper W1)*: Cut leg volume by 50% (2x4 light/explosive; zero DOMS) on Thursday.
+   - *Week 22 (Taper W2)*: Bodyweight core and hip mobility only on Thursday.
    - *Week 23 (Race Week)*: 100% rest from lifting.
 
 ---

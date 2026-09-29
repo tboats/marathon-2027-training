@@ -329,7 +329,33 @@ def get_vancouver_weekly_plan():
     ]
 
     for w in raw_weeks:
-        w['daily_details'] = get_vancouver_daily_details(w['week'], w)
+        details = get_vancouver_daily_details(w['week'], w)
+        w['daily_details'] = details
+        # Synchronize weekly summary structure and breakdown to reflect Zero Double Days
+        parts = []
+        nums = []
+        for d in details:
+            if d['miles'] == 0:
+                if d.get('lifting_type'):
+                    if 'Leg' in d['lifting_type']:
+                        short_lift = 'Legs 1/2w'
+                    elif 'Upper' in d['lifting_type']:
+                        short_lift = 'Upper Body'
+                    else:
+                        short_lift = 'Core'
+                    parts.append(f"{d['day']}: Rest ({short_lift})")
+                else:
+                    parts.append(f"{d['day']}: Rest")
+            else:
+                w_short = d['workout'].split(' • ')[0].split(' + ')[0].split('(')[0].strip()
+                m_val = int(d['miles']) if float(d['miles']).is_integer() else d['miles']
+                parts.append(f"{d['day']}: {m_val}mi ({w_short})")
+                nums.append(f"{m_val}")
+        w['structure'] = " | ".join(parts)
+        if w['week'] == 31:
+            w['breakdown'] = " + ".join(nums) + f" = 18 mi (+ 26.2mi Race Day)"
+        else:
+            w['breakdown'] = " + ".join(nums) + f" = {w['target_miles']} mi"
 
     return raw_weeks
 

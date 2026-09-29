@@ -1388,81 +1388,126 @@ def get_week_daily_details(week_num):
 
 def apply_lifting_schedule(week_num, days, total_weeks=23):
     """
-    Enriches the 7 daily workouts with concurrent strength training:
-    - Monday (Non-running day / light run): Upper Body Push/Pull + Anti-Extension Core + Mobility
-    - Wednesday (Midweek Medium-Long Run):
-        * Odd Weeks: Heavy Resistance Leg Strength (PM, 72h before Sat Long Run!)
-        * Even Weeks: Core & Pelvic / Hip Stability (Zero heavy legs)
-        * Taper W1: Taper Leg Strength (50% volume, high velocity)
-        * Taper W2: Bodyweight Core & Mobility (no weights)
+    Enriches the 7 daily workouts with concurrent strength training strictly enforcing
+    ZERO TWO-A-DAYS (never run and lift on the same day):
+    - Monday (Non-running day): Upper Body (Push/Pull) + Anti-Extension Core (NO RUNNING)
+    - Tuesday: Quality Run / Intervals / Threshold (RUN ONLY - NO LIFTING)
+    - Wednesday: Midweek Aerobic Base / Medium Long Run (RUN ONLY - NO LIFTING)
+    - Thursday (Non-running day):
+        * Odd Weeks (1/2w): 🏋️ Bi-Weekly Heavy Leg Strength (NO RUNNING)
+        * Even Weeks: 🧘 Core & Pelvic Hip Stability (NO RUNNING)
+        * Taper W1: 🏋️ Taper Leg Strength (50% volume, high velocity)
+        * Taper W2: 🧘 Light Core & Mobility (no weights)
         * Race Week: Pure rest & mobility
-    - Friday (Non-running day): Pre-Long Run Upper Body + Rotational Core & Mobility (Zero heavy legs)
+    - Friday: Easy Pre-Long Run Shakeout (RUN ONLY - NO LIFTING)
+    - Saturday: Anchor Long Run (RUN ONLY - NO LIFTING)
+    - Sunday: Aerobic Recovery Shakeout (RUN ONLY - NO LIFTING)
     """
     import copy
     enriched = copy.deepcopy(days)
-    
+    d_map = {d['day']: d for d in enriched}
+    day_thu = d_map.get('Thu')
+    day_fri = d_map.get('Fri')
+    day_mon = d_map.get('Mon')
+    day_wed = d_map.get('Wed')
+    day_sat = d_map.get('Sat')
+    day_sun = d_map.get('Sun')
+
+    # 1. Shift Thursday run miles to Friday so Thursday is 100% non-running
+    if day_thu and day_fri and day_thu['miles'] > 0 and day_fri['miles'] == 0:
+        day_fri['miles'] = day_thu['miles']
+        day_fri['workout'] = 'Easy Pre-Long Run Shakeout'
+        day_fri['pace'] = day_thu.get('pace', '9:00 – 9:30 / mi')
+        day_fri['hr_zone'] = 'Zone 1 / Low Zone 2 (< 138 bpm)'
+        day_fri['purpose'] = 'Gentle active recovery flush of legs following Thursday strength session, priming for Saturday long run.'
+        day_fri['description'] = 'Relaxed conversational recovery run on flat terrain. Promotes capillary circulation, flushes metabolites from Thursday lifting, and primes legs for tomorrow anchor. ZERO lifting.'
+        day_thu['miles'] = 0
+        day_thu['pace'] = 'Rest / Strength'
+        day_thu['hr_zone'] = 'Rest / Gym (< 130 bpm)'
+        day_thu['purpose'] = 'Targeted neuromuscular recruitment and eccentric resilience without running impact.'
+
+    # 2. If Monday had miles > 0 (high-volume weeks), shift those miles so Monday is 100% non-running
+    if day_mon and day_mon['miles'] > 0:
+        extra = day_mon['miles']
+        day_mon['miles'] = 0
+        day_mon['pace'] = 'Rest / Strength'
+        day_mon['hr_zone'] = 'Rest / Gym (< 130 bpm)'
+        day_mon['purpose'] = 'Upper body muscular endurance and core stability without leg fatigue.'
+        if day_sat and extra >= 2:
+            day_sat['miles'] += 2
+            extra -= 2
+        if day_wed and extra >= 1:
+            day_wed['miles'] += 1
+            extra -= 1
+        if day_sun and extra >= 1:
+            day_sun['miles'] += extra
+            extra = 0
+        elif day_fri and extra > 0:
+            day_fri['miles'] += extra
+            extra = 0
+
     taper_w1 = total_weeks - 2
     taper_w2 = total_weeks - 1
     race_week = total_weeks
 
     for d in enriched:
         day_name = d.get('day')
-        
-        # MONDAY
+
+        # MONDAY: Lift Only (Upper Body & Core)
         if day_name == 'Mon':
             if week_num < race_week:
-                d['lifting_type'] = 'Upper Body & Core Strength'
+                d['lifting_type'] = 'Upper Body & Core Strength (No Running)'
                 d['lifting_exercises'] = 'Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.'
-                if d['miles'] == 0:
-                    d['workout'] = 'Rest from Running • Upper Body & Core Strength'
-                    d['description'] = 'Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday speed work.'
-                else:
-                    d['workout'] += ' • Upper Body & Core Strength'
-                    d['description'] += ' PM STRENGTH: Upper Body Push/Pull + Core stability. Zero heavy leg loading to protect legs for Tuesday quality.'
+                d['workout'] = 'Rest from Running • Upper Body & Core Strength'
+                d['description'] = 'Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.'
             else:
                 d['lifting_type'] = None
                 d['lifting_exercises'] = 'Race week rest and mobility only.'
+                d['workout'] = 'Rest from Running • Race Week Rest & Mobility'
+                d['description'] = 'Full rest day. Light stretching, hydration, and carbo-loading. Zero lifting.'
 
-        # WEDNESDAY
-        elif day_name == 'Wed':
+        # THURSDAY: Lift Only (Legs 1/2w on Odd Weeks, Core on Even Weeks)
+        elif day_name == 'Thu':
             if week_num < taper_w1 and (week_num % 2 == 1):
-                d['lifting_type'] = '🏋️ Bi-Weekly Heavy Leg Strength (PM)'
+                d['lifting_type'] = '🏋️ Bi-Weekly Heavy Leg Strength (No Running)'
                 d['lifting_exercises'] = 'Trap Bar Deadlift (3x5 @ 75-80%), Bulgarian Split Squats (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive). Leave 2-3 RIR (never to failure!).'
-                d['workout'] += ' + 🏋️ Bi-Weekly Leg Strength (PM)'
-                d['description'] += ' PM STRENGTH (4+ hours after morning run): Bi-Weekly Heavy Resistance Leg Strength. Low reps (3-5), heavy weight, explosive intent. This optimizes neuromuscular recruitment and tendon stiffness without hypertrophy. Timing on Wednesday provides a full 72-hour recovery window before Saturday\'s long run!'
+                d['workout'] = 'Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength'
+                d['description'] = 'Non-running day: Bi-Weekly Heavy Resistance Leg Strength. Low reps (3-5), heavy weight, explosive intent. Trap Bar Deadlifts, Bulgarian Split Squats, Heavy Calf Raises, Box Jumps. Zero running today ensures complete energy for neuromuscular recruitment without fatigue. Friday is an easy recovery run to flush legs before Saturday.'
+            elif week_num < taper_w1 and (week_num % 2 == 0):
+                d['lifting_type'] = '🧘 Core & Pelvic Hip Stability (No Running)'
+                d['lifting_exercises'] = 'Copenhagen Adductor Planks (3x20s/side), Side Planks with Leg Lift (3x30s), Single-Leg RDLs (light dumbbell, 3x8/leg), Banded Glute Bridges (3x12). Zero heavy eccentric leg loading.'
+                d['workout'] = 'Rest from Running • 🧘 Core & Pelvic Hip Stability'
+                d['description'] = 'Non-running day: Hip stability, glute activation, and rotational core. Strengthens adductors and gluteus medius to stabilize pelvis and protect IT bands during high marathon mileage without heavy leg fatigue.'
             elif week_num == taper_w1:
                 d['lifting_type'] = '🏋️ Taper Leg Strength (50% Volume)'
                 d['lifting_exercises'] = 'Trap Bar Deadlift (2x4 light/moderate), Bodyweight Split Squats (2x5), Standing Calf Raises (2x8). High movement velocity, low fatigue.'
-                d['workout'] += ' + 🏋️ Taper Leg Strength (PM)'
-                d['description'] += ' PM STRENGTH: 50% cutback in lifting volume. Keeps neuromuscular snap while allowing deep muscle recovery.'
-            elif week_num < taper_w1 and (week_num % 2 == 0):
-                d['lifting_type'] = '🧘 Core & Pelvic Hip Stability (PM)'
-                d['lifting_exercises'] = 'Copenhagen Adductor Planks (3x20s/side), Side Planks with Leg Lift (3x30s), Single-Leg RDLs (light dumbbell, 3x8/leg), Banded Glute Bridges (3x12). Zero heavy eccentric leg loading.'
-                d['workout'] += ' + 🧘 Core & Pelvic Stability (PM)'
-                d['description'] += ' PM STRENGTH: Hip stability and core rotational control. Strengthens gluteus medius and adductors to stabilize pelvis and protect IT bands during marathon fatigue.'
+                d['workout'] = 'Rest from Running • 🏋️ Taper Leg Strength (50% Volume)'
+                d['description'] = 'Non-running day: 50% cutback in lifting volume. Maintains neuromuscular snap while allowing deep muscle recovery.'
             elif week_num == taper_w2:
                 d['lifting_type'] = '🧘 Light Core & Mobility'
                 d['lifting_exercises'] = 'Deadbugs, bird-dogs, thoracic mobility, gentle hip openers. No weights.'
-                d['workout'] += ' + 🧘 Light Core & Mobility (PM)'
-                d['description'] += ' PM STRENGTH: Light core activation and mobility only.'
-            else: # Race week
-                d['lifting_type'] = None
-                d['lifting_exercises'] = 'Race week rest and mobility only.'
-
-        # FRIDAY
-        elif day_name == 'Fri':
-            if week_num < race_week:
-                d['lifting_type'] = 'Upper Body & Pre-Long Run Mobility'
-                d['lifting_exercises'] = 'Incline Dumbbell Press (3x8), Seated Cable Rows (3x10), Face Pulls (3x15 for posture), Planks (3x45s), Thoracic Spine & Hip Flexor Mobility. ZERO heavy leg work.'
-                d['workout'] = 'Rest from Running • Upper Body & Pre-Long Run Mobility'
-                d['description'] = 'Non-running day: Upper Body posture maintenance and active mobility. Prepares upper torso without tiring quads or calves for Saturday\'s key long run anchor.'
+                d['workout'] = 'Rest from Running • 🧘 Light Core & Mobility'
+                d['description'] = 'Non-running day: Light core activation and mobility only. Zero weights.'
             else:
                 d['lifting_type'] = None
-                d['lifting_exercises'] = 'Travel & Pre-Race Rest. No lifting.'
-        
-        else:
+                d['lifting_exercises'] = 'Race week rest and mobility only.'
+                d['workout'] = 'Rest from Running • Pre-Race Rest & Mobility'
+                d['description'] = 'Full rest day. Light stretching, hydration, and carbo-loading. Zero lifting.'
+
+        # WEDNESDAY: Run Only (Zero Lifting)
+        elif day_name == 'Wed':
             d['lifting_type'] = None
             d['lifting_exercises'] = None
+            d['workout'] = d['workout'].split(' + ')[0].split(' • ')[0]
+            if 'PM STRENGTH' in d['description']:
+                d['description'] = d['description'].split('PM STRENGTH')[0].strip()
+
+        # TUE, FRI, SAT, SUN: Run Only (Zero Lifting)
+        elif day_name in ('Tue', 'Fri', 'Sat', 'Sun'):
+            d['lifting_type'] = None
+            d['lifting_exercises'] = None
+            if day_name == 'Fri' and 'Rest from Running' in d['workout']:
+                d['workout'] = 'Easy Pre-Long Run Shakeout'
 
     return enriched
 

@@ -1588,37 +1588,37 @@ def generate():
       <!-- Strength & Lifting Integration Guide Card -->
       <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%); border-color: rgba(168, 85, 247, 0.35);">
         <div class="card-title">
-          <span>🏋️ Concurrent Strength Training & Bi-Weekly Leg Protocol</span>
-          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">Concurrent Training Science</span>
+          <span>🏋️ Concurrent Strength Training: Strict Zero-Double-Days Protocol</span>
+          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">Never Run & Lift Same Day</span>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
           <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-purple); font-weight: 700;">Timing Sweet Spot: Wednesday PM</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Why Wednesday Beats Thursday</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-purple); font-weight: 700;">Core Principle: Zero Double Days</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">One Focus Per Day</div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              DOMS and CNS fatigue peak <strong>24–48 hours</strong> after heavy eccentric leg training. Lifting Thursday puts peak soreness right on Saturday morning (36h later), sabotaging your key 16–21 miler with MP blocks. <strong>Wednesday PM provides a full 72-hour recovery buffer</strong> (Thu easy + Fri rest) before Saturday!
+              <strong>Never lift and run on the same day.</strong> Monday is <strong>Lift Only</strong> (Upper Body & Core). Thursday is <strong>Lift Only</strong> (Legs 1/2w or Core). Wednesday is <strong>Run Only</strong> (midweek aerobic anchor, zero evening gym). Friday is <strong>Run Only</strong> (easy pre-long run flush).
             </div>
           </div>
           <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Odd Weeks (Bi-Weekly)</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Week A: Heavy Leg Strength</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Thursday (Odd Weeks • 1/2w)</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Heavy Leg Strength (Zero Running)</div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              <strong>Trap Bar Deadlift (3x5)</strong>, <strong>Bulgarian Split Squats (3x6/leg)</strong>, <strong>Heavy Standing Calf Raises (3x10)</strong>, <strong>Box Jumps (3x5)</strong>. Heavy, low reps (3–5), explosive intent. <strong>Leave 2–3 reps in reserve (never to failure)</strong> to build tendon stiffness without muscle damage.
+              <strong>Trap Bar Deadlift (3x5)</strong>, <strong>Bulgarian Split Squats (3x6/leg)</strong>, <strong>Heavy Standing Calf Raises (3x10)</strong>, <strong>Box Jumps (3x5)</strong>. Non-running day allows complete energy for neuromuscular recruitment. <strong>Leave 2–3 reps in reserve</strong> (never to failure).
             </div>
           </div>
           <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">Even Weeks (Bi-Weekly)</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Week B: Core & Pelvic Hip Pre-Hab</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">Thursday (Even Weeks • Alternate)</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Core & Pelvic Hip Pre-Hab (Zero Running)</div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              <strong>Copenhagen Adductor Planks (3x20s)</strong>, <strong>Side Planks w/ Leg Lift (3x30s)</strong>, <strong>Single-Leg RDLs (3x8)</strong>, <strong>Banded Glutes (3x12)</strong>. Zero heavy eccentric leg loading. Stabilizes pelvis and prevents IT band friction and lumbar collapse at Mile 20.
+              <strong>Copenhagen Adductor Planks (3x20s)</strong>, <strong>Side Planks w/ Leg Lift (3x30s)</strong>, <strong>Single-Leg RDLs (3x8)</strong>, <strong>Banded Glutes (3x12)</strong>. Zero heavy eccentric leg loading. Restores pelvic stability and protects IT bands without muscle soreness.
             </div>
           </div>
           <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-amber); font-weight: 700;">Non-Running Days (Mon & Fri)</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Upper Body & Postural Core</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-amber); font-weight: 700;">Monday Lift • Friday Easy Run</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Upper Body Lift & Friday Flush</div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              <strong>Monday</strong>: Dumbbell Bench/Overhead Press, Pull-ups / Lat Pulldowns, Cable Rows, Pallof Press, Deadbugs.<br>
-              <strong>Friday</strong>: Incline Dumbbell Press, Seated Rows, Face Pulls, Planks, Thoracic & Hip Mobility. <em>Zero heavy legs on both days!</em>
+              <strong>Monday (Lift Only)</strong>: Dumbbell Bench/Overhead Press, Pull-ups / Lat Pulldowns, Cable Rows, Pallof Press, Deadbugs. Zero running.<br>
+              <strong>Friday (Run Only)</strong>: Easy conversational shakeout run (4–7 mi, zero lifting) to flush legs before Saturday's long run.
             </div>
           </div>
         </div>
