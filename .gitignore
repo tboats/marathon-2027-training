@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS-specific
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE & Editor
+.vscode/
+.idea/
+
+# Environment files & Garmin tokens (CRITICAL - secrets)
+.env
+.env.local
+.env.*.local
+*.local
+.garminconnect_tokens/
+credentials.json
+*.pem
+*.key
+id_rsa*

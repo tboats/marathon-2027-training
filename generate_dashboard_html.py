@@ -1,0 +1,2719 @@
+#!/usr/bin/env python3
+"""
+generate_dashboard_html.py - Generate the standalone, fully interactive HTML dashboard
+with embedded dashboard_data.json for zero-dependency viewing.
+"""
+
+import os
+import json
+
+REPO_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(REPO_DIR, "data/dashboard_data.json")
+OUTPUT_HTML = os.path.join(REPO_DIR, "index.html")
+
+def generate():
+    with open(DATA_FILE) as f:
+        data_json_str = f.read()
+
+    html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LA Marathon 2027: Sub-3:15 Training & Telemetry Dashboard</title>
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {{
+      --bg-primary: #0a0f1d;
+      --bg-secondary: #111827;
+      --bg-card: #162032;
+      --bg-card-hover: #1c2942;
+      --border-color: #24324d;
+      --border-subtle: #1e293b;
+      
+      --accent-blue: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --accent-purple: #a855f7;
+      --accent-cyan: #06b6d4;
+
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --text-highlight: #ffffff;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }}
+
+    * {{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }}
+
+    body {{
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding-bottom: 80px;
+      min-height: 100vh;
+    }}
+
+    /* Header & Hero */
+    header {{
+      background: linear-gradient(180deg, #131c31 0%, var(--bg-primary) 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 32px 24px 24px;
+    }}
+
+    .header-container {{
+      max-width: 1400px;
+      margin: 0 auto;
+    }}
+
+    .hero-top {{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 24px;
+    }}
+
+    .hero-title-area h1 {{
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }}
+
+    .hero-subtitle {{
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }}
+
+    .hero-badge {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }}
+
+    .countdown-widget {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }}
+
+    .countdown-val {{
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-amber);
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1;
+    }}
+
+    .countdown-label {{
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }}
+
+    /* Stat Banner Cards */
+    .stat-banner {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }}
+
+    .stat-card {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }}
+
+    .stat-card:hover {{
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: var(--shadow-md);
+    }}
+
+    .stat-card::before {{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-blue);
+    }}
+
+    .stat-card.emerald::before {{ background: var(--accent-emerald); }}
+    .stat-card.amber::before {{ background: var(--accent-amber); }}
+    .stat-card.purple::before {{ background: var(--accent-purple); }}
+    .stat-card.rose::before {{ background: var(--accent-rose); }}
+
+    .stat-title {{
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }}
+
+    .stat-value {{
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-highlight);
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.1;
+    }}
+
+    .stat-sub {{
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }}
+
+    .badge-diff {{
+      color: var(--accent-emerald);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }}
+
+    /* Top-Level Race Switcher */
+    .race-selector-bar {{
+      display: inline-flex;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 5px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      gap: 6px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-sm);
+    }}
+
+    .race-selector-btn {{
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }}
+
+    .race-selector-btn:hover {{
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }}
+
+    .race-selector-btn.active {{
+      background: var(--accent-blue);
+      color: #0a0f1d;
+      box-shadow: 0 2px 12px rgba(56, 189, 248, 0.4);
+    }}
+
+    .race-selector-btn.active.vancouver {{
+      background: var(--accent-emerald);
+      color: #0a0f1d;
+      box-shadow: 0 2px 12px rgba(16, 185, 129, 0.4);
+    }}
+
+    .race-selector-btn.active.compare {{
+      background: var(--accent-purple);
+      color: #ffffff;
+      box-shadow: 0 2px 12px rgba(168, 85, 247, 0.4);
+    }}
+
+    .race-date-pill {{
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.3);
+      color: inherit;
+      font-family: 'JetBrains Mono', monospace;
+    }}
+
+    .race-plan-toggle-bar {{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      background: rgba(15, 23, 42, 0.75);
+      padding: 6px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      width: fit-content;
+    }}
+
+    .race-plan-btn {{
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }}
+
+    .race-plan-btn:hover {{
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }}
+
+    .race-plan-btn.active {{
+      background: var(--accent-blue);
+      color: #0f172a;
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+    }}
+
+    .race-plan-btn.active.vancouver {{
+      background: var(--accent-emerald);
+      color: #0f172a;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    }}
+
+    .comparison-table {{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }}
+
+    .comparison-table th {{
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }}
+
+    .comparison-table td {{
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }}
+
+    .comparison-table tr:hover {{
+      background: rgba(255, 255, 255, 0.02);
+    }}
+
+    .verdict-badge {{
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }}
+
+    /* Navigation Tabs */
+    .tabs-nav-wrapper {{
+      max-width: 1400px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+    }}
+
+    .tabs-nav {{
+      display: flex;
+      gap: 8px;
+      background: var(--bg-secondary);
+      padding: 6px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }}
+
+    .tabs-nav::-webkit-scrollbar {{
+      display: none;
+    }}
+
+    .tab-btn {{
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .tab-btn:hover {{
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }}
+
+    .tab-btn.active {{
+      background: var(--accent-blue);
+      color: #0f172a;
+      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+    }}
+
+    /* Main Container & Sections */
+    main {{
+      max-width: 1400px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+    }}
+
+    .tab-content {{
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+    }}
+
+    .tab-content.active {{
+      display: block;
+    }}
+
+    @keyframes fadeIn {{
+      from {{ opacity: 0; transform: translateY(6px); }}
+      to {{ opacity: 1; transform: translateY(0); }}
+    }}
+
+    /* Section Headers */
+    .section-header {{
+      margin-bottom: 24px;
+    }}
+
+    .section-header h2 {{
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-highlight);
+      letter-spacing: -0.02em;
+    }}
+
+    .section-header p {{
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }}
+
+    /* Cards Grid */
+    .grid-2 {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 24px;
+      margin-bottom: 28px;
+    }}
+
+    .grid-3 {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }}
+
+    .card {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }}
+
+    .card-title {{
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }}
+
+    /* Proxy Indicators Section */
+    .indicator-card {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition);
+    }}
+
+    .indicator-card:hover {{
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }}
+
+    .indicator-top {{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }}
+
+    .indicator-name {{
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-highlight);
+    }}
+
+    .indicator-status {{
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.05em;
+    }}
+
+    .status-target {{
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }}
+
+    .status-track {{
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }}
+
+    .status-alert {{
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }}
+
+    .indicator-desc {{
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }}
+
+    .indicator-metrics {{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-bottom: 14px;
+      text-align: center;
+    }}
+
+    .metric-col:not(:last-child) {{
+      border-right: 1px solid var(--border-subtle);
+    }}
+
+    .metric-label {{
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-muted);
+    }}
+
+    .metric-num {{
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-highlight);
+      margin-top: 2px;
+    }}
+
+    .metric-num.target {{
+      color: var(--accent-emerald);
+    }}
+
+    .metric-num.current {{
+      color: var(--accent-blue);
+    }}
+
+    .indicator-why {{
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 8px 12px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }}
+
+    /* Chart Containers */
+    .chart-box {{
+      position: relative;
+      width: 100%;
+      height: 320px;
+    }}
+
+    /* Training Plan Styles */
+    .phase-filter-bar {{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }}
+
+    .phase-pill {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition);
+    }}
+
+    .phase-pill:hover {{
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }}
+
+    .phase-pill.active {{
+      background: var(--accent-blue);
+      color: #0f172a;
+      border-color: var(--accent-blue);
+      font-weight: 700;
+    }}
+
+    .week-card {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }}
+
+    .week-card:hover {{
+      border-color: rgba(56, 189, 248, 0.4);
+      background: var(--bg-card-hover);
+    }}
+
+    .week-badge {{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+    }}
+
+    .week-num {{
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent-blue);
+      font-family: 'JetBrains Mono', monospace;
+    }}
+
+    .week-tag {{
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }}
+
+    .week-meta {{
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }}
+
+    .week-dates {{
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }}
+
+    .week-miles {{
+      font-size: 1.25rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-amber);
+    }}
+
+    .week-details {{
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }}
+
+    .workout-line {{
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }}
+
+    .workout-label {{
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--accent-cyan);
+      white-space: nowrap;
+    }}
+
+    .workout-label.lr {{
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-amber);
+    }}
+
+    .workout-sub {{
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }}
+
+    .week-checkpoint {{
+      font-size: 0.82rem;
+      color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+    }}
+
+    .week-check {{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }}
+
+    .week-check input[type="checkbox"] {{
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--accent-emerald);
+    }}
+
+    .week-card-main {{
+      display: grid;
+      grid-template-columns: 80px 140px 1fr 200px 40px;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+    }}
+
+    @media (max-width: 900px) {{
+      .week-card-main {{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }}
+    }}
+
+    .details-toggle-btn {{
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-blue);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      margin-top: 6px;
+      width: fit-content;
+    }}
+
+    .details-toggle-btn:hover {{
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-blue);
+      color: #fff;
+    }}
+
+    .details-toggle-btn.active {{
+      background: rgba(16, 185, 129, 0.18);
+      border-color: var(--accent-emerald);
+      color: var(--accent-emerald);
+    }}
+
+    .week-daily-breakdown {{
+      width: 100%;
+      background: rgba(10, 15, 29, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-top: 4px;
+      animation: fadeIn 0.2s ease-in-out;
+    }}
+
+    @keyframes fadeIn {{
+      from {{ opacity: 0; transform: translateY(-4px); }}
+      to {{ opacity: 1; transform: translateY(0); }}
+    }}
+
+    .daily-details-table {{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }}
+
+    .daily-details-table th {{
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }}
+
+    .daily-details-table td {{
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: top;
+    }}
+
+    .daily-details-table tr:last-child td {{
+      border-bottom: none;
+    }}
+
+    .daily-details-table tr:hover {{
+      background: rgba(255, 255, 255, 0.02);
+    }}
+
+    .day-badge {{
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }}
+
+    .day-badge.rest {{
+      background: rgba(100, 116, 139, 0.2);
+      color: var(--text-muted);
+    }}
+
+    .day-badge.run {{
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+    }}
+
+    .day-badge.lr {{
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-amber);
+    }}
+
+    .day-badge.race {{
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--accent-emerald);
+    }}
+
+    .daily-miles {{
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--accent-amber);
+      font-size: 0.95rem;
+    }}
+
+    .daily-miles.rest {{
+      color: var(--text-muted);
+      font-weight: normal;
+    }}
+
+    .daily-pace {{
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--accent-cyan);
+    }}
+
+    .daily-hr {{
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent-rose);
+    }}
+
+    .daily-purpose {{
+      font-size: 0.8rem;
+      color: var(--accent-emerald);
+      margin-bottom: 3px;
+    }}
+
+    .daily-instruction {{
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }}
+
+    /* Tables */
+    .data-table-wrapper {{
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }}
+
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }}
+
+    th {{
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+    }}
+
+    td {{
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+    }}
+
+    tr:last-child td {{
+      border-bottom: none;
+    }}
+
+    tr:hover td {{
+      background: rgba(255, 255, 255, 0.02);
+    }}
+
+    /* Calculator Styles */
+    .calc-container {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 24px;
+    }}
+
+    .input-group {{
+      margin-bottom: 16px;
+    }}
+
+    .input-group label {{
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }}
+
+    .input-row {{
+      display: flex;
+      gap: 10px;
+    }}
+
+    input[type="text"], input[type="number"], select {{
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }}
+
+    input:focus, select:focus {{
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }}
+
+    .calc-btn {{
+      background: var(--accent-blue);
+      color: #0f172a;
+      border: none;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      transition: var(--transition);
+    }}
+
+    .calc-btn:hover {{
+      background: #7dd3fc;
+      transform: translateY(-1px);
+    }}
+
+    .calc-result-box {{
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-top: 20px;
+    }}
+
+    .calc-result-header {{
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }}
+
+    .calc-result-val {{
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-emerald);
+      line-height: 1;
+      margin-bottom: 8px;
+    }}
+
+    /* Pace Zone Pill Grid */
+    .zone-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }}
+
+    .zone-pill {{
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      text-align: center;
+    }}
+
+    .zone-name {{
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }}
+
+    .zone-pace {{
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-highlight);
+      margin-top: 2px;
+    }}
+
+    /* Responsive */
+    @media (max-width: 900px) {{
+      .hero-title-area h1 {{ font-size: 1.8rem; }}
+      .week-card {{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }}
+      .grid-2, .calc-container {{
+        grid-template-columns: 1fr;
+      }}
+    }}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <!-- Top-Level Race Selector Bar -->
+      <div class="race-selector-bar">
+        <button class="race-selector-btn active" id="btnRaceLA" onclick="selectRace('la')">
+          <span>🌴</span> Los Angeles Marathon 2027 <span class="race-date-pill">Mar 7, 2027 • 23 Wks</span>
+        </button>
+        <button class="race-selector-btn" id="btnRaceVan" onclick="selectRace('vancouver')">
+          <span>🌲</span> BMO Vancouver Marathon 2027 <span class="race-date-pill">May 2, 2027 • 31 Wks</span>
+        </button>
+        <button class="race-selector-btn" id="btnRaceCompare" onclick="switchTab('comparison')">
+          <span>⚖️</span> Head-to-Head Comparison <span class="race-date-pill">LA vs Van</span>
+        </button>
+      </div>
+
+      <div class="hero-top">
+        <div class="hero-title-area">
+          <h1 id="raceMainTitle">
+            <span>🏃</span> LA Marathon 2027: Sub-3:15
+          </h1>
+          <div class="hero-subtitle">
+            <span id="raceDateText">Sunday, March 7, 2027</span>
+            <span>•</span>
+            <span id="raceLocationText">Los Angeles, CA</span>
+            <span class="hero-badge" id="racePaceBadge">Goal Pace: 7:26 / mi (4:37 / km)</span>
+            <span class="hero-badge" id="raceElevationBadge" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Course: 946 ft Gain • -222 ft Net Downhill</span>
+          </div>
+        </div>
+
+        <div class="countdown-widget">
+          <div>
+            <div class="countdown-val" id="countdownDays">161</div>
+            <div class="countdown-label">Days to Race</div>
+          </div>
+          <div style="border-left: 1px solid var(--border-color); padding-left: 16px;">
+            <div class="countdown-val" id="countdownWeeks" style="color: var(--accent-blue);">23</div>
+            <div class="countdown-label">Training Weeks</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat Banner Cards -->
+      <div class="stat-banner">
+        <div class="stat-card emerald">
+          <div class="stat-title">Target Goal Time</div>
+          <div class="stat-value">3:15:00</div>
+          <div class="stat-sub"><span class="badge-diff">-19m 04s</span> from Seattle</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-title">Target Marathon Pace</div>
+          <div class="stat-value">7:26<span style="font-size: 1rem;">/mi</span></div>
+          <div class="stat-sub"><span class="badge-diff">-43s/mi</span> (4:37/km, +8.8% speed)</div>
+        </div>
+
+        <div class="stat-card purple">
+          <div class="stat-title">Seattle 2025 Baseline</div>
+          <div class="stat-value">3:34:04</div>
+          <div class="stat-sub">8:09/mi • Avg HR: 152.7 bpm</div>
+        </div>
+
+        <div class="stat-card amber">
+          <div class="stat-title">Target VDOT Score</div>
+          <div class="stat-value">50.5</div>
+          <div class="stat-sub">Seattle Baseline: 45.5 (+5.0 pts)</div>
+        </div>
+
+        <div class="stat-card rose">
+          <div class="stat-title" id="statCourseElevationTitle">Course Profile</div>
+          <div class="stat-value" id="statCourseElevationVal" style="font-size: 1.4rem;">946 <span style="font-size: 0.85rem; color: var(--text-secondary);">ft gain</span></div>
+          <div class="stat-sub" id="statCourseElevationSub">-222 ft Net Downhill (36.1 ft/mi)</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <div class="tabs-nav-wrapper">
+    <div class="tabs-nav">
+      <button class="tab-btn active" id="navBtn_overview" onclick="switchTab('overview')">
+        <span>🗺️</span> Overview & Strategy
+      </button>
+      <button class="tab-btn" id="navBtn_vancouver" onclick="switchTab('vancouver')">
+        <span>🌲</span> Vancouver BC Analysis
+      </button>
+      <button class="tab-btn" id="navBtn_comparison" onclick="switchTab('comparison')">
+        <span>⚖️</span> LA vs. Vancouver Comparison
+      </button>
+      <button class="tab-btn" id="navBtn_indicators" onclick="switchTab('indicators')">
+        <span>🎯</span> Proxy Indicators (Telemetry)
+      </button>
+      <button class="tab-btn" id="navBtn_training" onclick="switchTab('training')">
+        <span>📅</span> Periodized Training Plans
+      </button>
+      <button class="tab-btn" id="navBtn_seattle" onclick="switchTab('seattle')">
+        <span>📊</span> Seattle 2025 Retrospective
+      </button>
+      <button class="tab-btn" id="navBtn_calculator" onclick="switchTab('calculator')">
+        <span>🧮</span> Readiness & Fitness Calc
+      </button>
+      <button class="tab-btn" id="navBtn_history" onclick="switchTab('history')">
+        <span>📈</span> Historical Volume & Runs
+      </button>
+    </div>
+  </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main>
+
+    <!-- TAB 1: OVERVIEW & STRATEGY -->
+    <section id="tab-overview" class="tab-content active">
+      <div class="section-header">
+        <h2>Strategic Campaign: Seattle 3:34 ➔ Los Angeles 3:15</h2>
+        <p>A rigorous, evidence-based roadmap bridging your verified Seattle aerobic base to 3:15 capability across 23 periodized weeks.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span>The Mathematical & Physiological Leap</span>
+            <span class="hero-badge">Analysis</span>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;">
+            Your Seattle Marathon on Nov 30, 2025 was run with impeccable discipline: finishing in 3:34:04 (8:09/mile) with negative splits (final 2.2km at 7:56/mile) and an average heart rate of 152.7 bpm. You demonstrated exceptional aerobic durability with near-zero premature cardiac drift.
+          </p>
+          <div style="background: var(--bg-secondary); border-radius: var(--radius-sm); padding: 16px; border: 1px solid var(--border-subtle); margin-bottom: 16px;">
+            <div style="font-weight: 700; color: var(--accent-blue); margin-bottom: 6px;">The 3:15 Challenge:</div>
+            <ul style="padding-left: 20px; color: var(--text-secondary); font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>Pace Requirement:</strong> 7:26 min/mile (4:37 min/km) sustained for 26.2 miles.</li>
+              <li><strong>Speed Differential:</strong> +43 seconds per mile faster than Seattle (+8.8% velocity).</li>
+              <li><strong>The Engine Shift:</strong> You already have the mental resilience and endurance base. The required shift is lifting your <em>lactate threshold velocity</em> so that 7:26/mile feels like cruising in Zone 3 (~153 bpm) rather than straining in Zone 4 (~165+ bpm).</li>
+              <li><strong>Volume Expansion:</strong> Peak mileage must safely expand from Seattle's ~45 mpw to <strong>52–58 mpw</strong>, with 70+ total miles logged at Goal Marathon Pace.</li>
+            </ul>
+          </div>
+          <div style="font-size: 0.88rem; color: var(--text-muted);">
+            💡 <em>"You do not rise to the level of your goal on race day; you fall to the level of your training telemetry."</em>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Los Angeles Marathon Course Anatomy</span>
+            <span class="hero-badge" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3);">Course Profile</span>
+          </div>
+          <div style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+            <p style="margin-bottom: 12px;"><strong>"Stadium to the Stars" Course Profile:</strong></p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-blue); border-radius: 4px;">
+                <strong>Miles 1–5 (Dodger Stadium to DTLA):</strong> Fast rolling descent (-150 ft). Crucial danger zone for over-pacing. Must hold disciplined 7:30 pace to preserve quads.
+              </div>
+              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-amber); border-radius: 4px;">
+                <strong>Miles 6–14 (Sunset Blvd, Hollywood, West Hollywood):</strong> Gentle rolling uphill stretches along Sunset and Santa Monica Blvd. Requires rhythmic cadence.
+              </div>
+              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-emerald); border-radius: 4px;">
+                <strong>Miles 15–19 (Beverly Hills to Westwood):</strong> Flat and fast boulevard running. Lock into metronomic 7:26/mile pace and maintain fueling.
+              </div>
+              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-rose); border-radius: 4px;">
+                <strong>Miles 20–22 (San Vicente Blvd / Brentwood):</strong> The infamous subtle false flat climb. Quads will be tested. This is where weekly hill repeats in Phase 1 pay off.
+              </div>
+              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-purple); border-radius: 4px;">
+                <strong>Miles 23–26.2 (Century City Finish):</strong> Downhill finish along Avenue of the Stars into the 3:15 celebration. Net drop: -222 ft.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elevation & Terrain Asymmetry Advantage Banner -->
+      <div class="card" style="margin-bottom: 28px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.9) 0%, rgba(17, 24, 39, 0.95) 100%); border-color: rgba(56, 189, 248, 0.3);">
+        <div class="card-title">
+          <span>⛰️ Elevation & Terrain Asymmetry: Your Hidden Advantage</span>
+          <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Grade Adjusted Analysis</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Your Training Terrain Average</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">52.4 <span style="font-size: 0.9rem;">ft / mi</span></div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">~1,373 ft climbing per 26.2 mi equivalent. Your regular routes are <strong>~45% hillier</strong> than both marathon courses.</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Seattle Marathon 2025</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.3 <span style="font-size: 0.9rem;">ft / mi</span></div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">~950 ft gain with <strong>0 net drop</strong> (loop). Grade-Adjusted Flat Equivalent was <strong>3:27:44 (7:55/mi, VDOT 47.1)</strong>!</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Los Angeles Marathon 2027</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-emerald); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.1 <span style="font-size: 0.9rem;">ft / mi</span></div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">~946 ft gain, but <strong>-222 ft Net Downhill</strong>! Noticeably friendlier net profile than your hilly Seattle baseline.</div>
+          </div>
+        </div>
+        <div style="margin-top: 14px; font-size: 0.88rem; color: var(--text-secondary); background: rgba(0,0,0,0.25); padding: 10px 14px; border-radius: var(--radius-sm);">
+          💡 <strong>Key Takeaway:</strong> Training on 52 ft/mile hills automatically builds eccentric quad resilience and higher metabolic power. When training on hills, <strong>run by Heart Rate (151–155 bpm)</strong> instead of forcing 7:26 flat pace. On flat road or net downhill, that exact same effort releases 7:15–7:26 pace effortlessly.
+        </div>
+      </div>
+
+      <!-- 5 Macrocycle Phases -->
+      <div class="card" style="margin-bottom: 28px;">
+        <div class="card-title">
+          <span>The 5-Phase Periodization Architecture</span>
+          <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: normal;">Sep 28, 2026 ➔ Mar 7, 2027 (23 Weeks)</span>
+        </div>
+        <div class="grid-3" id="phasesOverviewGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: VANCOUVER 2027 DEEP-DIVE -->
+    <section id="tab-vancouver" class="tab-content">
+      <div class="section-header">
+        <h2>🌲 BMO Vancouver Marathon 2027: Deep-Dive Analysis</h2>
+        <p>Sunday, May 2, 2027 • 217 Days / 31 Weeks Runway • Vancouver, BC • Goal: 3:15:00 (7:26 min/mile / 4:37 min/km)</p>
+      </div>
+
+      <!-- Quick Summary Cards -->
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.35);">
+          <div class="card-title">
+            <span>The Vancouver Opportunity: Why It's Exceptional</span>
+            <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Strategic Match</span>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 14px; font-size: 0.95rem; line-height: 1.6;">
+            If you are evaluating options alongside Los Angeles, the <strong>BMO Vancouver Marathon on May 2, 2027</strong> represents an extraordinarily high-probability venue for your 3:15 goal. In fact, from an environmental, physiological, and logistical perspective, Vancouver offers several decisive advantages over Los Angeles for a Seattle-based runner.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
+            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
+              <strong style="color: var(--text-highlight);">1. Ideal Distance Weather (50°F–58°F):</strong> May in Vancouver delivers cool, humid maritime air with frequent overcast skies. Heat risk is virtually zero compared to SoCal.
+            </div>
+            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+              <strong style="color: var(--text-highlight);">2. 8 Extra Weeks of Runway (31 Weeks Total):</strong> Gives you 2 full extra months to build chronic aerobic volume and consolidate lactate threshold before sharpening.
+            </div>
+            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-amber);">
+              <strong style="color: var(--text-highlight);">3. Lower Total Climbing & Net Downhill:</strong> Vancouver has ~825 ft gain (31.4 ft/mi) vs LA's 946 ft (36.1 ft/mi), plus a favorable <strong>-215 ft net descent</strong> from Queen Elizabeth Park to downtown.
+            </div>
+            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+              <strong style="color: var(--text-highlight);">4. Seattle Home Turf Synergy:</strong> Zero flight fatigue, no time zone shift, and course topography that mimics your daily Seattle running routes.
+            </div>
+          </div>
+          <button class="details-toggle-btn active" onclick="switchTrainingPlan('vancouver'); switchTab('training');" style="width: fit-content; padding: 8px 16px; font-size: 0.88rem;">
+            <span>📅 Switch to Vancouver 31-Week Training Plan ➔</span>
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>BMO Vancouver Marathon Course Anatomy</span>
+            <span class="hero-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">Course Breakdown</span>
+          </div>
+          <div style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.55; display: flex; flex-direction: column; gap: 8px;">
+            <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-blue); border-radius: 4px;">
+              <strong>Km 0–8 (Miles 1–5 - QE Park to Dunbar):</strong> Starts high at Queen Elizabeth Park (~152m elevation). Gentle initial descent. Settle into disciplined 7:28–7:30/mi pace.
+            </div>
+            <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-rose); border-radius: 4px;">
+              <strong>Km 9–10 (Mile 6 - Camosun Hill):</strong> Famous steep climb (~177 ft vertical rise in 0.6 mi). <em>Pacing Rule:</em> Surrender pace! Run by HR (< 158 bpm, ~8:10/mi). Your 52 ft/mi Seattle training makes this easy.
+            </div>
+            <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-amber); border-radius: 4px;">
+              <strong>Km 10–16 (Miles 6.5–10 - UBC Campus):</strong> Rolling roads through Pacific Spirit Park and UBC. Settle back into 7:24–7:26/mi cruise control.
+            </div>
+            <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-cyan); border-radius: 4px;">
+              <strong>Km 16–18 (Miles 10–11.5 - NW Marine Drive):</strong> Fast descent dropping ~250 ft to Spanish Banks. Maintain cadence (>180 spm), lean forward, protect quads.
+            </div>
+            <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-emerald); border-radius: 4px;">
+              <strong>Km 18–31 (Miles 11.5–19.5 - Spanish Banks & Kitsilano):</strong> Flat coastal miles along English Bay. Metronome miles: lock into 7:24/mi. Fuel with gel every 35 mins.
+            </div>
+            <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-purple); border-radius: 4px;">
+              <strong>Km 31–40 (Miles 19.5–25 - Burrard Bridge & Seawall):</strong> Burrard bridge crest followed by 9 km of flat seawall loop around Stanley Park. Mental focus wins the race.
+            </div>
+            <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-emerald); border-radius: 4px;">
+              <strong>Km 40–42.2 (Miles 25–26.2 - Downtown Finish):</strong> Exit seawall onto West Pender Street rise. Re-accelerate to 7:15/mi into the finish line for 3:14:xx!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elevation Comparison Banner -->
+      <div class="card" style="margin-bottom: 28px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.9) 0%, rgba(17, 24, 39, 0.95) 100%); border-color: rgba(16, 185, 129, 0.35);">
+        <div class="card-title">
+          <span>⛰️ Elevation & Grade-Adjusted Comparison: Vancouver vs Seattle vs LA</span>
+          <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Topography Analysis</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 14px;">
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Your Seattle Training Routes</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">52.4 <span style="font-size: 0.9rem;">ft / mi</span></div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">~1,373 ft climbing per 26.2 mi. <strong>~67% hillier</strong> than Vancouver!</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Seattle Marathon 2025</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.3 <span style="font-size: 0.9rem;">ft / mi</span></div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">950 ft gain with <strong>0 net drop</strong> (loop). Flat equivalent was <strong>3:27:44</strong>.</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Los Angeles Marathon 2027</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.1 <span style="font-size: 0.9rem;">ft / mi</span></div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">946 ft gain, <strong>-222 ft Net Downhill</strong>. Late climb on San Vicente (Mile 20).</div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">BMO Vancouver Marathon 2027</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-emerald); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">31.4 <span style="font-size: 0.9rem;">ft / mi</span></div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">825 ft gain, <strong>-215 ft Net Downhill</strong>. Least total climbing of all three!</div>
+          </div>
+        </div>
+        <div style="margin-top: 14px; font-size: 0.88rem; color: var(--text-secondary); background: rgba(0,0,0,0.25); padding: 10px 14px; border-radius: var(--radius-sm);">
+          💡 <strong>Key Takeaway:</strong> Vancouver features less climbing per mile than both Seattle and LA, with an identical net downhill bonus (-215 ft). Because you already train on 52 ft/mile hills, you have a huge structural advantage over flatland runners on Camosun Hill.
+        </div>
+      </div>
+
+      <!-- 6 Macrocycle Phases for Vancouver -->
+      <div class="card" style="margin-bottom: 28px;">
+        <div class="card-title">
+          <span>Vancouver 31-Week Periodization Architecture</span>
+          <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: normal;">Sep 28, 2026 ➔ May 2, 2027 (31 Weeks)</span>
+        </div>
+        <div class="grid-3" id="vancouverPhasesOverviewGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: HEAD-TO-HEAD COMPARISON (LA vs VANCOUVER) -->
+    <section id="tab-comparison" class="tab-content">
+      <div class="section-header">
+        <h2>⚖️ Head-to-Head Comparison: Los Angeles vs. BMO Vancouver</h2>
+        <p>A rigorous, multi-dimensional comparison to help you choose the highest probability venue for your 3:15:00 goal.</p>
+      </div>
+
+      <!-- Head-to-Head Table -->
+      <div class="card" style="margin-bottom: 28px;">
+        <div class="card-title">
+          <span>Course, Climate, & Runway Comparison Matrix</span>
+          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">8 Key Dimensions</span>
+        </div>
+        <div class="data-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="min-width: 170px;">Dimension</th>
+                <th style="min-width: 220px; color: var(--accent-blue);">🌴 Los Angeles Marathon 2027</th>
+                <th style="min-width: 220px; color: var(--accent-emerald);">🌲 BMO Vancouver Marathon 2027</th>
+                <th style="min-width: 160px;">Advantage / Verdict</th>
+                <th style="min-width: 280px;">Strategic Analysis</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonTableBody">
+              <!-- Rendered dynamically via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pros & Cons Grid -->
+      <div class="grid-2" style="margin-bottom: 28px;">
+        <div class="card" style="border-top: 3px solid var(--accent-blue);">
+          <div class="card-title">
+            <span>🌴 Los Angeles Marathon 2027</span>
+            <span class="hero-badge">Mar 7, 2027 • 23 Wks</span>
+          </div>
+          <div style="font-size: 0.9rem; line-height: 1.6; display: flex; flex-direction: column; gap: 12px;">
+            <div>
+              <strong style="color: var(--accent-emerald);">✅ Key Advantages:</strong>
+              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
+                <li>Earlier target date (March 7) gets the goal done before spring.</li>
+                <li>Massive race atmosphere and iconic "Stadium to the Stars" landmarks.</li>
+                <li>Favorable net downhill (-222 ft) allows fast start and fast finish.</li>
+              </ul>
+            </div>
+            <div>
+              <strong style="color: var(--accent-rose);">⚠️ Risk Factors:</strong>
+              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
+                <li>Weather variability: Temperatures can reach 68°F–75°F under open sun.</li>
+                <li>San Vicente false flat climb right at Mile 20–22 tests tired quads.</li>
+                <li>Flight and hotel logistics from Seattle.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-emerald);">
+          <div class="card-title">
+            <span>🌲 BMO Vancouver Marathon 2027</span>
+            <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">May 2, 2027 • 31 Wks</span>
+          </div>
+          <div style="font-size: 0.9rem; line-height: 1.6; display: flex; flex-direction: column; gap: 12px;">
+            <div>
+              <strong style="color: var(--accent-emerald);">✅ Key Advantages:</strong>
+              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
+                <li>Near-perfect distance weather: 50°F–58°F with cool overcast skies.</li>
+                <li>8 extra weeks of training runway (31 weeks total) to maximize aerobic base.</li>
+                <li>Fewer total vertical feet of climbing (825 ft vs 946 ft in LA).</li>
+                <li>Main climb (Camosun Hill) happens early at Mile 6 when legs are fresh.</li>
+                <li>Drive or Amtrak from Seattle (zero flight fatigue, familiar nutrition).</li>
+              </ul>
+            </div>
+            <div>
+              <strong style="color: var(--accent-rose);">⚠️ Risk Factors:</strong>
+              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
+                <li>Longer training cycle through winter and early spring requires motivation.</li>
+                <li>Possible coastal headwind along Stanley Park Seawall (Miles 20–25).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decision Framework Recommendation Card -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(22, 32, 50, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%); border-color: rgba(168, 85, 247, 0.35);">
+        <div class="card-title">
+          <span>🧠 Strategic Recommendation: Which Race to Pick?</span>
+          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">Coach Verdict</span>
+        </div>
+        <div style="color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6;">
+          <p style="margin-bottom: 12px;">
+            Based on your Seattle Marathon 2025 baseline (3:34:04 on a 950 ft hilly course at 152.7 bpm) and your current training elevation (~52 ft/mile):
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 12px;">
+            <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <div style="font-weight: 700; color: var(--accent-emerald); font-size: 1rem; margin-bottom: 6px;">Recommendation 1: Vancouver for Pure Sub-3:15 Probability (92%)</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                If your primary priority is <strong>maximizing the physiological certainty of breaking 3:15:00</strong>, <strong>Vancouver is the superior choice</strong>. The 52°F temperature envelope, +8 weeks of threshold consolidation, and 121 ft less climbing eliminate the biggest wildcards (heat and rushing mileage volume).
+              </p>
+            </div>
+            <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <div style="font-weight: 700; color: var(--accent-blue); font-size: 1rem; margin-bottom: 6px;">Recommendation 2: The Two-Race Strategy (LA as A-Race, Vancouver Backup)</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                Because LA is March 7 and Vancouver is May 2 (exactly 8 weeks later), you can target LA 3:15 on March 7. If race day in LA turns unusually warm or windy, you take 2 weeks easy reverse-taper and run Vancouver on May 2 as your redemption peak!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: PROXY INDICATORS (TELEMETRY) -->
+    <section id="tab-indicators" class="tab-content">
+      <div class="section-header">
+        <h2>Proxy Metrics & Telemetry Engine</h2>
+        <p>You cannot run a marathon test every month. Instead, track these 6 physiological proxy indicators in your day-to-day training data to verify if you are trending toward a 3:15 finish.</p>
+      </div>
+
+      <div class="grid-3" id="indicatorsGrid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+      <!-- Chart: Aerobic Efficiency Factor Progression -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span>Aerobic Efficiency Factor (EF) Trajectory</span>
+            <span class="hero-badge">Speed / Heart Rate</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Historical monthly EF (2025-2026) plotted against the required trajectory to reach <strong>1.42</strong> for a 3:15 marathon.
+          </p>
+          <div class="chart-box">
+            <canvas id="efChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Volume Density & Long Run Progression</span>
+            <span class="hero-badge">Miles / Month</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
+            Historical monthly volume and longest runs vs. target build for peak LA training (52-58 mpw).
+          </p>
+          <div class="chart-box">
+            <canvas id="volumeChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: PERIODIZED TRAINING PLANS -->
+    <section id="tab-training" class="tab-content">
+      <div class="section-header">
+        <h2 id="planSectionTitle">Periodized Marathon Training Master Schedule</h2>
+        <p id="planSectionSub">Select your target race below to inspect specific daily assignments, long run workouts, and proxy checkpoints.</p>
+      </div>
+
+      <!-- Race Plan Switcher Bar -->
+      <div class="race-plan-toggle-bar">
+        <button class="race-plan-btn active" id="planBtn_la" onclick="switchPlanRace('la')">
+          <span>🌴</span> Los Angeles Plan (23 Weeks • Mar 7, 2027)
+        </button>
+        <button class="race-plan-btn" id="planBtn_vancouver" onclick="switchPlanRace('vancouver')">
+          <span>🌲</span> Vancouver Plan (31 Weeks • May 2, 2027)
+        </button>
+      </div>
+
+      <!-- Strength & Lifting Integration Guide Card -->
+      <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%); border-color: rgba(168, 85, 247, 0.35);">
+        <div class="card-title">
+          <span>🏋️ Concurrent Strength Training & Bi-Weekly Leg Protocol</span>
+          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">Concurrent Training Science</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-purple); font-weight: 700;">Timing Sweet Spot: Wednesday PM</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Why Wednesday Beats Thursday</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              DOMS and CNS fatigue peak <strong>24–48 hours</strong> after heavy eccentric leg training. Lifting Thursday puts peak soreness right on Saturday morning (36h later), sabotaging your key 16–21 miler with MP blocks. <strong>Wednesday PM provides a full 72-hour recovery buffer</strong> (Thu easy + Fri rest) before Saturday!
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Odd Weeks (Bi-Weekly)</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Week A: Heavy Leg Strength</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              <strong>Trap Bar Deadlift (3x5)</strong>, <strong>Bulgarian Split Squats (3x6/leg)</strong>, <strong>Heavy Standing Calf Raises (3x10)</strong>, <strong>Box Jumps (3x5)</strong>. Heavy, low reps (3–5), explosive intent. <strong>Leave 2–3 reps in reserve (never to failure)</strong> to build tendon stiffness without muscle damage.
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">Even Weeks (Bi-Weekly)</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Week B: Core & Pelvic Hip Pre-Hab</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              <strong>Copenhagen Adductor Planks (3x20s)</strong>, <strong>Side Planks w/ Leg Lift (3x30s)</strong>, <strong>Single-Leg RDLs (3x8)</strong>, <strong>Banded Glutes (3x12)</strong>. Zero heavy eccentric leg loading. Stabilizes pelvis and prevents IT band friction and lumbar collapse at Mile 20.
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-amber); font-weight: 700;">Non-Running Days (Mon & Fri)</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Upper Body & Postural Core</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              <strong>Monday</strong>: Dumbbell Bench/Overhead Press, Pull-ups / Lat Pulldowns, Cable Rows, Pallof Press, Deadbugs.<br>
+              <strong>Friday</strong>: Incline Dumbbell Press, Seated Rows, Face Pulls, Planks, Thoracic & Hip Mobility. <em>Zero heavy legs on both days!</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic Filter pills -->
+      <div class="phase-filter-bar" id="phaseFilterBar">
+        <!-- Rendered dynamically via JS based on currentPlanRace -->
+      </div>
+
+      <div id="weeklyPlanContainer">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 4: SEATTLE 2025 RETROSPECTIVE -->
+    <section id="tab-seattle" class="tab-content">
+      <div class="section-header">
+        <h2>Seattle Marathon 2025: Baseline Forensic Analysis</h2>
+        <p>Nov 30, 2025 • Official Time: 3:34:04 • <strong style="color: var(--accent-emerald);">Flat Equivalent: 3:27:44</strong> • 950 ft Gain (36.3 ft/mi) • Avg HR: 152.7 bpm • VDOT: 45.5 (Flat: 47.1)</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span>5km Segment Splits & Heart Rate</span>
+            <span class="hero-badge">Empirical Data</span>
+          </div>
+          <div class="chart-box" style="height: 280px; margin-bottom: 20px;">
+            <canvas id="seattleSplitsChart"></canvas>
+          </div>
+          <div class="data-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Segment</th>
+                  <th>Distance</th>
+                  <th>Pace (min/mi)</th>
+                  <th>Avg HR (bpm)</th>
+                </tr>
+              </thead>
+              <tbody id="seattleSplitsTable">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Tactical Insights: What Seattle Proves</span>
+            <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald);">Key Learnings</span>
+          </div>
+          <div style="color: var(--text-secondary); font-size: 0.92rem; display: flex; flex-direction: column; gap: 14px;">
+            <div style="background: var(--bg-secondary); border-left: 3px solid var(--accent-emerald); padding: 12px; border-radius: var(--radius-sm);">
+              <strong style="color: var(--text-highlight);">1. Flawless Pacing Discipline:</strong>
+              <p style="margin-top: 4px;">You ran Km 10-35 at virtually identical 8:08-8:15 pace with heart rate rock-solid at 151 bpm. You did not blow up or bonk.</p>
+            </div>
+            <div style="background: var(--bg-secondary); border-left: 3px solid var(--accent-blue); padding: 12px; border-radius: var(--radius-sm);">
+              <strong style="color: var(--text-highlight);">2. Fast Finish Acceleration:</strong>
+              <p style="margin-top: 4px;">In the final 2.2km, you surged to <strong>7:56/mile</strong> while pushing heart rate to 164 bpm. This proves you had reserve aerobic capacity that was untapped.</p>
+            </div>
+            <div style="background: var(--bg-secondary); border-left: 3px solid var(--accent-amber); padding: 12px; border-radius: var(--radius-sm);">
+              <strong style="color: var(--text-highlight);">3. The Specific Upgrade for 3:15:</strong>
+              <p style="margin-top: 4px;">To run 7:26, you cannot simply "try harder" on race day. You must push your lactate threshold so that 7:26 generates the exact same metabolic lactate clearance and 152 bpm cardiac load that 8:09 did in Seattle.</p>
+            </div>
+            <div style="background: var(--bg-secondary); border-left: 3px solid var(--accent-purple); padding: 12px; border-radius: var(--radius-sm);">
+              <strong style="color: var(--text-highlight);">4. Seattle Elevation Penalty (~950 ft climbing):</strong>
+              <p style="margin-top: 4px;">Seattle's hills (~36.3 ft/mi) cost ~6m 20s. Your flat-equivalent finish was <strong>3:27:44 (7:55/mi, VDOT 47.1)</strong>. The true fitness gap to 3:15 is only <strong>12m 44s</strong>, not 19 minutes!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: READINESS & FITNESS CALCULATOR -->
+    <section id="tab-calculator" class="tab-content">
+      <div class="section-header">
+        <h2>Interactive Fitness & Readiness Telemetry</h2>
+        <p>Input recent workout data or tune-up race results to assess your current readiness score and target training zones.</p>
+      </div>
+
+      <div class="calc-container">
+        <!-- Workout EF Calculator -->
+        <div class="card">
+          <div class="card-title">
+            <span>Workout Aerobic Efficiency (EF)</span>
+            <span class="hero-badge">Run Metric</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
+            Enter an easy or steady aerobic run to calculate your current Aerobic Efficiency Factor.
+          </p>
+
+          <div class="input-group">
+            <label>Distance (Miles)</label>
+            <input type="number" id="calcDist" value="8.0" step="0.1">
+          </div>
+
+          <div class="input-group">
+            <label>Duration (Minutes : Seconds)</label>
+            <div class="input-row">
+              <input type="number" id="calcDurMin" value="68" placeholder="Minutes">
+              <input type="number" id="calcDurSec" value="0" placeholder="Seconds">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Average Heart Rate (bpm)</label>
+            <input type="number" id="calcHR" value="141">
+          </div>
+
+          <div class="input-group">
+            <label>Elevation Gain (Feet) <span style="font-size: 0.75rem; color: var(--text-muted);">(Seattle hills compensation)</span></label>
+            <input type="number" id="calcElev" value="400" placeholder="e.g. 400">
+          </div>
+
+          <button class="calc-btn" onclick="calculateEF()">Calculate Efficiency & Grade Adjustment</button>
+
+          <div class="calc-result-box" id="efResultBox">
+            <div class="calc-result-header">Computed Efficiency & Grade Adjustment</div>
+            <div style="display: flex; justify-content: space-around; align-items: baseline; margin: 10px 0;">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Raw EF</div>
+                <div class="calc-result-val" id="efResultVal" style="font-size: 1.5rem;">1.332</div>
+              </div>
+              <div>
+                <div style="font-size: 0.75rem; color: var(--accent-purple); text-transform: uppercase;">Grade-Adjusted (GAP-EF)</div>
+                <div class="calc-result-val" id="gapEfResultVal" style="font-size: 1.5rem; color: var(--accent-purple);">1.385</div>
+              </div>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; margin-bottom: 8px;" id="gapPaceText">
+              Raw Pace: 8:30/mi ➔ Flat Equivalent GAP: 8:02/mi (+50 ft/mi)
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);" id="efVerdict">
+              Tracking on schedule for Phase 1. Target for 3:15: ≥ 1.40.
+            </div>
+          </div>
+        </div>
+
+        <!-- Race Equivalent & VDOT Predictor -->
+        <div class="card">
+          <div class="card-title">
+            <span>Race Equivalent & 3:15 Readiness</span>
+            <span class="hero-badge">VDOT Predictor</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
+            Input a recent time trial or tune-up race to calculate VDOT score and marathon capability.
+          </p>
+
+          <div class="input-group">
+            <label>Race Event</label>
+            <select id="raceEvent">
+              <option value="5k">5 km</option>
+              <option value="10k" selected>10 km</option>
+              <option value="half">Half Marathon (13.1 mi)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Time (Hours : Minutes : Seconds)</label>
+            <div class="input-row">
+              <input type="number" id="raceHr" value="0" placeholder="Hours">
+              <input type="number" id="raceMin" value="43" placeholder="Minutes">
+              <input type="number" id="raceSec" value="30" placeholder="Seconds">
+            </div>
+          </div>
+
+          <button class="calc-btn" onclick="calculateVDOT()">Assess Race Readiness</button>
+
+          <div class="calc-result-box" id="vdotResultBox">
+            <div class="calc-result-header">Estimated VDOT & Projected Marathon</div>
+            <div class="calc-result-val" id="vdotMarathonPred">3:18:20</div>
+            <div style="font-size: 0.9rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 6px;" id="vdotScoreText">
+              VDOT: 49.3 (Goal: 50.5)
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);" id="vdotVerdict">
+              Readiness: ~82%. On track for 3:15 with Phase 3 & 4 MP blocks remaining!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Training Pace Zones Reference -->
+      <div class="card" style="margin-top: 24px;">
+        <div class="card-title">
+          <span>Personalized Training Pace Zones (VDOT 50.5 Goal vs Current VDOT 47.0)</span>
+          <span class="hero-badge">Daniels Pacing</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Train at your <em>current fitness</em> for daily paces, and use <em>Goal VDOT 50.5</em> for race-specific MP blocks.
+        </p>
+        <div class="data-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Training Zone</th>
+                <th>Target Effort / Purpose</th>
+                <th>Current Paces (VDOT 47.0)</th>
+                <th>Goal Paces (VDOT 50.5 - 3:15)</th>
+                <th>Target Heart Rate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Easy / Recovery (E)</strong></td>
+                <td>Cellular adaptation, mitochondria, capillary beds</td>
+                <td>9:10 - 9:45 / mi</td>
+                <td>8:35 - 9:15 / mi</td>
+                <td>&lt; 140 bpm (Zone 2)</td>
+              </tr>
+              <tr>
+                <td><strong>Marathon Pace (MP)</strong></td>
+                <td>Specific race economy, glycogen preservation</td>
+                <td>8:05 - 8:15 / mi</td>
+                <td><strong>7:26 / mi</strong> (4:37/km)</td>
+                <td>151 - 155 bpm (Zone 3)</td>
+              </tr>
+              <tr>
+                <td><strong>Threshold / Tempo (T)</strong></td>
+                <td>Lactate clearance, 20-40 min cruise intervals</td>
+                <td>7:35 - 7:45 / mi</td>
+                <td><strong>6:55 - 7:05 / mi</strong></td>
+                <td>158 - 164 bpm (Zone 4)</td>
+              </tr>
+              <tr>
+                <td><strong>Interval (I - VO2max)</strong></td>
+                <td>Aerobic power, 3-5 min reps (800m-1200m)</td>
+                <td>6:55 - 7:05 / mi</td>
+                <td><strong>6:25 - 6:35 / mi</strong></td>
+                <td>165 - 173 bpm (Zone 5)</td>
+              </tr>
+              <tr>
+                <td><strong>Repetition (R - Speed)</strong></td>
+                <td>Neuromuscular mechanics, 200m-400m strides</td>
+                <td>46-48s per 200m</td>
+                <td><strong>42-44s per 200m</strong></td>
+                <td>Neuromuscular turnover</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: HISTORICAL VOLUME & LOGS -->
+    <section id="tab-history" class="tab-content">
+      <div class="section-header">
+        <h2>Garmin Activity Logs & Historical Trends</h2>
+        <p>Comprehensive record of your 389 runs from March 2025 to September 2026.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-title">
+          <span>Monthly Training Progression</span>
+          <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: normal;">March 2025 – Present</span>
+        </div>
+        <div class="data-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Total Miles</th>
+                <th>Elevation Gain</th>
+                <th>Runs</th>
+                <th>Longest Run</th>
+                <th>Avg Pace</th>
+                <th>Avg GAP</th>
+                <th>Avg Heart Rate</th>
+                <th>Cadence (spm)</th>
+                <th>Raw / GAP EF</th>
+              </tr>
+            </thead>
+            <tbody id="monthlyHistoryTable">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>Recent 40 Runs</span>
+          <span class="hero-badge">Garmin Sync</span>
+        </div>
+        <div class="data-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Distance</th>
+                <th>Duration</th>
+                <th>Pace</th>
+                <th>Gain (ft)</th>
+                <th>ft / mi</th>
+                <th>GAP Pace</th>
+                <th>Avg HR</th>
+                <th>Cadence</th>
+                <th>Raw / GAP EF</th>
+              </tr>
+            </thead>
+            <tbody id="recentRunsTable">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Embedded Precomputed Data -->
+  <script>
+    window.PRELOADED_DASHBOARD_DATA = {data_json_str};
+  </script>
+
+  <!-- Main Dashboard Script -->
+  <script>
+    let dashboardData = window.PRELOADED_DASHBOARD_DATA;
+    let currentRace = 'la';
+    let currentPlanRace = 'la';
+    let currentFilter = 'all';
+    let allDetailsExpanded = false;
+
+    function init() {{
+      renderPhasesOverview();
+      renderVancouverDeepDive();
+      renderRaceComparison();
+      renderIndicators();
+      renderPhaseFilterPills();
+      renderWeeklyPlan();
+      renderSeattleRetrospective();
+      renderMonthlyHistory();
+      renderRecentRuns();
+      initCharts();
+    }}
+
+    function switchTab(tabId) {{
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick') && b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      const activeContent = document.getElementById('tab-' + tabId);
+      if (activeContent) activeContent.classList.add('active');
+
+      const wrapper = document.querySelector('.tabs-nav-wrapper');
+      if (wrapper) {{
+        window.scrollTo({{ top: wrapper.offsetTop - 12, behavior: 'smooth' }});
+      }}
+    }}
+
+    function selectRace(raceKey) {{
+      currentRace = raceKey;
+      document.querySelectorAll('.race-selector-btn').forEach(btn => {{
+        btn.classList.remove('active');
+        btn.classList.remove('vancouver');
+        btn.classList.remove('compare');
+      }});
+      
+      if (raceKey === 'la') {{
+        const btn = document.getElementById('btnRaceLA');
+        if (btn) btn.classList.add('active');
+        document.getElementById('raceMainTitle').innerHTML = '<span>🏃</span> LA Marathon 2027: Sub-3:15';
+        document.getElementById('raceDateText').innerText = 'Sunday, March 7, 2027';
+        document.getElementById('raceLocationText').innerText = 'Los Angeles, CA';
+        document.getElementById('raceElevationBadge').innerText = 'Course: 946 ft Gain • -222 ft Net Downhill';
+        document.getElementById('countdownDays').innerText = dashboardData.metadata.days_to_race;
+        document.getElementById('countdownWeeks').innerText = dashboardData.metadata.weeks_to_race;
+        document.getElementById('statCourseElevationTitle').innerText = 'Course Profile';
+        document.getElementById('statCourseElevationVal').innerHTML = '946 <span style="font-size: 0.85rem; color: var(--text-secondary);">ft gain</span>';
+        document.getElementById('statCourseElevationSub').innerText = '-222 ft Net Downhill (36.1 ft/mi)';
+        switchPlanRace('la');
+      }} else if (raceKey === 'vancouver') {{
+        const btn = document.getElementById('btnRaceVan');
+        if (btn) {{
+          btn.classList.add('active');
+          btn.classList.add('vancouver');
+        }}
+        document.getElementById('raceMainTitle').innerHTML = '<span>🌲</span> BMO Vancouver Marathon 2027: Sub-3:15';
+        document.getElementById('raceDateText').innerText = 'Sunday, May 2, 2027';
+        document.getElementById('raceLocationText').innerText = 'Vancouver, BC';
+        document.getElementById('raceElevationBadge').innerText = 'Course: 825 ft Gain • -215 ft Net Downhill';
+        document.getElementById('countdownDays').innerText = dashboardData.metadata.vancouver_days_to_race;
+        document.getElementById('countdownWeeks').innerText = dashboardData.metadata.vancouver_weeks_to_race;
+        document.getElementById('statCourseElevationTitle').innerText = 'Course Profile';
+        document.getElementById('statCourseElevationVal').innerHTML = '825 <span style="font-size: 0.85rem; color: var(--text-secondary);">ft gain</span>';
+        document.getElementById('statCourseElevationSub').innerText = '-215 ft Net Downhill (31.4 ft/mi)';
+        switchPlanRace('vancouver');
+      }}
+    }}
+
+    function switchPlanRace(raceKey) {{
+      currentPlanRace = raceKey;
+      currentFilter = 'all';
+      allDetailsExpanded = false;
+
+      document.querySelectorAll('.race-plan-btn').forEach(btn => {{
+        btn.classList.remove('active');
+        btn.classList.remove('vancouver');
+      }});
+
+      const activeBtn = document.getElementById('planBtn_' + raceKey);
+      if (activeBtn) {{
+        activeBtn.classList.add('active');
+        if (raceKey === 'vancouver') activeBtn.classList.add('vancouver');
+      }}
+
+      if (raceKey === 'la') {{
+        document.getElementById('planSectionTitle').innerText = 'Los Angeles Marathon: 23-Week Training Master Schedule';
+        document.getElementById('planSectionSub').innerText = 'Sep 28, 2026 to Mar 7, 2027 • Specific daily assignments, long run workouts, and proxy checkpoints.';
+      }} else {{
+        document.getElementById('planSectionTitle').innerText = 'BMO Vancouver Marathon: 31-Week Training Master Schedule';
+        document.getElementById('planSectionSub').innerText = 'Sep 28, 2026 to May 2, 2027 • Specific daily assignments, long run workouts, and proxy checkpoints.';
+      }}
+
+      renderPhaseFilterPills();
+      renderWeeklyPlan();
+    }}
+
+    function renderPhaseFilterPills() {{
+      const container = document.getElementById('phaseFilterBar');
+      if (!container) return;
+
+      const phases = currentPlanRace === 'vancouver' ? (dashboardData.vancouver_phases || []) : (dashboardData.phases || []);
+      const totalWeeks = currentPlanRace === 'vancouver' ? 31 : 23;
+
+      let html = `<button class="phase-pill ${{currentFilter === 'all' ? 'active' : ''}}" onclick="filterPlan('all')">All ${{totalWeeks}} Weeks</button>`;
+      
+      phases.forEach(p => {{
+        const isAct = currentFilter === String(p.phase_num);
+        const shortName = p.name.split('&')[0].replace('Aerobic', '').trim();
+        html += `<button class="phase-pill ${{isAct ? 'active' : ''}}" onclick="filterPlan(${{p.phase_num}})">Phase ${{p.phase_num}}: ${{shortName}} (${{p.weeks}})</button>`;
+      }});
+
+      html += `<button class="phase-pill" id="toggleAllDetailsBtn" onclick="toggleAllDetails()" style="margin-left: auto; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.35); color: var(--accent-blue);">👁️ Expand All Week Details</button>`;
+
+      container.innerHTML = html;
+    }}
+
+    function renderPhasesOverview() {{
+      const container = document.getElementById('phasesOverviewGrid');
+      if (!container || !dashboardData.phases) return;
+
+      container.innerHTML = dashboardData.phases.map(p => `
+        <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 18px; border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--accent-blue);">Phase ${{p.phase_num}} • ${{p.weeks}}</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">${{p.date_range}}</span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-highlight); margin-bottom: 6px;">${{p.name}}</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 12px;">${{p.focus}}</p>
+          </div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.25); padding: 6px 10px; border-radius: 4px;">
+            Target: ${{p.target_mileage_range}}
+          </div>
+        </div>
+      `).join('');
+    }}
+
+    function renderVancouverDeepDive() {{
+      const container = document.getElementById('vancouverPhasesOverviewGrid');
+      if (!container || !dashboardData.vancouver_phases) return;
+
+      container.innerHTML = dashboardData.vancouver_phases.map(p => `
+        <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 18px; border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--accent-emerald);">Phase ${{p.phase_num}} • ${{p.weeks}}</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">${{p.date_range}}</span>
+            </div>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-highlight); margin-bottom: 6px;">${{p.name}}</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 12px;">${{p.focus}}</p>
+          </div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-emerald); font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.25); padding: 6px 10px; border-radius: 4px;">
+            Target: ${{p.target_mileage_range}}
+          </div>
+        </div>
+      `).join('');
+    }}
+
+    function renderRaceComparison() {{
+      const tbody = document.getElementById('comparisonTableBody');
+      if (!tbody || !dashboardData.race_comparison || !dashboardData.race_comparison.metrics) return;
+
+      tbody.innerHTML = dashboardData.race_comparison.metrics.map(m => `
+        <tr>
+          <td><strong style="color: var(--text-highlight); font-size: 0.95rem;">${{m.dimension}}</strong></td>
+          <td style="color: var(--accent-blue); font-weight: 600;">${{m.la}}</td>
+          <td style="color: var(--accent-emerald); font-weight: 600;">${{m.vancouver}}</td>
+          <td><span class="verdict-badge">${{m.verdict}}</span></td>
+          <td style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.45;">${{m.advantage}}</td>
+        </tr>
+      `).join('');
+    }}
+
+    function renderIndicators() {{
+      const container = document.getElementById('indicatorsGrid');
+      if (!container || !dashboardData.proxy_indicators) return;
+
+      container.innerHTML = dashboardData.proxy_indicators.map(ind => `
+        <div class="indicator-card">
+          <div>
+            <div class="indicator-top">
+              <div class="indicator-name">${{ind.name}}</div>
+              <span class="indicator-status status-target">Active Proxy</span>
+            </div>
+            <div class="indicator-desc">${{ind.short_desc}}</div>
+
+            <div class="indicator-metrics">
+              <div class="metric-col">
+                <div class="metric-label">Seattle '25</div>
+                <div class="metric-num">${{ind.seattle_baseline}}</div>
+              </div>
+              <div class="metric-col">
+                <div class="metric-label">Current</div>
+                <div class="metric-num current">${{ind.current_value}}</div>
+              </div>
+              <div class="metric-col">
+                <div class="metric-label">3:15 Goal</div>
+                <div class="metric-num target">${{ind.target_value}}</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="indicator-why">
+              <strong>Why Track:</strong> ${{ind.why_it_matters}}
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; display: flex; justify-content: space-between;">
+              <span>Freq: ${{ind.tracking_frequency}}</span>
+              <span style="font-family: monospace;">${{ind.formula}}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }}
+
+    function renderWeeklyPlan() {{
+      const container = document.getElementById('weeklyPlanContainer');
+      if (!container) return;
+
+      const activePlan = currentPlanRace === 'vancouver' 
+        ? (dashboardData.vancouver_weekly_plan || []) 
+        : (dashboardData.weekly_plan || []);
+
+      const filtered = currentFilter === 'all' 
+        ? activePlan 
+        : activePlan.filter(w => w.phase === parseInt(currentFilter));
+
+      const storagePrefix = currentPlanRace === 'vancouver' ? 'van_w_' : 'la_w_';
+
+      container.innerHTML = filtered.map(w => {{
+        const isDone = localStorage.getItem(storagePrefix + w.week) === 'true';
+        
+        const dailyRows = (w.daily_details || []).map(d => {{
+          let badgeClass = 'run';
+          if (d.miles === 0) badgeClass = 'rest';
+          else if (d.workout.includes('Long Run') || d.workout.includes('PEAK') || d.workout.includes('REHEARSAL') || d.workout.includes('Simulation')) badgeClass = 'lr';
+          else if (d.workout.includes('MARATHON') || d.workout.includes('BENCHMARK') || d.workout.includes('Race') || d.workout.includes('Time Trial')) badgeClass = 'race';
+
+          let liftingHtml = '<span style="color: var(--text-muted); font-size: 0.8rem;">--</span>';
+          if (d.lifting_type) {{
+            liftingHtml = '<div style="font-weight: 700; color: var(--accent-purple); font-size: 0.83rem; margin-bottom: 2px;">' + d.lifting_type + '</div><div style="font-size: 0.77rem; color: var(--text-secondary); line-height: 1.35;">' + (d.lifting_exercises || '') + '</div>';
+          }}
+
+          return `
+            <tr>
+              <td>
+                <span class="day-badge ${{badgeClass}}">${{d.day}}</span>
+                <strong style="margin-left: 6px; color: var(--text-highlight);">${{d.day_full}}</strong>
+              </td>
+              <td class="daily-miles ${{d.miles === 0 ? 'rest' : ''}}">
+                ${{d.miles > 0 ? d.miles + ' mi' : 'Rest'}}
+              </td>
+              <td>
+                <strong style="color: var(--text-highlight);">${{d.workout}}</strong>
+              </td>
+              <td class="daily-pace">
+                ${{d.pace}}
+              </td>
+              <td class="daily-hr">
+                ${{d.hr_zone}}
+              </td>
+              <td>
+                ${{liftingHtml}}
+              </td>
+              <td>
+                <div class="daily-purpose">🎯 <strong>Purpose:</strong> ${{d.purpose}}</div>
+                <div class="daily-instruction">${{d.description}}</div>
+              </td>
+            </tr>
+          `;
+        }}).join('');
+
+        return `
+          <div class="week-card" id="weekCard_${{w.week}}" style="${{isDone ? 'opacity: 0.6; border-color: rgba(16, 185, 129, 0.4);' : ''}}">
+            <div class="week-card-main">
+              <div class="week-badge">
+                <div class="week-num">W${{w.week}}</div>
+                <div class="week-tag">Phase ${{w.phase}}</div>
+              </div>
+
+              <div class="week-meta">
+                <div class="week-dates">${{w.dates}}</div>
+                <div class="week-miles">${{w.target_miles}} <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: normal;">mi</span></div>
+              </div>
+
+              <div class="week-details">
+                <div class="workout-line">
+                  <span class="workout-label lr">Long Run</span>
+                  <strong>${{w.long_run}}</strong>
+                </div>
+                <div class="workout-line">
+                  <span class="workout-label">Key Session</span>
+                  <span>${{w.midweek_key}}</span>
+                </div>
+                <div class="workout-sub">
+                  ${{w.structure}}
+                </div>
+                <div style="margin-top: 6px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 4px; padding: 2px 8px; font-family: 'JetBrains Mono', monospace;">
+                    📐 Daily Sum: ${{w.breakdown || ''}}
+                  </span>
+                  <button class="details-toggle-btn" id="btn_details_${{w.week}}" onclick="toggleWeekDetails(${{w.week}})">
+                    <span>📋 View Day-by-Day Runs & Lifting (Mon–Sun)</span>
+                    <span class="chevron">▼</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="week-checkpoint">
+                <strong>Checkpoint:</strong><br>
+                ${{w.proxy_checkpoint}}
+              </div>
+
+              <div class="week-check">
+                <input type="checkbox" title="Mark Week Completed" ${{isDone ? 'checked' : ''}} onchange="toggleWeekDone(${{w.week}}, this.checked)">
+              </div>
+            </div>
+
+            <!-- Collapsible Day-by-Day Details Drawer -->
+            <div class="week-daily-breakdown" id="weekDetails_${{w.week}}" style="display: ${{allDetailsExpanded ? 'block' : 'none'}};">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-highlight); display: flex; align-items: center; gap: 8px;">
+                  <span>🗓️ Week ${{w.week}} Daily Running & Strength Schedule (${{currentPlanRace === 'vancouver' ? 'Vancouver' : 'LA'}}):</span>
+                  <span style="color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">${{w.target_miles}} Miles Total</span>
+                </div>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">${{w.dates}} • Phase ${{w.phase}}</span>
+              </div>
+              <div class="data-table-wrapper">
+                <table class="daily-details-table">
+                  <thead>
+                    <tr>
+                      <th style="min-width: 110px;">Day</th>
+                      <th style="min-width: 75px;">Distance</th>
+                      <th style="min-width: 170px;">Running Workout</th>
+                      <th style="min-width: 140px;">Target Pace</th>
+                      <th style="min-width: 140px;">Target HR</th>
+                      <th style="min-width: 210px;">Strength / Lifting</th>
+                      <th style="min-width: 260px;">Instructions & Coaching Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${{dailyRows}}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        `;
+      }}).join('');
+
+      if (allDetailsExpanded) {{
+        document.querySelectorAll('.details-toggle-btn').forEach(btn => {{
+          btn.classList.add('active');
+          btn.innerHTML = '<span>🔼 Hide Daily Details</span> <span class="chevron">▲</span>';
+        }});
+      }}
+    }}
+
+    function toggleWeekDetails(weekNum) {{
+      const el = document.getElementById('weekDetails_' + weekNum);
+      const btn = document.getElementById('btn_details_' + weekNum);
+      if (!el) return;
+      
+      const isHidden = el.style.display === 'none' || el.style.display === '';
+      if (isHidden) {{
+        el.style.display = 'block';
+        if (btn) {{
+          btn.classList.add('active');
+          btn.innerHTML = '<span>🔼 Hide Daily Details</span> <span class="chevron">▲</span>';
+        }}
+      }} else {{
+        el.style.display = 'none';
+        if (btn) {{
+          btn.classList.remove('active');
+          btn.innerHTML = '<span>📋 View Day-by-Day Runs (Mon–Sun)</span> <span class="chevron">▼</span>';
+        }}
+      }}
+    }}
+
+    function toggleAllDetails() {{
+      allDetailsExpanded = !allDetailsExpanded;
+      const allDrawers = document.querySelectorAll('.week-daily-breakdown');
+      const allBtns = document.querySelectorAll('.details-toggle-btn');
+      const toggleAllBtn = document.getElementById('toggleAllDetailsBtn');
+
+      allDrawers.forEach(drawer => {{
+        drawer.style.display = allDetailsExpanded ? 'block' : 'none';
+      }});
+
+      allBtns.forEach(btn => {{
+        if (allDetailsExpanded) {{
+          btn.classList.add('active');
+          btn.innerHTML = '<span>🔼 Hide Daily Details</span> <span class="chevron">▲</span>';
+        }} else {{
+          btn.classList.remove('active');
+          btn.innerHTML = '<span>📋 View Day-by-Day Runs (Mon–Sun)</span> <span class="chevron">▼</span>';
+        }}
+      }});
+
+      if (toggleAllBtn) {{
+        toggleAllBtn.textContent = allDetailsExpanded ? '🙈 Collapse All Week Details' : '👁️ Expand All Week Details';
+        if (allDetailsExpanded) {{
+          toggleAllBtn.classList.add('active');
+        }} else {{
+          toggleAllBtn.classList.remove('active');
+        }}
+      }}
+    }}
+
+    function filterPlan(phase) {{
+      currentFilter = String(phase);
+      document.querySelectorAll('.phase-pill').forEach(p => p.classList.remove('active'));
+      const activePill = Array.from(document.querySelectorAll('.phase-pill')).find(p => {{
+        if (phase === 'all') return p.textContent.includes('All');
+        return p.textContent.includes('Phase ' + phase + ':') || p.textContent.includes('Phase ' + phase + ' ');
+      }});
+      if (activePill) activePill.classList.add('active');
+      renderWeeklyPlan();
+    }}
+
+    function toggleWeekDone(weekNum, isChecked) {{
+      const storagePrefix = currentPlanRace === 'vancouver' ? 'van_w_' : 'la_w_';
+      localStorage.setItem(storagePrefix + weekNum, isChecked ? 'true' : 'false');
+      renderWeeklyPlan();
+    }}
+
+    function renderSeattleRetrospective() {{
+      const table = document.getElementById('seattleSplitsTable');
+      if (!table || !dashboardData.seattle_baseline || !dashboardData.seattle_baseline.splits) return;
+
+      table.innerHTML = dashboardData.seattle_baseline.splits.map(s => `
+        <tr>
+          <td><strong>${{s.segment}}</strong></td>
+          <td>${{s.distance_km}} km</td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 600; color: ${{s.pace_min_mile < 8.0 ? 'var(--accent-emerald)' : 'var(--text-primary)'}};">
+            ${{Math.floor(s.pace_min_mile)}}:${{Math.round((s.pace_min_mile % 1) * 60).toString().padStart(2, '0')}} / mi
+          </td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: var(--accent-rose); font-weight: 600;">
+            ${{s.avg_hr}} bpm
+          </td>
+        </tr>
+      `).join('');
+    }}
+
+    function renderMonthlyHistory() {{
+      const table = document.getElementById('monthlyHistoryTable');
+      if (!table || !dashboardData.monthly_history) return;
+
+      table.innerHTML = dashboardData.monthly_history.map(m => `
+        <tr>
+          <td><strong>${{m.month}}</strong></td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-amber);">${{m.total_miles}} mi</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: var(--text-highlight);">${{Math.round(m.total_elevation_ft || 0).toLocaleString()}} ft <span style="font-size:0.75rem; color:var(--text-muted);">(${{m.avg_ft_per_mile}} ft/mi)</span></td>
+          <td>${{m.run_count}} runs</td>
+          <td style="font-family: 'JetBrains Mono', monospace;">${{m.longest_mile}} mi</td>
+          <td style="font-family: 'JetBrains Mono', monospace;">${{Math.floor(m.avg_pace_min_mile)}}:${{Math.round((m.avg_pace_min_mile % 1) * 60).toString().padStart(2, '0')}} / mi</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan); font-weight: 600;">${{m.avg_gap_pace_min_mile ? Math.floor(m.avg_gap_pace_min_mile) + ':' + Math.round((m.avg_gap_pace_min_mile % 1) * 60).toString().padStart(2, '0') + ' / mi' : '--'}}</td>
+          <td style="color: var(--accent-rose); font-family: 'JetBrains Mono', monospace;">${{m.avg_hr ? m.avg_hr + ' bpm' : '--'}}</td>
+          <td>${{m.avg_cadence_spm ? m.avg_cadence_spm + ' spm' : '--'}}</td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">
+            <span style="color: var(--accent-emerald);">${{m.avg_ef ? m.avg_ef : '--'}}</span> / 
+            <span style="color: var(--accent-purple);">${{m.avg_gap_ef ? m.avg_gap_ef : '--'}}</span>
+          </td>
+        </tr>
+      `).join('');
+    }}
+
+    function renderRecentRuns() {{
+      const table = document.getElementById('recentRunsTable');
+      if (!table || !dashboardData.recent_runs) return;
+
+      const runsRev = [...dashboardData.recent_runs].reverse();
+      table.innerHTML = runsRev.map(r => `
+        <tr>
+          <td><strong>${{r.date}}</strong></td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-blue);">${{r.distance_miles}} mi</td>
+          <td style="font-family: 'JetBrains Mono', monospace;">${{Math.floor(r.duration_seconds / 60)}}m ${{Math.round(r.duration_seconds % 60)}}s</td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 600;">${{Math.floor(r.pace_min_mile)}}:${{Math.round((r.pace_min_mile % 1) * 60).toString().padStart(2, '0')}} / mi</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: var(--text-highlight);">+${{Math.round(r.elevation_gain_ft || 0)}} ft</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">${{r.elevation_ft_per_mile ? r.elevation_ft_per_mile.toFixed(0) : '--'}}</td>
+          <td style="font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan); font-weight: 600;">${{r.gap_pace_min_mile ? Math.floor(r.gap_pace_min_mile) + ':' + Math.round((r.gap_pace_min_mile % 1) * 60).toString().padStart(2, '0') + ' / mi' : '--'}}</td>
+          <td style="color: var(--accent-rose); font-family: 'JetBrains Mono', monospace;">${{r.avg_hr ? r.avg_hr + ' bpm' : '--'}}</td>
+          <td>${{r.avg_cadence_spm ? r.avg_cadence_spm + ' spm' : '--'}}</td>
+          <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">
+            <span style="color: var(--accent-emerald);">${{r.ef ? r.ef : '--'}}</span> / 
+            <span style="color: var(--accent-purple);">${{r.gap_ef ? r.gap_ef : '--'}}</span>
+          </td>
+        </tr>
+      `).join('');
+    }}
+
+    function initCharts() {{
+      if (typeof Chart === 'undefined') return;
+
+      // 1. EF Trajectory Chart
+      const ctxEF = document.getElementById('efChart');
+      if (ctxEF && dashboardData.monthly_history) {{
+        const labels = dashboardData.monthly_history.map(m => m.month);
+        const actualEF = dashboardData.monthly_history.map(m => m.avg_ef);
+        const actualGAPEF = dashboardData.monthly_history.map(m => m.avg_gap_ef);
+        
+        // Add target forward projection
+        const extendedLabels = [...labels, '2026-10', '2026-11', '2026-12', '2027-01', '2027-02', '2027-03'];
+        const targetCurve = new Array(labels.length - 1).fill(null);
+        targetCurve.push(actualGAPEF[actualGAPEF.length - 1] || actualEF[actualEF.length - 1] || 1.34);
+        targetCurve.push(1.36, 1.38, 1.40, 1.42, 1.43, 1.44);
+
+        new Chart(ctxEF, {{
+          type: 'line',
+          data: {{
+            labels: extendedLabels,
+            datasets: [
+              {{
+                label: 'Historical Raw EF (Hilly Seattle Terrain)',
+                data: actualEF,
+                borderColor: '#38bdf8',
+                backgroundColor: 'rgba(56, 189, 248, 0.05)',
+                borderWidth: 2,
+                pointRadius: 4,
+                fill: true,
+                tension: 0.3
+              }},
+              {{
+                label: 'Grade-Adjusted EF (GAP-EF: Flat-Course Eq)',
+                data: actualGAPEF,
+                borderColor: '#a855f7',
+                backgroundColor: 'rgba(168, 85, 247, 0.05)',
+                borderWidth: 2,
+                pointRadius: 4,
+                pointBackgroundColor: '#a855f7',
+                fill: false,
+                tension: 0.3
+              }},
+              {{
+                label: '3:15 Target Trajectory (≥ 1.42)',
+                data: targetCurve,
+                borderColor: '#10b981',
+                borderDash: [5, 5],
+                borderWidth: 2.5,
+                pointRadius: 4,
+                pointBackgroundColor: '#10b981',
+                fill: false,
+                tension: 0.3
+              }}
+            ]
+          }},
+          options: {{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {{
+              legend: {{ labels: {{ color: '#94a3b8' }} }}
+            }},
+            scales: {{
+              x: {{ grid: {{ color: '#1e293b' }}, ticks: {{ color: '#94a3b8' }} }},
+              y: {{ grid: {{ color: '#1e293b' }}, ticks: {{ color: '#94a3b8' }}, min: 1.10, max: 1.48 }}
+            }}
+          }}
+        }});
+      }}
+
+      // 2. Volume & Long Run Chart
+      const ctxVol = document.getElementById('volumeChart');
+      if (ctxVol && dashboardData.monthly_history) {{
+        const labels = dashboardData.monthly_history.map(m => m.month);
+        const miles = dashboardData.monthly_history.map(m => m.total_miles);
+        const longest = dashboardData.monthly_history.map(m => m.longest_mile);
+
+        new Chart(ctxVol, {{
+          type: 'bar',
+          data: {{
+            labels: labels,
+            datasets: [
+              {{
+                label: 'Monthly Total Miles',
+                data: miles,
+                backgroundColor: 'rgba(245, 158, 11, 0.4)',
+                borderColor: '#f59e0b',
+                borderWidth: 1,
+                borderRadius: 4
+              }},
+              {{
+                type: 'line',
+                label: 'Longest Run (Miles)',
+                data: longest,
+                borderColor: '#a855f7',
+                borderWidth: 2,
+                pointRadius: 3,
+                tension: 0.2
+              }}
+            ]
+          }},
+          options: {{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {{
+              legend: {{ labels: {{ color: '#94a3b8' }} }}
+            }},
+            scales: {{
+              x: {{ grid: {{ color: '#1e293b' }}, ticks: {{ color: '#94a3b8' }} }},
+              y: {{ grid: {{ color: '#1e293b' }}, ticks: {{ color: '#94a3b8' }} }}
+            }}
+          }}
+        }});
+      }}
+
+      // 3. Seattle Splits Chart
+      const ctxSeattle = document.getElementById('seattleSplitsChart');
+      if (ctxSeattle && dashboardData.seattle_baseline && dashboardData.seattle_baseline.splits) {{
+        const segments = dashboardData.seattle_baseline.splits.map(s => s.segment);
+        const paces = dashboardData.seattle_baseline.splits.map(s => s.pace_min_mile);
+        const hrs = dashboardData.seattle_baseline.splits.map(s => s.avg_hr);
+
+        new Chart(ctxSeattle, {{
+          type: 'line',
+          data: {{
+            labels: segments,
+            datasets: [
+              {{
+                label: 'Pace (min/mi)',
+                data: paces,
+                borderColor: '#38bdf8',
+                borderWidth: 2,
+                yAxisID: 'yPace',
+                tension: 0.2
+              }},
+              {{
+                label: 'Heart Rate (bpm)',
+                data: hrs,
+                borderColor: '#f43f5e',
+                borderWidth: 2,
+                yAxisID: 'yHR',
+                tension: 0.2
+              }}
+            ]
+          }},
+          options: {{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {{ legend: {{ labels: {{ color: '#94a3b8' }} }} }},
+            scales: {{
+              x: {{ grid: {{ color: '#1e293b' }}, ticks: {{ color: '#94a3b8' }} }},
+              yPace: {{
+                type: 'linear',
+                position: 'left',
+                reverse: true,
+                min: 7.4,
+                max: 8.6,
+                grid: {{ color: '#1e293b' }},
+                ticks: {{ color: '#38bdf8' }}
+              }},
+              yHR: {{
+                type: 'linear',
+                position: 'right',
+                min: 140,
+                max: 175,
+                grid: {{ drawOnChartArea: false }},
+                ticks: {{ color: '#f43f5e' }}
+              }}
+            }}
+          }}
+        }});
+      }}
+    }}
+
+    // Calculator Functions
+    function calculateEF() {{
+      const dist = parseFloat(document.getElementById('calcDist').value) || 0;
+      const min = parseFloat(document.getElementById('calcDurMin').value) || 0;
+      const sec = parseFloat(document.getElementById('calcDurSec').value) || 0;
+      const hr = parseFloat(document.getElementById('calcHR').value) || 0;
+      const elev = parseFloat(document.getElementById('calcElev').value) || 0;
+
+      const totalSec = (min * 60) + sec;
+      if (dist <= 0 || totalSec <= 0 || hr <= 0) return;
+
+      const rawPaceSec = totalSec / dist;
+      const rawPaceMinMile = rawPaceSec / 60.0;
+      const distMeters = dist * 1609.34;
+      const speedMps = distMeters / totalSec;
+      const ef = (speedMps * 60.0) / hr;
+
+      // Grade adjusted pace calculation: ~0.35s deduction per ft/mi climb
+      const ftPerMile = elev / dist;
+      const gapSecDeduction = ftPerMile * 0.35;
+      const gapPaceSec = Math.max(1, rawPaceSec - gapSecDeduction);
+      const gapPaceMinMile = gapPaceSec / 60.0;
+      const gapSpeedMps = 1609.34 / gapPaceSec;
+      const gapEf = (gapSpeedMps * 60.0) / hr;
+
+      document.getElementById('efResultVal').textContent = ef.toFixed(3);
+      if (document.getElementById('gapEfResultVal')) {{
+        document.getElementById('gapEfResultVal').textContent = gapEf.toFixed(3);
+      }}
+
+      const rawPaceStr = Math.floor(rawPaceMinMile) + ':' + Math.round((rawPaceMinMile % 1) * 60).toString().padStart(2, '0') + '/mi';
+      const gapPaceStr = Math.floor(gapPaceMinMile) + ':' + Math.round((gapPaceMinMile % 1) * 60).toString().padStart(2, '0') + '/mi';
+      if (document.getElementById('gapPaceText')) {{
+        document.getElementById('gapPaceText').textContent = 'Raw Pace: ' + rawPaceStr + ' ➔ Flat Equivalent GAP: ' + gapPaceStr + ' (+' + Math.round(ftPerMile) + ' ft/mi)';
+      }}
+      
+      let verdict = '';
+      if (gapEf >= 1.42) {{
+        verdict = '🔥 Outstanding! GAP-EF is ≥ 1.42 — you have arrived at full 3:15 aerobic capacity!';
+      }} else if (gapEf >= 1.37) {{
+        verdict = '✅ Strong progress (GAP-EF: ' + gapEf.toFixed(3) + '). Approaching peak cycle fitness for sub-3:15 pacing.';
+      }} else if (gapEf >= 1.32) {{
+        verdict = '🟢 Solid aerobic baseline (GAP-EF: ' + gapEf.toFixed(3) + '). Seattle hill tax is offset; Zone 2 volume will push this to 1.38+ over Phase 1 & 2.';
+      }} else {{
+        verdict = 'ℹ️ GAP-EF: ' + gapEf.toFixed(3) + '. Keep building steady aerobic miles in Phase 1 to establish the 1.34+ baseline.';
+      }}
+      document.getElementById('efVerdict').textContent = verdict;
+    }}
+
+    function calculateVDOT() {{
+      const event = document.getElementById('raceEvent').value;
+      const h = parseFloat(document.getElementById('raceHr').value) || 0;
+      const m = parseFloat(document.getElementById('raceMin').value) || 0;
+      const s = parseFloat(document.getElementById('raceSec').value) || 0;
+
+      const totalMin = (h * 60) + m + (s / 60.0);
+      if (totalMin <= 0) return;
+
+      // Approximate Daniels VDOT & Marathon conversion
+      let vdot = 45.0;
+      if (event === '5k') {{
+        vdot = (totalMin <= 19.5) ? 52.0 : (totalMin <= 20.3) ? 50.5 : (totalMin <= 21.5) ? 47.5 : (totalMin <= 22.5) ? 45.5 : 43.0;
+      }} else if (event === '10k') {{
+        vdot = (totalMin <= 40.5) ? 52.5 : (totalMin <= 42.25) ? 50.5 : (totalMin <= 44.5) ? 47.5 : (totalMin <= 46.5) ? 45.5 : 43.0;
+      }} else if (event === 'half') {{
+        vdot = (totalMin <= 90.0) ? 52.5 : (totalMin <= 93.5) ? 50.5 : (totalMin <= 98.0) ? 47.5 : (totalMin <= 103.0) ? 45.5 : 43.0;
+      }}
+
+      // Projected marathon based on VDOT
+      let predMarathonMin = 0;
+      if (vdot >= 52.0) predMarathonMin = 190.0; // 3:10
+      else if (vdot >= 50.5) predMarathonMin = 195.0; // 3:15:00
+      else if (vdot >= 49.0) predMarathonMin = 200.0; // 3:20
+      else if (vdot >= 47.5) predMarathonMin = 206.0; // 3:26
+      else if (vdot >= 45.5) predMarathonMin = 214.0; // 3:34
+      else predMarathonMin = 225.0;
+
+      const predH = Math.floor(predMarathonMin / 60);
+      const predM = Math.floor(predMarathonMin % 60);
+      const predS = Math.round((predMarathonMin % 1) * 60);
+
+      document.getElementById('vdotMarathonPred').textContent = `${{predH}}:${{predM.toString().padStart(2, '0')}}:${{predS.toString().padStart(2, '0')}}`;
+      document.getElementById('vdotScoreText').textContent = `Calculated VDOT: ${{vdot.toFixed(1)}} (Goal: 50.5)`;
+
+      let pct = Math.min(100, Math.round((vdot / 50.5) * 100));
+      let verdict = '';
+      if (vdot >= 50.5) {{
+        verdict = `🎯 Readiness: 100%! This performance matches or exceeds 3:15:00 capability (VDOT ≥ 50.5).`;
+      }} else if (vdot >= 48.5) {{
+        verdict = `📈 Readiness: ${{pct}}%. Strong trajectory. You are within 5 minutes of 3:15 shape with training runway remaining.`;
+      }} else {{
+        verdict = `⏳ Readiness: ${{pct}}%. Consistent base building and threshold workouts over Weeks 6-16 will bridge this gap.`;
+      }}
+      document.getElementById('vdotVerdict').textContent = verdict;
+    }}
+
+    // Auto-initialize on DOM ready
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
+"""
+
+    with open(OUTPUT_HTML, 'w') as f:
+        f.write(html_content)
+
+    print(f"✅ Generated standalone index.html at {OUTPUT_HTML} ({len(html_content)} bytes)")
+
+if __name__ == "__main__":
+    generate()
