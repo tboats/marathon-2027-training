@@ -330,7 +330,7 @@ def evaluate_run(activity, details=None, splits=None):
 
     return eval_record
 
-def fast_sync(force_id=None, days_lookback=3):
+def fast_sync(force_id=None, days_lookback=3, auto_push=False):
     """
     Connects to Garmin, fetches recent activities, and updates coach evaluations,
     markdown coaching doc, and HTML dashboard. Takes ~2-3 seconds.
@@ -356,6 +356,22 @@ def fast_sync(force_id=None, days_lookback=3):
     except ImportError:
         print("❌ 'garminconnect' not found. Please run via: uv run --with garminconnect --with fitparse python3 sync_and_eval.py")
         sys.exit(1)
+
+    # Check GARMIN_TOKENS environment variable (used in GitHub Actions)
+    tokens_env = os.getenv("GARMIN_TOKENS")
+    if tokens_env and tokens_env.strip():
+        try:
+            import base64
+            print(f"🔒 Authenticating via GARMIN_TOKENS secret...")
+            raw = base64.b64decode(tokens_env.strip()).decode('utf-8')
+            tokens = json.loads(raw)
+            os.makedirs(TOKENSTORE, exist_ok=True)
+            with open(os.path.join(TOKENSTORE, "oauth1_token.json"), "w") as f:
+                json.dump(tokens[0], f)
+            with open(os.path.join(TOKENSTORE, "oauth2_token.json"), "w") as f:
+                json.dump(tokens[1], f)
+        except Exception as e:
+            print(f"⚠️ Failed to parse GARMIN_TOKENS secret: {e}")
 
     if not os.path.exists(TOKENSTORE):
         print(f"❌ OAuth tokenstore not found at {TOKENSTORE}. Run login first.")
@@ -432,6 +448,30 @@ def fast_sync(force_id=None, days_lookback=3):
         subprocess.run([py_exec, build_script], check=True)
         subprocess.run([py_exec, html_script], check=True)
         print("\n✨ Done! All updates completed in seconds.")
+
+        # 5. Auto-push to GitHub if requested
+        if auto_push and new_evals_added > 0:
+            print("\n🚀 Auto-committing and pushing updates to GitHub...")
+            try:
+                files_to_add = [
+                    COACH_EVALS_FILE,
+                    COACHING_DOC_PATH,
+                    DASHBOARD_DATA_FILE,
+                    os.path.join(REPO_DIR, "index.html")
+                ]
+                subprocess.run(["git", "add"] + files_to_add, cwd=REPO_DIR, check=True)
+                latest_run = existing_evals[0]
+                commit_msg = f"Auto-sync Garmin run: {latest_run.get('activity_name', 'Run')} ({latest_run.get('date')}) - Grade {latest_run.get('scorecard', {}).get('grade', 'A+')}"
+                subprocess.run(["git", "commit", "-m", commit_msg], cwd=REPO_DIR, check=True)
+
+                ssh_key_path = os.path.expanduser("~/.ssh/github_key")
+                env = os.environ.copy()
+                if os.path.exists(ssh_key_path):
+                    env['GIT_SSH_COMMAND'] = f'ssh -i {ssh_key_path} -o IdentitiesOnly=yes'
+                subprocess.run(["git", "push", "origin", "main"], cwd=REPO_DIR, check=True, env=env)
+                print("🎉 Successfully pushed coaching evaluation and dashboard to GitHub Pages!")
+            except Exception as e:
+                print(f"⚠️ Git push notice: {e}")
     else:
         print("\n✨ All recent runs are already evaluated. System is 100% up to date.")
 
@@ -439,6 +479,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fast sync Garmin run, generate Coach Evaluation, and sync coaching doc")
     parser.add_argument("--force-id", help="Force re-evaluation of specific Garmin activity ID")
     parser.add_argument("--lookback", type=int, default=3, help="Days lookback (default: 3)")
+    parser.add_argument("--auto-push", action="store_true", help="Automatically commit and push changes to GitHub")
     args = parser.parse_args()
 
-    fast_sync(force_id=args.force_id, days_lookback=args.lookback)
+    fast_sync(force_id=args.force_id, days_lookback=args.lookback, auto_push=args.auto_push)
