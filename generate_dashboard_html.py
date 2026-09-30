@@ -6,14 +6,20 @@ with embedded dashboard_data.json for zero-dependency viewing.
 
 import os
 import json
+import coach_tab_generator
 
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(REPO_DIR, "data/dashboard_data.json")
+COACH_EVALS_FILE = os.path.join(REPO_DIR, "data/coach_evaluations.json")
 OUTPUT_HTML = os.path.join(REPO_DIR, "index.html")
 
 def generate():
     with open(DATA_FILE) as f:
         data_json_str = f.read()
+
+    coach_evals = coach_tab_generator.load_evaluations(COACH_EVALS_FILE)
+    coach_tab_html = coach_tab_generator.generate_coach_tab_html(coach_evals)
+    vancouver_command_center_html = coach_tab_generator.generate_vancouver_command_center_html(coach_evals)
 
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -1176,6 +1182,9 @@ def generate():
       <button class="tab-btn active" id="navBtn_overview" onclick="switchTab('overview')">
         <span>🗺️</span> Overview & Strategy
       </button>
+      <button class="tab-btn" id="navBtn_coach" onclick="switchTab('coach')" style="border-color: rgba(16, 185, 129, 0.45); background: rgba(16, 185, 129, 0.08);">
+        <span>🏃</span> Coach's Log & Daily Debriefs <span style="background: var(--accent-emerald); color: #000; font-size: 0.65rem; font-weight: 800; padding: 1px 6px; border-radius: 9999px; margin-left: 4px;">ACTIVE</span>
+      </button>
       <button class="tab-btn" id="navBtn_vancouver" onclick="switchTab('vancouver')">
         <span>🌲</span> Vancouver BC Analysis
       </button>
@@ -1302,12 +1311,16 @@ def generate():
       </div>
     </section>
 
+    {coach_tab_html}
+
     <!-- TAB: VANCOUVER 2027 DEEP-DIVE -->
     <section id="tab-vancouver" class="tab-content">
       <div class="section-header">
         <h2>🌲 BMO Vancouver Marathon 2027: Deep-Dive Analysis</h2>
         <p>Sunday, May 2, 2027 • 217 Days / 31 Weeks Runway • Vancouver, BC • Goal: 3:15:00 (7:26 min/mile / 4:37 min/km)</p>
       </div>
+
+      {vancouver_command_center_html}
 
       <!-- Quick Summary Cards -->
       <div class="grid-2" style="margin-bottom: 24px;">

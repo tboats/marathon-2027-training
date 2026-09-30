@@ -1,0 +1,63 @@
+[
+  {
+    "evaluation_id": "2026-09-29_24549003706",
+    "activity_id": 24549003706,
+    "date": "2026-09-29",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 1,
+    "day_of_week": "Tue",
+    "day_full": "Tuesday",
+    "prescribed": {
+      "miles": 6.0,
+      "workout": "Easy + Strides",
+      "target_pace": "8:35 \u2013 9:05 / mi (strides @ mile pace)",
+      "target_hr": "Zone 2 base w/ Zone 4-5 surges",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 6.11,
+      "duration_formatted": "55:32",
+      "duration_seconds": 3332.1,
+      "pace_raw": "9:05 / mi",
+      "pace_gap": "8:56 / mi",
+      "avg_hr": 141.0,
+      "max_hr": 165.0,
+      "avg_cadence": 172.4,
+      "max_cadence": 233.0,
+      "elevation_gain_ft": 259.2,
+      "elevation_loss_ft": 308.4,
+      "aerobic_te": 3.700000047683716,
+      "anaerobic_te": 2.5,
+      "ground_contact_time_ms": 256.8,
+      "strides_gct_ms": 185.9,
+      "vertical_ratio_pct": 8.53,
+      "strides_vr_pct": 6.08,
+      "avg_power_w": 313.0,
+      "max_power_w": 541.0
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 101.8,
+      "pace_adherence": "Raw 9:05 / mi | Grade-Adjusted 8:56 / mi",
+      "hr_compliance": "Avg HR 141 bpm (Zone 2 compliant)",
+      "strides_count": 6,
+      "strides_peak_pace": "5:14 / mi (cadence up to 233 spm)"
+    },
+    "executive_summary": "Strong execution of Week 1 Tuesday: 6.11 miles at 9:05 / mi (GAP: 8:56 / mi) with an average heart rate of 141 bpm.",
+    "key_takeaways": [
+      "Adherence: Completed 6.11 mi vs 6.0 mi prescribed (101.8% volume precision).",
+      "Metabolic Control: Averaged 141 bpm heart rate, cleanly respecting aerobic development boundaries.",
+      "Topography Management: Handled +259 ft of climb with appropriate effort modulation."
+    ],
+    "next_workout": {
+      "day": "Wednesday",
+      "date": "2026-09-30",
+      "miles": 7.0,
+      "workout": "Aerobic Base",
+      "target_pace": "8:30 \u2013 8:55 / mi",
+      "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm)",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  }
+]

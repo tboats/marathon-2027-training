@@ -1159,6 +1159,9 @@
       <button class="tab-btn active" id="navBtn_overview" onclick="switchTab('overview')">
         <span>🗺️</span> Overview & Strategy
       </button>
+      <button class="tab-btn" id="navBtn_coach" onclick="switchTab('coach')" style="border-color: rgba(16, 185, 129, 0.45); background: rgba(16, 185, 129, 0.08);">
+        <span>🏃</span> Coach's Log & Daily Debriefs <span style="background: var(--accent-emerald); color: #000; font-size: 0.65rem; font-weight: 800; padding: 1px 6px; border-radius: 9999px; margin-left: 4px;">ACTIVE</span>
+      </button>
       <button class="tab-btn" id="navBtn_vancouver" onclick="switchTab('vancouver')">
         <span>🌲</span> Vancouver BC Analysis
       </button>
@@ -1285,12 +1288,217 @@
       </div>
     </section>
 
+    
+    <!-- TAB: COACH'S LOG & DEBRIEFS -->
+    <section id="tab-coach" class="tab-content">
+      <div class="section-header">
+        <h2>🏃 Coach's Log & Daily Workout Debriefs</h2>
+        <p>Forensic performance scorecards, metabolic zone verification, stride biomechanics, and daily workout-by-workout coaching.</p>
+      </div>
+
+      <!-- LATEST WORKOUT HERO SCORECARD -->
+      <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.4); background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(22, 32, 50, 0.98) 100%); margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+              <span class="hero-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.4);">
+                Latest Session: Tuesday, 2026-09-29
+              </span>
+              <span class="hero-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">
+                Week 1 • Vancouver Plan
+              </span>
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-highlight); margin: 0 0 4px 0;">
+              Easy + Strides • 6.11 Miles Logged
+            </h3>
+            <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
+              Prescription: <strong>6.0 mi</strong> (8:35 – 9:05 / mi (strides @ mile pace)) • Actual Moving Time: <strong>55:32</strong>
+            </p>
+          </div>
+
+          <div style="text-align: right; background: rgba(16, 185, 129, 0.15); border: 1.5px solid rgba(16, 185, 129, 0.4); padding: 12px 20px; border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-emerald); letter-spacing: 0.05em;">Workout Grade</div>
+            <div style="font-size: 2.2rem; font-weight: 900; color: var(--accent-emerald); line-height: 1;">A+</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">101.8% Vol Adherence</div>
+          </div>
+        </div>
+
+        <!-- Metric Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Average Pace (Raw / GAP)</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              9:05 / mi
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">
+              GAP: 8:56 / mi
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Heart Rate (Avg / Max)</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              141.0 bpm
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">
+              Peak: 165.0 bpm (Hill climb)
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-amber);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Cadence (Avg / Peak)</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              172.4 spm
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent-amber);">
+              Strides Peak: 233.0 spm
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Elevation Climbed</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              +259 ft
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">
+              Queen Anne hill ascent
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-rose);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Ground Contact Time</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              256.8 ms
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent-emerald);">
+              Strides Pop: 185.9 ms (-28%)
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Debrief -->
+        <div style="background: var(--bg-card); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 16px;">
+          <h4 style="margin: 0 0 8px 0; color: var(--accent-emerald); font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+            <span>📋</span> Coach's Executive Assessment
+          </h4>
+          <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.6; margin: 0 0 12px 0;">
+            Strong execution of Week 1 Tuesday: 6.11 miles at 9:05 / mi (GAP: 8:56 / mi) with an average heart rate of 141 bpm.
+          </p>
+          <div style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">Key Observations & Telemetry Clues:</div>
+          <ul style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px; margin: 0;">
+            <li style='margin-bottom: 8px; line-height: 1.5;'>Adherence: Completed 6.11 mi vs 6.0 mi prescribed (101.8% volume precision).</li><li style='margin-bottom: 8px; line-height: 1.5;'>Metabolic Control: Averaged 141 bpm heart rate, cleanly respecting aerobic development boundaries.</li><li style='margin-bottom: 8px; line-height: 1.5;'>Topography Management: Handled +259 ft of climb with appropriate effort modulation.</li>
+          </ul>
+        </div>
+
+        <!-- Next Workout Preview -->
+        <div style="background: rgba(56, 189, 248, 0.08); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid rgba(56, 189, 248, 0.25); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: Wednesday (2026-09-30)</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight);">7.0 mi • Aerobic Base</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">Target: 8:30 – 8:55 / mi • HR: Zone 2 Aerobic Base (136 – 145 bpm)</div>
+          </div>
+          <div style="background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.35); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--accent-purple); font-weight: 700;">
+            ⚡ RUN ONLY — ZERO LIFTING
+          </div>
+        </div>
+      </div>
+
+      <!-- PAST WORKOUTS TABLE -->
+      <div class="card">
+        <div class="card-title">
+          <span>📜 Historical Coach Evaluations Log</span>
+          <span class="hero-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">1 Recorded Session(s)</span>
+        </div>
+        <div style="overflow-x: auto; margin-top: 12px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">
+                <th style="padding: 10px;">Date</th>
+                <th style="padding: 10px;">Scheduled Session</th>
+                <th style="padding: 10px;">Prescribed</th>
+                <th style="padding: 10px;">Completed</th>
+                <th style="padding: 10px;">Raw Pace</th>
+                <th style="padding: 10px;">GAP Pace</th>
+                <th style="padding: 10px;">Avg HR</th>
+                <th style="padding: 10px;">Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+        <tr style="border-bottom: 1px solid var(--border-subtle);">
+          <td style="padding: 12px; font-weight: 600; color: var(--text-highlight);">2026-09-29 (Tue)</td>
+          <td style="padding: 12px;">Week 1 • Easy + Strides</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">6.0 mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-emerald);">6.11 mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">9:05 / mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan);">8:56 / mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">141.0 bpm</td>
+          <td style="padding: 12px;"><span style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.4); font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 0.85rem;">A+</span></td>
+        </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+
     <!-- TAB: VANCOUVER 2027 DEEP-DIVE -->
     <section id="tab-vancouver" class="tab-content">
       <div class="section-header">
         <h2>🌲 BMO Vancouver Marathon 2027: Deep-Dive Analysis</h2>
         <p>Sunday, May 2, 2027 • 217 Days / 31 Weeks Runway • Vancouver, BC • Goal: 3:15:00 (7:26 min/mile / 4:37 min/km)</p>
       </div>
+
+      
+    <!-- ACTIVE COACHING COMMAND CENTER WIDGET -->
+    <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.45); background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(22, 32, 50, 0.95) 100%); margin-bottom: 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-bottom: 1px solid rgba(16, 185, 129, 0.2); padding-bottom: 12px; margin-bottom: 14px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.4rem;">⚡</span>
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 800; letter-spacing: 0.05em;">Active Coaching Command Center • Vancouver 2027</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight);">Campaign Status: Week 1 Active (Day 2 of 7 Complete)</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="details-toggle-btn active" onclick="switchTab('coach')" style="background: var(--accent-emerald); color: #000; font-weight: 800; padding: 6px 14px; font-size: 0.85rem; border: none;">
+            <span>View Detailed Coach Debrief ➔</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+        <!-- Left: Latest Completed Session -->
+        <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Latest Run: Tuesday (2026-09-29)</span>
+            <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-weight: 800; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">Grade A+</span>
+          </div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
+            6.11 mi @ 9:05 / mi (GAP: 8:56 / mi)
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+            HR: <strong>141.0 bpm</strong> • Climb: <strong>+259 ft</strong> • Strides: <strong>6 executed (peak 5:14 / mi (cadence up to 233 spm))</strong>.
+          </div>
+        </div>
+
+        <!-- Right: Next Session Preview -->
+        <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: Wednesday (2026-09-30)</span>
+            <span style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">RUN ONLY — ZERO LIFTING</span>
+          </div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
+            7.0 mi • Aerobic Base
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+            Prescribed Pace: <strong>8:30 – 8:55 / mi</strong> • Target HR: <strong>Zone 2 Aerobic Base (136 – 145 bpm)</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
       <!-- Quick Summary Cards -->
       <div class="grid-2" style="margin-bottom: 24px;">
@@ -1916,9 +2124,9 @@
   <script>
     window.PRELOADED_DASHBOARD_DATA = {
   "metadata": {
-    "generated_at": "2026-09-28T22:31:33.638843",
-    "total_historical_runs": 389,
-    "dataset_date_range": "2025-03-02 to 2026-09-27",
+    "generated_at": "2026-09-29T20:58:29.365706",
+    "total_historical_runs": 390,
+    "dataset_date_range": "2025-03-02 to 2026-09-30",
     "current_date": "2026-09-27",
     "target_race_date": "2027-03-07",
     "days_to_race": 161,
@@ -7838,38 +8046,20 @@
     },
     {
       "month": "2026-09",
-      "total_miles": 111.1,
-      "run_count": 20,
+      "total_miles": 117.1,
+      "run_count": 21,
       "longest_mile": 12.8,
-      "total_elevation_ft": 6338.0,
-      "avg_ft_per_mile": 57.1,
-      "avg_pace_min_mile": 9.04,
-      "avg_gap_pace_min_mile": 8.71,
-      "avg_hr": 139.8,
-      "avg_cadence_spm": 177.0,
-      "avg_ef": 1.295,
-      "avg_gap_ef": 1.347
+      "total_elevation_ft": 6751.0,
+      "avg_ft_per_mile": 57.7,
+      "avg_pace_min_mile": 9.26,
+      "avg_gap_pace_min_mile": 8.92,
+      "avg_hr": 141.3,
+      "avg_cadence_spm": 176.0,
+      "avg_ef": 1.262,
+      "avg_gap_ef": 1.317
     }
   ],
   "recent_runs": [
-    {
-      "run_id": "2026-07-29_00-15-07",
-      "date": "2026-07-29",
-      "start_time": "2026-07-29T00:15:11",
-      "distance_meters": 5697.8,
-      "distance_miles": 3.54,
-      "duration_seconds": 1767.0,
-      "pace_min_mile": 8.32,
-      "elevation_gain_ft": 184.0,
-      "elevation_ft_per_mile": 52.0,
-      "gap_pace_min_mile": 8.01,
-      "avg_hr": 142.1,
-      "max_hr": 152,
-      "avg_cadence_spm": 179.0,
-      "ef": 1.362,
-      "gap_ef": 1.413,
-      "decoupling_pct": null
-    },
     {
       "run_id": "2026-07-31_01-08-43",
       "date": "2026-07-31",
@@ -8303,274 +8493,355 @@
       "decoupling_pct": null
     },
     {
-      "run_id": "24304226187_ACTIVITY",
+      "run_id": "2026-09-10_01-45-44",
       "date": "2026-09-10",
-      "start_time": "2026-09-10T01:45:47Z",
-      "distance_meters": 5686.8,
-      "distance_miles": 3.53,
-      "duration_seconds": 1717.0,
-      "pace_min_mile": 8.1,
-      "elevation_gain_ft": 185.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 7.79,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.419,
-      "gap_ef": 1.475,
-      "decoupling_pct": null
-    },
-    {
-      "run_id": "24321390673_ACTIVITY",
-      "date": "2026-09-11",
-      "start_time": "2026-09-11T12:33:51Z",
-      "distance_meters": 6487.8,
-      "distance_miles": 4.03,
-      "duration_seconds": 2080.0,
-      "pace_min_mile": 8.6,
-      "elevation_gain_ft": 211.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.29,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.337,
-      "gap_ef": 1.386,
-      "decoupling_pct": null
-    },
-    {
-      "run_id": "24333069587_ACTIVITY",
-      "date": "2026-09-12",
-      "start_time": "2026-09-12T11:38:00Z",
-      "distance_meters": 10052.2,
-      "distance_miles": 6.25,
-      "duration_seconds": 3201.9,
-      "pace_min_mile": 8.54,
-      "elevation_gain_ft": 327.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.24,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.345,
-      "gap_ef": 1.395,
-      "decoupling_pct": null
-    },
-    {
-      "run_id": "24346204739_ACTIVITY",
-      "date": "2026-09-13",
-      "start_time": "2026-09-13T11:58:34Z",
-      "distance_meters": 10028.4,
-      "distance_miles": 6.23,
-      "duration_seconds": 3198.4,
-      "pace_min_mile": 8.55,
-      "elevation_gain_ft": 327.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.25,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.344,
-      "gap_ef": 1.394,
-      "decoupling_pct": null
-    },
-    {
-      "run_id": "24377981907_ACTIVITY",
-      "date": "2026-09-16",
-      "start_time": "2026-09-16T00:35:14Z",
-      "distance_meters": 5219.2,
-      "distance_miles": 3.24,
-      "duration_seconds": 1744.4,
-      "pace_min_mile": 8.96,
-      "elevation_gain_ft": 170.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.66,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.282,
-      "gap_ef": 1.328,
-      "decoupling_pct": null
-    },
-    {
-      "run_id": "24402658860_ACTIVITY",
-      "date": "2026-09-18",
-      "start_time": "2026-09-18T00:42:31Z",
-      "distance_meters": 5692.6,
-      "distance_miles": 3.54,
-      "duration_seconds": 1808.3,
-      "pace_min_mile": 8.52,
-      "elevation_gain_ft": 185.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.21,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.349,
-      "gap_ef": 1.399,
-      "decoupling_pct": null
-    },
-    {
-      "run_id": "24414099321_ACTIVITY",
-      "date": "2026-09-19",
-      "start_time": "2026-09-19T01:34:41Z",
-      "distance_meters": 5669.9,
+      "start_time": "2026-09-10T01:45:48",
+      "distance_meters": 5669.8,
       "distance_miles": 3.52,
-      "duration_seconds": 1855.6,
-      "pace_min_mile": 8.78,
-      "elevation_gain_ft": 185.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.47,
-      "avg_hr": 140.0,
-      "max_hr": 162,
+      "duration_seconds": 1725.0,
+      "pace_min_mile": 8.16,
+      "elevation_gain_ft": 172.0,
+      "elevation_ft_per_mile": 48.8,
+      "gap_pace_min_mile": 7.88,
+      "avg_hr": 149.0,
+      "max_hr": 168,
+      "avg_cadence_spm": 178.0,
+      "ef": 1.323,
+      "gap_ef": 1.371,
+      "decoupling_pct": null
+    },
+    {
+      "run_id": "2026-09-11_12-33-48",
+      "date": "2026-09-11",
+      "start_time": "2026-09-11T12:33:52",
+      "distance_meters": 6478.8,
+      "distance_miles": 4.03,
+      "duration_seconds": 2142.0,
+      "pace_min_mile": 8.87,
+      "elevation_gain_ft": 88.0,
+      "elevation_ft_per_mile": 21.9,
+      "gap_pace_min_mile": 8.74,
+      "avg_hr": 136.8,
+      "max_hr": 155,
       "avg_cadence_spm": 177.0,
-      "ef": 1.31,
+      "ef": 1.327,
+      "gap_ef": 1.346,
+      "decoupling_pct": null
+    },
+    {
+      "run_id": "2026-09-12_11-37-57",
+      "date": "2026-09-12",
+      "start_time": "2026-09-12T11:38:01",
+      "distance_meters": 10040.1,
+      "distance_miles": 6.24,
+      "duration_seconds": 3206.0,
+      "pace_min_mile": 8.56,
+      "elevation_gain_ft": 87.0,
+      "elevation_ft_per_mile": 13.9,
+      "gap_pace_min_mile": 8.48,
+      "avg_hr": 139.8,
+      "max_hr": 152,
+      "avg_cadence_spm": 178.0,
+      "ef": 1.344,
       "gap_ef": 1.357,
       "decoupling_pct": null
     },
     {
-      "run_id": "24421732806_ACTIVITY",
-      "date": "2026-09-19",
-      "start_time": "2026-09-19T14:10:45Z",
-      "distance_meters": 14630.4,
-      "distance_miles": 9.09,
-      "duration_seconds": 4761.0,
+      "run_id": "2026-09-13_11-58-31",
+      "date": "2026-09-13",
+      "start_time": "2026-09-13T11:58:35",
+      "distance_meters": 10028.4,
+      "distance_miles": 6.23,
+      "duration_seconds": 3199.0,
+      "pace_min_mile": 8.56,
+      "elevation_gain_ft": 121.0,
+      "elevation_ft_per_mile": 19.4,
+      "gap_pace_min_mile": 8.44,
+      "avg_hr": 139.1,
+      "max_hr": 152,
+      "avg_cadence_spm": 179.0,
+      "ef": 1.352,
+      "gap_ef": 1.37,
+      "decoupling_pct": null
+    },
+    {
+      "run_id": "2026-09-16_00-35-11",
+      "date": "2026-09-16",
+      "start_time": "2026-09-16T00:35:15",
+      "distance_meters": 5219.2,
+      "distance_miles": 3.24,
+      "duration_seconds": 1744.0,
+      "pace_min_mile": 8.96,
+      "elevation_gain_ft": 560.0,
+      "elevation_ft_per_mile": 172.6,
+      "gap_pace_min_mile": 7.96,
+      "avg_hr": 144.8,
+      "max_hr": 165,
+      "avg_cadence_spm": 175.0,
+      "ef": 1.24,
+      "gap_ef": 1.397,
+      "decoupling_pct": null
+    },
+    {
+      "run_id": "2026-09-18_00-42-28",
+      "date": "2026-09-18",
+      "start_time": "2026-09-18T00:42:32",
+      "distance_meters": 5677.5,
+      "distance_miles": 3.53,
+      "duration_seconds": 1848.0,
       "pace_min_mile": 8.73,
-      "elevation_gain_ft": 476.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.42,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.317,
-      "gap_ef": 1.365,
+      "elevation_gain_ft": 177.0,
+      "elevation_ft_per_mile": 50.1,
+      "gap_pace_min_mile": 8.44,
+      "avg_hr": 141.8,
+      "max_hr": 154,
+      "avg_cadence_spm": 176.0,
+      "ef": 1.3,
+      "gap_ef": 1.345,
       "decoupling_pct": null
     },
     {
-      "run_id": "24434551708_ACTIVITY",
+      "run_id": "2026-09-19_01-34-38",
+      "date": "2026-09-19",
+      "start_time": "2026-09-19T01:34:42",
+      "distance_meters": 5657.1,
+      "distance_miles": 3.52,
+      "duration_seconds": 1888.0,
+      "pace_min_mile": 8.95,
+      "elevation_gain_ft": 173.0,
+      "elevation_ft_per_mile": 49.2,
+      "gap_pace_min_mile": 8.66,
+      "avg_hr": 141.6,
+      "max_hr": 153,
+      "avg_cadence_spm": 172.0,
+      "ef": 1.27,
+      "gap_ef": 1.312,
+      "decoupling_pct": null
+    },
+    {
+      "run_id": "2026-09-19_14-10-42",
+      "date": "2026-09-19",
+      "start_time": "2026-09-19T14:10:46",
+      "distance_meters": 14627.7,
+      "distance_miles": 9.09,
+      "duration_seconds": 4775.0,
+      "pace_min_mile": 8.76,
+      "elevation_gain_ft": 351.0,
+      "elevation_ft_per_mile": 38.6,
+      "gap_pace_min_mile": 8.53,
+      "avg_hr": 142.1,
+      "max_hr": 154,
+      "avg_cadence_spm": 177.0,
+      "ef": 1.294,
+      "gap_ef": 1.328,
+      "decoupling_pct": null
+    },
+    {
+      "run_id": "2026-09-20_14-00-04",
       "date": "2026-09-20",
-      "start_time": "2026-09-20T14:00:07Z",
-      "distance_meters": 20526.7,
+      "start_time": "2026-09-20T14:00:08",
+      "distance_meters": 20519.1,
       "distance_miles": 12.75,
-      "duration_seconds": 6914.0,
-      "pace_min_mile": 9.03,
-      "elevation_gain_ft": 668.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.73,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.272,
-      "gap_ef": 1.317,
+      "duration_seconds": 7208.0,
+      "pace_min_mile": 9.42,
+      "elevation_gain_ft": 607.0,
+      "elevation_ft_per_mile": 47.6,
+      "gap_pace_min_mile": 9.14,
+      "avg_hr": 137.1,
+      "max_hr": 154,
+      "avg_cadence_spm": 175.0,
+      "ef": 1.246,
+      "gap_ef": 1.284,
       "decoupling_pct": null
     },
     {
-      "run_id": "24463609656_ACTIVITY",
+      "run_id": "2026-09-23_00-38-51",
       "date": "2026-09-23",
-      "start_time": "2026-09-23T00:38:54Z",
-      "distance_meters": 5701.1,
-      "distance_miles": 3.54,
-      "duration_seconds": 1791.6,
-      "pace_min_mile": 8.43,
-      "elevation_gain_ft": 186.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.12,
-      "avg_hr": 140.0,
-      "max_hr": 162,
+      "start_time": "2026-09-23T00:38:55",
+      "distance_meters": 5688.6,
+      "distance_miles": 3.53,
+      "duration_seconds": 1820.0,
+      "pace_min_mile": 8.58,
+      "elevation_gain_ft": 173.0,
+      "elevation_ft_per_mile": 48.9,
+      "gap_pace_min_mile": 8.3,
+      "avg_hr": 147.5,
+      "max_hr": 164,
       "avg_cadence_spm": 177.0,
-      "ef": 1.364,
-      "gap_ef": 1.415,
+      "ef": 1.271,
+      "gap_ef": 1.315,
       "decoupling_pct": null
     },
     {
-      "run_id": "24463689866_ACTIVITY",
+      "run_id": "2026-09-23_01-10-43",
       "date": "2026-09-23",
-      "start_time": "2026-09-23T01:10:46Z",
-      "distance_meters": 1188.9,
-      "distance_miles": 0.74,
-      "duration_seconds": 377.5,
-      "pace_min_mile": 8.52,
-      "elevation_gain_ft": 39.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.21,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.35,
-      "gap_ef": 1.4,
+      "start_time": "2026-09-23T01:10:47",
+      "distance_meters": 1174.3,
+      "distance_miles": 0.73,
+      "duration_seconds": 811.0,
+      "pace_min_mile": 18.52,
+      "elevation_gain_ft": 93.0,
+      "elevation_ft_per_mile": 128.1,
+      "gap_pace_min_mile": 17.78,
+      "avg_hr": 143.9,
+      "max_hr": 163,
+      "avg_cadence_spm": 174.0,
+      "ef": 0.604,
+      "gap_ef": 0.629,
       "decoupling_pct": null
     },
     {
-      "run_id": "24476560463_ACTIVITY",
+      "run_id": "2026-09-24_01-14-43",
       "date": "2026-09-24",
-      "start_time": "2026-09-24T01:14:46Z",
-      "distance_meters": 5059.1,
+      "start_time": "2026-09-24T01:14:47",
+      "distance_meters": 5053.5,
       "distance_miles": 3.14,
-      "duration_seconds": 1801.1,
+      "duration_seconds": 1799.0,
       "pace_min_mile": 9.55,
-      "elevation_gain_ft": 165.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 9.24,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.204,
-      "gap_ef": 1.244,
+      "elevation_gain_ft": 552.0,
+      "elevation_ft_per_mile": 175.7,
+      "gap_pace_min_mile": 8.52,
+      "avg_hr": 137.6,
+      "max_hr": 163,
+      "avg_cadence_spm": 174.0,
+      "ef": 1.224,
+      "gap_ef": 1.372,
       "decoupling_pct": null
     },
     {
-      "run_id": "24499582287_ACTIVITY",
+      "run_id": "2026-09-26_01-24-35",
       "date": "2026-09-26",
-      "start_time": "2026-09-26T01:24:38Z",
-      "distance_meters": 5641.0,
-      "distance_miles": 3.51,
-      "duration_seconds": 1803.2,
-      "pace_min_mile": 8.57,
-      "elevation_gain_ft": 184.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.27,
-      "avg_hr": 140.0,
-      "max_hr": 162,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.341,
-      "gap_ef": 1.39,
+      "start_time": "2026-09-26T01:24:39",
+      "distance_meters": 5637.6,
+      "distance_miles": 3.5,
+      "duration_seconds": 1814.0,
+      "pace_min_mile": 8.63,
+      "elevation_gain_ft": 160.0,
+      "elevation_ft_per_mile": 45.8,
+      "gap_pace_min_mile": 8.36,
+      "avg_hr": 142.5,
+      "max_hr": 153,
+      "avg_cadence_spm": 176.0,
+      "ef": 1.308,
+      "gap_ef": 1.35,
       "decoupling_pct": null
     },
     {
-      "run_id": "24507236851_ACTIVITY",
+      "run_id": "2026-09-26_14-21-00",
       "date": "2026-09-26",
-      "start_time": "2026-09-26T14:21:03Z",
-      "distance_meters": 12883.7,
-      "distance_miles": 8.01,
-      "duration_seconds": 4315.5,
-      "pace_min_mile": 8.98,
-      "elevation_gain_ft": 419.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.68,
-      "avg_hr": 140.0,
-      "max_hr": 162,
+      "start_time": "2026-09-26T14:21:04",
+      "distance_meters": 12871.8,
+      "distance_miles": 8.0,
+      "duration_seconds": 4670.0,
+      "pace_min_mile": 9.73,
+      "elevation_gain_ft": 464.0,
+      "elevation_ft_per_mile": 58.0,
+      "gap_pace_min_mile": 9.39,
+      "avg_hr": 142.6,
+      "max_hr": 161,
       "avg_cadence_spm": 177.0,
-      "ef": 1.279,
-      "gap_ef": 1.325,
+      "ef": 1.16,
+      "gap_ef": 1.201,
       "decoupling_pct": null
     },
     {
-      "run_id": "24519660216_ACTIVITY",
+      "run_id": "2026-09-27_14-22-38",
       "date": "2026-09-27",
-      "start_time": "2026-09-27T14:22:41Z",
-      "distance_meters": 12232.4,
-      "distance_miles": 7.6,
-      "duration_seconds": 3901.1,
-      "pace_min_mile": 8.55,
-      "elevation_gain_ft": 398.0,
-      "elevation_ft_per_mile": 52.4,
-      "gap_pace_min_mile": 8.25,
-      "avg_hr": 140.0,
-      "max_hr": 162,
+      "start_time": "2026-09-27T14:22:42",
+      "distance_meters": 12217.9,
+      "distance_miles": 7.59,
+      "duration_seconds": 4072.0,
+      "pace_min_mile": 8.94,
+      "elevation_gain_ft": 509.0,
+      "elevation_ft_per_mile": 67.1,
+      "gap_pace_min_mile": 8.55,
+      "avg_hr": 144.9,
+      "max_hr": 165,
       "avg_cadence_spm": 177.0,
-      "ef": 1.344,
-      "gap_ef": 1.394,
+      "ef": 1.242,
+      "gap_ef": 1.299,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "2026-09-30_00-58-32",
+      "date": "2026-09-30",
+      "start_time": "2026-09-30T00:58:36",
+      "distance_meters": 9827.1,
+      "distance_miles": 6.11,
+      "duration_seconds": 3361.0,
+      "pace_min_mile": 9.17,
+      "elevation_gain_ft": 251.0,
+      "elevation_ft_per_mile": 41.1,
+      "gap_pace_min_mile": 8.93,
+      "avg_hr": 140.8,
+      "max_hr": 164,
+      "avg_cadence_spm": 172.0,
+      "ef": 1.246,
+      "gap_ef": 1.28,
+      "decoupling_pct": null
+    }
+  ],
+  "coach_evaluations": [
+    {
+      "evaluation_id": "2026-09-29_24549003706",
+      "activity_id": 24549003706,
+      "date": "2026-09-29",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 1,
+      "day_of_week": "Tue",
+      "day_full": "Tuesday",
+      "prescribed": {
+        "miles": 6.0,
+        "workout": "Easy + Strides",
+        "target_pace": "8:35 \u2013 9:05 / mi (strides @ mile pace)",
+        "target_hr": "Zone 2 base w/ Zone 4-5 surges",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 6.11,
+        "duration_formatted": "55:32",
+        "duration_seconds": 3332.1,
+        "pace_raw": "9:05 / mi",
+        "pace_gap": "8:56 / mi",
+        "avg_hr": 141.0,
+        "max_hr": 165.0,
+        "avg_cadence": 172.4,
+        "max_cadence": 233.0,
+        "elevation_gain_ft": 259.2,
+        "elevation_loss_ft": 308.4,
+        "aerobic_te": 3.700000047683716,
+        "anaerobic_te": 2.5,
+        "ground_contact_time_ms": 256.8,
+        "strides_gct_ms": 185.9,
+        "vertical_ratio_pct": 8.53,
+        "strides_vr_pct": 6.08,
+        "avg_power_w": 313.0,
+        "max_power_w": 541.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 101.8,
+        "pace_adherence": "Raw 9:05 / mi | Grade-Adjusted 8:56 / mi",
+        "hr_compliance": "Avg HR 141 bpm (Zone 2 compliant)",
+        "strides_count": 6,
+        "strides_peak_pace": "5:14 / mi (cadence up to 233 spm)"
+      },
+      "executive_summary": "Strong execution of Week 1 Tuesday: 6.11 miles at 9:05 / mi (GAP: 8:56 / mi) with an average heart rate of 141 bpm.",
+      "key_takeaways": [
+        "Adherence: Completed 6.11 mi vs 6.0 mi prescribed (101.8% volume precision).",
+        "Metabolic Control: Averaged 141 bpm heart rate, cleanly respecting aerobic development boundaries.",
+        "Topography Management: Handled +259 ft of climb with appropriate effort modulation."
+      ],
+      "next_workout": {
+        "day": "Wednesday",
+        "date": "2026-09-30",
+        "miles": 7.0,
+        "workout": "Aerobic Base",
+        "target_pace": "8:30 \u2013 8:55 / mi",
+        "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm)",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
     }
   ]
 };

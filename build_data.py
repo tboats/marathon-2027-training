@@ -806,8 +806,18 @@ def build_dataset():
         'race_comparison': race_comparison,
         'strength_training_guide': strength_training_guide,
         'monthly_history': monthly_summary,
-        'recent_runs': run_records[-40:]
+        'recent_runs': run_records[-40:],
+        'coach_evaluations': []
     }
+
+    # Load coach evaluations if available
+    coach_eval_path = os.path.join(os.path.dirname(__file__), "data/coach_evaluations.json")
+    if os.path.exists(coach_eval_path):
+        try:
+            with open(coach_eval_path) as cf:
+                dashboard_data['coach_evaluations'] = json.load(cf)
+        except Exception as e:
+            print(f"⚠️ Warning loading coach evaluations: {e}")
 
     with open(OUTPUT_JSON, 'w') as f:
         json.dump(dashboard_data, f, indent=2)
