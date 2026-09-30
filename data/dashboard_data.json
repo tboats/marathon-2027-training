@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-09-29T21:15:17.306906",
+    "generated_at": "2026-09-29T21:39:23.688621",
     "total_historical_runs": 390,
     "dataset_date_range": "2025-03-02 to 2026-09-30",
     "current_date": "2026-09-27",
@@ -6718,6 +6718,173 @@
         "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm)",
         "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
       }
+    },
+    {
+      "evaluation_id": "2026-09-27_24519660216",
+      "activity_id": 24519660216,
+      "date": "2026-09-27",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 1,
+      "day_of_week": "Sun",
+      "day_full": "Sunday",
+      "prescribed": {
+        "miles": 6.0,
+        "workout": "Scheduled Run",
+        "target_pace": "8:35 \u2013 9:05 / mi",
+        "target_hr": "Zone 2",
+        "lifting": "None"
+      },
+      "actual": {
+        "miles": 7.6,
+        "duration_formatted": "64:41",
+        "duration_seconds": 3881.7,
+        "pace_raw": "8:30 / mi",
+        "pace_gap": "8:19 / mi",
+        "avg_hr": 145.0,
+        "max_hr": 165.0,
+        "avg_cadence": 177.7,
+        "max_cadence": 217.0,
+        "elevation_gain_ft": 528.2,
+        "elevation_loss_ft": 547.9,
+        "aerobic_te": 4.300000190734863,
+        "anaerobic_te": 0.8999999761581421,
+        "ground_contact_time_ms": 245.1,
+        "strides_gct_ms": 245.1,
+        "vertical_ratio_pct": 8.0,
+        "strides_vr_pct": 8.0,
+        "avg_power_w": 339.0,
+        "max_power_w": 576.0
+      },
+      "scorecard": {
+        "grade": "B+",
+        "distance_adherence_pct": 126.7,
+        "pace_adherence": "Raw 8:30 / mi | Grade-Adjusted 8:19 / mi",
+        "hr_compliance": "Avg HR 145 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Strong execution of Week 1 Sunday: 7.60 miles at 8:30 / mi (GAP: 8:19 / mi) with an average heart rate of 145 bpm.",
+      "key_takeaways": [
+        "Adherence: Completed 7.60 mi vs 6.0 mi prescribed (126.7% volume precision).",
+        "Metabolic Control: Averaged 145 bpm heart rate, cleanly respecting aerobic development boundaries.",
+        "Topography Management: Handled +528 ft of climb with appropriate effort modulation."
+      ],
+      "next_workout": {
+        "day": "Monday",
+        "date": "2026-09-28",
+        "miles": 0,
+        "workout": "Rest from Running \u2022 Upper Body & Core Strength",
+        "target_pace": "Rest / Mobility",
+        "target_hr": "Rest (< 100 bpm)",
+        "lifting_rule": "Upper Body & Core Strength (No Running)"
+      }
+    },
+    {
+      "evaluation_id": "2026-09-26_24507236851",
+      "activity_id": 24507236851,
+      "date": "2026-09-26",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 1,
+      "day_of_week": "Sat",
+      "day_full": "Saturday",
+      "prescribed": {
+        "miles": 6.0,
+        "workout": "Scheduled Run",
+        "target_pace": "8:35 \u2013 9:05 / mi",
+        "target_hr": "Zone 2",
+        "lifting": "None"
+      },
+      "actual": {
+        "miles": 8.01,
+        "duration_formatted": "71:48",
+        "duration_seconds": 4308.9,
+        "pace_raw": "8:58 / mi",
+        "pace_gap": "8:53 / mi",
+        "avg_hr": 143.0,
+        "max_hr": 161.0,
+        "avg_cadence": 176.5,
+        "max_cadence": 200.0,
+        "elevation_gain_ft": 511.8,
+        "elevation_loss_ft": 534.8,
+        "aerobic_te": 4.199999809265137,
+        "anaerobic_te": 0.10000000149011612,
+        "ground_contact_time_ms": 251.7,
+        "strides_gct_ms": 251.7,
+        "vertical_ratio_pct": 8.28,
+        "strides_vr_pct": 8.28,
+        "avg_power_w": 322.0,
+        "max_power_w": 447.0
+      },
+      "scorecard": {
+        "grade": "B",
+        "distance_adherence_pct": 133.4,
+        "pace_adherence": "Raw 8:58 / mi | Grade-Adjusted 8:53 / mi",
+        "hr_compliance": "Avg HR 143 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Strong execution of Week 1 Saturday: 8.01 miles at 8:58 / mi (GAP: 8:53 / mi) with an average heart rate of 143 bpm.",
+      "key_takeaways": [
+        "Adherence: Completed 8.01 mi vs 6.0 mi prescribed (133.4% volume precision).",
+        "Metabolic Control: Averaged 143 bpm heart rate, cleanly respecting aerobic development boundaries.",
+        "Topography Management: Handled +512 ft of climb with appropriate effort modulation."
+      ],
+      "next_workout": null
+    },
+    {
+      "evaluation_id": "2026-09-25_24499582287",
+      "activity_id": 24499582287,
+      "date": "2026-09-25",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 1,
+      "day_of_week": "Fri",
+      "day_full": "Friday",
+      "prescribed": {
+        "miles": 6.0,
+        "workout": "Scheduled Run",
+        "target_pace": "8:35 \u2013 9:05 / mi",
+        "target_hr": "Zone 2",
+        "lifting": "None"
+      },
+      "actual": {
+        "miles": 3.51,
+        "duration_formatted": "29:59",
+        "duration_seconds": 1799.0,
+        "pace_raw": "8:33 / mi",
+        "pace_gap": "8:32 / mi",
+        "avg_hr": 142.0,
+        "max_hr": 154.0,
+        "avg_cadence": 175.5,
+        "max_cadence": 185.0,
+        "elevation_gain_ft": 177.2,
+        "elevation_loss_ft": 200.1,
+        "aerobic_te": 3.299999952316284,
+        "anaerobic_te": 0.20000000298023224,
+        "ground_contact_time_ms": 248.7,
+        "strides_gct_ms": 248.7,
+        "vertical_ratio_pct": 8.07,
+        "strides_vr_pct": 8.07,
+        "avg_power_w": 336.0,
+        "max_power_w": 509.0
+      },
+      "scorecard": {
+        "grade": "B",
+        "distance_adherence_pct": 58.4,
+        "pace_adherence": "Raw 8:33 / mi | Grade-Adjusted 8:32 / mi",
+        "hr_compliance": "Avg HR 142 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Strong execution of Week 1 Friday: 3.51 miles at 8:33 / mi (GAP: 8:32 / mi) with an average heart rate of 142 bpm.",
+      "key_takeaways": [
+        "Adherence: Completed 3.51 mi vs 6.0 mi prescribed (58.4% volume precision).",
+        "Metabolic Control: Averaged 142 bpm heart rate, cleanly respecting aerobic development boundaries.",
+        "Topography Management: Handled +177 ft of climb with appropriate effort modulation."
+      ],
+      "next_workout": null
     }
   ]
 }
