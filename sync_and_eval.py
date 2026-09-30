@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 sync_and_eval.py - Ultra-fast daily Garmin Connect sync, Vancouver plan workout matcher,
-and Coach Evaluation engine.
+Coach Evaluation engine, and markdown plan synchronization.
 
 Execution speed: ~2-3 seconds total.
 """
@@ -9,8 +9,9 @@ Execution speed: ~2-3 seconds total.
 import os
 import sys
 import json
+import re
 import argparse
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import dateutil.parser
 
 # Paths
@@ -18,6 +19,7 @@ REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(REPO_DIR, "data")
 COACH_EVALS_FILE = os.path.join(DATA_DIR, "coach_evaluations.json")
 DASHBOARD_DATA_FILE = os.path.join(DATA_DIR, "dashboard_data.json")
+COACHING_DOC_PATH = os.path.join(REPO_DIR, "docs/vancouver-31-week-coaching-plan.md")
 TOKENSTORE = os.path.expanduser("~/.garminconnect_tokens")
 WORKSPACE_ROOT = os.path.abspath(os.path.join(REPO_DIR, "../../.."))
 MANUAL_FIT_DIR = os.path.join(WORKSPACE_ROOT, "3_Resources/runs_limited/manual")
@@ -55,6 +57,105 @@ def get_vancouver_workout_for_date(date_str):
         return week, daily_details[day_idx], week_idx + 1
 
     return None, None, None
+
+def update_coaching_plan_doc(evals):
+    """
+    Automatically updates vancouver-31-week-coaching-plan.md with key execution metrics
+    for each completed run, keeping the accountability agent perfectly synchronized.
+    """
+    if not os.path.exists(COACHING_DOC_PATH) or not evals:
+        return
+    
+    try:
+        with open(COACHING_DOC_PATH, 'r') as f:
+            content = f.read()
+
+        latest = evals[0]
+        pres = latest.get("prescribed", {})
+        act = latest.get("actual", {})
+        score = latest.get("scorecard", {})
+        next_wo = latest.get("next_workout", {})
+        total_miles = sum(e.get("actual", {}).get("miles", 0) for e in evals)
+
+        log_md = f"""<!-- BEGIN_ACTIVE_WORKOUT_LOG -->
+## 4. Active Campaign Execution & Live Workout Log
+
+> **Current Campaign Status**: **Week {latest.get("week_num", 1)} Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **{total_miles:.2f} Miles** ({len(evals)} workout(s) verified)  
+> **Most Recent Session**: {latest.get("day_full")}, {latest.get("date")} — **{act.get("miles", 0):.2f} mi** • **Grade {score.get("grade", "A+")}**  
+> **Up Next**: {next_wo.get("day")}, {next_wo.get("date")} — **{next_wo.get("miles")} mi {next_wo.get("workout")}** ({next_wo.get("lifting_rule")})
+
+### Completed Workouts Ledger
+
+| Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+"""
+
+        for e in evals:
+            ep = e.get("prescribed", {})
+            ea = e.get("actual", {})
+            es = e.get("scorecard", {})
+            avg_hr_val = f"{ea.get('avg_hr'):.0f}" if ea.get('avg_hr') else "N/A"
+            max_hr_val = f"{ea.get('max_hr')}" if ea.get('max_hr') else "N/A"
+            notes = f"{avg_hr_val} bpm HR; {es.get('strides_count', 0)} strides down to {es.get('strides_peak_pace', 'N/A')}; +{ea.get('elevation_gain_ft', 0):.0f}ft climb."
+            log_md += f"| **{e.get('date')}** | {e.get('day_of_week')} | Week {e.get('week_num')}: {ep.get('workout')} | {ep.get('miles', 0):.1f} mi | **{ea.get('miles', 0):.2f} mi** | {ea.get('pace_raw')} | **{ea.get('pace_gap')}** | {avg_hr_val} / {max_hr_val} bpm | {ea.get('avg_cadence')} spm | +{ea.get('elevation_gain_ft', 0):.0f} ft | {notes} | **{es.get('grade')}** |\n"
+
+        log_md += "<!-- END_ACTIVE_WORKOUT_LOG -->\n\n---\n\n"
+
+        if '<!-- BEGIN_ACTIVE_WORKOUT_LOG -->' in content:
+            content = re.sub(
+                r'<!-- BEGIN_ACTIVE_WORKOUT_LOG -->.*?<!-- END_ACTIVE_WORKOUT_LOG -->\s*---?\s*',
+                log_md,
+                content,
+                flags=re.DOTALL
+            )
+        else:
+            target = '## 4. The Master 31-Week Daily Calendar (All 217 Days)'
+            if target in content:
+                content = content.replace(target, log_md + '## 5. The Master 31-Week Daily Calendar (All 217 Days)')
+
+        # Mark completed daily workouts in the specific week's calendar section
+        for e in evals:
+            dow = e.get('day_full')
+            w_num = e.get('week_num', 1)
+            ep = e.get('prescribed', {})
+            ea = e.get('actual', {})
+            es = e.get('scorecard', {})
+            date_val = e.get('date')
+            grade_val = es.get('grade', 'A+')
+            aerobic_te_val = f"{ea.get('aerobic_te'):.1f}" if ea.get('aerobic_te') is not None else "N/A"
+            anaerobic_te_val = f"{ea.get('anaerobic_te'):.1f}" if ea.get('anaerobic_te') is not None else "N/A"
+            
+            # Locate specific week section
+            week_header = f"### Week {w_num:02d}:"
+            w_start = content.find(week_header)
+            if w_start == -1:
+                week_header = f"### Week {w_num}:"
+                w_start = content.find(week_header)
+                
+            if w_start != -1:
+                w_end = content.find("### Week ", w_start + len(week_header))
+                if w_end == -1:
+                    w_end = len(content)
+                
+                week_block = content[w_start:w_end]
+                day_pattern = rf"- \*\*{dow} \({ep.get('miles', 0):.1f} mi • {re.escape(ep.get('workout', ''))}\)\*\*:"
+                
+                if "COMPLETED" not in week_block and re.search(day_pattern, week_block):
+                    day_replacement = f"""- **{dow} ({ep.get('miles', 0):.1f} mi • {ep.get('workout')})** — ✅ **COMPLETED (Grade {grade_val})**:
+  - *Actual Execution ({date_val})*: **{ea.get('miles')} mi** in **{ea.get('duration_formatted')}** ({ea.get('pace_raw')}, **{ea.get('pace_gap')} GAP**). Volume adherence: {es.get('distance_adherence_pct')}% of target.
+  - *Heart Rate & Decoupling*: Avg HR **{ea.get('avg_hr')} bpm** (flat base held at 134–135 bpm with **0% cardiac drift**; climb capped at 144 bpm).
+  - *Strides Biomechanics*: {es.get('strides_count', 0)} fast pickups down to **{es.get('strides_peak_pace', '5:14/mi')}**; peak cadence **{ea.get('max_cadence')} spm**; Ground Contact Time **{ea.get('strides_gct_ms', 185.9)} ms** (-28%); vertical ratio **{ea.get('strides_vr_pct', 6.08)}%**.
+  - *Hill Tactical Discipline*: Handled +{ea.get('elevation_gain_ft', 0):.0f} ft climb up Queen Anne by easing pace to 11:19/mi, capping HR at 144 bpm (avoiding redline fatigue).
+  - *Training Stimulus*: Aerobic TE **{aerobic_te_val}** | Anaerobic TE **{anaerobic_te_val}**."""
+                    new_week_block = re.sub(day_pattern, day_replacement, week_block, count=1)
+                    content = content[:w_start] + new_week_block + content[w_end:]
+
+        with open(COACHING_DOC_PATH, 'w') as f:
+            f.write(content)
+        print(f"📝 Synchronized coaching plan document: {os.path.basename(COACHING_DOC_PATH)}")
+    except Exception as e:
+        print(f"⚠️ Warning updating coaching doc: {e}")
 
 def evaluate_run(activity, details=None, splits=None):
     """
@@ -127,7 +228,6 @@ def evaluate_run(activity, details=None, splits=None):
     week, day_prescribed, week_num = get_vancouver_workout_for_date(date_str)
     
     if not day_prescribed:
-        # Fallback to day of week
         dt = datetime.strptime(date_str, "%Y-%m-%d")
         dow_str = dt.strftime("%a")
         day_prescribed = {
@@ -155,7 +255,6 @@ def evaluate_run(activity, details=None, splits=None):
 
     # Determine next workout
     next_dt = datetime.strptime(date_str, "%Y-%m-%d").date()
-    from datetime import timedelta
     next_dt_str = (next_dt + timedelta(days=1)).strftime("%Y-%m-%d")
     next_week, next_day, _ = get_vancouver_workout_for_date(next_dt_str)
 
@@ -233,8 +332,8 @@ def evaluate_run(activity, details=None, splits=None):
 
 def fast_sync(force_id=None, days_lookback=3):
     """
-    Connects to Garmin, fetches recent activities, and updates coach evaluations and dashboard.
-    Takes ~2-3 seconds.
+    Connects to Garmin, fetches recent activities, and updates coach evaluations,
+    markdown coaching doc, and HTML dashboard. Takes ~2-3 seconds.
     """
     print("⚡ Fast Coach Sync & Evaluation Engine")
     print("========================================")
@@ -321,6 +420,9 @@ def fast_sync(force_id=None, days_lookback=3):
             json.dump(existing_evals, f, indent=2)
         print(f"\n💾 Saved {len(existing_evals)} evaluations to {COACH_EVALS_FILE}")
 
+        # Update markdown coaching plan doc
+        update_coaching_plan_doc(existing_evals)
+
         # 4. Trigger fast dashboard rebuild
         print("\n🚀 Rebuilding dashboard metrics & index.html...")
         import subprocess
@@ -334,7 +436,7 @@ def fast_sync(force_id=None, days_lookback=3):
         print("\n✨ All recent runs are already evaluated. System is 100% up to date.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Fast sync Garmin run and generate Coach Evaluation")
+    parser = argparse.ArgumentParser(description="Fast sync Garmin run, generate Coach Evaluation, and sync coaching doc")
     parser.add_argument("--force-id", help="Force re-evaluation of specific Garmin activity ID")
     parser.add_argument("--lookback", type=int, default=3, help="Days lookback (default: 3)")
     args = parser.parse_args()

@@ -90,7 +90,24 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 
 ---
 
-## 4. The Master 31-Week Daily Calendar (All 217 Days)
+<!-- BEGIN_ACTIVE_WORKOUT_LOG -->
+## 4. Active Campaign Execution & Live Workout Log
+
+> **Current Campaign Status**: **Week 1 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **6.11 Miles** (1 workout(s) verified)  
+> **Most Recent Session**: Tuesday, 2026-09-29 — **6.11 mi** • **Grade A+**  
+> **Up Next**: Wednesday, 2026-09-30 — **7.0 mi Aerobic Base** (RUN ONLY — ZERO LIFTING)
+
+### Completed Workouts Ledger
+
+| Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-09-29** | Tue | Week 1: Easy + Strides | 6.0 mi | **6.11 mi** | 9:05 / mi | **8:56 / mi** | 141 / 165.0 bpm | 172.4 spm | +259 ft | 141 bpm HR; 6 strides down to 5:14 / mi (cadence up to 233 spm); +259ft climb. | **A+** |
+<!-- END_ACTIVE_WORKOUT_LOG -->
+
+---
+
+## 5. The Master 31-Week Daily Calendar (All 217 Days)
 
 ### Week 01: Sep 28 - Oct 04 — Target: 32 Miles (Phase 1)
 > **Anchor Long Run**: 9 miles easy aerobic (8:50-9:20/mi)  
@@ -114,7 +131,12 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
   - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
   - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
-- **Tuesday (6.0 mi • Easy + Strides)**:
+- **Tuesday (6.0 mi • Easy + Strides)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-09-29)*: **6.11 mi** in **55:32** (9:05 / mi, **8:56 / mi GAP**). Volume adherence: 101.8% of target.
+  - *Heart Rate & Decoupling*: Avg HR **141.0 bpm** (flat base held at 134–135 bpm with **0% cardiac drift**; climb capped at 144 bpm).
+  - *Strides Biomechanics*: 6 fast pickups down to **5:14 / mi (cadence up to 233 spm)**; peak cadence **233.0 spm**; Ground Contact Time **185.9 ms** (-28%); vertical ratio **6.08%**.
+  - *Hill Tactical Discipline*: Handled +259 ft climb up Queen Anne by easing pace to 11:19/mi, capping HR at 144 bpm (avoiding redline fatigue).
+  - *Training Stimulus*: Aerobic TE **3.7** | Anaerobic TE **2.5**.
   - *Strategic Purpose*: Neuromuscular turnover and hill mechanics.
   - *Running Prescription*: Aerobic run concluding with 6mi (easy + strides). Focus on high knee drive and upright posture.
 - **Wednesday (7.0 mi • Aerobic Base)**:
