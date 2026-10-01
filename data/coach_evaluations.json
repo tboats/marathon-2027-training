@@ -1,5 +1,66 @@
 [
   {
+    "evaluation_id": "2026-09-30_24561522216",
+    "activity_id": 24561522216,
+    "date": "2026-09-30",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 1,
+    "day_of_week": "Wed",
+    "day_full": "Wednesday",
+    "prescribed": {
+      "miles": 7.0,
+      "workout": "Aerobic Base",
+      "target_pace": "8:30 \u2013 8:55 / mi",
+      "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 7.01,
+      "duration_formatted": "58:22",
+      "duration_seconds": 3502.3,
+      "pace_raw": "8:19 / mi",
+      "pace_gap": "8:14 / mi",
+      "avg_hr": 148.0,
+      "max_hr": 159.0,
+      "avg_cadence": 175.8,
+      "max_cadence": 223.0,
+      "elevation_gain_ft": 292.0,
+      "elevation_loss_ft": 308.4,
+      "aerobic_te": 4.400000095367432,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": 247.3,
+      "strides_gct_ms": 247.3,
+      "vertical_ratio_pct": 8.01,
+      "strides_vr_pct": 8.01,
+      "avg_power_w": 345.0,
+      "max_power_w": 487.0
+    },
+    "scorecard": {
+      "grade": "A",
+      "distance_adherence_pct": 100.1,
+      "pace_adherence": "Raw 8:19 / mi | Grade-Adjusted 8:14 / mi",
+      "hr_compliance": "Avg HR 148 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Strong execution of Week 1 Wednesday: 7.01 miles at 8:19 / mi (GAP: 8:14 / mi) with an average heart rate of 148 bpm.",
+    "key_takeaways": [
+      "Adherence: Completed 7.01 mi vs 7.0 mi prescribed (100.1% volume precision).",
+      "Metabolic Control: Averaged 148 bpm heart rate, cleanly respecting aerobic development boundaries.",
+      "Topography Management: Handled +292 ft of climb with appropriate effort modulation."
+    ],
+    "next_workout": {
+      "day": "Thursday",
+      "date": "2026-10-01",
+      "miles": 0,
+      "workout": "Rest from Running \u2022 \ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting_rule": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+    }
+  },
+  {
     "evaluation_id": "2026-09-29_24549003706",
     "activity_id": 24549003706,
     "date": "2026-09-29",

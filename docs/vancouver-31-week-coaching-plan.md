@@ -94,14 +94,15 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 ## 4. Active Campaign Execution & Live Workout Log
 
 > **Current Campaign Status**: **Week 1 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **25.23 Miles** (4 workout(s) verified)  
-> **Most Recent Session**: Tuesday, 2026-09-29 — **6.11 mi** • **Grade A+**  
-> **Up Next**: Wednesday, 2026-09-30 — **7.0 mi Aerobic Base** (RUN ONLY — ZERO LIFTING)
+> **Campaign Mileage Logged**: **32.24 Miles** (5 workout(s) verified)  
+> **Most Recent Session**: Wednesday, 2026-09-30 — **7.01 mi** • **Grade A**  
+> **Up Next**: Thursday, 2026-10-01 — **0 mi Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength** (🏋️ Bi-Weekly Heavy Leg Strength (No Running))
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-09-30** | Wed | Week 1: Aerobic Base | 7.0 mi | **7.01 mi** | 8:19 / mi | **8:14 / mi** | 148 / 159.0 bpm | 175.8 spm | +292 ft | 148 bpm HR; 1 strides down to N/A; +292ft climb. | **A** |
 | **2026-09-29** | Tue | Week 1: Easy + Strides | 6.0 mi | **6.11 mi** | 9:05 / mi | **8:56 / mi** | 141 / 165.0 bpm | 172.4 spm | +259 ft | 141 bpm HR; 6 strides down to 5:14 / mi (cadence up to 233 spm); +259ft climb. | **A+** |
 | **2026-09-27** | Sun | Week 1: Scheduled Run | 6.0 mi | **7.60 mi** | 8:30 / mi | **8:19 / mi** | 145 / 165.0 bpm | 177.7 spm | +528 ft | 145 bpm HR; 1 strides down to N/A; +528ft climb. | **B+** |
 | **2026-09-26** | Sat | Week 1: Scheduled Run | 6.0 mi | **8.01 mi** | 8:58 / mi | **8:53 / mi** | 143 / 161.0 bpm | 176.5 spm | +512 ft | 143 bpm HR; 1 strides down to N/A; +512ft climb. | **B** |
