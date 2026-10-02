@@ -718,69 +718,6 @@ def build_dataset():
     vancouver_phases = vancouver_plan_generator.get_vancouver_phases()
     vancouver_weekly_plan = vancouver_plan_generator.get_vancouver_weekly_plan()
 
-    # Head-to-Head Race Comparison (LA vs Vancouver)
-    race_comparison = {
-        'title': 'Head-to-Head Analysis: Los Angeles vs. BMO Vancouver Marathon',
-        'metrics': [
-            {
-                'dimension': 'Calendar & Runway',
-                'la': 'March 7, 2027 (23 Weeks / 161 Days)',
-                'vancouver': 'May 2, 2027 (31 Weeks / 217 Days)',
-                'verdict': 'Vancouver (+8 Weeks)',
-                'advantage': 'Vancouver provides 2 extra months of aerobic volume and threshold consolidation, allowing an ideal winter base before peaking in spring.'
-            },
-            {
-                'dimension': 'Total Elevation Gain',
-                'la': '946 ft (36.1 ft / mile)',
-                'vancouver': '825 ft (31.4 ft / mile)',
-                'verdict': 'Vancouver (Fewer Climbs)',
-                'advantage': 'Vancouver features ~121 ft less total climbing than LA and 125 ft less than your Seattle baseline.'
-            },
-            {
-                'dimension': 'Net Elevation Profile',
-                'la': '-222 ft Net Downhill',
-                'vancouver': '-215 ft Net Downhill',
-                'verdict': 'Tied (Both Net Downhill)',
-                'advantage': 'Both races offer favorable net-downhill drops that grant a ~2-3 minute pacing bonus over zero-net courses like Seattle.'
-            },
-            {
-                'dimension': 'Terrain & Hill Character',
-                'la': 'Rolling Sunset Blvd; late climb on San Vicente at Mile 20-22',
-                'vancouver': 'Camosun Hill at Mile 6 (~177 ft), NW Marine descent, flat Seawall',
-                'verdict': 'Vancouver (Climbs Done Early)',
-                'advantage': 'Vancouver concentrates its main climb early (Mile 6) when legs are fresh, leaving the final 10 miles (Burrard + Seawall) fast and flat.'
-            },
-            {
-                'dimension': 'Weather & Climate Risk',
-                'la': '52°F at start, warming to 68°F–75°F (high sun/UV exposure)',
-                'vancouver': '50°F–58°F, overcast/cool marine air (very low heat risk)',
-                'verdict': 'Vancouver (Optimal Distance Temp)',
-                'advantage': 'Southern California heat waves can derail sub-3:15 attempts. Vancouver weather in early May is historically near-perfect for distance running.'
-            },
-            {
-                'dimension': 'PNW Training Synergy',
-                'la': 'Must adapt to dry SoCal heat and road sun',
-                'vancouver': 'Exact match for Seattle maritime climate and rolling hills',
-                'verdict': 'Vancouver (Home Turf Advantage)',
-                'advantage': 'Your body is already conditioned to 52 ft/mile hills and PNW maritime air. Vancouver feels like a natural extension of home training.'
-            },
-            {
-                'dimension': 'Logistics from Seattle',
-                'la': 'Flight required, hotel in DTLA/Century City, rental/rideshare',
-                'vancouver': 'Driving distance (3h from Seattle) or Amtrak / quick flight',
-                'verdict': 'Vancouver (Easy Travel)',
-                'advantage': 'Zero time zone change, no flight cancellations or dehydration, familiar grocery options and low logistical friction.'
-            },
-            {
-                'dimension': 'Sub-3:15 Success Probability',
-                'la': 'High (85% on current trajectory)',
-                'vancouver': 'Very High (92% with extra 8-week runway & cool temps)',
-                'verdict': 'Vancouver (+7% Probability)',
-                'advantage': 'The combination of +8 weeks preparation, lower total climbing, and 52°F weather elevates 3:15 probability.'
-            }
-        ]
-    }
-
     # Combine everything into dashboard output
     dashboard_data = {
         'metadata': {
@@ -804,7 +741,6 @@ def build_dataset():
         'weekly_plan': weekly_plan,
         'vancouver_phases': vancouver_phases,
         'vancouver_weekly_plan': vancouver_weekly_plan,
-        'race_comparison': race_comparison,
         'strength_training_guide': strength_training_guide,
         'monthly_history': monthly_summary,
         'recent_runs': run_records[-40:],
