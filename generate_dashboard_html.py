@@ -26,7 +26,7 @@ def generate():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LA Marathon 2027: Sub-3:15 Training & Telemetry Dashboard</title>
+  <title>BMO Vancouver Marathon 2027: Sub-3:15 Training & Telemetry Dashboard</title>
   <!-- Chart.js for data visualization -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1102,40 +1102,37 @@ def generate():
   <!-- HEADER -->
   <header>
     <div class="header-container">
-      <!-- Top-Level Race Selector Bar -->
-      <div class="race-selector-bar">
-        <button class="race-selector-btn active" id="btnRaceLA" onclick="selectRace('la')">
-          <span>🌴</span> Los Angeles Marathon 2027 <span class="race-date-pill">Mar 7, 2027 • 23 Wks</span>
-        </button>
-        <button class="race-selector-btn" id="btnRaceVan" onclick="selectRace('vancouver')">
-          <span>🌲</span> BMO Vancouver Marathon 2027 <span class="race-date-pill">May 2, 2027 • 31 Wks</span>
-        </button>
-        <button class="race-selector-btn" id="btnRaceCompare" onclick="switchTab('comparison')">
-          <span>⚖️</span> Head-to-Head Comparison <span class="race-date-pill">LA vs Van</span>
-        </button>
+      <!-- Top-Level Campaign Header Badge -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700; color: var(--accent-emerald);">
+          <span>🌲</span> Official Campaign: BMO Vancouver Marathon 2027 • 31-Week Master Periodization
+        </div>
+        <div style="color: var(--text-secondary); font-size: 0.85rem;">
+          Race Day: <strong>Sunday, May 2, 2027</strong> • Vancouver, BC
+        </div>
       </div>
 
       <div class="hero-top">
         <div class="hero-title-area">
           <h1 id="raceMainTitle">
-            <span>🏃</span> LA Marathon 2027: Sub-3:15
+            <span>🌲</span> BMO Vancouver Marathon 2027: Sub-3:15
           </h1>
           <div class="hero-subtitle">
-            <span id="raceDateText">Sunday, March 7, 2027</span>
+            <span id="raceDateText">Sunday, May 2, 2027</span>
             <span>•</span>
-            <span id="raceLocationText">Los Angeles, CA</span>
-            <span class="hero-badge" id="racePaceBadge">Goal Pace: 7:26 / mi (4:37 / km)</span>
-            <span class="hero-badge" id="raceElevationBadge" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Course: 946 ft Gain • -222 ft Net Downhill</span>
+            <span id="raceLocationText">Vancouver, BC, Canada</span>
+            <span class="hero-badge" id="racePaceBadge">Goal Pace: 7:24 – 7:26 / mi (4:36 / km)</span>
+            <span class="hero-badge" id="raceElevationBadge" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Course: 825 ft Gain • -215 ft Net Downhill</span>
           </div>
         </div>
 
         <div class="countdown-widget">
           <div>
-            <div class="countdown-val" id="countdownDays">161</div>
+            <div class="countdown-val" id="countdownDays">212</div>
             <div class="countdown-label">Days to Race</div>
           </div>
           <div style="border-left: 1px solid var(--border-color); padding-left: 16px;">
-            <div class="countdown-val" id="countdownWeeks" style="color: var(--accent-blue);">23</div>
+            <div class="countdown-val" id="countdownWeeks" style="color: var(--accent-emerald);">31</div>
             <div class="countdown-label">Training Weeks</div>
           </div>
         </div>
@@ -1145,14 +1142,14 @@ def generate():
       <div class="stat-banner">
         <div class="stat-card emerald">
           <div class="stat-title">Target Goal Time</div>
-          <div class="stat-value">3:15:00</div>
-          <div class="stat-sub"><span class="badge-diff">-19m 04s</span> from Seattle</div>
+          <div class="stat-value">3:14:59</div>
+          <div class="stat-sub"><span class="badge-diff">-19m 05s</span> from Seattle</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-title">Target Marathon Pace</div>
-          <div class="stat-value">7:26<span style="font-size: 1rem;">/mi</span></div>
-          <div class="stat-sub"><span class="badge-diff">-43s/mi</span> (4:37/km, +8.8% speed)</div>
+          <div class="stat-value">7:25<span style="font-size: 1rem;">/mi</span></div>
+          <div class="stat-sub"><span class="badge-diff">-44s/mi</span> (4:36/km, +9.0% speed)</div>
         </div>
 
         <div class="stat-card purple">
@@ -1163,14 +1160,14 @@ def generate():
 
         <div class="stat-card amber">
           <div class="stat-title">Target VDOT Score</div>
-          <div class="stat-value">50.5</div>
-          <div class="stat-sub">Seattle Baseline: 45.5 (+5.0 pts)</div>
+          <div class="stat-value">50.6</div>
+          <div class="stat-sub">Seattle Baseline: 45.5 (+5.1 pts)</div>
         </div>
 
         <div class="stat-card rose">
           <div class="stat-title" id="statCourseElevationTitle">Course Profile</div>
-          <div class="stat-value" id="statCourseElevationVal" style="font-size: 1.4rem;">946 <span style="font-size: 0.85rem; color: var(--text-secondary);">ft gain</span></div>
-          <div class="stat-sub" id="statCourseElevationSub">-222 ft Net Downhill (36.1 ft/mi)</div>
+          <div class="stat-value" id="statCourseElevationVal" style="font-size: 1.4rem;">825 <span style="font-size: 0.85rem; color: var(--text-secondary);">ft gain</span></div>
+          <div class="stat-sub" id="statCourseElevationSub">-215 ft Net Downhill (31.4 ft/mi)</div>
         </div>
       </div>
     </div>
@@ -1180,22 +1177,16 @@ def generate():
   <div class="tabs-nav-wrapper">
     <div class="tabs-nav">
       <button class="tab-btn active" id="navBtn_overview" onclick="switchTab('overview')">
-        <span>🗺️</span> Overview & Strategy
+        <span>🌲</span> Vancouver Campaign & Strategy
       </button>
       <button class="tab-btn" id="navBtn_coach" onclick="switchTab('coach')" style="border-color: rgba(16, 185, 129, 0.45); background: rgba(16, 185, 129, 0.08);">
         <span>🏃</span> Coach's Log & Daily Debriefs <span style="background: var(--accent-emerald); color: #000; font-size: 0.65rem; font-weight: 800; padding: 1px 6px; border-radius: 9999px; margin-left: 4px;">ACTIVE</span>
       </button>
-      <button class="tab-btn" id="navBtn_vancouver" onclick="switchTab('vancouver')">
-        <span>🌲</span> Vancouver BC Analysis
-      </button>
-      <button class="tab-btn" id="navBtn_comparison" onclick="switchTab('comparison')">
-        <span>⚖️</span> LA vs. Vancouver Comparison
+      <button class="tab-btn" id="navBtn_training" onclick="switchTab('training')">
+        <span>📅</span> 31-Week Training Schedule
       </button>
       <button class="tab-btn" id="navBtn_indicators" onclick="switchTab('indicators')">
-        <span>🎯</span> Proxy Indicators (Telemetry)
-      </button>
-      <button class="tab-btn" id="navBtn_training" onclick="switchTab('training')">
-        <span>📅</span> Periodized Training Plans
+        <span>🎯</span> Telemetry & Proxy Indicators
       </button>
       <button class="tab-btn" id="navBtn_seattle" onclick="switchTab('seattle')">
         <span>📊</span> Seattle 2025 Retrospective
@@ -1204,7 +1195,7 @@ def generate():
         <span>🧮</span> Readiness & Fitness Calc
       </button>
       <button class="tab-btn" id="navBtn_history" onclick="switchTab('history')">
-        <span>📈</span> Historical Volume & Runs
+        <span>📈</span> Historical Volume & Heatmap
       </button>
     </div>
   </div>
@@ -1216,9 +1207,11 @@ def generate():
     <!-- TAB 1: OVERVIEW & STRATEGY -->
     <section id="tab-overview" class="tab-content active">
       <div class="section-header">
-        <h2>Strategic Campaign: Seattle 3:34 ➔ Los Angeles 3:15</h2>
-        <p>A rigorous, evidence-based roadmap bridging your verified Seattle aerobic base to 3:15 capability across 23 periodized weeks.</p>
+        <h2>🌲 Strategic Campaign: Seattle 3:34 ➔ BMO Vancouver 3:15</h2>
+        <p>A rigorous, evidence-based roadmap bridging your verified Seattle aerobic base to 3:15 capability across 31 periodized weeks (Sunday, May 2, 2027 • Vancouver, BC).</p>
       </div>
+
+      {vancouver_command_center_html}
 
       <div class="grid-2">
         <div class="card">
@@ -1227,15 +1220,15 @@ def generate():
             <span class="hero-badge">Analysis</span>
           </div>
           <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95rem;">
-            Your Seattle Marathon on Nov 30, 2025 was run with impeccable discipline: finishing in 3:34:04 (8:09/mile) with negative splits (final 2.2km at 7:56/mile) and an average heart rate of 152.7 bpm. You demonstrated exceptional aerobic durability with near-zero premature cardiac drift.
+            Your Seattle Marathon on Nov 30, 2025 was run with impeccable discipline: finishing in 3:34:04 (8:09/mile) with negative splits (final 2.2km at 7:56/mile) and an average heart rate of 152.7 bpm. You demonstrated exceptional aerobic durability with near-zero premature cardiac drift on a course with ~950 ft gain.
           </p>
           <div style="background: var(--bg-secondary); border-radius: var(--radius-sm); padding: 16px; border: 1px solid var(--border-subtle); margin-bottom: 16px;">
-            <div style="font-weight: 700; color: var(--accent-blue); margin-bottom: 6px;">The 3:15 Challenge:</div>
+            <div style="font-weight: 700; color: var(--accent-emerald); margin-bottom: 6px;">The Vancouver 3:15 Challenge:</div>
             <ul style="padding-left: 20px; color: var(--text-secondary); font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px;">
-              <li><strong>Pace Requirement:</strong> 7:26 min/mile (4:37 min/km) sustained for 26.2 miles.</li>
-              <li><strong>Speed Differential:</strong> +43 seconds per mile faster than Seattle (+8.8% velocity).</li>
-              <li><strong>The Engine Shift:</strong> You already have the mental resilience and endurance base. The required shift is lifting your <em>lactate threshold velocity</em> so that 7:26/mile feels like cruising in Zone 3 (~153 bpm) rather than straining in Zone 4 (~165+ bpm).</li>
-              <li><strong>Volume Expansion:</strong> Peak mileage must safely expand from Seattle's ~45 mpw to <strong>52–58 mpw</strong>, with 70+ total miles logged at Goal Marathon Pace.</li>
+              <li><strong>Pace Requirement:</strong> 7:25–7:26 min/mile (4:36–4:37 min/km) sustained for 26.2 miles.</li>
+              <li><strong>Speed Differential:</strong> +44 seconds per mile faster than Seattle (+9.0% velocity).</li>
+              <li><strong>The Engine Shift:</strong> You already possess strong aerobic endurance and mental resilience. The required shift is lifting your <em>lactate threshold velocity</em> so that 7:25/mile feels like cruising in Zone 3 (~151–155 bpm) rather than straining in Zone 4 (~165+ bpm).</li>
+              <li><strong>Volume Expansion & Runway:</strong> With <strong>31 periodized weeks</strong> (8 extra weeks compared to spring alternatives), peak volume can safely expand to <strong>52–58 mpw</strong> without rushing mileage spikes.</li>
             </ul>
           </div>
           <div style="font-size: 0.88rem; color: var(--text-muted);">
@@ -1245,135 +1238,27 @@ def generate():
 
         <div class="card">
           <div class="card-title">
-            <span>Los Angeles Marathon Course Anatomy</span>
-            <span class="hero-badge" style="background: rgba(245, 158, 11, 0.1); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.3);">Course Profile</span>
-          </div>
-          <div style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
-            <p style="margin-bottom: 12px;"><strong>"Stadium to the Stars" Course Profile:</strong></p>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-blue); border-radius: 4px;">
-                <strong>Miles 1–5 (Dodger Stadium to DTLA):</strong> Fast rolling descent (-150 ft). Crucial danger zone for over-pacing. Must hold disciplined 7:30 pace to preserve quads.
-              </div>
-              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-amber); border-radius: 4px;">
-                <strong>Miles 6–14 (Sunset Blvd, Hollywood, West Hollywood):</strong> Gentle rolling uphill stretches along Sunset and Santa Monica Blvd. Requires rhythmic cadence.
-              </div>
-              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-emerald); border-radius: 4px;">
-                <strong>Miles 15–19 (Beverly Hills to Westwood):</strong> Flat and fast boulevard running. Lock into metronomic 7:26/mile pace and maintain fueling.
-              </div>
-              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-rose); border-radius: 4px;">
-                <strong>Miles 20–22 (San Vicente Blvd / Brentwood):</strong> The infamous subtle false flat climb. Quads will be tested. This is where weekly hill repeats in Phase 1 pay off.
-              </div>
-              <div style="padding: 10px; background: var(--bg-secondary); border-left: 3px solid var(--accent-purple); border-radius: 4px;">
-                <strong>Miles 23–26.2 (Century City Finish):</strong> Downhill finish along Avenue of the Stars into the 3:15 celebration. Net drop: -222 ft.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Elevation & Terrain Asymmetry Advantage Banner -->
-      <div class="card" style="margin-bottom: 28px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.9) 0%, rgba(17, 24, 39, 0.95) 100%); border-color: rgba(56, 189, 248, 0.3);">
-        <div class="card-title">
-          <span>⛰️ Elevation & Terrain Asymmetry: Your Hidden Advantage</span>
-          <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Grade Adjusted Analysis</span>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Your Training Terrain Average</div>
-            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">52.4 <span style="font-size: 0.9rem;">ft / mi</span></div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">~1,373 ft climbing per 26.2 mi equivalent. Your regular routes are <strong>~45% hillier</strong> than both marathon courses.</div>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Seattle Marathon 2025</div>
-            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.3 <span style="font-size: 0.9rem;">ft / mi</span></div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">~950 ft gain with <strong>0 net drop</strong> (loop). Grade-Adjusted Flat Equivalent was <strong>3:27:44 (7:55/mi, VDOT 47.1)</strong>!</div>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Los Angeles Marathon 2027</div>
-            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-emerald); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.1 <span style="font-size: 0.9rem;">ft / mi</span></div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">~946 ft gain, but <strong>-222 ft Net Downhill</strong>! Noticeably friendlier net profile than your hilly Seattle baseline.</div>
-          </div>
-        </div>
-        <div style="margin-top: 14px; font-size: 0.88rem; color: var(--text-secondary); background: rgba(0,0,0,0.25); padding: 10px 14px; border-radius: var(--radius-sm);">
-          💡 <strong>Key Takeaway:</strong> Training on 52 ft/mile hills automatically builds eccentric quad resilience and higher metabolic power. When training on hills, <strong>run by Heart Rate (151–155 bpm)</strong> instead of forcing 7:26 flat pace. On flat road or net downhill, that exact same effort releases 7:15–7:26 pace effortlessly.
-        </div>
-      </div>
-
-      <!-- 5 Macrocycle Phases -->
-      <div class="card" style="margin-bottom: 28px;">
-        <div class="card-title">
-          <span>The 5-Phase Periodization Architecture</span>
-          <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: normal;">Sep 28, 2026 ➔ Mar 7, 2027 (23 Weeks)</span>
-        </div>
-        <div class="grid-3" id="phasesOverviewGrid">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </div>
-    </section>
-
-    {coach_tab_html}
-
-    <!-- TAB: VANCOUVER 2027 DEEP-DIVE -->
-    <section id="tab-vancouver" class="tab-content">
-      <div class="section-header">
-        <h2>🌲 BMO Vancouver Marathon 2027: Deep-Dive Analysis</h2>
-        <p>Sunday, May 2, 2027 • 217 Days / 31 Weeks Runway • Vancouver, BC • Goal: 3:15:00 (7:26 min/mile / 4:37 min/km)</p>
-      </div>
-
-      {vancouver_command_center_html}
-
-      <!-- Quick Summary Cards -->
-      <div class="grid-2" style="margin-bottom: 24px;">
-        <div class="card" style="border-color: rgba(16, 185, 129, 0.35);">
-          <div class="card-title">
-            <span>The Vancouver Opportunity: Why It's Exceptional</span>
-            <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Strategic Match</span>
-          </div>
-          <p style="color: var(--text-secondary); margin-bottom: 14px; font-size: 0.95rem; line-height: 1.6;">
-            If you are evaluating options alongside Los Angeles, the <strong>BMO Vancouver Marathon on May 2, 2027</strong> represents an extraordinarily high-probability venue for your 3:15 goal. In fact, from an environmental, physiological, and logistical perspective, Vancouver offers several decisive advantages over Los Angeles for a Seattle-based runner.
-          </p>
-          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
-            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
-              <strong style="color: var(--text-highlight);">1. Ideal Distance Weather (50°F–58°F):</strong> May in Vancouver delivers cool, humid maritime air with frequent overcast skies. Heat risk is virtually zero compared to SoCal.
-            </div>
-            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
-              <strong style="color: var(--text-highlight);">2. 8 Extra Weeks of Runway (31 Weeks Total):</strong> Gives you 2 full extra months to build chronic aerobic volume and consolidate lactate threshold before sharpening.
-            </div>
-            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-amber);">
-              <strong style="color: var(--text-highlight);">3. Lower Total Climbing & Net Downhill:</strong> Vancouver has ~825 ft gain (31.4 ft/mi) vs LA's 946 ft (36.1 ft/mi), plus a favorable <strong>-215 ft net descent</strong> from Queen Elizabeth Park to downtown.
-            </div>
-            <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
-              <strong style="color: var(--text-highlight);">4. Seattle Home Turf Synergy:</strong> Zero flight fatigue, no time zone shift, and course topography that mimics your daily Seattle running routes.
-            </div>
-          </div>
-          <button class="details-toggle-btn active" onclick="switchTrainingPlan('vancouver'); switchTab('training');" style="width: fit-content; padding: 8px 16px; font-size: 0.88rem;">
-            <span>📅 Switch to Vancouver 31-Week Training Plan ➔</span>
-          </button>
-        </div>
-
-        <div class="card">
-          <div class="card-title">
             <span>BMO Vancouver Marathon Course Anatomy</span>
-            <span class="hero-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">Course Breakdown</span>
+            <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Course Breakdown</span>
           </div>
           <div style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.55; display: flex; flex-direction: column; gap: 8px;">
             <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-blue); border-radius: 4px;">
               <strong>Km 0–8 (Miles 1–5 - QE Park to Dunbar):</strong> Starts high at Queen Elizabeth Park (~152m elevation). Gentle initial descent. Settle into disciplined 7:28–7:30/mi pace.
             </div>
             <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-rose); border-radius: 4px;">
-              <strong>Km 9–10 (Mile 6 - Camosun Hill):</strong> Famous steep climb (~177 ft vertical rise in 0.6 mi). <em>Pacing Rule:</em> Surrender pace! Run by HR (< 158 bpm, ~8:10/mi). Your 52 ft/mi Seattle training makes this easy.
+              <strong>Km 9–10 (Mile 6 - Camosun Hill):</strong> Famous steep climb (~177 ft vertical rise in 0.6 mi). <em>Pacing Rule:</em> Surrender pace! Run by HR (&lt; 158 bpm, ~8:10/mi). Your 52 ft/mi Seattle training makes this easy.
             </div>
             <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-amber); border-radius: 4px;">
               <strong>Km 10–16 (Miles 6.5–10 - UBC Campus):</strong> Rolling roads through Pacific Spirit Park and UBC. Settle back into 7:24–7:26/mi cruise control.
             </div>
             <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-cyan); border-radius: 4px;">
-              <strong>Km 16–18 (Miles 10–11.5 - NW Marine Drive):</strong> Fast descent dropping ~250 ft to Spanish Banks. Maintain cadence (>180 spm), lean forward, protect quads.
+              <strong>Km 16–18 (Miles 10–11.5 - NW Marine Drive):</strong> Fast descent dropping ~250 ft to Spanish Banks. Maintain cadence (&gt;180 spm), lean forward, protect quads.
             </div>
             <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-emerald); border-radius: 4px;">
-              <strong>Km 18–31 (Miles 11.5–19.5 - Spanish Banks & Kitsilano):</strong> Flat coastal miles along English Bay. Metronome miles: lock into 7:24/mi. Fuel with gel every 35 mins.
+              <strong>Km 18–31 (Miles 11.5–19.5 - Spanish Banks &amp; Kitsilano):</strong> Flat coastal miles along English Bay. Metronome miles: lock into 7:24/mi. Fuel with gel every 35 mins.
             </div>
             <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-purple); border-radius: 4px;">
-              <strong>Km 31–40 (Miles 19.5–25 - Burrard Bridge & Seawall):</strong> Burrard bridge crest followed by 9 km of flat seawall loop around Stanley Park. Mental focus wins the race.
+              <strong>Km 31–40 (Miles 19.5–25 - Burrard Bridge &amp; Seawall):</strong> Burrard bridge crest followed by 9 km of flat seawall loop around Stanley Park. Mental focus wins the race.
             </div>
             <div style="padding: 9px; background: var(--bg-secondary); border-left: 3px solid var(--accent-emerald); border-radius: 4px;">
               <strong>Km 40–42.2 (Miles 25–26.2 - Downtown Finish):</strong> Exit seawall onto West Pender Street rise. Re-accelerate to 7:15/mi into the finish line for 3:14:xx!
@@ -1382,163 +1267,47 @@ def generate():
         </div>
       </div>
 
-      <!-- Elevation Comparison Banner -->
+      <!-- Elevation & Topography Advantage Banner -->
       <div class="card" style="margin-bottom: 28px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.9) 0%, rgba(17, 24, 39, 0.95) 100%); border-color: rgba(16, 185, 129, 0.35);">
         <div class="card-title">
-          <span>⛰️ Elevation & Grade-Adjusted Comparison: Vancouver vs Seattle vs LA</span>
+          <span>⛰️ Elevation &amp; Topography: Your Decisive Advantage</span>
           <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Topography Analysis</span>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 14px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
           <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Your Seattle Training Routes</div>
             <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">52.4 <span style="font-size: 0.9rem;">ft / mi</span></div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">~1,373 ft climbing per 26.2 mi. <strong>~67% hillier</strong> than Vancouver!</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">~1,373 ft climbing per 26.2 mi equivalent. Your regular routes are <strong>~67% hillier</strong> than Vancouver!</div>
           </div>
           <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Seattle Marathon 2025</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Seattle Marathon 2025 Baseline</div>
             <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-blue); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.3 <span style="font-size: 0.9rem;">ft / mi</span></div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">950 ft gain with <strong>0 net drop</strong> (loop). Flat equivalent was <strong>3:27:44</strong>.</div>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Los Angeles Marathon 2027</div>
-            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">36.1 <span style="font-size: 0.9rem;">ft / mi</span></div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">946 ft gain, <strong>-222 ft Net Downhill</strong>. Late climb on San Vicente (Mile 20).</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">~950 ft gain with <strong>0 net drop</strong> (loop). Grade-Adjusted Flat Equivalent was <strong>3:27:44 (7:55/mi, VDOT 47.1)</strong>!</div>
           </div>
           <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">BMO Vancouver Marathon 2027</div>
             <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-emerald); font-family: 'JetBrains Mono', monospace; margin: 4px 0;">31.4 <span style="font-size: 0.9rem;">ft / mi</span></div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">825 ft gain, <strong>-215 ft Net Downhill</strong>. Least total climbing of all three!</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">825 ft gain with <strong>-215 ft Net Downhill</strong>! Even friendlier profile than Seattle, with ideal 50°F–58°F maritime weather.</div>
           </div>
         </div>
         <div style="margin-top: 14px; font-size: 0.88rem; color: var(--text-secondary); background: rgba(0,0,0,0.25); padding: 10px 14px; border-radius: var(--radius-sm);">
-          💡 <strong>Key Takeaway:</strong> Vancouver features less climbing per mile than both Seattle and LA, with an identical net downhill bonus (-215 ft). Because you already train on 52 ft/mile hills, you have a huge structural advantage over flatland runners on Camosun Hill.
+          💡 <strong>Key Takeaway:</strong> Vancouver features less total climbing than Seattle, plus a net downhill bonus (-215 ft). Because you consistently train on 52 ft/mile Seattle hills, you have built high eccentric quad resilience and superior metabolic power. Run the hills by HR (&lt;158 bpm), and let the flats unlock 7:24 pace effortlessly.
         </div>
       </div>
 
-      <!-- 6 Macrocycle Phases for Vancouver -->
+      <!-- 6 Macrocycle Phases -->
       <div class="card" style="margin-bottom: 28px;">
         <div class="card-title">
-          <span>Vancouver 31-Week Periodization Architecture</span>
+          <span>The 6-Phase Periodization Architecture</span>
           <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: normal;">Sep 28, 2026 ➔ May 2, 2027 (31 Weeks)</span>
         </div>
-        <div class="grid-3" id="vancouverPhasesOverviewGrid">
+        <div class="grid-3" id="phasesOverviewGrid">
           <!-- Populated dynamically via JS -->
         </div>
       </div>
     </section>
 
-    <!-- TAB: HEAD-TO-HEAD COMPARISON (LA vs VANCOUVER) -->
-    <section id="tab-comparison" class="tab-content">
-      <div class="section-header">
-        <h2>⚖️ Head-to-Head Comparison: Los Angeles vs. BMO Vancouver</h2>
-        <p>A rigorous, multi-dimensional comparison to help you choose the highest probability venue for your 3:15:00 goal.</p>
-      </div>
-
-      <!-- Head-to-Head Table -->
-      <div class="card" style="margin-bottom: 28px;">
-        <div class="card-title">
-          <span>Course, Climate, & Runway Comparison Matrix</span>
-          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">8 Key Dimensions</span>
-        </div>
-        <div class="data-table-wrapper">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th style="min-width: 170px;">Dimension</th>
-                <th style="min-width: 220px; color: var(--accent-blue);">🌴 Los Angeles Marathon 2027</th>
-                <th style="min-width: 220px; color: var(--accent-emerald);">🌲 BMO Vancouver Marathon 2027</th>
-                <th style="min-width: 160px;">Advantage / Verdict</th>
-                <th style="min-width: 280px;">Strategic Analysis</th>
-              </tr>
-            </thead>
-            <tbody id="comparisonTableBody">
-              <!-- Rendered dynamically via JS -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Pros & Cons Grid -->
-      <div class="grid-2" style="margin-bottom: 28px;">
-        <div class="card" style="border-top: 3px solid var(--accent-blue);">
-          <div class="card-title">
-            <span>🌴 Los Angeles Marathon 2027</span>
-            <span class="hero-badge">Mar 7, 2027 • 23 Wks</span>
-          </div>
-          <div style="font-size: 0.9rem; line-height: 1.6; display: flex; flex-direction: column; gap: 12px;">
-            <div>
-              <strong style="color: var(--accent-emerald);">✅ Key Advantages:</strong>
-              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
-                <li>Earlier target date (March 7) gets the goal done before spring.</li>
-                <li>Massive race atmosphere and iconic "Stadium to the Stars" landmarks.</li>
-                <li>Favorable net downhill (-222 ft) allows fast start and fast finish.</li>
-              </ul>
-            </div>
-            <div>
-              <strong style="color: var(--accent-rose);">⚠️ Risk Factors:</strong>
-              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
-                <li>Weather variability: Temperatures can reach 68°F–75°F under open sun.</li>
-                <li>San Vicente false flat climb right at Mile 20–22 tests tired quads.</li>
-                <li>Flight and hotel logistics from Seattle.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="border-top: 3px solid var(--accent-emerald);">
-          <div class="card-title">
-            <span>🌲 BMO Vancouver Marathon 2027</span>
-            <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">May 2, 2027 • 31 Wks</span>
-          </div>
-          <div style="font-size: 0.9rem; line-height: 1.6; display: flex; flex-direction: column; gap: 12px;">
-            <div>
-              <strong style="color: var(--accent-emerald);">✅ Key Advantages:</strong>
-              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
-                <li>Near-perfect distance weather: 50°F–58°F with cool overcast skies.</li>
-                <li>8 extra weeks of training runway (31 weeks total) to maximize aerobic base.</li>
-                <li>Fewer total vertical feet of climbing (825 ft vs 946 ft in LA).</li>
-                <li>Main climb (Camosun Hill) happens early at Mile 6 when legs are fresh.</li>
-                <li>Drive or Amtrak from Seattle (zero flight fatigue, familiar nutrition).</li>
-              </ul>
-            </div>
-            <div>
-              <strong style="color: var(--accent-rose);">⚠️ Risk Factors:</strong>
-              <ul style="padding-left: 20px; color: var(--text-secondary); margin-top: 4px;">
-                <li>Longer training cycle through winter and early spring requires motivation.</li>
-                <li>Possible coastal headwind along Stanley Park Seawall (Miles 20–25).</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Decision Framework Recommendation Card -->
-      <div class="card" style="background: linear-gradient(135deg, rgba(22, 32, 50, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%); border-color: rgba(168, 85, 247, 0.35);">
-        <div class="card-title">
-          <span>🧠 Strategic Recommendation: Which Race to Pick?</span>
-          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">Coach Verdict</span>
-        </div>
-        <div style="color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6;">
-          <p style="margin-bottom: 12px;">
-            Based on your Seattle Marathon 2025 baseline (3:34:04 on a 950 ft hilly course at 152.7 bpm) and your current training elevation (~52 ft/mile):
-          </p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 12px;">
-            <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-              <div style="font-weight: 700; color: var(--accent-emerald); font-size: 1rem; margin-bottom: 6px;">Recommendation 1: Vancouver for Pure Sub-3:15 Probability (92%)</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary);">
-                If your primary priority is <strong>maximizing the physiological certainty of breaking 3:15:00</strong>, <strong>Vancouver is the superior choice</strong>. The 52°F temperature envelope, +8 weeks of threshold consolidation, and 121 ft less climbing eliminate the biggest wildcards (heat and rushing mileage volume).
-              </p>
-            </div>
-            <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-              <div style="font-weight: 700; color: var(--accent-blue); font-size: 1rem; margin-bottom: 6px;">Recommendation 2: The Two-Race Strategy (LA as A-Race, Vancouver Backup)</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary);">
-                Because LA is March 7 and Vancouver is May 2 (exactly 8 weeks later), you can target LA 3:15 on March 7. If race day in LA turns unusually warm or windy, you take 2 weeks easy reverse-taper and run Vancouver on May 2 as your redemption peak!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    {coach_tab_html}
 
     <!-- TAB 2: PROXY INDICATORS (TELEMETRY) -->
     <section id="tab-indicators" class="tab-content">
@@ -1572,7 +1341,7 @@ def generate():
             <span class="hero-badge">Miles / Month</span>
           </div>
           <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
-            Historical monthly volume and longest runs vs. target build for peak LA training (52-58 mpw).
+            Historical monthly volume and longest runs vs. target build for peak Vancouver training (52-58 mpw).
           </p>
           <div class="chart-box">
             <canvas id="volumeChart"></canvas>
@@ -1584,18 +1353,8 @@ def generate():
     <!-- TAB 3: PERIODIZED TRAINING PLANS -->
     <section id="tab-training" class="tab-content">
       <div class="section-header">
-        <h2 id="planSectionTitle">Periodized Marathon Training Master Schedule</h2>
-        <p id="planSectionSub">Select your target race below to inspect specific daily assignments, long run workouts, and proxy checkpoints.</p>
-      </div>
-
-      <!-- Race Plan Switcher Bar -->
-      <div class="race-plan-toggle-bar">
-        <button class="race-plan-btn active" id="planBtn_la" onclick="switchPlanRace('la')">
-          <span>🌴</span> Los Angeles Plan (23 Weeks • Mar 7, 2027)
-        </button>
-        <button class="race-plan-btn" id="planBtn_vancouver" onclick="switchPlanRace('vancouver')">
-          <span>🌲</span> Vancouver Plan (31 Weeks • May 2, 2027)
-        </button>
+        <h2 id="planSectionTitle">🌲 BMO Vancouver Marathon: 31-Week Master Training Schedule</h2>
+        <p id="planSectionSub">Sep 28, 2026 to May 2, 2027 • Specific daily running assignments, strength protocol, long run workouts, and proxy checkpoints.</p>
       </div>
 
       <!-- Strength & Lifting Integration Guide Card -->
@@ -1950,15 +1709,13 @@ def generate():
   <!-- Main Dashboard Script -->
   <script>
     let dashboardData = window.PRELOADED_DASHBOARD_DATA;
-    let currentRace = 'la';
-    let currentPlanRace = 'la';
+    let currentRace = 'vancouver';
+    let currentPlanRace = 'vancouver';
     let currentFilter = 'all';
     let allDetailsExpanded = false;
 
     function init() {{
       renderPhasesOverview();
-      renderVancouverDeepDive();
-      renderRaceComparison();
       renderIndicators();
       renderPhaseFilterPills();
       renderWeeklyPlan();
@@ -1984,80 +1741,12 @@ def generate():
       }}
     }}
 
-    function selectRace(raceKey) {{
-      currentRace = raceKey;
-      document.querySelectorAll('.race-selector-btn').forEach(btn => {{
-        btn.classList.remove('active');
-        btn.classList.remove('vancouver');
-        btn.classList.remove('compare');
-      }});
-      
-      if (raceKey === 'la') {{
-        const btn = document.getElementById('btnRaceLA');
-        if (btn) btn.classList.add('active');
-        document.getElementById('raceMainTitle').innerHTML = '<span>🏃</span> LA Marathon 2027: Sub-3:15';
-        document.getElementById('raceDateText').innerText = 'Sunday, March 7, 2027';
-        document.getElementById('raceLocationText').innerText = 'Los Angeles, CA';
-        document.getElementById('raceElevationBadge').innerText = 'Course: 946 ft Gain • -222 ft Net Downhill';
-        document.getElementById('countdownDays').innerText = dashboardData.metadata.days_to_race;
-        document.getElementById('countdownWeeks').innerText = dashboardData.metadata.weeks_to_race;
-        document.getElementById('statCourseElevationTitle').innerText = 'Course Profile';
-        document.getElementById('statCourseElevationVal').innerHTML = '946 <span style="font-size: 0.85rem; color: var(--text-secondary);">ft gain</span>';
-        document.getElementById('statCourseElevationSub').innerText = '-222 ft Net Downhill (36.1 ft/mi)';
-        switchPlanRace('la');
-      }} else if (raceKey === 'vancouver') {{
-        const btn = document.getElementById('btnRaceVan');
-        if (btn) {{
-          btn.classList.add('active');
-          btn.classList.add('vancouver');
-        }}
-        document.getElementById('raceMainTitle').innerHTML = '<span>🌲</span> BMO Vancouver Marathon 2027: Sub-3:15';
-        document.getElementById('raceDateText').innerText = 'Sunday, May 2, 2027';
-        document.getElementById('raceLocationText').innerText = 'Vancouver, BC';
-        document.getElementById('raceElevationBadge').innerText = 'Course: 825 ft Gain • -215 ft Net Downhill';
-        document.getElementById('countdownDays').innerText = dashboardData.metadata.vancouver_days_to_race;
-        document.getElementById('countdownWeeks').innerText = dashboardData.metadata.vancouver_weeks_to_race;
-        document.getElementById('statCourseElevationTitle').innerText = 'Course Profile';
-        document.getElementById('statCourseElevationVal').innerHTML = '825 <span style="font-size: 0.85rem; color: var(--text-secondary);">ft gain</span>';
-        document.getElementById('statCourseElevationSub').innerText = '-215 ft Net Downhill (31.4 ft/mi)';
-        switchPlanRace('vancouver');
-      }}
-    }}
-
-    function switchPlanRace(raceKey) {{
-      currentPlanRace = raceKey;
-      currentFilter = 'all';
-      allDetailsExpanded = false;
-
-      document.querySelectorAll('.race-plan-btn').forEach(btn => {{
-        btn.classList.remove('active');
-        btn.classList.remove('vancouver');
-      }});
-
-      const activeBtn = document.getElementById('planBtn_' + raceKey);
-      if (activeBtn) {{
-        activeBtn.classList.add('active');
-        if (raceKey === 'vancouver') activeBtn.classList.add('vancouver');
-      }}
-
-      if (raceKey === 'la') {{
-        document.getElementById('planSectionTitle').innerText = 'Los Angeles Marathon: 23-Week Training Master Schedule';
-        document.getElementById('planSectionSub').innerText = 'Sep 28, 2026 to Mar 7, 2027 • Specific daily assignments, long run workouts, and proxy checkpoints.';
-      }} else {{
-        document.getElementById('planSectionTitle').innerText = 'BMO Vancouver Marathon: 31-Week Training Master Schedule';
-        document.getElementById('planSectionSub').innerText = 'Sep 28, 2026 to May 2, 2027 • Specific daily assignments, long run workouts, and proxy checkpoints.';
-      }}
-
-      renderPhaseFilterPills();
-      renderWeeklyPlan();
-    }}
-
     function renderPhaseFilterPills() {{
       const container = document.getElementById('phaseFilterBar');
       if (!container) return;
 
-      const phases = currentPlanRace === 'vancouver' ? (dashboardData.vancouver_phases || []) : (dashboardData.phases || []);
-      const totalWeeks = currentPlanRace === 'vancouver' ? 31 : 23;
+      const phases = dashboardData.vancouver_phases || [];
+      const totalWeeks = 31;
 
       let html = `<button class="phase-pill ${{currentFilter === 'all' ? 'active' : ''}}" onclick="filterPlan('all')">All ${{totalWeeks}} Weeks</button>`;
       
@@ -2067,34 +1756,13 @@ def generate():
         html += `<button class="phase-pill ${{isAct ? 'active' : ''}}" onclick="filterPlan(${{p.phase_num}})">Phase ${{p.phase_num}}: ${{shortName}} (${{p.weeks}})</button>`;
       }});
 
-      html += `<button class="phase-pill" id="toggleAllDetailsBtn" onclick="toggleAllDetails()" style="margin-left: auto; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.35); color: var(--accent-blue);">👁️ Expand All Week Details</button>`;
+      html += `<button class="phase-pill" id="toggleAllDetailsBtn" onclick="toggleAllDetails()" style="margin-left: auto; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.35); color: var(--accent-emerald);">👁️ Expand All Week Details</button>`;
 
       container.innerHTML = html;
     }}
 
     function renderPhasesOverview() {{
       const container = document.getElementById('phasesOverviewGrid');
-      if (!container || !dashboardData.phases) return;
-
-      container.innerHTML = dashboardData.phases.map(p => `
-        <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 18px; border: 1px solid var(--border-subtle); display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--accent-blue);">Phase ${{p.phase_num}} • ${{p.weeks}}</span>
-              <span style="font-size: 0.75rem; color: var(--text-muted);">${{p.date_range}}</span>
-            </div>
-            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-highlight); margin-bottom: 6px;">${{p.name}}</h3>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 12px;">${{p.focus}}</p>
-          </div>
-          <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.25); padding: 6px 10px; border-radius: 4px;">
-            Target: ${{p.target_mileage_range}}
-          </div>
-        </div>
-      `).join('');
-    }}
-
-    function renderVancouverDeepDive() {{
-      const container = document.getElementById('vancouverPhasesOverviewGrid');
       if (!container || !dashboardData.vancouver_phases) return;
 
       container.innerHTML = dashboardData.vancouver_phases.map(p => `
@@ -2111,21 +1779,6 @@ def generate():
             Target: ${{p.target_mileage_range}}
           </div>
         </div>
-      `).join('');
-    }}
-
-    function renderRaceComparison() {{
-      const tbody = document.getElementById('comparisonTableBody');
-      if (!tbody || !dashboardData.race_comparison || !dashboardData.race_comparison.metrics) return;
-
-      tbody.innerHTML = dashboardData.race_comparison.metrics.map(m => `
-        <tr>
-          <td><strong style="color: var(--text-highlight); font-size: 0.95rem;">${{m.dimension}}</strong></td>
-          <td style="color: var(--accent-blue); font-weight: 600;">${{m.la}}</td>
-          <td style="color: var(--accent-emerald); font-weight: 600;">${{m.vancouver}}</td>
-          <td><span class="verdict-badge">${{m.verdict}}</span></td>
-          <td style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.45;">${{m.advantage}}</td>
-        </tr>
       `).join('');
     }}
 
@@ -2278,7 +1931,7 @@ def generate():
             <div class="week-daily-breakdown" id="weekDetails_${{w.week}}" style="display: ${{allDetailsExpanded ? 'block' : 'none'}};">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; flex-wrap: wrap; gap: 8px;">
                 <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-highlight); display: flex; align-items: center; gap: 8px;">
-                  <span>🗓️ Week ${{w.week}} Daily Running & Strength Schedule (${{currentPlanRace === 'vancouver' ? 'Vancouver' : 'LA'}}):</span>
+                  <span>🗓️ Week ${{w.week}} Daily Running & Strength Schedule (Vancouver 2027):</span>
                   <span style="color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">${{w.target_miles}} Miles Total</span>
                 </div>
                 <span style="font-size: 0.8rem; color: var(--text-muted);">${{w.dates}} • Phase ${{w.phase}}</span>
