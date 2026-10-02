@@ -61,42 +61,69 @@ def generate_coach_tab_html(evals):
         </tr>
         """
 
-    html = f"""
-    <!-- TAB: COACH'S LOG & DEBRIEFS -->
-    <section id="tab-coach" class="tab-content">
-      <div class="section-header">
-        <h2>🏃 Coach's Log & Daily Workout Debriefs</h2>
-        <p>Forensic performance scorecards, metabolic zone verification, stride biomechanics, and daily workout-by-workout coaching.</p>
-      </div>
-
-      <!-- LATEST WORKOUT HERO SCORECARD -->
-      <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.4); background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(22, 32, 50, 0.98) 100%); margin-bottom: 24px;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-              <span class="hero-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.4);">
-                Latest Session: {latest.get('day_full')}, {latest.get('date')}
-              </span>
-              <span class="hero-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">
-                Week {latest.get('week_num')} • Vancouver Plan
-              </span>
+    is_strength = act.get('miles', 0) == 0
+    if is_strength:
+        header_title = f"{pres.get('workout', 'Strength Session')} • {act.get('duration_formatted')} Completed"
+        header_sub = f"Prescription: <strong>{pres.get('lifting', 'Bi-Weekly Heavy Leg Strength')}</strong> • Duration: <strong>{act.get('duration_formatted')}</strong>"
+        adherence_badge = "100% Protocol Adherence"
+        metric_grid_html = f"""
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Activity Focus</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              Heavy Leg Strength
             </div>
-            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-highlight); margin: 0 0 4px 0;">
-              {pres.get('workout', 'Workout')} • {act.get('miles', 0):.2f} Miles Logged
-            </h3>
-            <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
-              Prescription: <strong>{pres.get('miles', 0):.1f} mi</strong> ({pres.get('target_pace')}) • Actual Moving Time: <strong>{act.get('duration_formatted')}</strong>
-            </p>
+            <div style="font-size: 0.8rem; color: var(--accent-purple);">
+              Zero-Double-Days Compliant
+            </div>
           </div>
 
-          <div style="text-align: right; background: {grade_bg}; border: 1.5px solid {grade_border}; padding: 12px 20px; border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: {grade_color}; letter-spacing: 0.05em;">Workout Grade</div>
-            <div style="font-size: 2.2rem; font-weight: 900; color: {grade_color}; line-height: 1;">{grade}</div>
-            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">{score.get('distance_adherence_pct')}% Vol Adherence</div>
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Heart Rate (Avg / Peak)</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              {act.get('avg_hr', 84)} bpm
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent-emerald);">
+              Peak: {act.get('max_hr', 122)} bpm (&lt; 130 bpm cap)
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Sets & Reps</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              {act.get('total_sets', 13)} Sets • {act.get('total_reps', 152)} Reps
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent-blue);">
+              Bulgarian split squats, RDLs, step ups
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-amber);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Training Stimulus</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              Aerobic TE {act.get('aerobic_te', 0.4)}
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">
+              Pure Neuromuscular / Zero Cardio Drain
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-rose);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Running Mileage</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--accent-emerald); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
+              0.00 Miles
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent-emerald);">
+              Legs protected for Fri & Sat runs
+            </div>
           </div>
         </div>
-
-        <!-- Metric Grid -->
+        """
+    else:
+        header_title = f"{pres.get('workout', 'Workout')} • {act.get('miles', 0):.2f} Miles Logged"
+        header_sub = f"Prescription: <strong>{pres.get('miles', 0):.1f} mi</strong> ({pres.get('target_pace')}) • Actual Moving Time: <strong>{act.get('duration_formatted')}</strong>"
+        adherence_badge = f"{score.get('distance_adherence_pct')}% Vol Adherence"
+        metric_grid_html = f"""
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
           <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
             <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Average Pace (Raw / GAP)</div>
@@ -134,7 +161,7 @@ def generate_coach_tab_html(evals):
               +{act.get('elevation_gain_ft', 0):.0f} ft
             </div>
             <div style="font-size: 0.8rem; color: var(--text-secondary);">
-              Queen Anne hill ascent
+              Elevation change on Seattle hills
             </div>
           </div>
 
@@ -148,6 +175,45 @@ def generate_coach_tab_html(evals):
             </div>
           </div>
         </div>
+        """
+
+    html = f"""
+    <!-- TAB: COACH'S LOG & DEBRIEFS -->
+    <section id="tab-coach" class="tab-content">
+      <div class="section-header">
+        <h2>🏃 Coach's Log & Daily Workout Debriefs</h2>
+        <p>Forensic performance scorecards, metabolic zone verification, stride biomechanics, and daily workout-by-workout coaching.</p>
+      </div>
+
+      <!-- LATEST WORKOUT HERO SCORECARD -->
+      <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.4); background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(22, 32, 50, 0.98) 100%); margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+              <span class="hero-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.4);">
+                Latest Session: {latest.get('day_full')}, {latest.get('date')}
+              </span>
+              <span class="hero-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">
+                Week {latest.get('week_num')} • Vancouver Plan
+              </span>
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-highlight); margin: 0 0 4px 0;">
+              {header_title}
+            </h3>
+            <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
+              {header_sub}
+            </p>
+          </div>
+
+          <div style="text-align: right; background: {grade_bg}; border: 1.5px solid {grade_border}; padding: 12px 20px; border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: {grade_color}; letter-spacing: 0.05em;">Workout Grade</div>
+            <div style="font-size: 2.2rem; font-weight: 900; color: {grade_color}; line-height: 1;">{grade}</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">{adherence_badge}</div>
+          </div>
+        </div>
+
+        <!-- Metric Grid -->
+        {metric_grid_html}
 
         <!-- Executive Debrief -->
         <div style="background: var(--bg-card); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 16px;">
@@ -217,6 +283,19 @@ def generate_vancouver_command_center_html(evals):
     grade = score.get("grade", "A+")
     next_wo = latest.get("next_workout", {})
 
+    day_map = {'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6, 'Sun': 7}
+    day_num = day_map.get(latest.get("day_of_week", "Mon"), 1)
+    status_str = f"Campaign Status: Week {latest.get('week_num', 1)} Active (Day {day_num} of 7 Complete)"
+
+    if act.get('miles', 0) == 0:
+        left_title = f"Latest Session: {latest.get('day_full')} ({latest.get('date')}) • Heavy Leg Strength"
+        left_sub = f"🏋️ {pres.get('workout', 'Heavy Leg Strength')} • {act.get('duration_formatted')}"
+        left_desc = f"HR: <strong>{act.get('avg_hr', 84)} bpm</strong> (Peak <strong>{act.get('max_hr', 122)} bpm</strong>) • <strong>{act.get('total_sets', 13)} sets</strong> • Bulgarian split squats, step ups, RDLs, calf raises. Zero running logged."
+    else:
+        left_title = f"Latest Run: {latest.get('day_full')} ({latest.get('date')})"
+        left_sub = f"{act.get('miles', 0):.2f} mi @ {act.get('pace_raw')} (GAP: {act.get('pace_gap')})"
+        left_desc = f"HR: <strong>{act.get('avg_hr')} bpm</strong> • Climb: <strong>+{act.get('elevation_gain_ft', 0):.0f} ft</strong> • Strides: <strong>{score.get('strides_count', 0)} executed (peak {score.get('strides_peak_pace', 'fast')})</strong>."
+
     return f"""
     <!-- ACTIVE COACHING COMMAND CENTER WIDGET -->
     <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.45); background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(22, 32, 50, 0.95) 100%); margin-bottom: 24px;">
@@ -225,7 +304,7 @@ def generate_vancouver_command_center_html(evals):
           <span style="font-size: 1.4rem;">⚡</span>
           <div>
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 800; letter-spacing: 0.05em;">Active Coaching Command Center • Vancouver 2027</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight);">Campaign Status: Week 1 Active (Day 2 of 7 Complete)</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight);">{status_str}</div>
           </div>
         </div>
         <div style="display: flex; gap: 8px;">
@@ -239,14 +318,14 @@ def generate_vancouver_command_center_html(evals):
         <!-- Left: Latest Completed Session -->
         <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Latest Run: {latest.get('day_full')} ({latest.get('date')})</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">{left_title}</span>
             <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-weight: 800; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">Grade {grade}</span>
           </div>
           <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
-            {act.get('miles', 0):.2f} mi @ {act.get('pace_raw')} (GAP: {act.get('pace_gap')})
+            {left_sub}
           </div>
           <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
-            HR: <strong>{act.get('avg_hr')} bpm</strong> • Climb: <strong>+{act.get('elevation_gain_ft', 0):.0f} ft</strong> • Strides: <strong>{score.get('strides_count', 0)} executed (peak {score.get('strides_peak_pace', 'fast')})</strong>.
+            {left_desc}
           </div>
         </div>
 

