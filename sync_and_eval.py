@@ -502,19 +502,36 @@ def fast_sync(force_id=None, days_lookback=3, auto_push=False):
     if tokens_env and tokens_env.strip():
         try:
             import base64
-            print(f"🔒 Authenticating via GARMIN_TOKENS secret...")
+            print(f"🔒 Authenticating via GARMIN_TOKENS secret (length: {len(tokens_env.strip())})...")
             raw = base64.b64decode(tokens_env.strip()).decode('utf-8')
             tokens = json.loads(raw)
             os.makedirs(TOKENSTORE, exist_ok=True)
-            with open(os.path.join(TOKENSTORE, "oauth1_token.json"), "w") as f:
-                json.dump(tokens[0], f)
-            with open(os.path.join(TOKENSTORE, "oauth2_token.json"), "w") as f:
-                json.dump(tokens[1], f)
+            if isinstance(tokens, list) and len(tokens) >= 2:
+                with open(os.path.join(TOKENSTORE, "oauth1_token.json"), "w") as f:
+                    json.dump(tokens[0], f)
+                with open(os.path.join(TOKENSTORE, "oauth2_token.json"), "w") as f:
+                    json.dump(tokens[1], f)
+            elif isinstance(tokens, dict):
+                if "oauth1" in tokens and "oauth2" in tokens:
+                    with open(os.path.join(TOKENSTORE, "oauth1_token.json"), "w") as f:
+                        json.dump(tokens["oauth1"], f)
+                    with open(os.path.join(TOKENSTORE, "oauth2_token.json"), "w") as f:
+                        json.dump(tokens["oauth2"], f)
+                else:
+                    with open(os.path.join(TOKENSTORE, "oauth2_token.json"), "w") as f:
+                        json.dump(tokens, f)
         except Exception as e:
             print(f"⚠️ Failed to parse GARMIN_TOKENS secret: {e}")
+    else:
+        print("ℹ️ Note: GARMIN_TOKENS environment variable is empty or not provided.")
 
-    if not os.path.exists(TOKENSTORE):
-        print(f"❌ OAuth tokenstore not found at {TOKENSTORE}. Run login first.")
+    if not os.path.exists(TOKENSTORE) or not os.path.exists(os.path.join(TOKENSTORE, "oauth1_token.json")):
+        print(f"❌ OAuth tokenstore not found at {TOKENSTORE}.")
+        if not sys.stdin.isatty():
+            print("   In GitHub Actions CI, ensure GARMIN_TOKENS is configured under:")
+            print("   Repository Settings -> Secrets and variables -> Actions -> Repository secrets")
+        else:
+            print("   Run interactive login first.")
         sys.exit(1)
 
     print("🔑 Authenticating with Garmin Connect...")

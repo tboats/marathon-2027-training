@@ -473,6 +473,64 @@ def generate():
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     }}
 
+    /* Proxy Indicator Time Series Selector & Granularity Bar */
+    .metric-toggle-bar {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }}
+
+    .metric-btn {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }}
+
+    .metric-btn:hover {{
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+    }}
+
+    .metric-btn.active {{
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      font-weight: 700;
+    }}
+
+    .granularity-btn {{
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }}
+
+    .granularity-btn:hover {{
+      color: var(--text-primary);
+      border-color: var(--text-secondary);
+    }}
+
+    .granularity-btn.active {{
+      background: var(--accent-emerald);
+      color: #000;
+      border-color: var(--accent-emerald);
+    }}
+
     /* Chart Containers */
     .chart-box {{
       position: relative;
@@ -1176,6 +1234,56 @@ def generate():
 
       <div class="grid-3" id="indicatorsGrid">
         <!-- Rendered dynamically via JS -->
+      </div>
+
+      <!-- Interactive Proxy Metric Time Series Studio -->
+      <div class="card" style="margin-bottom: 24px; border: 1px solid rgba(56, 189, 248, 0.35);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <div class="card-title" style="margin-bottom: 4px;">
+              <span id="tsChartHeading">📈 Proxy Indicator Historical Time Series: Grade-Adjusted Efficiency Factor (GAP-EF)</span>
+              <span class="hero-badge" id="tsMetricBadge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">Grade-Adjusted</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;" id="tsChartDescription">
+              Speed normalized for Seattle hill climb gradients (ft/mile) divided by Heart Rate. Target for Sub-3:15 is &ge; 1.45.
+            </p>
+          </div>
+          <!-- Granularity Toggle -->
+          <div style="display: flex; align-items: center; gap: 8px; background: rgba(0, 0, 0, 0.35); padding: 4px 8px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-right: 4px;">Granularity:</span>
+            <button class="granularity-btn active" id="granBtn_weekly" onclick="setTsGranularity('weekly')">📅 Weekly (Smoothed)</button>
+            <button class="granularity-btn" id="granBtn_daily" onclick="setTsGranularity('daily')">🏃 Daily (Every Run)</button>
+          </div>
+        </div>
+
+        <!-- Metric Switcher Pills -->
+        <div class="metric-toggle-bar">
+          <button class="metric-btn active" id="tsBtn_gap_ef" onclick="setTsMetric('gap_ef')">
+            <span>⛰️</span> Grade-Adjusted EF (GAP-EF)
+          </button>
+          <button class="metric-btn" id="tsBtn_ef" onclick="setTsMetric('ef')">
+            <span>⚡</span> Raw Aerobic EF
+          </button>
+          <button class="metric-btn" id="tsBtn_pace" onclick="setTsMetric('pace')">
+            <span>⏱️</span> Pace vs GAP Pace
+          </button>
+          <button class="metric-btn" id="tsBtn_hr" onclick="setTsMetric('hr')">
+            <span>❤️</span> Heart Rate & Cadence
+          </button>
+          <button class="metric-btn" id="tsBtn_vdot" onclick="setTsMetric('vdot')">
+            <span>🎯</span> Estimated Daniels VDOT
+          </button>
+          <button class="metric-btn" id="tsBtn_volume" onclick="setTsMetric('volume')">
+            <span>📊</span> Mileage & Rolling 4W MPW
+          </button>
+          <button class="metric-btn" id="tsBtn_decoupling" onclick="setTsMetric('decoupling')">
+            <span>📉</span> Aerobic Decoupling (%)
+          </button>
+        </div>
+
+        <div class="chart-box" style="height: 380px;">
+          <canvas id="proxyTsChart"></canvas>
+        </div>
       </div>
 
       <!-- Chart: Aerobic Efficiency Factor Progression -->
@@ -2129,6 +2237,270 @@ def generate():
           }}
         }});
       }}
+
+      // 4. Interactive Proxy Indicator Historical Time Series Chart
+      updateProxyTsChart();
+    }}
+
+    let currentTsMetric = 'gap_ef';
+    let currentTsGranularity = 'weekly';
+    let proxyTsChartInstance = null;
+
+    function setTsMetric(metricId) {{
+      currentTsMetric = metricId;
+      document.querySelectorAll('.metric-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById('tsBtn_' + metricId);
+      if (activeBtn) activeBtn.classList.add('active');
+      updateProxyTsChart();
+    }}
+
+    function setTsGranularity(gran) {{
+      currentTsGranularity = gran;
+      document.querySelectorAll('.granularity-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById('granBtn_' + gran);
+      if (activeBtn) activeBtn.classList.add('active');
+      updateProxyTsChart();
+    }}
+
+    function updateProxyTsChart() {{
+      const canvas = document.getElementById('proxyTsChart');
+      if (!canvas || typeof Chart === 'undefined') return;
+
+      const isWeekly = currentTsGranularity === 'weekly';
+      const rawData = isWeekly 
+        ? (dashboardData.weekly_time_series || []) 
+        : (dashboardData.daily_time_series || []);
+
+      if (!rawData || rawData.length === 0) return;
+
+      const headingEl = document.getElementById('tsChartHeading');
+      const badgeEl = document.getElementById('tsMetricBadge');
+      const descEl = document.getElementById('tsChartDescription');
+
+      let chartLabel = '';
+      let chartColor = '#a855f7';
+      let chartFillBg = 'rgba(168, 85, 247, 0.08)';
+      let targetGoal = null;
+      let targetLabel = '';
+      let isReverseY = false;
+      let yAxisTitle = '';
+      let secondaryDataset = null;
+
+      const labels = rawData.map(d => d.date);
+      let values = [];
+
+      if (currentTsMetric === 'gap_ef') {{
+        chartLabel = isWeekly ? 'Weekly Mean Grade-Adjusted EF (GAP-EF)' : 'Per-Run Grade-Adjusted EF (GAP-EF)';
+        chartColor = '#a855f7';
+        chartFillBg = 'rgba(168, 85, 247, 0.08)';
+        yAxisTitle = 'Speed m/s * 60 / HR';
+        targetGoal = 1.45;
+        targetLabel = 'Sub-3:15 Goal (≥ 1.45)';
+        values = rawData.map(d => isWeekly ? d.avg_gap_ef : d.gap_ef);
+        if (headingEl) headingEl.innerText = '📈 Proxy Indicator Time Series: Grade-Adjusted Efficiency Factor (GAP-EF)';
+        if (badgeEl) {{ badgeEl.innerText = 'Grade-Adjusted'; badgeEl.style.color = 'var(--accent-purple)'; }}
+        if (descEl) descEl.innerText = 'Speed normalized for Seattle climb gradients (ft/mi) divided by Average Heart Rate. Accounts for vertical elevation so you are credited for climbing power.';
+      }} else if (currentTsMetric === 'ef') {{
+        chartLabel = isWeekly ? 'Weekly Mean Raw Aerobic EF' : 'Per-Run Raw Aerobic EF';
+        chartColor = '#38bdf8';
+        chartFillBg = 'rgba(56, 189, 248, 0.08)';
+        yAxisTitle = 'Speed m/s * 60 / HR';
+        targetGoal = 1.42;
+        targetLabel = 'Sub-3:15 Goal (≥ 1.42)';
+        values = rawData.map(d => isWeekly ? d.avg_ef : d.ef);
+        if (headingEl) headingEl.innerText = '⚡ Proxy Indicator Time Series: Raw Aerobic Efficiency Factor (EF)';
+        if (badgeEl) {{ badgeEl.innerText = 'Raw Aerobic'; badgeEl.style.color = 'var(--accent-blue)'; }}
+        if (descEl) descEl.innerText = 'Speed (m/min) divided by Average Heart Rate. Pure aerobic work capacity in Zone 2. As EF approaches 1.42, flat aerobic pace hits ~7:25 cruising speed.';
+      }} else if (currentTsMetric === 'pace') {{
+        chartLabel = isWeekly ? 'Weekly Mean Raw Pace (min/mi)' : 'Per-Run Raw Pace (min/mi)';
+        chartColor = '#f59e0b';
+        chartFillBg = 'rgba(245, 158, 11, 0.04)';
+        isReverseY = true;
+        yAxisTitle = 'Pace (min/mi)';
+        targetGoal = 7.42;
+        targetLabel = 'Target Marathon Pace (7:25 / mi)';
+        values = rawData.map(d => isWeekly ? d.avg_pace : d.pace_min_mile);
+        
+        const gapValues = rawData.map(d => isWeekly ? d.avg_gap_pace : d.gap_pace_min_mile);
+        secondaryDataset = {{
+          label: isWeekly ? 'Weekly Grade-Adjusted Pace (Flat Eq)' : 'Per-Run Grade-Adjusted Pace (Flat Eq)',
+          data: gapValues,
+          borderColor: '#10b981',
+          borderWidth: 2,
+          pointRadius: isWeekly ? 4 : 2,
+          pointBackgroundColor: '#10b981',
+          tension: 0.25,
+          fill: false
+        }};
+
+        if (headingEl) headingEl.innerText = '⏱️ Proxy Indicator Time Series: Pace vs Grade-Adjusted Pace (GAP)';
+        if (badgeEl) {{ badgeEl.innerText = 'Pace Telemetry'; badgeEl.style.color = 'var(--accent-amber)'; }}
+        if (descEl) descEl.innerText = 'Comparison between raw GPS watch pace and hill-compensated flat-course equivalent pace (GAP). Inverts Y-axis so faster pace points upward.';
+      }} else if (currentTsMetric === 'hr') {{
+        chartLabel = isWeekly ? 'Weekly Mean Heart Rate (bpm)' : 'Per-Run Average Heart Rate (bpm)';
+        chartColor = '#f43f5e';
+        chartFillBg = 'rgba(244, 63, 94, 0.08)';
+        yAxisTitle = 'Heart Rate (bpm)';
+        targetGoal = 153.0;
+        targetLabel = 'Target Zone 3 Ceiling (~153 bpm)';
+        values = rawData.map(d => d.avg_hr);
+
+        if (headingEl) headingEl.innerText = '❤️ Proxy Indicator Time Series: Aerobic Heart Rate Stability';
+        if (badgeEl) {{ badgeEl.innerText = 'Heart Rate'; badgeEl.style.color = 'var(--accent-rose)'; }}
+        if (descEl) descEl.innerText = 'Cardiovascular demand across runs. Tracks cardiac efficiency as pace quickens without driving HR into threshold zones.';
+      }} else if (currentTsMetric === 'vdot') {{
+        chartLabel = isWeekly ? 'Weekly Estimated Daniels VDOT' : 'Per-Run Estimated Daniels VDOT';
+        chartColor = '#06b6d4';
+        chartFillBg = 'rgba(6, 182, 212, 0.08)';
+        yAxisTitle = 'Daniels VDOT Score';
+        targetGoal = 50.6;
+        targetLabel = '3:15 Target VDOT (50.6)';
+        values = rawData.map(d => d.vdot || (isWeekly ? d.avg_vdot : null));
+
+        if (headingEl) headingEl.innerText = '🎯 Proxy Indicator Time Series: Daniels VDOT Aerobic Power Score';
+        if (badgeEl) {{ badgeEl.innerText = 'Daniels VDOT'; badgeEl.style.color = 'var(--accent-cyan)'; }}
+        if (descEl) descEl.innerText = 'Empirical Jack Daniels VDOT score calculated from workout Grade-Adjusted Pace. The Seattle 2025 baseline was 47.1 (flat eq), with the 3:15 target at 50.6.';
+      }} else if (currentTsMetric === 'volume') {{
+        chartLabel = isWeekly ? 'Weekly Mileage' : 'Daily Run Miles';
+        chartColor = '#f59e0b';
+        chartFillBg = 'rgba(245, 158, 11, 0.15)';
+        yAxisTitle = 'Miles';
+        targetGoal = 52.0;
+        targetLabel = 'Peak Target Volume (52 mpw)';
+        values = rawData.map(d => isWeekly ? d.total_miles : d.distance_miles);
+
+        if (isWeekly) {{
+          const rollValues = rawData.map(d => d.rolling_4w_mpw);
+          secondaryDataset = {{
+            label: 'Rolling 4-Week Average MPW',
+            data: rollValues,
+            borderColor: '#38bdf8',
+            borderWidth: 2.5,
+            borderDash: [4, 4],
+            pointRadius: 3,
+            tension: 0.3,
+            fill: false
+          }};
+        }}
+
+        if (headingEl) headingEl.innerText = '📊 Proxy Indicator Time Series: Chronic Volume & MPW Trajectory';
+        if (badgeEl) {{ badgeEl.innerText = 'Mileage Volume'; badgeEl.style.color = 'var(--accent-amber)'; }}
+        if (descEl) descEl.innerText = 'Weekly mileage volume building through the 31-week periodization cycle alongside chronic 4-week rolling load.';
+      }} else if (currentTsMetric === 'decoupling') {{
+        chartLabel = isWeekly ? 'Weekly Aerobic Decoupling (%)' : 'Per-Run Decoupling (%) on Long Runs';
+        chartColor = '#e11d48';
+        chartFillBg = 'rgba(225, 29, 72, 0.08)';
+        yAxisTitle = 'Cardiac Drift (%)';
+        targetGoal = 4.0;
+        targetLabel = 'Target Max Drift (≤ 4.0%)';
+        values = rawData.map(d => d.decoupling_pct);
+
+        if (headingEl) headingEl.innerText = '📉 Proxy Indicator Time Series: Aerobic Decoupling (Cardiac Drift)';
+        if (badgeEl) {{ badgeEl.innerText = 'Decoupling'; badgeEl.style.color = 'var(--accent-rose)'; }}
+        if (descEl) descEl.innerText = 'Percentage drop in efficiency factor between 1st half and 2nd half of long runs (> 10 miles). Lower drift confirms glycogen economy and heat resilience.';
+      }}
+
+      const datasets = [
+        {{
+          label: chartLabel,
+          data: values,
+          borderColor: chartColor,
+          backgroundColor: chartFillBg,
+          borderWidth: isWeekly ? 2.5 : 1.5,
+          pointRadius: isWeekly ? 3.5 : 2,
+          pointBackgroundColor: chartColor,
+          tension: 0.25,
+          fill: true
+        }}
+      ];
+
+      if (secondaryDataset) {{
+        datasets.push(secondaryDataset);
+      }}
+
+      if (targetGoal !== null) {{
+        datasets.push({{
+          label: targetLabel,
+          data: new Array(labels.length).fill(targetGoal),
+          borderColor: '#10b981',
+          borderDash: [6, 6],
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: false,
+          tension: 0
+        }});
+      }}
+
+      if (proxyTsChartInstance) {{
+        proxyTsChartInstance.destroy();
+      }}
+
+      proxyTsChartInstance = new Chart(canvas, {{
+        type: 'line',
+        data: {{
+          labels: labels,
+          datasets: datasets
+        }},
+        options: {{
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {{
+            mode: 'index',
+            intersect: false
+          }},
+          plugins: {{
+            legend: {{
+              labels: {{ color: '#94a3b8', font: {{ family: 'Plus Jakarta Sans', size: 12 }} }}
+            }},
+            tooltip: {{
+              callbacks: {{
+                label: function(context) {{
+                  let val = context.parsed.y;
+                  if (val === null || val === undefined) return null;
+                  if (currentTsMetric === 'pace' && (context.datasetIndex === 0 || context.datasetIndex === 1)) {{
+                    const m = Math.floor(val);
+                    const s = Math.round((val % 1) * 60).toString().padStart(2, '0');
+                    return context.dataset.label + ': ' + m + ':' + s + ' / mi';
+                  }}
+                  return context.dataset.label + ': ' + val;
+                }}
+              }}
+            }}
+          }},
+          scales: {{
+            x: {{
+              grid: {{ color: '#1e293b' }},
+              ticks: {{
+                color: '#94a3b8',
+                maxTicksLimit: isWeekly ? 16 : 14,
+                font: {{ family: 'JetBrains Mono', size: 11 }}
+              }}
+            }},
+            y: {{
+              title: {{
+                display: true,
+                text: yAxisTitle,
+                color: '#94a3b8',
+                font: {{ family: 'Plus Jakarta Sans', size: 11 }}
+              }},
+              reverse: isReverseY,
+              grid: {{ color: '#1e293b' }},
+              ticks: {{
+                color: '#94a3b8',
+                font: {{ family: 'JetBrains Mono', size: 11 }},
+                callback: function(value) {{
+                  if (currentTsMetric === 'pace') {{
+                    const m = Math.floor(value);
+                    const s = Math.round((value % 1) * 60).toString().padStart(2, '0');
+                    return m + ':' + s;
+                  }}
+                  return value;
+                }}
+              }}
+            }}
+          }}
+        }}
+      }});
     }}
 
     // Calculator Functions

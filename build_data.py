@@ -203,6 +203,86 @@ def build_dataset():
             'avg_gap_ef': round(float(np.mean(m['gap_efs'])), 3) if m['gap_efs'] else None
         })
 
+    # 3b. Weekly Aggregates (Granular Time Series for Proxy Indicators)
+    from collections import defaultdict
+    weekly_dict = defaultdict(lambda: {
+        'runs': [],
+        'total_miles': 0.0,
+        'total_gain_ft': 0.0,
+        'hrs': [],
+        'cads': [],
+        'efs': [],
+        'gap_efs': [],
+        'paces': [],
+        'gap_paces': [],
+        'decoupling_list': []
+    })
+
+    for r in run_records:
+        dt = pd.to_datetime(r['date'])
+        w_start = (dt - pd.to_timedelta(dt.dayofweek, unit='D')).strftime('%Y-%m-%d')
+        w = weekly_dict[w_start]
+        w['runs'].append(r)
+        w['total_miles'] += r['distance_miles']
+        w['total_gain_ft'] += r['elevation_gain_ft']
+        if r['avg_hr']: w['hrs'].append(r['avg_hr'])
+        if r['avg_cadence_spm']: w['cads'].append(r['avg_cadence_spm'])
+        if r['ef'] and r['distance_miles'] >= 1.5: w['efs'].append(r['ef'])
+        if r.get('gap_ef') and r['distance_miles'] >= 1.5: w['gap_efs'].append(r['gap_ef'])
+        if r['pace_min_mile']: w['paces'].append(r['pace_min_mile'])
+        if r['gap_pace_min_mile']: w['gap_paces'].append(r['gap_pace_min_mile'])
+        if r.get('decoupling_pct') is not None: w['decoupling_list'].append(r['decoupling_pct'])
+
+    weekly_time_series = []
+    for w_start in sorted(weekly_dict.keys()):
+        w = weekly_dict[w_start]
+        avg_gp = float(np.mean(w['gap_paces'])) if w['gap_paces'] else 0
+        v_m_min = 1609.34 / avg_gp if avg_gp > 0 else 0
+        vdot_val = -4.60 + 0.182258 * v_m_min + 0.000104 * (v_m_min ** 2) if v_m_min > 0 else None
+
+        weekly_time_series.append({
+            'date': w_start,
+            'run_count': len(w['runs']),
+            'total_miles': round(w['total_miles'], 1),
+            'total_elevation_ft': round(w['total_gain_ft'], 0),
+            'avg_hr': round(float(np.mean(w['hrs'])), 1) if w['hrs'] else None,
+            'avg_cadence_spm': round(float(np.mean(w['cads'])), 0) if w['cads'] else None,
+            'avg_pace': round(float(np.mean(w['paces'])), 2) if w['paces'] else None,
+            'avg_gap_pace': round(avg_gp, 2) if avg_gp > 0 else None,
+            'avg_ef': round(float(np.mean(w['efs'])), 3) if w['efs'] else None,
+            'avg_gap_ef': round(float(np.mean(w['gap_efs'])), 3) if w['gap_efs'] else None,
+            'vdot': round(float(vdot_val), 1) if vdot_val else None,
+            'decoupling_pct': round(float(np.mean(w['decoupling_list'])), 1) if w['decoupling_list'] else None,
+        })
+
+    # Rolling 4-week mileage average
+    for i in range(len(weekly_time_series)):
+        start_i = max(0, i - 3)
+        sub = [weekly_time_series[j]['total_miles'] for j in range(start_i, i + 1)]
+        weekly_time_series[i]['rolling_4w_mpw'] = round(float(np.mean(sub)), 1)
+
+    # 3c. Daily Time Series (Every Run Logged)
+    daily_time_series = []
+    for r in run_records:
+        gp = r.get('gap_pace_min_mile') or r.get('pace_min_mile') or 0
+        v_m_min = 1609.34 / gp if gp > 0 else 0
+        vdot_val = -4.60 + 0.182258 * v_m_min + 0.000104 * (v_m_min ** 2) if v_m_min > 0 else None
+        daily_time_series.append({
+            'date': r['date'],
+            'run_id': r.get('run_id'),
+            'distance_miles': r['distance_miles'],
+            'duration_seconds': r['duration_seconds'],
+            'pace_min_mile': r['pace_min_mile'],
+            'gap_pace_min_mile': r.get('gap_pace_min_mile'),
+            'avg_hr': r['avg_hr'],
+            'elevation_gain_ft': r['elevation_gain_ft'],
+            'elevation_ft_per_mile': r['elevation_ft_per_mile'],
+            'ef': r.get('ef'),
+            'gap_ef': r.get('gap_ef'),
+            'vdot': round(float(vdot_val), 1) if vdot_val else None,
+            'decoupling_pct': r.get('decoupling_pct')
+        })
+
     # 4. Seattle Marathon 2025 deep dive
     seattle_run = df[df['run_id'] == '2025-11-30_15-30-50'].sort_values('elapsed_seconds').copy()
     seattle_splits = []
@@ -743,6 +823,8 @@ def build_dataset():
         'vancouver_weekly_plan': vancouver_weekly_plan,
         'strength_training_guide': strength_training_guide,
         'monthly_history': monthly_summary,
+        'weekly_time_series': weekly_time_series,
+        'daily_time_series': daily_time_series,
         'recent_runs': run_records[-40:],
         'coach_evaluations': []
     }

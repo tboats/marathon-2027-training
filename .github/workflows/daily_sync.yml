@@ -34,6 +34,16 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Verify Secret Presence
+        env:
+          TOKEN: ${{ secrets.GARMIN_TOKENS }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "❌ GARMIN_TOKENS is empty or not injected! Check if it was added under 'Environment secrets' instead of 'Repository secrets' or missing from tboats/marathon-2027-training."
+          else
+            echo "✅ GARMIN_TOKENS is present (length: ${#TOKEN} characters)"
+          fi
+
       - name: Run Garmin Sync & Coaching Evaluation
         env:
           GARMIN_TOKENS: ${{ secrets.GARMIN_TOKENS }}
