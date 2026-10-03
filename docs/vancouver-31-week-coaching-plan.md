@@ -93,19 +93,21 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 1 Active (Day 4 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **32.24 Miles** (7 workout(s) verified)  
-> **Most Recent Session**: Thursday, 2026-10-01 — **🏋️ Heavy Leg Strength Routine (21:18)** • **Grade A+**  
-> **Up Next**: Friday, 2026-10-02 — **5.0 mi Easy Pre-Long Run Shakeout** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 1 Active (Day 6 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **46.41 Miles** (9 workout(s) verified)  
+> **Most Recent Session**: Saturday, 2026-10-03 — **9.38 mi** • **Grade A+**  
+> **Up Next**: Sunday, 2026-10-04 — **5.0 mi Recovery** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-10-03** | Sat | Week 1: Long Run | 9.0 mi | **9.38 mi** | 8:50 / mi | **8:47 / mi** | 143 / 159.0 bpm | 173.1 spm | +577 ft | 143 bpm HR; 1 strides down to N/A; +577ft climb. | **A+** |
+| **2026-10-02** | Fri | Week 1: Easy Pre-Long Run Shakeout | 5.0 mi | **4.79 mi** | 8:52 / mi | **8:50 / mi** | 138 / 149.0 bpm | 172.5 spm | +226 ft | 138 bpm HR; 1 strides down to N/A; +226ft climb. | **A+** |
 | **2026-10-01** | Thu | Week 1: Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 84 / 122.0 bpm | N/A | 0 ft | Heavy legs (21:18): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 122.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-09-30** | Wed | Week 1: Aerobic Base | 7.0 mi | **7.01 mi** | 8:19 / mi | **8:14 / mi** | 148 / 159.0 bpm | 175.8 spm | +292 ft | 148 bpm HR; 1 strides down to N/A; +292ft climb. | **A** |
 | **2026-09-29** | Tue | Week 1: Easy + Strides | 6.0 mi | **6.11 mi** | 9:05 / mi | **8:56 / mi** | 141 / 165.0 bpm | 172.4 spm | +259 ft | 141 bpm HR; 6 strides down to 5:14 / mi (cadence up to 233 spm); +259ft climb. | **A+** |
-| **2026-09-28** | Mon | Week 1: Rest from Running • Upper Body & Core Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 82 / 123.0 bpm | N/A | 0 ft | Upper body & core: dumbbell bench/overhead press, pull-ups, rows, core stability. Max HR 123 bpm. Zero running. | **A+** |
+| **2026-09-28** | Mon | Week 1: Rest from Running • Upper Body & Core Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 82 / 123.0 bpm | N/A | 0 ft | Heavy legs (13:46): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 123.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-09-27** | Sun | Week 1: Scheduled Run | 6.0 mi | **7.60 mi** | 8:30 / mi | **8:19 / mi** | 145 / 165.0 bpm | 177.7 spm | +528 ft | 145 bpm HR; 1 strides down to N/A; +528ft climb. | **B+** |
 | **2026-09-26** | Sat | Week 1: Scheduled Run | 6.0 mi | **8.01 mi** | 8:58 / mi | **8:53 / mi** | 143 / 161.0 bpm | 176.5 spm | +512 ft | 143 bpm HR; 1 strides down to N/A; +512ft climb. | **B** |
 | **2026-09-25** | Fri | Week 1: Scheduled Run | 6.0 mi | **3.51 mi** | 8:33 / mi | **8:32 / mi** | 142 / 154.0 bpm | 175.5 spm | +177 ft | 142 bpm HR; 1 strides down to N/A; +177ft climb. | **B** |
@@ -164,10 +166,18 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Strategic Purpose*: Targeted neuromuscular recruitment and eccentric resilience without running impact.
   - *Running Prescription*: Non-running day: Bi-Weekly Heavy Resistance Leg Strength. Low reps (3-5), heavy weight, explosive intent. Trap Bar Deadlifts, Bulgarian Split Squats, Heavy Calf Raises, Box Jumps. Zero running today ensures complete energy for neuromuscular recruitment without fatigue. Friday is an easy recovery run to flush legs before Saturday.
   - *Strength Prescription*: Trap Bar Deadlift (3x5 @ 75-80%), Bulgarian Split Squats (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive). Leave 2-3 RIR (never to failure!).
-- **Friday (5.0 mi • Easy Pre-Long Run Shakeout)**:
+- **Friday (5.0 mi • Easy Pre-Long Run Shakeout)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-02)*: **4.79 mi** in **42:29** (8:52 / mi, **8:50 / mi GAP**). Volume adherence: 95.8% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **138.0 bpm** (Max HR: 149.0 bpm).
+  - *Elevation & Topography*: +226 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **3.4** | Anaerobic TE **0.0**.
   - *Strategic Purpose*: Gentle active recovery flush of legs following Thursday strength session, priming for Saturday long run.
   - *Running Prescription*: Relaxed conversational recovery run on flat terrain. Promotes capillary circulation, flushes metabolites from Thursday lifting, and primes legs for tomorrow anchor. ZERO lifting.
-- **Saturday (9.0 mi • Long Run)**:
+- **Saturday (9.0 mi • Long Run)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-03)*: **9.38 mi** in **82:59** (8:50 / mi, **8:47 / mi GAP**). Volume adherence: 104.2% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **143.0 bpm** (Max HR: 159.0 bpm).
+  - *Elevation & Topography*: +577 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **4.4** | Anaerobic TE **0.0**.
   - *Strategic Purpose*: Long aerobic endurance and fat oxidation.
   - *Running Prescription*: Weekly long run anchor: 9mi (Long Run). Maintain steady effort on Seattle rolling hills.
 - **Sunday (5.0 mi • Recovery)**:
