@@ -93,15 +93,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 1 Active (Day 6 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **46.41 Miles** (9 workout(s) verified)  
-> **Most Recent Session**: Saturday, 2026-10-03 — **9.38 mi** • **Grade A+**  
-> **Up Next**: Sunday, 2026-10-04 — **5.0 mi Recovery** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 1 Active (Day 7 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **53.67 Miles** (10 workout(s) verified)  
+> **Most Recent Session**: Sunday, 2026-10-04 — **7.26 mi** • **Grade B**  
+> **Up Next**: Monday, 2026-10-05 — **0 mi Rest from Running • Upper Body & Core Strength** (Upper Body & Core Strength (No Running))
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-10-04** | Sun | Week 1: Recovery | 5.0 mi | **7.26 mi** | 9:19 / mi | **9:02 / mi** | 137 / 154.0 bpm | 172.8 spm | +466 ft | 137 bpm HR; 1 strides down to N/A; +466ft climb. | **B** |
 | **2026-10-03** | Sat | Week 1: Long Run | 9.0 mi | **9.38 mi** | 8:50 / mi | **8:47 / mi** | 143 / 159.0 bpm | 173.1 spm | +577 ft | 143 bpm HR; 1 strides down to N/A; +577ft climb. | **A+** |
 | **2026-10-02** | Fri | Week 1: Easy Pre-Long Run Shakeout | 5.0 mi | **4.79 mi** | 8:52 / mi | **8:50 / mi** | 138 / 149.0 bpm | 172.5 spm | +226 ft | 138 bpm HR; 1 strides down to N/A; +226ft climb. | **A+** |
 | **2026-10-01** | Thu | Week 1: Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 84 / 122.0 bpm | N/A | 0 ft | Heavy legs (21:18): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 122.0 bpm (<130 bpm cap). Zero running. | **A+** |
@@ -180,7 +181,11 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Training Stimulus*: Aerobic TE **4.4** | Anaerobic TE **0.0**.
   - *Strategic Purpose*: Long aerobic endurance and fat oxidation.
   - *Running Prescription*: Weekly long run anchor: 9mi (Long Run). Maintain steady effort on Seattle rolling hills.
-- **Sunday (5.0 mi • Recovery)**:
+- **Sunday (5.0 mi • Recovery)** — ✅ **COMPLETED (Grade B)**:
+  - *Actual Execution (2026-10-04)*: **7.26 mi** in **67:42** (9:19 / mi, **9:02 / mi GAP**). Volume adherence: 145.2% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **137.0 bpm** (Max HR: 154.0 bpm).
+  - *Elevation & Topography*: +466 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **3.7** | Anaerobic TE **0.0**.
   - *Strategic Purpose*: Aerobic density and cumulative fatigue recovery.
   - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery). Runs gently on legs carrying Saturday fatigue.
 

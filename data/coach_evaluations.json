@@ -1,5 +1,66 @@
 [
   {
+    "evaluation_id": "2026-10-04_24604813666",
+    "activity_id": 24604813666,
+    "date": "2026-10-04",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 1,
+    "day_of_week": "Sun",
+    "day_full": "Sunday",
+    "prescribed": {
+      "miles": 5.0,
+      "workout": "Recovery",
+      "target_pace": "9:15 \u2013 9:45 / mi",
+      "target_hr": "Zone 1 (< 135 bpm)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 7.26,
+      "duration_formatted": "67:42",
+      "duration_seconds": 4062.8,
+      "pace_raw": "9:19 / mi",
+      "pace_gap": "9:02 / mi",
+      "avg_hr": 137.0,
+      "max_hr": 154.0,
+      "avg_cadence": 172.8,
+      "max_cadence": 192.0,
+      "elevation_gain_ft": 465.9,
+      "elevation_loss_ft": 488.8,
+      "aerobic_te": 3.700000047683716,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": 259.2,
+      "strides_gct_ms": 259.2,
+      "vertical_ratio_pct": 8.6,
+      "strides_vr_pct": 8.6,
+      "avg_power_w": 313.0,
+      "max_power_w": 567.0
+    },
+    "scorecard": {
+      "grade": "B",
+      "distance_adherence_pct": 145.2,
+      "pace_adherence": "Raw 9:19 / mi | Grade-Adjusted 9:02 / mi",
+      "hr_compliance": "Avg HR 137 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Strong execution of Week 1 Sunday: 7.26 miles at 9:19 / mi (GAP: 9:02 / mi) with an average heart rate of 137 bpm.",
+    "key_takeaways": [
+      "Adherence: Completed 7.26 mi vs 5.0 mi prescribed (145.2% volume precision).",
+      "Metabolic Control: Averaged 137 bpm heart rate, cleanly respecting aerobic development boundaries.",
+      "Topography Management: Handled +466 ft of climb with appropriate effort modulation."
+    ],
+    "next_workout": {
+      "day": "Monday",
+      "date": "2026-10-05",
+      "miles": 0,
+      "workout": "Rest from Running \u2022 Upper Body & Core Strength",
+      "target_pace": "Rest / Mobility",
+      "target_hr": "Rest (< 100 bpm)",
+      "lifting_rule": "Upper Body & Core Strength (No Running)"
+    }
+  },
+  {
     "evaluation_id": "2026-10-03_24592426403",
     "activity_id": 24592426403,
     "date": "2026-10-03",

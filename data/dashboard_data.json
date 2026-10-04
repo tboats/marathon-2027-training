@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-10-03T13:12:33.938794",
-    "total_historical_runs": 393,
-    "dataset_date_range": "2025-03-02 to 2026-10-03",
+    "generated_at": "2026-10-04T10:52:45.316204",
+    "total_historical_runs": 394,
+    "dataset_date_range": "2025-03-02 to 2026-10-04",
     "current_date": "2026-09-27",
     "target_race_name": "BMO Vancouver Marathon 2027",
     "target_race_date": "2027-05-02",
@@ -5876,17 +5876,17 @@
     },
     {
       "month": "2026-10",
-      "total_miles": 21.2,
-      "run_count": 3,
+      "total_miles": 28.4,
+      "run_count": 4,
       "longest_mile": 9.4,
-      "total_elevation_ft": 1109.0,
+      "total_elevation_ft": 1489.0,
       "avg_ft_per_mile": 52.4,
-      "avg_pace_min_mile": 8.7,
-      "avg_gap_pace_min_mile": 8.39,
+      "avg_pace_min_mile": 8.86,
+      "avg_gap_pace_min_mile": 8.56,
       "avg_hr": 140.0,
       "avg_cadence_spm": 177.0,
-      "avg_ef": 1.322,
-      "avg_gap_ef": 1.371
+      "avg_ef": 1.299,
+      "avg_gap_ef": 1.346
     }
   ],
   "weekly_time_series": [
@@ -7122,18 +7122,18 @@
     },
     {
       "date": "2026-09-28",
-      "run_count": 4,
-      "total_miles": 27.3,
-      "total_elevation_ft": 1360.0,
+      "run_count": 5,
+      "total_miles": 34.5,
+      "total_elevation_ft": 1740.0,
       "avg_hr": 140.2,
       "avg_cadence_spm": 176.0,
-      "avg_pace": 8.82,
-      "avg_gap_pace": 8.53,
-      "avg_ef": 1.303,
-      "avg_gap_ef": 1.348,
-      "vdot": 33.5,
+      "avg_pace": 8.92,
+      "avg_gap_pace": 8.63,
+      "avg_ef": 1.289,
+      "avg_gap_ef": 1.333,
+      "vdot": 33.0,
       "decoupling_pct": null,
-      "rolling_4w_mpw": 28.0
+      "rolling_4w_mpw": 29.8
     }
   ],
   "daily_time_series": [
@@ -13031,27 +13031,24 @@
       "gap_ef": 1.341,
       "vdot": 33.3,
       "decoupling_pct": null
+    },
+    {
+      "date": "2026-10-04",
+      "run_id": "24604813666_ACTIVITY",
+      "distance_miles": 7.26,
+      "duration_seconds": 4067.1,
+      "pace_min_mile": 9.34,
+      "gap_pace_min_mile": 9.03,
+      "avg_hr": 140.0,
+      "elevation_gain_ft": 380.0,
+      "elevation_ft_per_mile": 52.4,
+      "ef": 1.231,
+      "gap_ef": 1.273,
+      "vdot": 31.2,
+      "decoupling_pct": null
     }
   ],
   "recent_runs": [
-    {
-      "run_id": "2026-08-02_14-34-22",
-      "date": "2026-08-02",
-      "start_time": "2026-08-02T14:34:26",
-      "distance_meters": 15525.3,
-      "distance_miles": 9.65,
-      "duration_seconds": 5414.0,
-      "pace_min_mile": 9.35,
-      "elevation_gain_ft": 469.0,
-      "elevation_ft_per_mile": 48.6,
-      "gap_pace_min_mile": 9.07,
-      "avg_hr": 135.6,
-      "max_hr": 155,
-      "avg_cadence_spm": 174.0,
-      "ef": 1.268,
-      "gap_ef": 1.308,
-      "decoupling_pct": null
-    },
     {
       "run_id": "2026-08-08_13-29-27",
       "date": "2026-08-08",
@@ -13753,9 +13750,88 @@
       "ef": 1.295,
       "gap_ef": 1.341,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "24604813666_ACTIVITY",
+      "date": "2026-10-04",
+      "start_time": "2026-10-04T14:19:57Z",
+      "distance_meters": 11683.5,
+      "distance_miles": 7.26,
+      "duration_seconds": 4067.1,
+      "pace_min_mile": 9.34,
+      "elevation_gain_ft": 380.0,
+      "elevation_ft_per_mile": 52.4,
+      "gap_pace_min_mile": 9.03,
+      "avg_hr": 140.0,
+      "max_hr": 162,
+      "avg_cadence_spm": 177.0,
+      "ef": 1.231,
+      "gap_ef": 1.273,
+      "decoupling_pct": null
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-10-04_24604813666",
+      "activity_id": 24604813666,
+      "date": "2026-10-04",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 1,
+      "day_of_week": "Sun",
+      "day_full": "Sunday",
+      "prescribed": {
+        "miles": 5.0,
+        "workout": "Recovery",
+        "target_pace": "9:15 \u2013 9:45 / mi",
+        "target_hr": "Zone 1 (< 135 bpm)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 7.26,
+        "duration_formatted": "67:42",
+        "duration_seconds": 4062.8,
+        "pace_raw": "9:19 / mi",
+        "pace_gap": "9:02 / mi",
+        "avg_hr": 137.0,
+        "max_hr": 154.0,
+        "avg_cadence": 172.8,
+        "max_cadence": 192.0,
+        "elevation_gain_ft": 465.9,
+        "elevation_loss_ft": 488.8,
+        "aerobic_te": 3.700000047683716,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": 259.2,
+        "strides_gct_ms": 259.2,
+        "vertical_ratio_pct": 8.6,
+        "strides_vr_pct": 8.6,
+        "avg_power_w": 313.0,
+        "max_power_w": 567.0
+      },
+      "scorecard": {
+        "grade": "B",
+        "distance_adherence_pct": 145.2,
+        "pace_adherence": "Raw 9:19 / mi | Grade-Adjusted 9:02 / mi",
+        "hr_compliance": "Avg HR 137 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Strong execution of Week 1 Sunday: 7.26 miles at 9:19 / mi (GAP: 9:02 / mi) with an average heart rate of 137 bpm.",
+      "key_takeaways": [
+        "Adherence: Completed 7.26 mi vs 5.0 mi prescribed (145.2% volume precision).",
+        "Metabolic Control: Averaged 137 bpm heart rate, cleanly respecting aerobic development boundaries.",
+        "Topography Management: Handled +466 ft of climb with appropriate effort modulation."
+      ],
+      "next_workout": {
+        "day": "Monday",
+        "date": "2026-10-05",
+        "miles": 0,
+        "workout": "Rest from Running \u2022 Upper Body & Core Strength",
+        "target_pace": "Rest / Mobility",
+        "target_hr": "Rest (< 100 bpm)",
+        "lifting_rule": "Upper Body & Core Strength (No Running)"
+      }
+    },
     {
       "evaluation_id": "2026-10-03_24592426403",
       "activity_id": 24592426403,
