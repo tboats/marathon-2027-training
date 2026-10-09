@@ -96,13 +96,13 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 > **Current Campaign Status**: **Week 2 Active (Day 4 of 7 Complete)** • Phase 1: Aerobic Foundation  
 > **Campaign Mileage Logged**: **72.82 Miles** (13 workout(s) verified)  
 > **Most Recent Session**: Thursday, 2026-10-08 — **5.09 mi** • **Grade A+**  
-> **Up Next**: Friday, 2026-10-09 — **5.0 mi Easy Pre-Long Run Shakeout** (RUN ONLY — ZERO LIFTING)
+> **Up Next**: Thursday, 2026-10-09 — **0 mi Rest from Running • 🧘 Core & Pelvic Hip Stability** (🧘 Core & Pelvic Hip Stability (No Running))
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
-| **2026-10-08** | Thu | Week 2: Rest from Running • 🧘 Core & Pelvic Hip Stability | 0.0 mi | **5.09 mi** | 8:50 / mi | **8:57 / mi** | 138 / 152.0 bpm | 171.4 spm | +82 ft | 138 bpm HR; 1 strides down to N/A; +82ft climb. | **A+** |
+| **2026-10-08** | Thu | Week 2: Easy Pre-Long Run Shakeout | 5.0 mi | **5.09 mi** | 8:50 / mi | **8:57 / mi** | 138 / 152.0 bpm | 171.4 spm | +82 ft | 138 bpm HR; 1 strides down to N/A; +82ft climb. | **A+** |
 | **2026-10-07** | Wed | Week 2: Steady Aerobic | 8.0 mi | **7.67 mi** | 8:09 / mi | **8:12 / mi** | 145 / 153.0 bpm | 176.4 spm | +69 ft | 145 bpm HR; 1 strides down to N/A; +69ft climb. | **A+** |
 | **2026-10-06** | Tue | Week 2: Aerobic + Strides | 6.0 mi | **6.39 mi** | 8:13 / mi | **8:19 / mi** | 144 / 167.0 bpm | 173.4 spm | +131 ft | 144 bpm HR; 6 strides down to 4:48 / mi (cadence up to 234 spm); +131ft climb. | **A+** |
 | **2026-10-04** | Sun | Week 1: Recovery | 5.0 mi | **7.26 mi** | 9:19 / mi | **9:02 / mi** | 137 / 154.0 bpm | 172.8 spm | +466 ft | 137 bpm HR; 1 strides down to N/A; +466ft climb. | **B** |

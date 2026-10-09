@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-10-08T22:20:34.001398",
+    "generated_at": "2026-10-08T22:21:15.648738",
     "total_historical_runs": 397,
     "dataset_date_range": "2025-03-02 to 2026-10-08",
     "current_date": "2026-09-27",
@@ -13841,11 +13841,11 @@
       "day_of_week": "Thu",
       "day_full": "Thursday",
       "prescribed": {
-        "miles": 0.0,
-        "workout": "Rest from Running \u2022 \ud83e\uddd8 Core & Pelvic Hip Stability",
-        "target_pace": "Rest / Strength",
-        "target_hr": "Rest / Gym (< 130 bpm)",
-        "lifting": "\ud83e\uddd8 Core & Pelvic Hip Stability (No Running)"
+        "miles": 5.0,
+        "workout": "Easy Pre-Long Run Shakeout",
+        "target_pace": "9:00 \u2013 9:30 / mi",
+        "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
+        "lifting": "None (Running Only)"
       },
       "actual": {
         "miles": 5.09,
@@ -13870,7 +13870,7 @@
       },
       "scorecard": {
         "grade": "A+",
-        "distance_adherence_pct": 100.0,
+        "distance_adherence_pct": 101.8,
         "pace_adherence": "Raw 8:50 / mi | Grade-Adjusted 8:57 / mi",
         "hr_compliance": "Avg HR 138 bpm (Zone 2 compliant)",
         "strides_count": 1,
@@ -13878,18 +13878,18 @@
       },
       "executive_summary": "Strong execution of Week 2 Thursday: 5.09 miles at 8:50 / mi (GAP: 8:57 / mi) with an average heart rate of 138 bpm.",
       "key_takeaways": [
-        "Adherence: Completed 5.09 mi vs 0.0 mi prescribed (100.0% volume precision).",
+        "Adherence: Completed 5.09 mi vs 5.0 mi prescribed (101.8% volume precision).",
         "Metabolic Control: Averaged 138 bpm heart rate, cleanly respecting aerobic development boundaries.",
         "Topography Management: Handled +82 ft of climb with appropriate effort modulation."
       ],
       "next_workout": {
-        "day": "Friday",
+        "day": "Thursday",
         "date": "2026-10-09",
-        "miles": 5.0,
-        "workout": "Easy Pre-Long Run Shakeout",
-        "target_pace": "9:00 \u2013 9:30 / mi",
-        "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
-        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+        "miles": 0,
+        "workout": "Rest from Running \u2022 \ud83e\uddd8 Core & Pelvic Hip Stability",
+        "target_pace": "Rest / Strength",
+        "target_hr": "Rest / Gym (< 130 bpm)",
+        "lifting_rule": "\ud83e\uddd8 Core & Pelvic Hip Stability (No Running)"
       }
     },
     {
