@@ -93,15 +93,18 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 1 Active (Day 7 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **53.67 Miles** (10 workout(s) verified)  
-> **Most Recent Session**: Sunday, 2026-10-04 — **7.26 mi** • **Grade B**  
-> **Up Next**: Monday, 2026-10-05 — **0 mi Rest from Running • Upper Body & Core Strength** (Upper Body & Core Strength (No Running))
+> **Current Campaign Status**: **Week 2 Active (Day 4 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **72.82 Miles** (13 workout(s) verified)  
+> **Most Recent Session**: Thursday, 2026-10-08 — **5.09 mi** • **Grade A+**  
+> **Up Next**: Friday, 2026-10-09 — **5.0 mi Easy Pre-Long Run Shakeout** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-10-08** | Thu | Week 2: Rest from Running • 🧘 Core & Pelvic Hip Stability | 0.0 mi | **5.09 mi** | 8:50 / mi | **8:57 / mi** | 138 / 152.0 bpm | 171.4 spm | +82 ft | 138 bpm HR; 1 strides down to N/A; +82ft climb. | **A+** |
+| **2026-10-07** | Wed | Week 2: Steady Aerobic | 8.0 mi | **7.67 mi** | 8:09 / mi | **8:12 / mi** | 145 / 153.0 bpm | 176.4 spm | +69 ft | 145 bpm HR; 1 strides down to N/A; +69ft climb. | **A+** |
+| **2026-10-06** | Tue | Week 2: Aerobic + Strides | 6.0 mi | **6.39 mi** | 8:13 / mi | **8:19 / mi** | 144 / 167.0 bpm | 173.4 spm | +131 ft | 144 bpm HR; 6 strides down to 4:48 / mi (cadence up to 234 spm); +131ft climb. | **A+** |
 | **2026-10-04** | Sun | Week 1: Recovery | 5.0 mi | **7.26 mi** | 9:19 / mi | **9:02 / mi** | 137 / 154.0 bpm | 172.8 spm | +466 ft | 137 bpm HR; 1 strides down to N/A; +466ft climb. | **B** |
 | **2026-10-03** | Sat | Week 1: Long Run | 9.0 mi | **9.38 mi** | 8:50 / mi | **8:47 / mi** | 143 / 159.0 bpm | 173.1 spm | +577 ft | 143 bpm HR; 1 strides down to N/A; +577ft climb. | **A+** |
 | **2026-10-02** | Fri | Week 1: Easy Pre-Long Run Shakeout | 5.0 mi | **4.79 mi** | 8:52 / mi | **8:50 / mi** | 138 / 149.0 bpm | 172.5 spm | +226 ft | 138 bpm HR; 1 strides down to N/A; +226ft climb. | **A+** |
@@ -213,10 +216,18 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
   - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
   - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
-- **Tuesday (6.0 mi • Aerobic + Strides)**:
+- **Tuesday (6.0 mi • Aerobic + Strides)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-06)*: **6.39 mi** in **52:31** (8:13 / mi, **8:19 / mi GAP**). Volume adherence: 106.5% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **144.0 bpm** (Max HR: 167.0 bpm).
+  - *Elevation & Topography*: +131 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **4.0** | Anaerobic TE **2.5**.
   - *Strategic Purpose*: Neuromuscular turnover and hill mechanics.
   - *Running Prescription*: Aerobic run concluding with 6mi (aerobic + strides). Focus on high knee drive and upright posture.
-- **Wednesday (8.0 mi • Steady Aerobic)**:
+- **Wednesday (8.0 mi • Steady Aerobic)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-07)*: **7.67 mi** in **62:36** (8:09 / mi, **8:12 / mi GAP**). Volume adherence: 95.9% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **145.0 bpm** (Max HR: 153.0 bpm).
+  - *Elevation & Topography*: +69 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **4.3** | Anaerobic TE **0.3**.
   - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
   - *Running Prescription*: Midweek double-digit aerobic anchor: 8mi (steady aerobic). Crucial stamina builder for Vancouver's undulating profile.
 - **Thursday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)**:
