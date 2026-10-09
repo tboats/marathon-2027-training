@@ -33,8 +33,14 @@ def get_vancouver_workout_for_date(date_str):
     Finds the scheduled workout in the 31-week Vancouver plan for a given ISO date (YYYY-MM-DD).
     Plan start date: Monday, Sep 28, 2026.
     """
+    # Dynamic schedule adaptations / day swaps
+    DATE_OVERRIDES = {
+        "2026-10-08": "2026-10-09", # Ran Friday Easy Shakeout on Thursday
+        "2026-10-09": "2026-10-08", # Thursday Core & Pelvic Hip Stability moved to Friday
+    }
+    effective_date_str = DATE_OVERRIDES.get(date_str, date_str)
     try:
-        target_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+        target_date = datetime.strptime(effective_date_str, "%Y-%m-%d").date()
     except Exception:
         return None, None, None
 
@@ -266,16 +272,91 @@ def evaluate_run(activity, details=None, splits=None):
     prescribed_miles = float(day_prescribed.get("miles", 0))
     dist_adherence = (dist_mi / prescribed_miles * 100.0) if prescribed_miles > 0 else 100.0
     
-    # Calculate Grade
-    grade = "A"
-    if 95 <= dist_adherence <= 110 and avg_hr and avg_hr < 148:
+    # Multi-Dimensional Sharpened Coaching Evaluation Rubric
+    # Evaluates volume discipline, pace compliance (penalizing running too fast on easy/recovery days),
+    # metabolic HR containment, and quality execution.
+    prescribed_workout_title = day_prescribed.get("workout", "").lower()
+    pace_str_target = day_prescribed.get("pace", "")
+    hr_str_target = day_prescribed.get("hr_zone", "")
+
+    # Parse target pace bounds (e.g. "8:30 – 8:55 / mi", "9:00 – 9:30 / mi")
+    target_fast_pace_sec = None
+    target_slow_pace_sec = None
+    pace_matches = re.findall(r"(\d+):(\d{2})", pace_str_target)
+    if len(pace_matches) >= 2:
+        target_fast_pace_sec = int(pace_matches[0][0]) * 60 + int(pace_matches[0][1])
+        target_slow_pace_sec = int(pace_matches[1][0]) * 60 + int(pace_matches[1][1])
+    elif len(pace_matches) == 1:
+        target_fast_pace_sec = int(pace_matches[0][0]) * 60 + int(pace_matches[0][1]) - 15
+        target_slow_pace_sec = int(pace_matches[0][0]) * 60 + int(pace_matches[0][1]) + 15
+
+    # Determine workout category
+    is_recovery = "recovery" in prescribed_workout_title or "shakeout" in prescribed_workout_title
+    is_strides = "strides" in prescribed_workout_title or "surges" in prescribed_workout_title
+    is_aerobic_base = "aerobic" in prescribed_workout_title or "long run" in prescribed_workout_title
+    is_quality = "tempo" in prescribed_workout_title or "interval" in prescribed_workout_title or "time trial" in prescribed_workout_title
+
+    # Target HR ceilings
+    hr_ceiling = 146
+    if is_recovery:
+        hr_ceiling = 138
+    elif is_aerobic_base:
+        hr_ceiling = 145
+    elif is_quality:
+        hr_ceiling = 168
+
+    deductions = []
+    
+    # 1. Volume Adherence Penalty
+    if dist_adherence < 85:
+        deductions.append(("Under-distance: cut run short (<85%)", 2.0))
+    elif dist_adherence < 93:
+        deductions.append(("Slightly short on volume (85-93%)", 1.0))
+    elif dist_adherence > 130:
+        deductions.append(("Significant over-distance (>130%): added excessive unprescribed volume", 2.0))
+    elif dist_adherence > 115:
+        deductions.append(("Over-distance (115-130%): ran beyond prescribed ceiling", 1.0))
+
+    # 2. Pace Discipline Penalty (Using Grade-Adjusted Pace so hills are fairly normalized)
+    effective_pace_sec = gap_sec if (gap_speed and gap_speed > 0) else pace_sec
+    if target_fast_pace_sec and target_slow_pace_sec:
+        # Running significantly too fast on an Easy / Recovery day is a cardinal training mistake
+        if is_recovery and effective_pace_sec < (target_fast_pace_sec - 10):
+            sec_fast = int(target_fast_pace_sec - effective_pace_sec)
+            deductions.append((f"Recovery pacing violation: ran {sec_fast}s/mi faster than prescribed recovery floor", 1.5))
+        elif is_aerobic_base and effective_pace_sec < (target_fast_pace_sec - 15):
+            sec_fast = int(target_fast_pace_sec - effective_pace_sec)
+            deductions.append((f"Aerobic base pacing violation: ran {sec_fast}s/mi too fast (compromising cellular base development)", 1.0))
+        elif is_aerobic_base and effective_pace_sec > (target_slow_pace_sec + 25):
+            deductions.append(("Sluggish aerobic pace: dropped significantly slower than target base range", 1.0))
+
+    # 3. Heart Rate Ceiling Penalty
+    if avg_hr:
+        if avg_hr > (hr_ceiling + 5):
+            deductions.append((f"Cardiovascular drift: avg HR ({avg_hr:.0f} bpm) exceeded workout ceiling ({hr_ceiling} bpm) by 5+ bpm", 2.0))
+        elif avg_hr > hr_ceiling:
+            deductions.append((f"Marginal HR drift: avg HR ({avg_hr:.0f} bpm) pressed right against/above workout ceiling ({hr_ceiling} bpm)", 0.5))
+
+    # 4. Quality Element Verification (e.g. strides on strides days)
+    if is_strides and strides_count < 3:
+        deductions.append(("Missing strides: workout required neuromuscular turnover pickups but none were detected", 1.5))
+
+    total_penalty = sum(d[1] for d in deductions)
+
+    if total_penalty == 0:
         grade = "A+"
-    elif 90 <= dist_adherence <= 120:
+    elif total_penalty <= 0.75:
         grade = "A"
-    elif 80 <= dist_adherence <= 130:
+    elif total_penalty <= 1.5:
+        grade = "A-"
+    elif total_penalty <= 2.25:
         grade = "B+"
-    else:
+    elif total_penalty <= 3.0:
         grade = "B"
+    elif total_penalty <= 3.75:
+        grade = "B-"
+    else:
+        grade = "C+"
 
     # Determine next workout
     next_dt = datetime.strptime(date_str, "%Y-%m-%d").date()
@@ -343,12 +424,12 @@ def evaluate_run(activity, details=None, splits=None):
             "strides_count": strides_count,
             "strides_peak_pace": strides_peak_pace
         },
-        "executive_summary": f"Strong execution of Week {week_num} {datetime.strptime(date_str, '%Y-%m-%d').strftime('%A')}: {dist_mi:.2f} miles at {raw_pace_str} (GAP: {gap_pace_str}) with an average heart rate of {avg_hr:.0f} bpm.",
+        "executive_summary": f"Evaluation for Week {week_num} {datetime.strptime(date_str, '%Y-%m-%d').strftime('%A')}: {dist_mi:.2f} miles at {raw_pace_str} (GAP: {gap_pace_str}) with an average heart rate of {avg_hr:.0f} bpm (Grade: {grade}).",
         "key_takeaways": [
             f"Adherence: Completed {dist_mi:.2f} mi vs {prescribed_miles:.1f} mi prescribed ({dist_adherence:.1f}% volume precision).",
-            f"Metabolic Control: Averaged {avg_hr:.0f} bpm heart rate, cleanly respecting aerobic development boundaries.",
+            f"Metabolic Control: Averaged {avg_hr:.0f} bpm heart rate (workout ceiling: {hr_ceiling} bpm).",
             f"Topography Management: Handled +{elev_gain:.0f} ft of climb with appropriate effort modulation."
-        ],
+        ] + ([f"⚠️ Coach Deduction: {d[0]}" for d in deductions] if deductions else ["✨ Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."]),
         "next_workout": next_workout_obj
     }
 

@@ -103,18 +103,18 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
 | **2026-10-08** | Thu | Week 2: Easy Pre-Long Run Shakeout | 5.0 mi | **5.09 mi** | 8:50 / mi | **8:57 / mi** | 138 / 152.0 bpm | 171.4 spm | +82 ft | 138 bpm HR; 1 strides down to N/A; +82ft climb. | **A+** |
-| **2026-10-07** | Wed | Week 2: Steady Aerobic | 8.0 mi | **7.67 mi** | 8:09 / mi | **8:12 / mi** | 145 / 153.0 bpm | 176.4 spm | +69 ft | 145 bpm HR; 1 strides down to N/A; +69ft climb. | **A+** |
-| **2026-10-06** | Tue | Week 2: Aerobic + Strides | 6.0 mi | **6.39 mi** | 8:13 / mi | **8:19 / mi** | 144 / 167.0 bpm | 173.4 spm | +131 ft | 144 bpm HR; 6 strides down to 4:48 / mi (cadence up to 234 spm); +131ft climb. | **A+** |
-| **2026-10-04** | Sun | Week 1: Recovery | 5.0 mi | **7.26 mi** | 9:19 / mi | **9:02 / mi** | 137 / 154.0 bpm | 172.8 spm | +466 ft | 137 bpm HR; 1 strides down to N/A; +466ft climb. | **B** |
+| **2026-10-07** | Wed | Week 2: Steady Aerobic | 8.0 mi | **7.67 mi** | 8:09 / mi | **8:12 / mi** | 145 / 153.0 bpm | 176.4 spm | +69 ft | 145 bpm HR; 1 strides down to N/A; +69ft climb. | **A-** |
+| **2026-10-06** | Tue | Week 2: Aerobic + Strides | 6.0 mi | **6.39 mi** | 8:13 / mi | **8:19 / mi** | 144 / 167.0 bpm | 173.4 spm | +131 ft | 144 bpm HR; 6 strides down to N/A; +131ft climb. | **A-** |
+| **2026-10-04** | Sun | Week 1: Recovery | 5.0 mi | **7.26 mi** | 9:19 / mi | **9:02 / mi** | 137 / 154.0 bpm | 172.8 spm | +466 ft | 137 bpm HR; 1 strides down to N/A; +466ft climb. | **B-** |
 | **2026-10-03** | Sat | Week 1: Long Run | 9.0 mi | **9.38 mi** | 8:50 / mi | **8:47 / mi** | 143 / 159.0 bpm | 173.1 spm | +577 ft | 143 bpm HR; 1 strides down to N/A; +577ft climb. | **A+** |
 | **2026-10-02** | Fri | Week 1: Easy Pre-Long Run Shakeout | 5.0 mi | **4.79 mi** | 8:52 / mi | **8:50 / mi** | 138 / 149.0 bpm | 172.5 spm | +226 ft | 138 bpm HR; 1 strides down to N/A; +226ft climb. | **A+** |
 | **2026-10-01** | Thu | Week 1: Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 84 / 122.0 bpm | N/A | 0 ft | Heavy legs (21:18): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 122.0 bpm (<130 bpm cap). Zero running. | **A+** |
-| **2026-09-30** | Wed | Week 1: Aerobic Base | 7.0 mi | **7.01 mi** | 8:19 / mi | **8:14 / mi** | 148 / 159.0 bpm | 175.8 spm | +292 ft | 148 bpm HR; 1 strides down to N/A; +292ft climb. | **A** |
-| **2026-09-29** | Tue | Week 1: Easy + Strides | 6.0 mi | **6.11 mi** | 9:05 / mi | **8:56 / mi** | 141 / 165.0 bpm | 172.4 spm | +259 ft | 141 bpm HR; 6 strides down to 5:14 / mi (cadence up to 233 spm); +259ft climb. | **A+** |
+| **2026-09-30** | Wed | Week 1: Aerobic Base | 7.0 mi | **7.01 mi** | 8:19 / mi | **8:14 / mi** | 148 / 159.0 bpm | 175.8 spm | +292 ft | 148 bpm HR; 1 strides down to N/A; +292ft climb. | **A-** |
+| **2026-09-29** | Tue | Week 1: Easy + Strides | 6.0 mi | **6.11 mi** | 9:05 / mi | **8:56 / mi** | 141 / 165.0 bpm | 172.4 spm | +259 ft | 141 bpm HR; 6 strides down to N/A; +259ft climb. | **A+** |
 | **2026-09-28** | Mon | Week 1: Rest from Running • Upper Body & Core Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 82 / 123.0 bpm | N/A | 0 ft | Heavy legs (13:46): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 123.0 bpm (<130 bpm cap). Zero running. | **A+** |
-| **2026-09-27** | Sun | Week 1: Scheduled Run | 6.0 mi | **7.60 mi** | 8:30 / mi | **8:19 / mi** | 145 / 165.0 bpm | 177.7 spm | +528 ft | 145 bpm HR; 1 strides down to N/A; +528ft climb. | **B+** |
-| **2026-09-26** | Sat | Week 1: Scheduled Run | 6.0 mi | **8.01 mi** | 8:58 / mi | **8:53 / mi** | 143 / 161.0 bpm | 176.5 spm | +512 ft | 143 bpm HR; 1 strides down to N/A; +512ft climb. | **B** |
-| **2026-09-25** | Fri | Week 1: Scheduled Run | 6.0 mi | **3.51 mi** | 8:33 / mi | **8:32 / mi** | 142 / 154.0 bpm | 175.5 spm | +177 ft | 142 bpm HR; 1 strides down to N/A; +177ft climb. | **B** |
+| **2026-09-27** | Sun | Week 1: Scheduled Run | 6.0 mi | **7.60 mi** | 8:30 / mi | **8:19 / mi** | 145 / 165.0 bpm | 177.7 spm | +528 ft | 145 bpm HR; 1 strides down to N/A; +528ft climb. | **A-** |
+| **2026-09-26** | Sat | Week 1: Scheduled Run | 6.0 mi | **8.01 mi** | 8:58 / mi | **8:53 / mi** | 143 / 161.0 bpm | 176.5 spm | +512 ft | 143 bpm HR; 1 strides down to N/A; +512ft climb. | **B+** |
+| **2026-09-25** | Fri | Week 1: Scheduled Run | 6.0 mi | **3.51 mi** | 8:33 / mi | **8:32 / mi** | 142 / 154.0 bpm | 175.5 spm | +177 ft | 142 bpm HR; 1 strides down to N/A; +177ft climb. | **B+** |
 <!-- END_ACTIVE_WORKOUT_LOG -->
 
 ---

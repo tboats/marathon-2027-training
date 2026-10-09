@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-10-08T22:21:15.648738",
+    "generated_at": "2026-10-08T22:27:03.943101",
     "total_historical_runs": 397,
     "dataset_date_range": "2025-03-02 to 2026-10-08",
     "current_date": "2026-09-27",
@@ -13876,11 +13876,12 @@
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 2 Thursday: 5.09 miles at 8:50 / mi (GAP: 8:57 / mi) with an average heart rate of 138 bpm.",
+      "executive_summary": "Evaluation for Week 2 Thursday: 5.09 miles at 8:50 / mi (GAP: 8:57 / mi) with an average heart rate of 138 bpm (Grade: A+).",
       "key_takeaways": [
         "Adherence: Completed 5.09 mi vs 5.0 mi prescribed (101.8% volume precision).",
-        "Metabolic Control: Averaged 138 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +82 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 138 bpm heart rate (workout ceiling: 138 bpm).",
+        "Topography Management: Handled +82 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
       ],
       "next_workout": {
         "day": "Thursday",
@@ -13930,27 +13931,28 @@
         "max_power_w": 569.0
       },
       "scorecard": {
-        "grade": "A+",
+        "grade": "A-",
         "distance_adherence_pct": 95.9,
         "pace_adherence": "Raw 8:09 / mi | Grade-Adjusted 8:12 / mi",
         "hr_compliance": "Avg HR 145 bpm (Zone 2 compliant)",
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 2 Wednesday: 7.67 miles at 8:09 / mi (GAP: 8:12 / mi) with an average heart rate of 145 bpm.",
+      "executive_summary": "Evaluation for Week 2 Wednesday: 7.67 miles at 8:09 / mi (GAP: 8:12 / mi) with an average heart rate of 145 bpm (Grade: A-).",
       "key_takeaways": [
         "Adherence: Completed 7.67 mi vs 8.0 mi prescribed (95.9% volume precision).",
-        "Metabolic Control: Averaged 145 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +69 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 145 bpm heart rate (workout ceiling: 145 bpm).",
+        "Topography Management: Handled +69 ft of climb with appropriate effort modulation.",
+        "\u26a0\ufe0f Coach Deduction: Aerobic base pacing violation: ran 17s/mi too fast (compromising cellular base development)"
       ],
       "next_workout": {
-        "day": "Thursday",
+        "day": "Friday",
         "date": "2026-10-08",
-        "miles": 0,
-        "workout": "Rest from Running \u2022 \ud83e\uddd8 Core & Pelvic Hip Stability",
-        "target_pace": "Rest / Strength",
-        "target_hr": "Rest / Gym (< 130 bpm)",
-        "lifting_rule": "\ud83e\uddd8 Core & Pelvic Hip Stability (No Running)"
+        "miles": 5.0,
+        "workout": "Easy Pre-Long Run Shakeout",
+        "target_pace": "9:00 \u2013 9:30 / mi",
+        "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
       }
     },
     {
@@ -13991,18 +13993,19 @@
         "max_power_w": 654.0
       },
       "scorecard": {
-        "grade": "A+",
+        "grade": "A-",
         "distance_adherence_pct": 106.5,
         "pace_adherence": "Raw 8:13 / mi | Grade-Adjusted 8:19 / mi",
         "hr_compliance": "Avg HR 144 bpm (Zone 2 compliant)",
         "strides_count": 6,
-        "strides_peak_pace": "4:48 / mi (cadence up to 234 spm)"
+        "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 2 Tuesday: 6.39 miles at 8:13 / mi (GAP: 8:19 / mi) with an average heart rate of 144 bpm.",
+      "executive_summary": "Evaluation for Week 2 Tuesday: 6.39 miles at 8:13 / mi (GAP: 8:19 / mi) with an average heart rate of 144 bpm (Grade: A-).",
       "key_takeaways": [
         "Adherence: Completed 6.39 mi vs 6.0 mi prescribed (106.5% volume precision).",
-        "Metabolic Control: Averaged 144 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +131 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 144 bpm heart rate (workout ceiling: 145 bpm).",
+        "Topography Management: Handled +131 ft of climb with appropriate effort modulation.",
+        "\u26a0\ufe0f Coach Deduction: Aerobic base pacing violation: ran 15s/mi too fast (compromising cellular base development)"
       ],
       "next_workout": {
         "day": "Wednesday",
@@ -14052,18 +14055,20 @@
         "max_power_w": 567.0
       },
       "scorecard": {
-        "grade": "B",
+        "grade": "B-",
         "distance_adherence_pct": 145.2,
         "pace_adherence": "Raw 9:19 / mi | Grade-Adjusted 9:02 / mi",
         "hr_compliance": "Avg HR 137 bpm (Zone 2 compliant)",
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Sunday: 7.26 miles at 9:19 / mi (GAP: 9:02 / mi) with an average heart rate of 137 bpm.",
+      "executive_summary": "Evaluation for Week 1 Sunday: 7.26 miles at 9:19 / mi (GAP: 9:02 / mi) with an average heart rate of 137 bpm (Grade: B-).",
       "key_takeaways": [
         "Adherence: Completed 7.26 mi vs 5.0 mi prescribed (145.2% volume precision).",
-        "Metabolic Control: Averaged 137 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +466 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 137 bpm heart rate (workout ceiling: 138 bpm).",
+        "Topography Management: Handled +466 ft of climb with appropriate effort modulation.",
+        "\u26a0\ufe0f Coach Deduction: Significant over-distance (>130%): added excessive unprescribed volume",
+        "\u26a0\ufe0f Coach Deduction: Recovery pacing violation: ran 12s/mi faster than prescribed recovery floor"
       ],
       "next_workout": {
         "day": "Monday",
@@ -14120,11 +14125,12 @@
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Saturday: 9.38 miles at 8:50 / mi (GAP: 8:47 / mi) with an average heart rate of 143 bpm.",
+      "executive_summary": "Evaluation for Week 1 Saturday: 9.38 miles at 8:50 / mi (GAP: 8:47 / mi) with an average heart rate of 143 bpm (Grade: A+).",
       "key_takeaways": [
         "Adherence: Completed 9.38 mi vs 9.0 mi prescribed (104.2% volume precision).",
-        "Metabolic Control: Averaged 143 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +577 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 143 bpm heart rate (workout ceiling: 145 bpm).",
+        "Topography Management: Handled +577 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
       ],
       "next_workout": {
         "day": "Sunday",
@@ -14181,11 +14187,12 @@
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Friday: 4.79 miles at 8:52 / mi (GAP: 8:50 / mi) with an average heart rate of 138 bpm.",
+      "executive_summary": "Evaluation for Week 1 Friday: 4.79 miles at 8:52 / mi (GAP: 8:50 / mi) with an average heart rate of 138 bpm (Grade: A+).",
       "key_takeaways": [
         "Adherence: Completed 4.79 mi vs 5.0 mi prescribed (95.8% volume precision).",
-        "Metabolic Control: Averaged 138 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +226 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 138 bpm heart rate (workout ceiling: 138 bpm).",
+        "Topography Management: Handled +226 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
       ],
       "next_workout": {
         "day": "Saturday",
@@ -14298,18 +14305,20 @@
         "max_power_w": 487.0
       },
       "scorecard": {
-        "grade": "A",
+        "grade": "A-",
         "distance_adherence_pct": 100.1,
         "pace_adherence": "Raw 8:19 / mi | Grade-Adjusted 8:14 / mi",
         "hr_compliance": "Avg HR 148 bpm (Zone 2 compliant)",
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Wednesday: 7.01 miles at 8:19 / mi (GAP: 8:14 / mi) with an average heart rate of 148 bpm.",
+      "executive_summary": "Evaluation for Week 1 Wednesday: 7.01 miles at 8:19 / mi (GAP: 8:14 / mi) with an average heart rate of 148 bpm (Grade: A-).",
       "key_takeaways": [
         "Adherence: Completed 7.01 mi vs 7.0 mi prescribed (100.1% volume precision).",
-        "Metabolic Control: Averaged 148 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +292 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 148 bpm heart rate (workout ceiling: 145 bpm).",
+        "Topography Management: Handled +292 ft of climb with appropriate effort modulation.",
+        "\u26a0\ufe0f Coach Deduction: Aerobic base pacing violation: ran 15s/mi too fast (compromising cellular base development)",
+        "\u26a0\ufe0f Coach Deduction: Marginal HR drift: avg HR (148 bpm) pressed right against/above workout ceiling (145 bpm)"
       ],
       "next_workout": {
         "day": "Thursday",
@@ -14364,13 +14373,14 @@
         "pace_adherence": "Raw 9:05 / mi | Grade-Adjusted 8:56 / mi",
         "hr_compliance": "Avg HR 141 bpm (Zone 2 compliant)",
         "strides_count": 6,
-        "strides_peak_pace": "5:14 / mi (cadence up to 233 spm)"
+        "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Tuesday: 6.11 miles at 9:05 / mi (GAP: 8:56 / mi) with an average heart rate of 141 bpm.",
+      "executive_summary": "Evaluation for Week 1 Tuesday: 6.11 miles at 9:05 / mi (GAP: 8:56 / mi) with an average heart rate of 141 bpm (Grade: A+).",
       "key_takeaways": [
         "Adherence: Completed 6.11 mi vs 6.0 mi prescribed (101.8% volume precision).",
-        "Metabolic Control: Averaged 141 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +259 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 141 bpm heart rate (workout ceiling: 146 bpm).",
+        "Topography Management: Handled +259 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
       ],
       "next_workout": {
         "day": "Wednesday",
@@ -14483,18 +14493,19 @@
         "max_power_w": 576.0
       },
       "scorecard": {
-        "grade": "B+",
+        "grade": "A-",
         "distance_adherence_pct": 126.7,
         "pace_adherence": "Raw 8:30 / mi | Grade-Adjusted 8:19 / mi",
         "hr_compliance": "Avg HR 145 bpm (Zone 2 compliant)",
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Sunday: 7.60 miles at 8:30 / mi (GAP: 8:19 / mi) with an average heart rate of 145 bpm.",
+      "executive_summary": "Evaluation for Week 1 Sunday: 7.60 miles at 8:30 / mi (GAP: 8:19 / mi) with an average heart rate of 145 bpm (Grade: A-).",
       "key_takeaways": [
         "Adherence: Completed 7.60 mi vs 6.0 mi prescribed (126.7% volume precision).",
-        "Metabolic Control: Averaged 145 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +528 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 145 bpm heart rate (workout ceiling: 146 bpm).",
+        "Topography Management: Handled +528 ft of climb with appropriate effort modulation.",
+        "\u26a0\ufe0f Coach Deduction: Over-distance (115-130%): ran beyond prescribed ceiling"
       ],
       "next_workout": {
         "day": "Monday",
@@ -14544,18 +14555,19 @@
         "max_power_w": 447.0
       },
       "scorecard": {
-        "grade": "B",
+        "grade": "B+",
         "distance_adherence_pct": 133.4,
         "pace_adherence": "Raw 8:58 / mi | Grade-Adjusted 8:53 / mi",
         "hr_compliance": "Avg HR 143 bpm (Zone 2 compliant)",
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Saturday: 8.01 miles at 8:58 / mi (GAP: 8:53 / mi) with an average heart rate of 143 bpm.",
+      "executive_summary": "Evaluation for Week 1 Saturday: 8.01 miles at 8:58 / mi (GAP: 8:53 / mi) with an average heart rate of 143 bpm (Grade: B+).",
       "key_takeaways": [
         "Adherence: Completed 8.01 mi vs 6.0 mi prescribed (133.4% volume precision).",
-        "Metabolic Control: Averaged 143 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +512 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 143 bpm heart rate (workout ceiling: 146 bpm).",
+        "Topography Management: Handled +512 ft of climb with appropriate effort modulation.",
+        "\u26a0\ufe0f Coach Deduction: Significant over-distance (>130%): added excessive unprescribed volume"
       ],
       "next_workout": null
     },
@@ -14597,18 +14609,19 @@
         "max_power_w": 509.0
       },
       "scorecard": {
-        "grade": "B",
+        "grade": "B+",
         "distance_adherence_pct": 58.4,
         "pace_adherence": "Raw 8:33 / mi | Grade-Adjusted 8:32 / mi",
         "hr_compliance": "Avg HR 142 bpm (Zone 2 compliant)",
         "strides_count": 1,
         "strides_peak_pace": "N/A"
       },
-      "executive_summary": "Strong execution of Week 1 Friday: 3.51 miles at 8:33 / mi (GAP: 8:32 / mi) with an average heart rate of 142 bpm.",
+      "executive_summary": "Evaluation for Week 1 Friday: 3.51 miles at 8:33 / mi (GAP: 8:32 / mi) with an average heart rate of 142 bpm (Grade: B+).",
       "key_takeaways": [
         "Adherence: Completed 3.51 mi vs 6.0 mi prescribed (58.4% volume precision).",
-        "Metabolic Control: Averaged 142 bpm heart rate, cleanly respecting aerobic development boundaries.",
-        "Topography Management: Handled +177 ft of climb with appropriate effort modulation."
+        "Metabolic Control: Averaged 142 bpm heart rate (workout ceiling: 146 bpm).",
+        "Topography Management: Handled +177 ft of climb with appropriate effort modulation.",
+        "\u26a0\ufe0f Coach Deduction: Under-distance: cut run short (<85%)"
       ],
       "next_workout": null
     }
