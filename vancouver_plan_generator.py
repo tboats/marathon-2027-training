@@ -248,7 +248,7 @@ def get_vancouver_weekly_plan():
             'midweek_key': '8 miles total: 5 miles easy with 4 x 30s openers',
             'structure': 'Mon: Rest | Tue: 8mi (easy) | Wed: 8mi (easy + strides) | Thu: 6mi (easy) | Fri: Rest | Sat: 4mi (shakeout) | Sun: 18mi (Half Marathon Race Day)',
             'breakdown': '8 + 8 + 6 + 4 + 18 = 44 mi',
-            'proxy_checkpoint': 'Benchmark 3 (CRITICAL): Sub-1:33:30 confirms sub-3:15 VDOT (50.5).'
+            'proxy_checkpoint': 'Benchmark 3 (CRITICAL): Sub-1:33:30 confirms sub-3:15 VDOT (50.5). ⚠️ NOTICE: Begin preparing to cycle off creatine at conclusion of Phase 4.'
         },
         {
             'week': 23, 'phase': 4, 'dates': 'Mar 01 - Mar 07', 'target_miles': 50,
@@ -256,7 +256,7 @@ def get_vancouver_weekly_plan():
             'midweek_key': '9 miles steady aerobic with rolling terrain',
             'structure': 'Mon: 4mi (recovery) | Tue: 9mi (aerobic) | Wed: 10mi (aerobic base) | Thu: 7mi (easy) | Fri: Rest | Sat: 15mi (Long Run) | Sun: 5mi (recovery)',
             'breakdown': '4 + 9 + 10 + 7 + 15 + 5 = 50 mi',
-            'proxy_checkpoint': 'Post-half marathon recovery and muscle enzyme clearance.'
+            'proxy_checkpoint': 'Post-half marathon recovery. 🛑 CREATINE REMINDER 1: Cycle off creatine now (allows 6-8 weeks to shed 3-5 lbs of cellular water weight before Vancouver).'
         },
         {
             'week': 24, 'phase': 4, 'dates': 'Mar 08 - Mar 14', 'target_miles': 54,
@@ -264,7 +264,7 @@ def get_vancouver_weekly_plan():
             'midweek_key': '10 miles total: 4 x 1.5 miles @ 6:55-7:00/mi (90s rest)',
             'structure': 'Mon: 4mi (recovery) | Tue: 10mi (T-intervals) | Wed: 11mi (aerobic base) | Thu: 7mi (easy) | Fri: Rest | Sat: 17mi (Long Run w/ 7mi MP) | Sun: 5mi (recovery)',
             'breakdown': '4 + 10 + 11 + 7 + 17 + 5 = 54 mi',
-            'proxy_checkpoint': 'Transition into Peak Block: holding 7:26 for 7 continuous miles.'
+            'proxy_checkpoint': 'Transition into Peak Block: holding 7:26 for 7 continuous miles. 🛑 CREATINE REMINDER 2: Confirm zero creatine supplementation. Monitor hydration & electrolytes.'
         },
 
         # Phase 5: Weeks 25-28 (Peak Volume & Vancouver Simulation)
@@ -274,7 +274,7 @@ def get_vancouver_weekly_plan():
             'midweek_key': '10 miles total: 5 x 1 mile @ 6:58/mi (60s rest)',
             'structure': 'Mon: 4mi (recovery) | Tue: 10mi (T-intervals) | Wed: 11mi (aerobic) | Thu: 7mi (easy) | Fri: Rest | Sat: 19mi (Vancouver Dress Rehearsal) | Sun: 5mi (recovery)',
             'breakdown': '4 + 10 + 11 + 7 + 19 + 5 = 56 mi',
-            'proxy_checkpoint': 'Full race simulation: shoes, gels (every 35 min), sodium, HR < 155 bpm at MP.'
+            'proxy_checkpoint': 'Full race simulation: shoes, gels (every 35 min), sodium, HR < 155 bpm at MP. 🛑 CREATINE REMINDER 3: Water wash-out active. Expect scale weight drop of 3-5 lbs without muscle loss.'
         },
         {
             'week': 26, 'phase': 5, 'dates': 'Mar 22 - Mar 28', 'target_miles': 52,
@@ -298,7 +298,7 @@ def get_vancouver_weekly_plan():
             'midweek_key': '9 miles total: 4 x 1 mile @ 7:00/mi (75s rest)',
             'structure': 'Mon: 4mi (recovery) | Tue: 9mi (cruise intervals) | Wed: 10mi (aerobic) | Thu: 7mi (easy) | Fri: Rest | Sat: 15mi (Steady w/ 4mi MP) | Sun: 5mi (recovery)',
             'breakdown': '4 + 9 + 10 + 7 + 15 + 5 = 50 mi',
-            'proxy_checkpoint': 'Final high-volume stimulus before entering the 3-week taper.'
+            'proxy_checkpoint': 'Final high-volume stimulus before entering the 3-week taper. 🛑 CREATINE REMINDER 4: Verify 100% creatine wash-out complete. Target body weight: 168-172 lbs.'
         },
 
         # Phase 6: Weeks 29-31 (Sharpening, Taper & Vancouver Race)

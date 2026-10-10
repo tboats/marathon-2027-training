@@ -90,6 +90,39 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 
 ---
 
+## 3.1. Nutrition, Body Composition & Creatine Cycling Protocol
+
+> **Starting Baseline**: 185 lbs (Height: 5'8", BMI: ~28.1) • Target Race Weight: **168 – 172 lbs**  
+> **Estimated Race-Day Performance Dividend**: Shedding 13–17 lbs yields **~20–28 seconds per mile**, or **~9 to 12 minutes saved** across 26.2 miles through mechanical efficiency and $VO_2\text{max}$ scaling alone.
+
+### A. Phase-Specific Nutritional Strategy (The 4 Anchors)
+1. **Conservative Caloric Deficit (Weeks 1–20)**:
+   - Target deficit: **300 – 400 kcal/day** (~0.6 – 0.75 lbs/week fat loss).
+   - Never aggressively restrict calories. Extreme deficits induce **RED-S**, elevate cortisol, suppress testosterone, and degrade bone mineral density.
+2. **High Protein Anchoring (Muscle Sparing)**:
+   - **140 – 165g protein/day** (0.85 – 1.0g per lb of target weight).
+   - Distribute evenly: 30–40g per meal to sustain muscle protein synthesis and prevent catabolism of running-specific lower-body muscle tissue.
+3. **Periodized Carbohydrate Fueling ("Fuel for the Work Required")**:
+   - **Quality & Long Run Days (Tue, Wed, Sat)**: High carb intake (2.5 – 3.5g/lb body weight). Eat carbs before, during (30–60g carbs/hr on long runs > 75 min), and immediately after the run.
+   - **Recovery & Lifting Days (Mon, Thu, Fri, Sun)**: Low-to-moderate carb intake (1.0 – 1.5g/lb body weight). Increase non-starchy vegetables, lean proteins, and healthy fats.
+4. **Hydration & Electrolytes**:
+   - Baseline water intake: **90 – 110 oz/day**, plus 16–24 oz with 500mg sodium per hour of running sweat loss.
+
+---
+
+### B. Creatine Cycling & Wash-Out Protocol (Official Schedule)
+
+| Training Phase | Timeline | Creatine Protocol | Physiological Rationale |
+| :--- | :--- | :--- | :--- |
+| **Phases 1–3** (Base & Threshold) | **Weeks 1–22** (Sep 28 – Feb 28) | **CONTINUE Creatine (3–5g/day)** | Maximize heavy leg lifting performance, cellular hydration, satellite cell activation, and micro-trauma recovery during mileage ramp. |
+| **End of Phase 4** (Transition) | **Week 22** (Feb 22 – Feb 28) | **PREPARATION NOTICE** | Post-Half Marathon tune-up check: prepare to begin wash-out. |
+| **Start of Phase 5** (Peak Volume) | **Week 23** (Mar 01 – Mar 07) | **🛑 REMINDER 1: DROP CREATINE** | Completely cease creatine intake. Initiates 6–8 week cellular wash-out window. |
+| **Peak Volume Block** | **Week 24** (Mar 08 – Mar 14) | **🛑 REMINDER 2: Zero Creatine Verification** | Confirm zero intake. Maintain baseline hydration. |
+| **Vancouver Dress Rehearsal** | **Week 25** (Mar 15 – Mar 21) | **🛑 REMINDER 3: Water Weight Drop Check** | Intramuscular water washes out. Expect **3–5 lbs effortless drop on scale** with zero muscle mass lost. |
+| **Pre-Taper Volume Peak** | **Week 28** (Apr 05 – Apr 11) | **🛑 REMINDER 4: Race Weight Verification** | Confirm 100% wash-out. Verify scale sits at 168–172 lbs heading into taper. |
+
+---
+
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
