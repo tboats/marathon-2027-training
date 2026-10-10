@@ -1,9 +1,9 @@
 name: Daily Marathon Training & Coaching Sync
 
 on:
-  schedule:
-    # 03:05 UTC = 8:05 PM PDT (runs 5 mins after heatmap sync)
-    - cron: '5 3 * * *'
+  # schedule:
+  #   # 03:05 UTC = 8:05 PM PDT (runs 5 mins after heatmap sync)
+  #   - cron: '5 3 * * *'
   workflow_dispatch: # Allows manual trigger from GitHub Actions UI
 
 permissions:
