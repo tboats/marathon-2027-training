@@ -102,15 +102,20 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 2. **High Protein Anchoring (Muscle Sparing)**:
    - **140 – 165g protein/day** (0.85 – 1.0g per lb of target weight).
    - Distribute evenly: 30–40g per meal to sustain muscle protein synthesis and prevent catabolism of running-specific lower-body muscle tissue.
-3. **Periodized Carbohydrate Fueling ("Fuel for the Work Required")**:
-   - **Quality & Long Run Days (Tue, Wed, Sat)**: High carb intake (2.5 – 3.5g/lb body weight). Eat carbs before, during (30–60g carbs/hr on long runs > 75 min), and immediately after the run.
-   - **Recovery & Lifting Days (Mon, Thu, Fri, Sun)**: Low-to-moderate carb intake (1.0 – 1.5g/lb body weight). Increase non-starchy vegetables, lean proteins, and healthy fats.
-4. **Hydration & Electrolytes**:
-   - Baseline water intake: **90 – 110 oz/day**, plus 16–24 oz with 500mg sodium per hour of running sweat loss.
+---
+
+### B. Fasted vs. Fed Nutritional Periodization Schedule
+
+| Training Block | Calendar Window | Long Run Distance | Pre-Run Fueling Strategy | In-Run Fueling & Gut Training | Primary Physiological Focus |
+| :--- | :--- | :---: | :--- | :--- | :--- |
+| **Phase 1** | **Weeks 1–6** (Oct – Nov 08) | **9 – 13 mi** | **FASTED** (Espresso / black coffee only) | Water & electrolytes only (optional 1 test gel at min 50). | Maximize $FatMax$ fat oxidation, mitochondrial biogenesis, and initial body fat reduction. |
+| **Phases 2–3** | **Weeks 7–18** (Nov 09 – Jan 31) | **14 – 16 mi** | **🥣 FED (TRANSITION IN NOVEMBER)**: 30–50g fast carbs (toast w/ honey, banana, or oatmeal + espresso) 45–60 min before. | **1 energy gel every 40–45 mins** with water (target 30–45g carbs/hr). | Prevent catabolic muscle wasting on runs >90 mins; train gut SGLT1 glucose transporters. |
+| **Phases 4–5** | **Weeks 19–28** (Feb 01 – Apr 11) | **17 – 21 mi** | **🥣 FULL RACE-DAY BREAKFAST**: 60–75g complex + simple carbs 90 min before run. | **Full Race Rehearsal**: 1 gel every 35–40 mins (50–60g carbs/hr) + sodium. | Replicate Vancouver race-day metabolic state; sustain 7:26 marathon pace blocks without wall-hitting. |
+| **Weekday Runs** | **All Weeks** | **4 – 8 mi** | **FASTED** (Easy / Shakeout / Recovery) • **LIGHT FED** (Hard Threshold / TT only) | Water only. | Keep fat-burning machinery primed while hitting quality threshold paces. |
 
 ---
 
-### B. Creatine Cycling & Wash-Out Protocol (Official Schedule)
+### C. Creatine Cycling & Wash-Out Protocol (Official Schedule)
 
 | Training Phase | Timeline | Creatine Protocol | Physiological Rationale |
 | :--- | :--- | :--- | :--- |

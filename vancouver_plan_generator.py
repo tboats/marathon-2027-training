@@ -120,11 +120,11 @@ def get_vancouver_weekly_plan():
         # Phase 2: Weeks 7-12 (Aerobic Base Expansion)
         {
             'week': 7, 'phase': 2, 'dates': 'Nov 09 - Nov 15', 'target_miles': 42,
-            'long_run': '14 miles steady with rolling elevation',
+            'long_run': '14 miles steady with rolling elevation (🥣 PRE-RUN CARBS: eat toast/banana + espresso 60m before; in-run gel @ 45m & 90m)',
             'midweek_key': '8 miles total: Cruise Intervals 4 x 1 mile @ 7:15/mi (60s rest)',
             'structure': 'Mon: Rest | Tue: 8mi (cruise intervals) | Wed: 9mi (aerobic base) | Thu: 6mi (easy) | Fri: Rest | Sat: 14mi (Long Run) | Sun: 5mi (recovery)',
             'breakdown': '8 + 9 + 6 + 14 + 5 = 42 mi',
-            'proxy_checkpoint': 'HR recovery rate between 1-mile cruise intervals.'
+            'proxy_checkpoint': 'HR recovery rate between 1-mile cruise intervals. 🥣 FUELING MILESTONE: Begin pre-run carb fueling on Saturday long runs (14+ mi) to train gut and spare muscle.'
         },
         {
             'week': 8, 'phase': 2, 'dates': 'Nov 16 - Nov 22', 'target_miles': 44,
@@ -458,7 +458,8 @@ def get_vancouver_daily_details(week_num, week_dict):
                 pace_str = "8:40 – 9:15 / mi"
                 hr_zone_str = "Zone 2 (138 – 146 bpm)"
                 purpose_str = "Long aerobic endurance and fat oxidation."
-                desc_str = f"Weekly long run anchor: {d_desc}. Maintain steady effort on Seattle rolling hills."
+                fueling_note = " 🥣 FUELING: Pre-run carbs 45-60 min before (toast/banana + espresso); 1 gel every 40-45 mins with water to train gut." if week_num >= 7 else " ☕ FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins)."
+                desc_str = f"Weekly long run anchor: {d_desc}. Maintain steady effort on Seattle rolling hills.{fueling_note}"
 
         elif d_abbr == 'Sun':
             if week_num == 31:
