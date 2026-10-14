@@ -131,15 +131,17 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 2 Active (Day 7 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **88.42 Miles** (16 workout(s) verified)  
-> **Most Recent Session**: Sunday, 2026-10-11 — **5.10 mi** • **Grade A+**  
-> **Up Next**: Monday, 2026-10-12 — **0 mi Rest from Running • Upper Body & Core Strength** (Upper Body & Core Strength (No Running))
+> **Current Campaign Status**: **Week 3 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **95.31 Miles** (18 workout(s) verified)  
+> **Most Recent Session**: Tuesday, 2026-10-13 — **6.89 mi** • **Grade A+**  
+> **Up Next**: Wednesday, 2026-10-14 — **8.0 mi Aerobic Base** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-10-13** | Tue | Week 3: Hill Surges | 7.0 mi | **6.89 mi** | 9:08 / mi | **8:58 / mi** | 138 / 164.0 bpm | 172.4 spm | +499 ft | 138 bpm HR; 6 strides down to N/A; +499ft climb. | **A+** |
+| **2026-10-12** | Mon | Week 3: Rest from Running • Upper Body & Core Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 84 / 124.0 bpm | N/A | 0 ft | Heavy legs (14:52): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 124.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-10-11** | Sun | Week 2: Recovery | 5.0 mi | **5.10 mi** | 9:42 / mi | **9:28 / mi** | 131 / 150.0 bpm | 172.4 spm | +390 ft | 131 bpm HR; 1 strides down to N/A; +390ft climb. | **A+** |
 | **2026-10-10** | Sat | Week 2: Long Run | 10.0 mi | **10.50 mi** | 9:08 / mi | **8:56 / mi** | 138 / 152.0 bpm | 173.2 spm | +643 ft | 138 bpm HR; 1 strides down to N/A; +643ft climb. | **A+** |
 | **2026-10-09** | Fri | Week 2: Rest from Running • 🧘 Core & Pelvic Hip Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 71 / 112.0 bpm | N/A | 0 ft | Heavy legs (17:02): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 112.0 bpm (<130 bpm cap). Zero running. | **A+** |
@@ -313,11 +315,19 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • Upper Body & Core Strength)**:
+- **Monday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-12)*: **14:52** dedicated heavy leg strength routine (13 sets, 232 reps).
+  - *Exercises Executed*: Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and heavy calf raises.
+  - *Heart Rate & Zero-Double-Days Adherence*: Avg HR **84.0 bpm** (Peak **124.0 bpm**, cleanly respecting the <130 bpm strength ceiling). Zero running logged.
+  - *Training Stimulus*: Aerobic TE **0.4** | Anaerobic TE **0.0** (pure neuromuscular stimulus with zero aerobic depletion).
   - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
   - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
   - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
-- **Tuesday (7.0 mi • Hill Surges)**:
+- **Tuesday (7.0 mi • Hill Surges)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-13)*: **6.89 mi** in **62:57** (9:08 / mi, **8:58 / mi GAP**). Volume adherence: 98.4% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **138.0 bpm** (Max HR: 164.0 bpm).
+  - *Elevation & Topography*: +499 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **3.6** | Anaerobic TE **1.5**.
   - *Strategic Purpose*: Neuromuscular turnover and hill mechanics.
   - *Running Prescription*: Aerobic run concluding with 7mi (hill surges). Focus on high knee drive and upright posture.
 - **Wednesday (8.0 mi • Aerobic Base)**:
