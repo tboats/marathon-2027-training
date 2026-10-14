@@ -742,6 +742,117 @@ def generate():
       animation: fadeIn 0.2s ease-in-out;
     }}
 
+    /* Previous Weeks Collapsible Section */
+    .previous-weeks-container {{
+      margin-bottom: 24px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.45);
+      overflow: hidden;
+      transition: var(--transition);
+    }}
+
+    .previous-weeks-header {{
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: rgba(15, 23, 42, 0.75);
+      user-select: none;
+      transition: background 0.2s ease;
+    }}
+
+    .previous-weeks-header:hover {{
+      background: rgba(30, 41, 59, 0.85);
+    }}
+
+    .prev-check-icon {{
+      font-size: 1rem;
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: 9999px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }}
+
+    .prev-toggle-btn {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }}
+
+    .prev-toggle-btn:hover {{
+      border-color: var(--accent-emerald);
+      color: var(--accent-emerald);
+    }}
+
+    .previous-weeks-drawer {{
+      padding: 16px 20px;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(10, 15, 29, 0.4);
+    }}
+
+    /* Current Week Active Emphasis */
+    .current-week-wrapper {{
+      margin-bottom: 28px;
+      position: relative;
+    }}
+
+    .current-week-ribbon {{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }}
+
+    .current-week-pill {{
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #041f16;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.35);
+    }}
+
+    .week-card.current-active-week {{
+      border: 2px solid rgba(16, 185, 129, 0.75) !important;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(22, 32, 50, 0.98) 100%) !important;
+      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.16) !important;
+    }}
+
+    .week-card.current-active-week .week-badge {{
+      background: rgba(16, 185, 129, 0.22);
+      border-color: rgba(16, 185, 129, 0.55);
+    }}
+
+    .week-card.current-active-week .week-num {{
+      color: var(--accent-emerald);
+    }}
+
     @keyframes fadeIn {{
       from {{ opacity: 0; transform: translateY(-4px); }}
       to {{ opacity: 1; transform: translateY(0); }}
@@ -1092,14 +1203,17 @@ def generate():
   <!-- NAVIGATION TABS -->
   <div class="tabs-nav-wrapper">
     <div class="tabs-nav">
-      <button class="tab-btn active" id="navBtn_overview" onclick="switchTab('overview')">
-        <span>🌲</span> Vancouver Campaign & Strategy
+      <button class="tab-btn active" id="navBtn_training" onclick="switchTab('training')">
+        <span>📅</span> 31-Week Training Schedule
       </button>
       <button class="tab-btn" id="navBtn_coach" onclick="switchTab('coach')" style="border-color: rgba(16, 185, 129, 0.45); background: rgba(16, 185, 129, 0.08);">
         <span>🏃</span> Coach's Log & Daily Debriefs <span style="background: var(--accent-emerald); color: #000; font-size: 0.65rem; font-weight: 800; padding: 1px 6px; border-radius: 9999px; margin-left: 4px;">ACTIVE</span>
       </button>
-      <button class="tab-btn" id="navBtn_training" onclick="switchTab('training')">
-        <span>📅</span> 31-Week Training Schedule
+      <button class="tab-btn" id="navBtn_strength" onclick="switchTab('strength')" style="border-color: rgba(168, 85, 247, 0.45); background: rgba(168, 85, 247, 0.08);">
+        <span>🏋️</span> Zero-Double-Days Strength
+      </button>
+      <button class="tab-btn" id="navBtn_overview" onclick="switchTab('overview')">
+        <span>🌲</span> Vancouver Campaign & Strategy
       </button>
       <button class="tab-btn" id="navBtn_indicators" onclick="switchTab('indicators')">
         <span>🎯</span> Telemetry & Proxy Indicators
@@ -1121,7 +1235,7 @@ def generate():
   <main>
 
     <!-- TAB 1: OVERVIEW & STRATEGY -->
-    <section id="tab-overview" class="tab-content active">
+    <section id="tab-overview" class="tab-content">
       <div class="section-header">
         <h2>🌲 Strategic Campaign: Seattle 3:34 ➔ BMO Vancouver 3:15</h2>
         <p>A rigorous, evidence-based roadmap bridging your verified Seattle aerobic base to 3:15 capability across 31 periodized weeks (Sunday, May 2, 2027 • Vancouver, BC).</p>
@@ -1317,49 +1431,10 @@ def generate():
     </section>
 
     <!-- TAB 3: PERIODIZED TRAINING PLANS -->
-    <section id="tab-training" class="tab-content">
+    <section id="tab-training" class="tab-content active">
       <div class="section-header">
         <h2 id="planSectionTitle">🌲 BMO Vancouver Marathon: 31-Week Master Training Schedule</h2>
-        <p id="planSectionSub">Sep 28, 2026 to May 2, 2027 • Specific daily running assignments, strength protocol, long run workouts, and proxy checkpoints.</p>
-      </div>
-
-      <!-- Strength & Lifting Integration Guide Card -->
-      <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%); border-color: rgba(168, 85, 247, 0.35);">
-        <div class="card-title">
-          <span>🏋️ Concurrent Strength Training: Strict Zero-Double-Days Protocol</span>
-          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.3);">Never Run & Lift Same Day</span>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-purple); font-weight: 700;">Core Principle: Zero Double Days</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">One Focus Per Day</div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              <strong>Never lift and run on the same day.</strong> Monday is <strong>Lift Only</strong> (Upper Body & Core). Thursday is <strong>Lift Only</strong> (Legs 1/2w or Core). Wednesday is <strong>Run Only</strong> (midweek aerobic anchor, zero evening gym). Friday is <strong>Run Only</strong> (easy pre-long run flush).
-            </div>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Thursday (Odd Weeks • 1/2w)</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Heavy Leg Strength (Zero Running)</div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              <strong>Trap Bar Deadlift (3x5)</strong>, <strong>Bulgarian Split Squats (3x6/leg)</strong>, <strong>Heavy Standing Calf Raises (3x10)</strong>, <strong>Box Jumps (3x5)</strong>. Non-running day allows complete energy for neuromuscular recruitment. <strong>Leave 2–3 reps in reserve</strong> (never to failure).
-            </div>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">Thursday (Even Weeks • Alternate)</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Core & Pelvic Hip Pre-Hab (Zero Running)</div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              <strong>Copenhagen Adductor Planks (3x20s)</strong>, <strong>Side Planks w/ Leg Lift (3x30s)</strong>, <strong>Single-Leg RDLs (3x8)</strong>, <strong>Banded Glutes (3x12)</strong>. Zero heavy eccentric leg loading. Restores pelvic stability and protects IT bands without muscle soreness.
-            </div>
-          </div>
-          <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-amber); font-weight: 700;">Monday Lift • Friday Easy Run</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Upper Body Lift & Friday Flush</div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              <strong>Monday (Lift Only)</strong>: Dumbbell Bench/Overhead Press, Pull-ups / Lat Pulldowns, Cable Rows, Pallof Press, Deadbugs. Zero running.<br>
-              <strong>Friday (Run Only)</strong>: Easy conversational shakeout run (4–7 mi, zero lifting) to flush legs before Saturday's long run.
-            </div>
-          </div>
-        </div>
+        <p id="planSectionSub">Sep 28, 2026 to May 2, 2027 • Specific daily running assignments, key workouts, long runs, and proxy checkpoints.</p>
       </div>
 
       <!-- Dynamic Filter pills -->
@@ -1369,6 +1444,151 @@ def generate():
 
       <div id="weeklyPlanContainer">
         <!-- Rendered dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- TAB: CONCURRENT STRENGTH TRAINING (STRICT ZERO-DOUBLE-DAYS PROTOCOL) -->
+    <section id="tab-strength" class="tab-content">
+      <div class="section-header">
+        <h2>🏋️ Concurrent Strength Training: Strict Zero-Double-Days Protocol</h2>
+        <p>31-Week Strength & Musculoskeletal Resilience Architecture • One Focus Per Day: Never Run & Lift on the Same Day</p>
+      </div>
+
+      <!-- Core Principle Hero Card -->
+      <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(22, 32, 50, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%); border-color: rgba(168, 85, 247, 0.45); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1);">
+        <div class="card-title">
+          <span>🛡️ The Golden Rule: Zero Double Days (One Focus Per Day)</span>
+          <span class="hero-badge" style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.4);">Non-Negotiable</span>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+          To run a 3:15 marathon across 52 ft/mile Seattle hills, your lower body requires high tendon stiffness and single-leg pelvic stability. However, traditional strength programs fail marathon runners by cramming gym sessions onto running days, triggering severe molecular interference and injury. In this plan, <strong style="color: var(--accent-purple);">every single day is dedicated to ONE purpose: 100% running, 100% lifting, or complete rest.</strong>
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-purple); font-weight: 700;">Core Mandate</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">No Two-A-Days</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              Never run and lift on the same calendar day. Running before lifting depletes muscle glycogen and causes form breakdown under load. Lifting before running causes micro-tears and alters foot strike mechanics.
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Bi-Weekly Rhythm</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Leg Strength 1/2w (Thursdays)</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              Heavy resistance leg lifting is scheduled strictly once every two weeks (Odd Weeks) on Thursday (a zero-running day). On alternate weeks (Even Weeks), Thursday is dedicated to pelvic/hip pre-hab with zero heavy eccentric load.
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">Pre-Long Run Priming</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Friday Shakeout Flush</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              Friday is strictly an easy conversational shakeout run (4–7 mi, zero lifting). The light aerobic blood flow flushes metabolites from Thursday lifting and primes muscle fibers for Saturday's long run anchor.
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-amber); font-weight: 700;">Protected Aerobic Anchor</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Wednesday Run Only</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
+              Wednesday is a crucial midweek double-digit aerobic anchor (7–11 mi). Evening lifting has been 100% eliminated so you can focus completely on mitochondrial expansion and capillary bed density.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Rhythm & Detailed Exercises -->
+      <div class="grid-2" style="margin-bottom: 24px;">
+        <div class="card">
+          <div class="card-title">
+            <span>Monday (Non-Running Day): Upper Body & Anti-Extension Core</span>
+            <span class="hero-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">Lift Only</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 14px;">
+            Target: Upright marathon posture, scapular retraction, and arm swing drive in late miles. Leaves legs 100% unloaded before Tuesday threshold/hill workouts.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+              <strong>Dumbbell Overhead or Flat Bench Press:</strong> 3 sets &times; 8 reps (RIR 2–3)
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Strengthens anterior deltoids and pectorals for postural stability under fatigue.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+              <strong>Pull-ups or Lat Pulldowns:</strong> 3 sets &times; 8 reps
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Lats generate backward arm-drive power, counterbalancing forward hip flexion.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+              <strong>Cable or Chest-Supported Rows:</strong> 3 sets &times; 10 reps
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Prevents upper back slouching and chest collapse at Miles 20–26.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+              <strong>Standing Cable Pallof Press:</strong> 3 sets &times; 12 reps/side
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Anti-rotational stability resists unwanted torso twist during high-cadence running.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+              <strong>Deadbugs / Bird-Dogs:</strong> 3 sets &times; 10 reps/side
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Neuromuscular cross-body patterning (opposite arm/leg) and deep transverse abdominis control.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Thursday: Alternating Bi-Weekly Lower Body Protocols</span>
+            <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Lift Only</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 14px;">
+            Target: Alternate between heavy neuromuscular recruitment (Odd Weeks) and restorative hip/pelvic pre-hab (Even Weeks) on Thursdays.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-rose);">
+              <div style="font-weight: 700; color: var(--accent-rose); font-size: 0.9rem; margin-bottom: 4px;">ODD WEEKS (1/2w): Heavy Resistance Leg Strength</div>
+              <ul style="padding-left: 18px; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                <li><strong>Trap Bar Deadlift:</strong> 3 &times; 5 reps @ 75–80% 1RM (posterior chain power, explosive hip extension).</li>
+                <li><strong>Bulgarian Split Squats:</strong> 3 &times; 6 reps/leg (single-leg quad & glute stability, knee tracking).</li>
+                <li><strong>Standing Heavy Calf Raises:</strong> 3 &times; 10 reps (Achilles tendon stiffness & elastic energy storage).</li>
+                <li><strong>Plyometric Box Jumps:</strong> 3 &times; 5 reps (explosive ground contact recruitment, land softly).</li>
+                <li><em>Rule:</em> <strong>2–3 Reps in Reserve (RIR).</strong> Never train to failure. Focus on maximum bar speed.</li>
+              </ul>
+            </div>
+            <div style="padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
+              <div style="font-weight: 700; color: var(--accent-emerald); font-size: 0.9rem; margin-bottom: 4px;">EVEN WEEKS (Alternate): Core & Pelvic Hip Pre-Hab</div>
+              <ul style="padding-left: 18px; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                <li><strong>Copenhagen Adductor Planks:</strong> 3 &times; 20s/side (groin strength, pelvic ring integrity).</li>
+                <li><strong>Side Planks w/ Abductor Leg Lift:</strong> 3 &times; 30s/side (gluteus medius pelvic leveling).</li>
+                <li><strong>Single-Leg Romanian Deadlifts:</strong> 3 &times; 8 reps/leg (hamstring eccentric control, proprioception).</li>
+                <li><strong>Banded Glute Bridges / Clamshells:</strong> 3 &times; 12 reps (glute activation, prevents IT-band friction).</li>
+                <li><em>Rule:</em> Zero heavy eccentric loading. Restores structural balance without muscle soreness.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Exercise Science Behind Concurrent Training -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-title">
+          <span>🔬 The Exercise Science: Why Concurrent Training Fails When Mixed</span>
+          <span class="hero-badge">Physiology</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 14px;">
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 6px;">1. Molecular Interference (AMPK vs mTOR)</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+              Endurance running activates <strong>AMPK</strong> and <strong>PGC-1&alpha;</strong> to stimulate mitochondrial biogenesis and capillary beds. Heavy lifting activates <strong>mTORC1</strong> to drive neuromuscular adaptations and protein synthesis. Performing both in the same window causes AMPK to phosphorylate TSC2 and raptor, blunting the mTOR anabolic response while increasing residual central nervous system fatigue.
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-weight: 700; color: var(--accent-amber); margin-bottom: 6px;">2. Tendon Stiffness vs Hypertrophy</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+              Marathon runners do not want sarcoplasmic hypertrophy (bulky muscle mass that consumes extra oxygen). By lifting heavy (75–80% 1RM) at <strong>low reps (3–5) with high rest and 2–3 RIR</strong>, we stimulate neural motor unit recruitment and collagen cross-linking in the Achilles and patellar tendons. This boosts Running Economy (RE) by <strong>3–4%</strong> through passive elastic energy return.
+            </div>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <div style="font-weight: 700; color: var(--accent-rose); margin-bottom: 6px;">3. Cardiovascular Ceiling in the Gym (&lt; 130 bpm)</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+              Strength sessions are <strong>purely neuromuscular</strong>, not cardiovascular conditioning. You already get 35–55 miles of aerobic conditioning every week. In the gym, rest 2–3 minutes between sets so your heart rate stays cleanly capped under 130 bpm (your Monday session averaged 84 bpm with a max of 124 bpm, earning a perfect A+ grade).
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1790,6 +2010,167 @@ def generate():
       `).join('');
     }}
 
+    let prevWeeksExpanded = false;
+
+    function togglePreviousWeeks() {{
+      prevWeeksExpanded = !prevWeeksExpanded;
+      const drawer = document.getElementById('previousWeeksDrawer');
+      const btnText = document.getElementById('prevToggleText');
+      const chevron = document.getElementById('prevToggleChevron');
+      if (drawer) {{
+        drawer.style.display = prevWeeksExpanded ? 'block' : 'none';
+      }}
+      if (btnText && chevron) {{
+        const prevCount = drawer ? drawer.querySelectorAll('.week-card').length : 0;
+        btnText.textContent = prevWeeksExpanded ? '🙈 Hide Completed Weeks' : `👁️ View Completed Weeks (${{prevCount}})`;
+        chevron.textContent = prevWeeksExpanded ? '▲' : '▼';
+      }}
+    }}
+
+    function getPlanCurrentWeek() {{
+      // 1. Try to find the latest week logged in coach evaluations
+      if (dashboardData.coach_evaluations && dashboardData.coach_evaluations.length > 0) {{
+        const sorted = [...dashboardData.coach_evaluations].sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+        for (const ev of sorted) {{
+          if (ev.week_num) return ev.week_num;
+        }}
+      }}
+      // 2. Date calculation: Vancouver plan started on Monday Sep 28, 2026
+      const planStart = new Date(2026, 8, 28);
+      const now = new Date();
+      const diffTime = now - planStart;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays >= 0) {{
+        const w = Math.floor(diffDays / 7) + 1;
+        if (w >= 1 && w <= 31) return w;
+      }}
+      return 3;
+    }}
+
+    function renderSingleWeekCard(w, isCurrentWeek, isDone, storagePrefix) {{
+      const dailyRows = (w.daily_details || []).map(d => {{
+        let badgeClass = 'run';
+        if (d.miles === 0) badgeClass = 'rest';
+        else if (d.workout.includes('Long Run') || d.workout.includes('PEAK') || d.workout.includes('REHEARSAL') || d.workout.includes('Simulation')) badgeClass = 'lr';
+        else if (d.workout.includes('MARATHON') || d.workout.includes('BENCHMARK') || d.workout.includes('Race') || d.workout.includes('Time Trial')) badgeClass = 'race';
+
+        let liftingHtml = '<span style="color: var(--text-muted); font-size: 0.8rem;">--</span>';
+        if (d.lifting_type) {{
+          liftingHtml = '<div style="font-weight: 700; color: var(--accent-purple); font-size: 0.83rem; margin-bottom: 2px;">' + d.lifting_type + '</div><div style="font-size: 0.77rem; color: var(--text-secondary); line-height: 1.35;">' + (d.lifting_exercises || '') + '</div>';
+        }}
+
+        return `
+          <tr>
+            <td>
+              <span class="day-badge ${{badgeClass}}">${{d.day}}</span>
+              <strong style="margin-left: 6px; color: var(--text-highlight);">${{d.day_full}}</strong>
+            </td>
+            <td class="daily-miles ${{d.miles === 0 ? 'rest' : ''}}">
+              ${{d.miles > 0 ? d.miles + ' mi' : 'Rest'}}
+            </td>
+            <td>
+              <strong style="color: var(--text-highlight);">${{d.workout}}</strong>
+            </td>
+            <td class="daily-pace">
+              ${{d.pace}}
+            </td>
+            <td class="daily-hr">
+              ${{d.hr_zone}}
+            </td>
+            <td>
+              ${{liftingHtml}}
+            </td>
+            <td>
+              <div class="daily-purpose">🎯 <strong>Purpose:</strong> ${{d.purpose}}</div>
+              <div class="daily-instruction">${{d.description}}</div>
+            </td>
+          </tr>
+        `;
+      }}).join('');
+
+      // Current week details are expanded by default!
+      const isDetailsOpen = isCurrentWeek ? true : allDetailsExpanded;
+      const cardClass = isCurrentWeek ? 'week-card current-active-week' : 'week-card';
+      const cardStyle = isDone && !isCurrentWeek ? 'opacity: 0.65; border-color: rgba(16, 185, 129, 0.4);' : '';
+
+      return `
+        <div class="${{cardClass}}" id="weekCard_${{w.week}}" style="${{cardStyle}}">
+          <div class="week-card-main">
+            <div class="week-badge">
+              <div class="week-num">W${{w.week}}</div>
+              <div class="week-tag">Phase ${{w.phase}}</div>
+            </div>
+
+            <div class="week-meta">
+              <div class="week-dates">${{w.dates}}</div>
+              <div class="week-miles">${{w.target_miles}} <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: normal;">mi</span></div>
+            </div>
+
+            <div class="week-details">
+              <div class="workout-line">
+                <span class="workout-label lr">Long Run</span>
+                <strong>${{w.long_run}}</strong>
+              </div>
+              <div class="workout-line">
+                <span class="workout-label">Key Session</span>
+                <span>${{w.midweek_key}}</span>
+              </div>
+              <div class="workout-sub">
+                ${{w.structure}}
+              </div>
+              <div style="margin-top: 6px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 4px; padding: 2px 8px; font-family: 'JetBrains Mono', monospace;">
+                  📐 Daily Sum: ${{w.breakdown || ''}}
+                </span>
+                <button class="details-toggle-btn ${{isDetailsOpen ? 'active' : ''}}" id="btn_details_${{w.week}}" onclick="toggleWeekDetails(${{w.week}})">
+                  <span>${{isDetailsOpen ? '🔼 Hide Daily Details' : '📋 View Day-by-Day Runs & Lifting (Mon–Sun)'}}</span>
+                  <span class="chevron">${{isDetailsOpen ? '▲' : '▼'}}</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="week-checkpoint">
+              <strong>Checkpoint:</strong><br>
+              ${{w.proxy_checkpoint}}
+            </div>
+
+            <div class="week-check">
+              <input type="checkbox" title="Mark Week Completed" ${{isDone ? 'checked' : ''}} onchange="toggleWeekDone(${{w.week}}, this.checked)">
+            </div>
+          </div>
+
+          <!-- Day-by-Day Details Drawer -->
+          <div class="week-daily-breakdown" id="weekDetails_${{w.week}}" style="display: ${{isDetailsOpen ? 'block' : 'none'}};">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+              <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-highlight); display: flex; align-items: center; gap: 8px;">
+                <span>🗓️ Week ${{w.week}} Daily Running & Strength Schedule (Vancouver 2027):</span>
+                <span style="color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">${{w.target_miles}} Miles Total</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">${{w.dates}} • Phase ${{w.phase}}</span>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="daily-details-table">
+                <thead>
+                  <tr>
+                    <th style="min-width: 110px;">Day</th>
+                    <th style="min-width: 75px;">Distance</th>
+                    <th style="min-width: 170px;">Running Workout</th>
+                    <th style="min-width: 140px;">Target Pace</th>
+                    <th style="min-width: 140px;">Target HR</th>
+                    <th style="min-width: 210px;">Strength / Lifting</th>
+                    <th style="min-width: 260px;">Instructions & Coaching Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${{dailyRows}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+    }}
+
     function renderWeeklyPlan() {{
       const container = document.getElementById('weeklyPlanContainer');
       if (!container) return;
@@ -1803,134 +2184,92 @@ def generate():
         : activePlan.filter(w => w.phase === parseInt(currentFilter));
 
       const storagePrefix = currentPlanRace === 'vancouver' ? 'van_w_' : 'la_w_';
+      const currentWeekNum = getPlanCurrentWeek();
 
-      container.innerHTML = filtered.map(w => {{
+      const previousWeeks = [];
+      let currentWeek = null;
+      const upcomingWeeks = [];
+
+      filtered.forEach(w => {{
         const isDone = localStorage.getItem(storagePrefix + w.week) === 'true';
-        
-        const dailyRows = (w.daily_details || []).map(d => {{
-          let badgeClass = 'run';
-          if (d.miles === 0) badgeClass = 'rest';
-          else if (d.workout.includes('Long Run') || d.workout.includes('PEAK') || d.workout.includes('REHEARSAL') || d.workout.includes('Simulation')) badgeClass = 'lr';
-          else if (d.workout.includes('MARATHON') || d.workout.includes('BENCHMARK') || d.workout.includes('Race') || d.workout.includes('Time Trial')) badgeClass = 'race';
+        if (w.week === currentWeekNum) {{
+          currentWeek = w;
+        }} else if (w.week < currentWeekNum || isDone) {{
+          previousWeeks.push(w);
+        }} else {{
+          upcomingWeeks.push(w);
+        }}
+      }});
 
-          let liftingHtml = '<span style="color: var(--text-muted); font-size: 0.8rem;">--</span>';
-          if (d.lifting_type) {{
-            liftingHtml = '<div style="font-weight: 700; color: var(--accent-purple); font-size: 0.83rem; margin-bottom: 2px;">' + d.lifting_type + '</div><div style="font-size: 0.77rem; color: var(--text-secondary); line-height: 1.35;">' + (d.lifting_exercises || '') + '</div>';
-          }}
+      let prevWeeksHtml = '';
+      if (previousWeeks.length > 0) {{
+        const prevTotalMiles = previousWeeks.reduce((acc, w) => acc + (w.target_miles || 0), 0);
+        const prevWeekList = previousWeeks.map(w => 'W' + w.week).join(', ');
 
-          return `
-            <tr>
-              <td>
-                <span class="day-badge ${{badgeClass}}">${{d.day}}</span>
-                <strong style="margin-left: 6px; color: var(--text-highlight);">${{d.day_full}}</strong>
-              </td>
-              <td class="daily-miles ${{d.miles === 0 ? 'rest' : ''}}">
-                ${{d.miles > 0 ? d.miles + ' mi' : 'Rest'}}
-              </td>
-              <td>
-                <strong style="color: var(--text-highlight);">${{d.workout}}</strong>
-              </td>
-              <td class="daily-pace">
-                ${{d.pace}}
-              </td>
-              <td class="daily-hr">
-                ${{d.hr_zone}}
-              </td>
-              <td>
-                ${{liftingHtml}}
-              </td>
-              <td>
-                <div class="daily-purpose">🎯 <strong>Purpose:</strong> ${{d.purpose}}</div>
-                <div class="daily-instruction">${{d.description}}</div>
-              </td>
-            </tr>
-          `;
-        }}).join('');
-
-        return `
-          <div class="week-card" id="weekCard_${{w.week}}" style="${{isDone ? 'opacity: 0.6; border-color: rgba(16, 185, 129, 0.4);' : ''}}">
-            <div class="week-card-main">
-              <div class="week-badge">
-                <div class="week-num">W${{w.week}}</div>
-                <div class="week-tag">Phase ${{w.phase}}</div>
-              </div>
-
-              <div class="week-meta">
-                <div class="week-dates">${{w.dates}}</div>
-                <div class="week-miles">${{w.target_miles}} <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: normal;">mi</span></div>
-              </div>
-
-              <div class="week-details">
-                <div class="workout-line">
-                  <span class="workout-label lr">Long Run</span>
-                  <strong>${{w.long_run}}</strong>
-                </div>
-                <div class="workout-line">
-                  <span class="workout-label">Key Session</span>
-                  <span>${{w.midweek_key}}</span>
-                </div>
-                <div class="workout-sub">
-                  ${{w.structure}}
-                </div>
-                <div style="margin-top: 6px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                  <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 4px; padding: 2px 8px; font-family: 'JetBrains Mono', monospace;">
-                    📐 Daily Sum: ${{w.breakdown || ''}}
-                  </span>
-                  <button class="details-toggle-btn" id="btn_details_${{w.week}}" onclick="toggleWeekDetails(${{w.week}})">
-                    <span>📋 View Day-by-Day Runs & Lifting (Mon–Sun)</span>
-                    <span class="chevron">▼</span>
-                  </button>
+        prevWeeksHtml = `
+          <div class="previous-weeks-container">
+            <div class="previous-weeks-header" onclick="togglePreviousWeeks()">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span class="prev-check-icon">✓</span>
+                <div>
+                  <div style="font-weight: 700; color: var(--text-highlight); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <span>Completed Previous Weeks</span>
+                    <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-size: 0.75rem; padding: 2px 8px; border-radius: 9999px; font-weight: 700;">${{previousWeeks.length}} Completed</span>
+                  </div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">
+                    Weeks ${{prevWeekList}} • ${{prevTotalMiles}} Miles Prescribed
+                  </div>
                 </div>
               </div>
-
-              <div class="week-checkpoint">
-                <strong>Checkpoint:</strong><br>
-                ${{w.proxy_checkpoint}}
-              </div>
-
-              <div class="week-check">
-                <input type="checkbox" title="Mark Week Completed" ${{isDone ? 'checked' : ''}} onchange="toggleWeekDone(${{w.week}}, this.checked)">
-              </div>
+              <button class="prev-toggle-btn" id="prevWeeksToggleBtn" onclick="event.stopPropagation(); togglePreviousWeeks();">
+                <span id="prevToggleText">${{prevWeeksExpanded ? '🙈 Hide Completed Weeks' : '👁️ View Completed Weeks (' + previousWeeks.length + ')'}}</span>
+                <span class="chevron" id="prevToggleChevron">${{prevWeeksExpanded ? '▲' : '▼'}}</span>
+              </button>
             </div>
-
-            <!-- Collapsible Day-by-Day Details Drawer -->
-            <div class="week-daily-breakdown" id="weekDetails_${{w.week}}" style="display: ${{allDetailsExpanded ? 'block' : 'none'}};">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; flex-wrap: wrap; gap: 8px;">
-                <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-highlight); display: flex; align-items: center; gap: 8px;">
-                  <span>🗓️ Week ${{w.week}} Daily Running & Strength Schedule (Vancouver 2027):</span>
-                  <span style="color: var(--accent-amber); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">${{w.target_miles}} Miles Total</span>
-                </div>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">${{w.dates}} • Phase ${{w.phase}}</span>
-              </div>
-              <div class="data-table-wrapper">
-                <table class="daily-details-table">
-                  <thead>
-                    <tr>
-                      <th style="min-width: 110px;">Day</th>
-                      <th style="min-width: 75px;">Distance</th>
-                      <th style="min-width: 170px;">Running Workout</th>
-                      <th style="min-width: 140px;">Target Pace</th>
-                      <th style="min-width: 140px;">Target HR</th>
-                      <th style="min-width: 210px;">Strength / Lifting</th>
-                      <th style="min-width: 260px;">Instructions & Coaching Notes</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${{dailyRows}}
-                  </tbody>
-                </table>
-              </div>
+            <div id="previousWeeksDrawer" class="previous-weeks-drawer" style="display: ${{prevWeeksExpanded ? 'block' : 'none'}};">
+              ${{previousWeeks.map(w => renderSingleWeekCard(w, false, true, storagePrefix)).join('')}}
             </div>
           </div>
         `;
-      }}).join('');
-
-      if (allDetailsExpanded) {{
-        document.querySelectorAll('.details-toggle-btn').forEach(btn => {{
-          btn.classList.add('active');
-          btn.innerHTML = '<span>🔼 Hide Daily Details</span> <span class="chevron">▲</span>';
-        }});
       }}
+
+      let currentWeekHtml = '';
+      if (currentWeek) {{
+        const isCurrentDone = localStorage.getItem(storagePrefix + currentWeek.week) === 'true';
+        currentWeekHtml = `
+          <div class="current-week-wrapper">
+            <div class="current-week-ribbon">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="current-week-pill">⚡ CURRENT ACTIVE TRAINING WEEK</span>
+                <span style="font-size: 0.88rem; color: var(--accent-emerald); font-weight: 700;">
+                  Week ${{currentWeek.week}} (${{currentWeek.dates}})
+                </span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-secondary);">
+                Phase ${{currentWeek.phase}} • Target: <strong style="color: var(--accent-amber);">${{currentWeek.target_miles}} Miles</strong>
+              </span>
+            </div>
+            ${{renderSingleWeekCard(currentWeek, true, isCurrentDone, storagePrefix)}}
+          </div>
+        `;
+      }}
+
+      let upcomingWeeksHtml = '';
+      if (upcomingWeeks.length > 0) {{
+        upcomingWeeksHtml = `
+          <div class="upcoming-weeks-wrapper">
+            ${{currentWeek ? `
+              <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin: 24px 0 12px; display: flex; align-items: center; gap: 12px;">
+                <span>Upcoming Training Weeks (${{upcomingWeeks.length}} Weeks)</span>
+                <span style="height: 1px; flex: 1; background: var(--border-subtle);"></span>
+              </div>
+            ` : ''}}
+            ${{upcomingWeeks.map(w => renderSingleWeekCard(w, false, localStorage.getItem(storagePrefix + w.week) === 'true', storagePrefix)).join('')}}
+          </div>
+        `;
+      }}
+
+      container.innerHTML = prevWeeksHtml + currentWeekHtml + upcomingWeeksHtml;
     }}
 
     function toggleWeekDetails(weekNum) {{
