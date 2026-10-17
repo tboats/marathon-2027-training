@@ -1,5 +1,130 @@
 [
   {
+    "evaluation_id": "2026-10-16_24750941799",
+    "activity_id": 24750941799,
+    "date": "2026-10-16",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 3,
+    "day_of_week": "Fri",
+    "day_full": "Friday",
+    "prescribed": {
+      "miles": 5.0,
+      "workout": "Easy Pre-Long Run Shakeout",
+      "target_pace": "9:00 \u2013 9:30 / mi",
+      "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 5.04,
+      "duration_formatted": "47:13",
+      "duration_seconds": 2833.5,
+      "pace_raw": "9:22 / mi",
+      "pace_gap": "9:19 / mi",
+      "avg_hr": 130.0,
+      "max_hr": 141.0,
+      "avg_cadence": 169.3,
+      "max_cadence": 181.0,
+      "elevation_gain_ft": 278.9,
+      "elevation_loss_ft": 272.3,
+      "aerobic_te": 3.0999999046325684,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": 263.8,
+      "strides_gct_ms": 263.8,
+      "vertical_ratio_pct": 8.68,
+      "strides_vr_pct": 8.68,
+      "avg_power_w": 311.0,
+      "max_power_w": 423.0
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.8,
+      "pace_adherence": "Raw 9:22 / mi | Grade-Adjusted 9:19 / mi",
+      "hr_compliance": "Avg HR 130 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Evaluation for Week 3 Friday: 5.04 miles at 9:22 / mi (GAP: 9:19 / mi) with an average heart rate of 130 bpm (Grade: A+).",
+    "key_takeaways": [
+      "Adherence: Completed 5.04 mi vs 5.0 mi prescribed (100.8% volume precision).",
+      "Metabolic Control: Averaged 130 bpm heart rate (workout ceiling: 138 bpm).",
+      "Topography Management: Handled +279 ft of climb with appropriate effort modulation.",
+      "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+    ],
+    "next_workout": {
+      "day": "Saturday",
+      "date": "2026-10-17",
+      "miles": 11.0,
+      "workout": "Long Run",
+      "target_pace": "8:40 \u2013 9:15 / mi",
+      "target_hr": "Zone 2 (138 \u2013 146 bpm)",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
+    "evaluation_id": "2026-10-15_24740179374",
+    "activity_id": 24740179374,
+    "date": "2026-10-15",
+    "activity_name": "Strength",
+    "race_plan": "vancouver",
+    "week_num": 3,
+    "day_of_week": "Thu",
+    "day_full": "Thursday",
+    "prescribed": {
+      "miles": 0.0,
+      "workout": "Rest from Running \u2022 \ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+    },
+    "actual": {
+      "miles": 0.0,
+      "duration_formatted": "17:57",
+      "duration_seconds": 1077.9,
+      "pace_raw": "Strength Gym",
+      "pace_gap": "Strength Gym",
+      "avg_hr": 82.0,
+      "max_hr": 122.0,
+      "avg_cadence": null,
+      "max_cadence": null,
+      "elevation_gain_ft": 0.0,
+      "elevation_loss_ft": 0.0,
+      "aerobic_te": 0.30000001192092896,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": null,
+      "strides_gct_ms": null,
+      "vertical_ratio_pct": null,
+      "strides_vr_pct": null,
+      "avg_power_w": null,
+      "max_power_w": null,
+      "total_sets": 13,
+      "total_reps": 194
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.0,
+      "pace_adherence": "Gym Strength Session (Zero Running)",
+      "hr_compliance": "Max HR 122.0 bpm (Cleanly below 130 bpm cap)",
+      "strides_count": 0,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Flawless execution of Week 3 Thursday: 17:57 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+    "key_takeaways": [
+      "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+      "Cardiovascular Discipline: Max HR capped at 122.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+      "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+    ],
+    "next_workout": {
+      "day": "Friday",
+      "date": "2026-10-16",
+      "miles": 5.0,
+      "workout": "Easy Pre-Long Run Shakeout",
+      "target_pace": "9:00 \u2013 9:30 / mi",
+      "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-10-14_24728354450",
     "activity_id": 24728354450,
     "date": "2026-10-14",
