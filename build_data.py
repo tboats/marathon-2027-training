@@ -756,28 +756,28 @@ def build_dataset():
         'golden_rule': 'One Focus Per Day: Never Run and Lift on the Same Day',
         'core_principles': [
             'No Two-A-Days: Every single day in your weekly calendar is dedicated either purely to running, purely to lifting, or pure rest. Never both.',
-            'Leg Strength Once Every Two Weeks (1/2w): Scheduled strictly on Thursday (a zero-running day). On alternate weeks, Thursday is dedicated to rotational core and pelvic stability.',
-            'Pre-Long Run Leg Flush: Friday is an easy conversational shakeout run (4–7 mi) with ZERO lifting. The gentle movement flushes metabolites from Thursday lifting and primes the legs for Saturday morning.',
+            'Leg Strength On Monday (1/2w): Scheduled strictly on Monday (a zero-running day). This provides 120 hours (5 full days) of clearance before Saturday long runs, completely eliminating 48-hour DOMS on your key anchor!',
+            'Thursday Upper Body & Core Flush: Thursday is a zero-running day dedicated to Upper Body (Push/Pull) and Anti-Extension Core (zero leg weights), allowing full recovery before Friday shakeout and Saturday long run.',
             'Protected Wednesday Aerobic Anchor: Wednesday is 100% running (midweek aerobic base / medium-long run). The evening leg session has been completely eliminated so you can focus entirely on running.'
         ],
         'weekly_lifting_rhythm': {
-            'monday': {
-                'day': 'Monday (Non-Running Day)',
-                'focus': 'Upper Body (Push/Pull) + Anti-Extension Core',
-                'exercises': 'Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side).',
-                'rule': 'LIFT ONLY (Zero running, zero heavy leg work). Keeps legs completely fresh for Tuesday threshold speed workouts.'
-            },
-            'thursday_week_a': {
-                'day': 'Thursday (Non-Running Day • Odd Weeks: 1/2w)',
+            'monday_week_a': {
+                'day': 'Monday (Non-Running Day • Odd Weeks: 1/2w)',
                 'focus': '🏋️ Bi-Weekly Heavy Resistance Leg Strength',
-                'exercises': 'Trap Bar Deadlift (3x5 @ 75-80% 1RM), Bulgarian Split Squats (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive).',
-                'rule': 'LIFT ONLY (Zero running). Low-rep (3–5 reps), heavy resistance, explosive intent, RIR 2-3 (never train to muscle failure). Stimulates high-threshold motor unit recruitment and tendon stiffness without hypertrophy. Friday easy run flushes legs before Saturday long run!'
+                'exercises': 'Trap Bar Deadlift (3x5 @ 75-80% 1RM), Bulgarian Split Squats or Step-Ups (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive).',
+                'rule': 'LIFT ONLY (Zero running). Low-rep (3–5 reps), heavy resistance, explosive intent, RIR 2-3 (never train to muscle failure). Stimulates high-threshold motor unit recruitment and tendon stiffness without hypertrophy. Monday placement gives 120 hours before Saturday long run!'
             },
-            'thursday_week_b': {
-                'day': 'Thursday (Non-Running Day • Even Weeks)',
+            'monday_week_b': {
+                'day': 'Monday (Non-Running Day • Even Weeks)',
                 'focus': '🧘 Core & Pelvic / Hip Stability (Pre-hab)',
                 'exercises': 'Copenhagen Adductor Planks (3x20s/side), Side Planks with Leg Lift (3x30s), Single-Leg RDLs (light dumbbell, 3x8/leg), Banded Glute Bridges (3x12).',
-                'rule': 'LIFT ONLY (Zero running, zero heavy leg weights). Strengthens gluteus medius and adductors to stabilize pelvis and prevent IT-band friction and lower-back collapse at Mile 20.'
+                'rule': 'LIFT ONLY (Zero running, zero heavy leg weights). Strengthens gluteus medius and adductors to stabilize pelvis and prevent IT-band friction without residual leg fatigue.'
+            },
+            'thursday': {
+                'day': 'Thursday (Non-Running Day)',
+                'focus': 'Upper Body (Push/Pull) + Anti-Extension Core',
+                'exercises': 'Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side).',
+                'rule': 'LIFT ONLY (Zero running, zero leg weights). Upper body postural endurance. Keeps legs 100% fresh for Friday shakeout and Saturday long run.'
             },
             'running_days': {
                 'day': 'Tuesday, Wednesday, Friday, Saturday, Sunday (5 Running Days)',
@@ -787,8 +787,8 @@ def build_dataset():
             }
         },
         'taper_protocol': {
-            'week_21': 'Reduce Thursday leg lifting volume by 50% (2x4 light/explosive). Zero running.',
-            'week_22': 'Bodyweight core and mobility only on Thursday. Zero external weights. Zero running.',
+            'week_21': 'Reduce Monday leg lifting volume by 50% (2x4 light/explosive). Zero running.',
+            'week_22': 'Bodyweight core and mobility only on Monday. Zero external weights. Zero running.',
             'week_23': 'Zero lifting. Race week rest, hydration, and mental focus.'
         }
     }

@@ -1474,16 +1474,16 @@ def generate():
           </div>
           <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Bi-Weekly Rhythm</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Leg Strength 1/2w (Thursdays)</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Leg Strength 1/2w (Mondays)</div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              Heavy resistance leg lifting is scheduled strictly once every two weeks (Odd Weeks) on Thursday (a zero-running day). On alternate weeks (Even Weeks), Thursday is dedicated to pelvic/hip pre-hab with zero heavy eccentric load.
+              Heavy resistance leg lifting is scheduled strictly once every two weeks (Odd Weeks) on Monday (a zero-running day). On alternate weeks (Even Weeks), Monday is dedicated to pelvic/hip pre-hab with zero heavy eccentric load.
             </div>
           </div>
           <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">Pre-Long Run Priming</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Friday Shakeout Flush</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 700;">Upper Body & Core Flush</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); margin: 4px 0;">Thursday Lift Only</div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              Friday is strictly an easy conversational shakeout run (4–7 mi, zero lifting). The light aerobic blood flow flushes metabolites from Thursday lifting and primes muscle fibers for Saturday's long run anchor.
+              Thursday is dedicated to upper body posture and anti-extension core (zero leg lifting). Legs remain completely fresh for Friday's aerobic shakeout and Saturday's key long run anchor.
             </div>
           </div>
           <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
@@ -1500,43 +1500,11 @@ def generate():
       <div class="grid-2" style="margin-bottom: 24px;">
         <div class="card">
           <div class="card-title">
-            <span>Monday (Non-Running Day): Upper Body & Anti-Extension Core</span>
-            <span class="hero-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">Lift Only</span>
-          </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 14px;">
-            Target: Upright marathon posture, scapular retraction, and arm swing drive in late miles. Leaves legs 100% unloaded before Tuesday threshold/hill workouts.
-          </p>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
-              <strong>Dumbbell Overhead or Flat Bench Press:</strong> 3 sets &times; 8 reps (RIR 2–3)
-              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Strengthens anterior deltoids and pectorals for postural stability under fatigue.</div>
-            </div>
-            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
-              <strong>Pull-ups or Lat Pulldowns:</strong> 3 sets &times; 8 reps
-              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Lats generate backward arm-drive power, counterbalancing forward hip flexion.</div>
-            </div>
-            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
-              <strong>Cable or Chest-Supported Rows:</strong> 3 sets &times; 10 reps
-              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Prevents upper back slouching and chest collapse at Miles 20–26.</div>
-            </div>
-            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
-              <strong>Standing Cable Pallof Press:</strong> 3 sets &times; 12 reps/side
-              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Anti-rotational stability resists unwanted torso twist during high-cadence running.</div>
-            </div>
-            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
-              <strong>Deadbugs / Bird-Dogs:</strong> 3 sets &times; 10 reps/side
-              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Neuromuscular cross-body patterning (opposite arm/leg) and deep transverse abdominis control.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">
-            <span>Thursday: Alternating Bi-Weekly Lower Body Protocols</span>
+            <span>Monday: Alternating Bi-Weekly Lower Body Protocols</span>
             <span class="hero-badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.3);">Lift Only</span>
           </div>
           <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 14px;">
-            Target: Alternate between heavy neuromuscular recruitment (Odd Weeks) and restorative hip/pelvic pre-hab (Even Weeks) on Thursdays.
+            Target: Alternate between heavy neuromuscular recruitment (Odd Weeks) and restorative hip/pelvic pre-hab (Even Weeks) on Mondays.
           </p>
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <div style="padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-rose);">
@@ -1558,6 +1526,38 @@ def generate():
                 <li><strong>Banded Glute Bridges / Clamshells:</strong> 3 &times; 12 reps (glute activation, prevents IT-band friction).</li>
                 <li><em>Rule:</em> Zero heavy eccentric loading. Restores structural balance without muscle soreness.</li>
               </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Thursday (Non-Running Day): Upper Body & Anti-Extension Core</span>
+            <span class="hero-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">Lift Only</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 14px;">
+            Target: Upright marathon posture, scapular retraction, and arm swing drive in late miles. Zero leg lifting leaves lower body completely fresh for Friday and Saturday.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+              <strong>Dumbbell Overhead or Flat Bench Press:</strong> 3 sets &times; 8 reps (RIR 2–3)
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Strengthens anterior deltoids and pectorals for postural stability under fatigue.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+              <strong>Pull-ups or Lat Pulldowns:</strong> 3 sets &times; 8 reps
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Lats generate backward arm-drive power, counterbalancing forward hip flexion.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
+              <strong>Cable or Chest-Supported Rows:</strong> 3 sets &times; 10 reps
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Prevents upper back slouching and chest collapse at Miles 20–26.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+              <strong>Standing Cable Pallof Press:</strong> 3 sets &times; 12 reps/side
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Anti-rotational stability resists unwanted torso twist during high-cadence running.</div>
+            </div>
+            <div style="padding: 10px; background: var(--bg-secondary); border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
+              <strong>Deadbugs / Bird-Dogs:</strong> 3 sets &times; 10 reps/side
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px;">Neuromuscular cross-body patterning (opposite arm/leg) and deep transverse abdominis control.</div>
             </div>
           </div>
         </div>
