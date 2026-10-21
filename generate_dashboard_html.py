@@ -853,6 +853,36 @@ def generate():
       color: var(--accent-emerald);
     }}
 
+    .daily-row-completed {{
+      background: rgba(16, 185, 129, 0.05) !important;
+      border-left: 3px solid var(--accent-emerald) !important;
+    }}
+    .daily-row-completed:hover {{
+      background: rgba(16, 185, 129, 0.09) !important;
+    }}
+
+    .daily-row-next-up {{
+      background: rgba(245, 158, 11, 0.07) !important;
+      border-left: 3px solid var(--accent-amber) !important;
+    }}
+    .daily-row-next-up:hover {{
+      background: rgba(245, 158, 11, 0.12) !important;
+    }}
+
+    .next-run-spotlight-card {{
+      margin-bottom: 22px;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(22, 32, 50, 0.98) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }}
+
     @keyframes fadeIn {{
       from {{ opacity: 0; transform: translateY(-4px); }}
       to {{ opacity: 1; transform: translateY(0); }}
@@ -2048,7 +2078,32 @@ def generate():
     }}
 
     function renderSingleWeekCard(w, isCurrentWeek, isDone, storagePrefix) {{
+      const evalMap = {{}};
+      (dashboardData.coach_evaluations || []).forEach(ev => {{
+        if (ev.week_num && ev.day_of_week) {{
+          evalMap[ev.week_num + '_' + ev.day_of_week] = ev;
+        }}
+      }});
+
+      let nextUpDay = null;
+      if (isCurrentWeek) {{
+        for (const d of (w.daily_details || [])) {{
+          if (!evalMap[w.week + '_' + d.day]) {{
+            nextUpDay = d.day;
+            break;
+          }}
+        }}
+      }}
+
+      const allDaysCompleted = (w.daily_details || []).length > 0 && (w.daily_details || []).every(d => !!evalMap[w.week + '_' + d.day]);
+      const isWeekFullyArchived = isDone || allDaysCompleted || (w.week < getPlanCurrentWeek());
+
       const dailyRows = (w.daily_details || []).map(d => {{
+        const evKey = w.week + '_' + d.day;
+        const ev = evalMap[evKey];
+        const isCompleted = !!ev;
+        const isNextUp = isCurrentWeek && d.day === nextUpDay;
+
         let badgeClass = 'run';
         if (d.miles === 0) badgeClass = 'rest';
         else if (d.workout.includes('Long Run') || d.workout.includes('PEAK') || d.workout.includes('REHEARSAL') || d.workout.includes('Simulation')) badgeClass = 'lr';
@@ -2059,17 +2114,51 @@ def generate():
           liftingHtml = '<div style="font-weight: 700; color: var(--accent-purple); font-size: 0.83rem; margin-bottom: 2px;">' + d.lifting_type + '</div><div style="font-size: 0.77rem; color: var(--text-secondary); line-height: 1.35;">' + (d.lifting_exercises || '') + '</div>';
         }}
 
+        let rowClass = '';
+        let statusBadge = '';
+        if (isCompleted) {{
+          rowClass = 'daily-row-completed';
+          const grade = ev.scorecard ? ev.scorecard.grade : 'A+';
+          const actualText = ev.actual.miles > 0 
+            ? `${{ev.actual.miles.toFixed(2)}} mi @ ${{ev.actual.pace_raw}}${{ev.actual.pace_gap && ev.actual.pace_gap !== 'Strength Gym' ? ' (GAP ' + ev.actual.pace_gap + ')' : ''}} • Avg HR ${{Math.round(ev.actual.avg_hr)}} bpm`
+            : `Gym Session (${{ev.actual.duration_formatted}}) • Avg HR ${{Math.round(ev.actual.avg_hr)}} bpm`;
+          statusBadge = `
+            <div style="margin-top: 4px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+              <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-size: 0.72rem; padding: 2px 7px; border-radius: 9999px; font-weight: 800; display: inline-flex; align-items: center; gap: 3px;">
+                <span>✓</span> Completed (Grade ${{grade}})
+              </span>
+              <span style="font-size: 0.75rem; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace;">
+                ${{actualText}}
+              </span>
+            </div>
+          `;
+        }} else if (isNextUp) {{
+          rowClass = 'daily-row-next-up';
+          statusBadge = `
+            <div style="margin-top: 4px;">
+              <span style="background: rgba(245, 158, 11, 0.22); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.45); font-size: 0.72rem; padding: 2px 8px; border-radius: 9999px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">
+                <span>👉</span> NEXT UP
+              </span>
+            </div>
+          `;
+        }}
+
         return `
-          <tr>
+          <tr class="${{rowClass}}">
             <td>
-              <span class="day-badge ${{badgeClass}}">${{d.day}}</span>
-              <strong style="margin-left: 6px; color: var(--text-highlight);">${{d.day_full}}</strong>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="day-badge ${{badgeClass}}">${{d.day}}</span>
+                <strong style="color: var(--text-highlight);">${{d.day_full}}</strong>
+                ${{isCompleted ? '<span style="color: var(--accent-emerald); font-weight: 900; font-size: 0.85rem;" title="Run Completed">✓</span>' : ''}}
+              </div>
             </td>
             <td class="daily-miles ${{d.miles === 0 ? 'rest' : ''}}">
-              ${{d.miles > 0 ? d.miles + ' mi' : 'Rest'}}
+              <div>${{d.miles > 0 ? d.miles + ' mi' : 'Rest'}}</div>
+              ${{isCompleted && ev.actual.miles > 0 ? `<div style="font-size: 0.73rem; color: var(--accent-emerald); font-weight: 700; margin-top: 2px;">✓ ${{ev.actual.miles.toFixed(2)}} mi</div>` : ''}}
             </td>
             <td>
               <strong style="color: var(--text-highlight);">${{d.workout}}</strong>
+              ${{statusBadge}}
             </td>
             <td class="daily-pace">
               ${{d.pace}}
@@ -2091,14 +2180,14 @@ def generate():
       // Current week details are expanded by default!
       const isDetailsOpen = isCurrentWeek ? true : allDetailsExpanded;
       const cardClass = isCurrentWeek ? 'week-card current-active-week' : 'week-card';
-      const cardStyle = isDone && !isCurrentWeek ? 'opacity: 0.65; border-color: rgba(16, 185, 129, 0.4);' : '';
+      const cardStyle = isWeekFullyArchived && !isCurrentWeek ? 'opacity: 0.65; border-color: rgba(16, 185, 129, 0.4);' : '';
 
       return `
         <div class="${{cardClass}}" id="weekCard_${{w.week}}" style="${{cardStyle}}">
           <div class="week-card-main">
             <div class="week-badge">
               <div class="week-num">W${{w.week}}</div>
-              <div class="week-tag">Phase ${{w.phase}}</div>
+              <div class="week-tag">${{isWeekFullyArchived ? '✓ Done' : 'Phase ' + w.phase}}</div>
             </div>
 
             <div class="week-meta">
@@ -2135,7 +2224,7 @@ def generate():
             </div>
 
             <div class="week-check">
-              <input type="checkbox" title="Mark Week Completed" ${{isDone ? 'checked' : ''}} onchange="toggleWeekDone(${{w.week}}, this.checked)">
+              <input type="checkbox" title="Mark Week Completed" ${{isWeekFullyArchived ? 'checked' : ''}} onchange="toggleWeekDone(${{w.week}}, this.checked)">
             </div>
           </div>
 
@@ -2186,12 +2275,19 @@ def generate():
       const storagePrefix = currentPlanRace === 'vancouver' ? 'van_w_' : 'la_w_';
       const currentWeekNum = getPlanCurrentWeek();
 
+      const evalMap = {{}};
+      (dashboardData.coach_evaluations || []).forEach(ev => {{
+        if (ev.week_num && ev.day_of_week) {{
+          evalMap[ev.week_num + '_' + ev.day_of_week] = ev;
+        }}
+      }});
+
       const previousWeeks = [];
       let currentWeek = null;
       const upcomingWeeks = [];
 
       filtered.forEach(w => {{
-        const isDone = localStorage.getItem(storagePrefix + w.week) === 'true';
+        const isDone = localStorage.getItem(storagePrefix + w.week) === 'true' || w.week < currentWeekNum;
         if (w.week === currentWeekNum) {{
           currentWeek = w;
         }} else if (w.week < currentWeekNum || isDone) {{
@@ -2200,6 +2296,70 @@ def generate():
           upcomingWeeks.push(w);
         }}
       }});
+
+      // 1. Immediate Next Run Spotlight Card
+      let nextUpSpotlightHtml = '';
+      if (currentWeek) {{
+        let nextUpWorkout = null;
+        for (const d of (currentWeek.daily_details || [])) {{
+          if (!evalMap[currentWeek.week + '_' + d.day]) {{
+            nextUpWorkout = d;
+            break;
+          }}
+        }}
+
+        if (nextUpWorkout) {{
+          const isRest = nextUpWorkout.miles === 0;
+          const icon = isRest ? '🧘' : '🏃';
+          const distStr = isRest ? 'Rest / Strength Day' : `${{nextUpWorkout.miles}} Miles Prescribed`;
+          
+          const remainingDays = (currentWeek.daily_details || []).filter(d => !evalMap[currentWeek.week + '_' + d.day]);
+          const remainingChipsHtml = remainingDays.map(d => {{
+            const isTarget = d.day === nextUpWorkout.day;
+            return `
+              <div style="background: ${{isTarget ? 'rgba(245, 158, 11, 0.25)' : 'var(--bg-secondary)'}}; border: 1px solid ${{isTarget ? 'rgba(245, 158, 11, 0.5)' : 'var(--border-subtle)'}}; padding: 6px 12px; border-radius: var(--radius-sm); font-size: 0.8rem; display: flex; align-items: center; gap: 6px;">
+                <strong style="color: ${{isTarget ? 'var(--accent-amber)' : 'var(--text-highlight)'}};">${{d.day}}</strong>
+                <span style="color: var(--text-secondary);">${{d.miles > 0 ? d.miles + ' mi' : 'Rest'}}</span>
+              </div>
+            `;
+          }}).join('');
+
+          nextUpSpotlightHtml = `
+            <div class="next-run-spotlight-card">
+              <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.45); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                  ${{icon}}
+                </div>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;">
+                    <span style="background: var(--accent-amber); color: #000; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                      ⚡ Immediate Next Run
+                    </span>
+                    <span style="font-size: 0.82rem; color: var(--accent-emerald); font-weight: 700;">
+                      Week ${{currentWeek.week}} • ${{nextUpWorkout.day_full}}
+                    </span>
+                  </div>
+                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight);">
+                    ${{nextUpWorkout.workout}} (${{distStr}})
+                  </div>
+                  <div style="font-size: 0.83rem; color: var(--text-secondary); margin-top: 2px;">
+                    Target: <strong style="color: var(--accent-amber);">${{nextUpWorkout.pace}}</strong> • HR: <strong style="color: var(--accent-cyan);">${{nextUpWorkout.hr_zone}}</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">
+                  Remaining Week ${{currentWeek.week}} Schedule
+                </div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  ${{remainingChipsHtml}}
+                </div>
+              </div>
+            </div>
+          `;
+        }}
+      }}
 
       let prevWeeksHtml = '';
       if (previousWeeks.length > 0) {{
@@ -2236,13 +2396,26 @@ def generate():
       let currentWeekHtml = '';
       if (currentWeek) {{
         const isCurrentDone = localStorage.getItem(storagePrefix + currentWeek.week) === 'true';
+        let currentWeekCompletedDays = 0;
+        let currentWeekLoggedMiles = 0;
+        (currentWeek.daily_details || []).forEach(d => {{
+          const ev = evalMap[currentWeek.week + '_' + d.day];
+          if (ev) {{
+            currentWeekCompletedDays++;
+            currentWeekLoggedMiles += (ev.actual.miles || 0);
+          }}
+        }});
+
         currentWeekHtml = `
           <div class="current-week-wrapper">
             <div class="current-week-ribbon">
-              <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <span class="current-week-pill">⚡ CURRENT ACTIVE TRAINING WEEK</span>
                 <span style="font-size: 0.88rem; color: var(--accent-emerald); font-weight: 700;">
                   Week ${{currentWeek.week}} (${{currentWeek.dates}})
+                </span>
+                <span style="background: rgba(16, 185, 129, 0.18); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.35); font-size: 0.74rem; padding: 2px 8px; border-radius: 9999px; font-weight: 700;">
+                  ${{currentWeekCompletedDays}} of 7 Days Complete (${{currentWeekLoggedMiles.toFixed(1)}} / ${{currentWeek.target_miles}} mi)
                 </span>
               </div>
               <span style="font-size: 0.8rem; color: var(--text-secondary);">
@@ -2269,7 +2442,7 @@ def generate():
         `;
       }}
 
-      container.innerHTML = prevWeeksHtml + currentWeekHtml + upcomingWeeksHtml;
+      container.innerHTML = nextUpSpotlightHtml + prevWeeksHtml + currentWeekHtml + upcomingWeeksHtml;
     }}
 
     function toggleWeekDetails(weekNum) {{

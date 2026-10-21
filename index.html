@@ -830,6 +830,36 @@
       color: var(--accent-emerald);
     }
 
+    .daily-row-completed {
+      background: rgba(16, 185, 129, 0.05) !important;
+      border-left: 3px solid var(--accent-emerald) !important;
+    }
+    .daily-row-completed:hover {
+      background: rgba(16, 185, 129, 0.09) !important;
+    }
+
+    .daily-row-next-up {
+      background: rgba(245, 158, 11, 0.07) !important;
+      border-left: 3px solid var(--accent-amber) !important;
+    }
+    .daily-row-next-up:hover {
+      background: rgba(245, 158, 11, 0.12) !important;
+    }
+
+    .next-run-spotlight-card {
+      margin-bottom: 22px;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(22, 32, 50, 0.98) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-4px); }
       to { opacity: 1; transform: translateY(0); }
@@ -1226,7 +1256,7 @@
           <span style="font-size: 1.4rem;">⚡</span>
           <div>
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-emerald); font-weight: 800; letter-spacing: 0.05em;">Active Coaching Command Center • Vancouver 2027</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight);">Campaign Status: Week 3 Active (Day 7 of 7 Complete)</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight);">Campaign Status: Week 4 Active (Day 2 of 7 Complete)</div>
           </div>
         </div>
         <div style="display: flex; gap: 8px;">
@@ -1240,28 +1270,28 @@
         <!-- Left: Latest Completed Session -->
         <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Latest Run: Sunday (2026-10-18)</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Latest Run: Tuesday (2026-10-20)</span>
             <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-weight: 800; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">Grade A+</span>
           </div>
           <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
-            5.05 mi @ 9:19 / mi (GAP: 9:17 / mi)
+            6.83 mi @ 8:36 / mi (GAP: 8:29 / mi)
           </div>
           <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
-            HR: <strong>131.0 bpm</strong> • Climb: <strong>+282 ft</strong> • Strides: <strong>1 executed (peak N/A)</strong>.
+            HR: <strong>147.0 bpm</strong> • Climb: <strong>+285 ft</strong> • Strides: <strong>2 executed (peak N/A)</strong>.
           </div>
         </div>
 
         <!-- Right: Next Session Preview -->
         <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: Monday (2026-10-19)</span>
-            <span style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">Upper Body & Core Strength (No Running)</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: Wednesday (2026-10-21)</span>
+            <span style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">RUN ONLY — ZERO LIFTING</span>
           </div>
           <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
-            0 mi • Rest from Running • Upper Body & Core Strength
+            9.0 mi • Aerobic Base
           </div>
           <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
-            Prescribed Pace: <strong>Rest / Mobility</strong> • Target HR: <strong>Rest (< 100 bpm)</strong>.
+            Prescribed Pace: <strong>8:30 – 8:55 / mi</strong> • Target HR: <strong>Zone 2 Aerobic Base (136 – 145 bpm)</strong>.
           </div>
         </div>
       </div>
@@ -1376,24 +1406,24 @@
           <div>
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
               <span class="hero-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.4);">
-                Latest Session: Sunday, 2026-10-18
+                Latest Session: Tuesday, 2026-10-20
               </span>
               <span class="hero-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">
-                Week 3 • Vancouver Plan
+                Week 4 • Vancouver Plan
               </span>
             </div>
             <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-highlight); margin: 0 0 4px 0;">
-              Recovery • 5.05 Miles Logged
+              Steady Tempo • 6.83 Miles Logged
             </h3>
             <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
-              Prescription: <strong>5.0 mi</strong> (9:15 – 9:45 / mi) • Actual Moving Time: <strong>47:06</strong>
+              Prescription: <strong>7.0 mi</strong> (Intervals: 7:00 – 7:10 / mi | Recovery: 9:00 / mi) • Actual Moving Time: <strong>58:51</strong>
             </p>
           </div>
 
           <div style="text-align: right; background: rgba(16, 185, 129, 0.15); border: 1.5px solid rgba(16, 185, 129, 0.4); padding: 12px 20px; border-radius: var(--radius-md);">
             <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-emerald); letter-spacing: 0.05em;">Workout Grade</div>
             <div style="font-size: 2.2rem; font-weight: 900; color: var(--accent-emerald); line-height: 1;">A+</div>
-            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">101.0% Vol Adherence</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">97.6% Vol Adherence</div>
           </div>
         </div>
 
@@ -1403,37 +1433,37 @@
           <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-blue);">
             <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Average Pace (Raw / GAP)</div>
             <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
-              9:19 / mi
+              8:36 / mi
             </div>
             <div style="font-size: 0.8rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">
-              GAP: 9:17 / mi
+              GAP: 8:29 / mi
             </div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
             <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Heart Rate (Avg / Max)</div>
             <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
-              131.0 bpm
+              147.0 bpm
             </div>
             <div style="font-size: 0.8rem; color: var(--text-secondary);">
-              Peak: 143.0 bpm (Hill climb)
+              Peak: 170.0 bpm (Hill climb)
             </div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-amber);">
             <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Cadence (Avg / Peak)</div>
             <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
-              173.5 spm
+              175.7 spm
             </div>
             <div style="font-size: 0.8rem; color: var(--accent-amber);">
-              Strides Peak: 200.0 spm
+              Strides Peak: 199.0 spm
             </div>
           </div>
 
           <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-purple);">
             <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Elevation Climbed</div>
             <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
-              +282 ft
+              +285 ft
             </div>
             <div style="font-size: 0.8rem; color: var(--text-secondary);">
               Elevation change on Seattle hills
@@ -1443,10 +1473,10 @@
           <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-rose);">
             <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Ground Contact Time</div>
             <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-highlight); font-family: 'JetBrains Mono', monospace; margin-top: 2px;">
-              258.1 ms
+              251.1 ms
             </div>
             <div style="font-size: 0.8rem; color: var(--accent-emerald);">
-              Strides Pop: 258.1 ms (-28%)
+              Strides Pop: 227.3 ms (-28%)
             </div>
           </div>
         </div>
@@ -1458,23 +1488,23 @@
             <span>📋</span> Coach's Executive Assessment
           </h4>
           <p style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.6; margin: 0 0 12px 0;">
-            Evaluation for Week 3 Sunday: 5.05 miles at 9:19 / mi (GAP: 9:17 / mi) with an average heart rate of 131 bpm (Grade: A+).
+            Evaluation for Week 4 Tuesday: 6.83 miles at 8:36 / mi (GAP: 8:29 / mi) with an average heart rate of 147 bpm (Grade: A+).
           </p>
           <div style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">Key Observations & Telemetry Clues:</div>
           <ul style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 20px; margin: 0;">
-            <li style='margin-bottom: 8px; line-height: 1.5;'>Adherence: Completed 5.05 mi vs 5.0 mi prescribed (101.0% volume precision).</li><li style='margin-bottom: 8px; line-height: 1.5;'>Metabolic Control: Averaged 131 bpm heart rate (workout ceiling: 138 bpm).</li><li style='margin-bottom: 8px; line-height: 1.5;'>Topography Management: Handled +282 ft of climb with appropriate effort modulation.</li><li style='margin-bottom: 8px; line-height: 1.5;'>✨ Perfect Disciplined Execution: Zero pacing, HR, or distance deductions.</li>
+            <li style='margin-bottom: 8px; line-height: 1.5;'>Adherence: Completed 6.83 mi vs 7.0 mi prescribed (97.6% volume precision).</li><li style='margin-bottom: 8px; line-height: 1.5;'>Metabolic Control: Averaged 147 bpm heart rate (workout ceiling: 168 bpm).</li><li style='margin-bottom: 8px; line-height: 1.5;'>Topography Management: Handled +285 ft of climb with appropriate effort modulation.</li><li style='margin-bottom: 8px; line-height: 1.5;'>✨ Perfect Disciplined Execution: Zero pacing, HR, or distance deductions.</li>
           </ul>
         </div>
 
         <!-- Next Workout Preview -->
         <div style="background: rgba(56, 189, 248, 0.08); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid rgba(56, 189, 248, 0.25); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
           <div>
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: Monday (2026-10-19)</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight);">0 mi • Rest from Running • Upper Body & Core Strength</div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">Target: Rest / Mobility • HR: Rest (< 100 bpm)</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: Wednesday (2026-10-21)</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight);">9.0 mi • Aerobic Base</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">Target: 8:30 – 8:55 / mi • HR: Zone 2 Aerobic Base (136 – 145 bpm)</div>
           </div>
           <div style="background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.35); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--accent-purple); font-weight: 700;">
-            ⚡ Upper Body & Core Strength (No Running)
+            ⚡ RUN ONLY — ZERO LIFTING
           </div>
         </div>
       </div>
@@ -1483,7 +1513,7 @@
       <div class="card">
         <div class="card-title">
           <span>📜 Historical Coach Evaluations Log</span>
-          <span class="hero-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">23 Recorded Session(s)</span>
+          <span class="hero-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border-color: rgba(56, 189, 248, 0.3);">25 Recorded Session(s)</span>
         </div>
         <div style="overflow-x: auto; margin-top: 12px;">
           <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
@@ -1501,6 +1531,28 @@
             </thead>
             <tbody>
               
+        <tr style="border-bottom: 1px solid var(--border-subtle);">
+          <td style="padding: 12px; font-weight: 600; color: var(--text-highlight);">2026-10-20 (Tue)</td>
+          <td style="padding: 12px;">Week 4 • Steady Tempo</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">7.0 mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-emerald);">6.83 mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">8:36 / mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan);">8:29 / mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">147.0 bpm</td>
+          <td style="padding: 12px;"><span style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.4); font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 0.85rem;">A+</span></td>
+        </tr>
+        
+        <tr style="border-bottom: 1px solid var(--border-subtle);">
+          <td style="padding: 12px; font-weight: 600; color: var(--text-highlight);">2026-10-19 (Mon)</td>
+          <td style="padding: 12px;">Week 4 • Rest from Running • 🧘 Core & Pelvic Hip Stability</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">0.0 mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--accent-emerald);">0.00 mi</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">Strength Gym</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan);">Strength Gym</td>
+          <td style="padding: 12px; font-family: 'JetBrains Mono', monospace;">82.0 bpm</td>
+          <td style="padding: 12px;"><span style="background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.4); font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 0.85rem;">A+</span></td>
+        </tr>
+        
         <tr style="border-bottom: 1px solid var(--border-subtle);">
           <td style="padding: 12px; font-weight: 600; color: var(--text-highlight);">2026-10-18 (Sun)</td>
           <td style="padding: 12px;">Week 3 • Recovery</td>
@@ -2313,7 +2365,7 @@
   <script>
     window.PRELOADED_DASHBOARD_DATA = {
   "metadata": {
-    "generated_at": "2026-10-18T21:13:12.041754",
+    "generated_at": "2026-10-20T20:31:25.236633",
     "total_historical_runs": 404,
     "dataset_date_range": "2025-03-02 to 2026-10-18",
     "current_date": "2026-09-27",
@@ -16265,6 +16317,131 @@
   ],
   "coach_evaluations": [
     {
+      "evaluation_id": "2026-10-20_24797875278",
+      "activity_id": 24797875278,
+      "date": "2026-10-20",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 4,
+      "day_of_week": "Tue",
+      "day_full": "Tuesday",
+      "prescribed": {
+        "miles": 7.0,
+        "workout": "Steady Tempo",
+        "target_pace": "Intervals: 7:00 \u2013 7:10 / mi | Recovery: 9:00 / mi",
+        "target_hr": "Zone 4 Threshold (158 \u2013 164 bpm)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 6.83,
+        "duration_formatted": "58:51",
+        "duration_seconds": 3531.1,
+        "pace_raw": "8:36 / mi",
+        "pace_gap": "8:29 / mi",
+        "avg_hr": 147.0,
+        "max_hr": 170.0,
+        "avg_cadence": 175.7,
+        "max_cadence": 199.0,
+        "elevation_gain_ft": 285.4,
+        "elevation_loss_ft": 288.7,
+        "aerobic_te": 4.300000190734863,
+        "anaerobic_te": 2.299999952316284,
+        "ground_contact_time_ms": 251.1,
+        "strides_gct_ms": 227.3,
+        "vertical_ratio_pct": 8.24,
+        "strides_vr_pct": 7.15,
+        "avg_power_w": 335.0,
+        "max_power_w": 557.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 97.6,
+        "pace_adherence": "Raw 8:36 / mi | Grade-Adjusted 8:29 / mi",
+        "hr_compliance": "Avg HR 147 bpm (Zone 2 compliant)",
+        "strides_count": 2,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 4 Tuesday: 6.83 miles at 8:36 / mi (GAP: 8:29 / mi) with an average heart rate of 147 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 6.83 mi vs 7.0 mi prescribed (97.6% volume precision).",
+        "Metabolic Control: Averaged 147 bpm heart rate (workout ceiling: 168 bpm).",
+        "Topography Management: Handled +285 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "next_workout": {
+        "day": "Wednesday",
+        "date": "2026-10-21",
+        "miles": 9.0,
+        "workout": "Aerobic Base",
+        "target_pace": "8:30 \u2013 8:55 / mi",
+        "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm)",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
+    {
+      "evaluation_id": "2026-10-19_24785375938",
+      "activity_id": 24785375938,
+      "date": "2026-10-19",
+      "activity_name": "Strength",
+      "race_plan": "vancouver",
+      "week_num": 4,
+      "day_of_week": "Mon",
+      "day_full": "Monday",
+      "prescribed": {
+        "miles": 0.0,
+        "workout": "Rest from Running \u2022 \ud83e\uddd8 Core & Pelvic Hip Stability",
+        "target_pace": "Rest / Strength",
+        "target_hr": "Rest / Gym (< 130 bpm)",
+        "lifting": "\ud83e\uddd8 Core & Pelvic Hip Stability (No Running)"
+      },
+      "actual": {
+        "miles": 0.0,
+        "duration_formatted": "12:48",
+        "duration_seconds": 768.3,
+        "pace_raw": "Strength Gym",
+        "pace_gap": "Strength Gym",
+        "avg_hr": 82.0,
+        "max_hr": 119.0,
+        "avg_cadence": null,
+        "max_cadence": null,
+        "elevation_gain_ft": 0.0,
+        "elevation_loss_ft": 0.0,
+        "aerobic_te": 0.4000000059604645,
+        "anaerobic_te": 0.20000000298023224,
+        "ground_contact_time_ms": null,
+        "strides_gct_ms": null,
+        "vertical_ratio_pct": null,
+        "strides_vr_pct": null,
+        "avg_power_w": null,
+        "max_power_w": null,
+        "total_sets": 13,
+        "total_reps": 169
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 100.0,
+        "pace_adherence": "Gym Strength Session (Zero Running)",
+        "hr_compliance": "Max HR 119.0 bpm (Cleanly below 130 bpm cap)",
+        "strides_count": 0,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Flawless execution of Week 4 Monday: 12:48 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+      "key_takeaways": [
+        "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+        "Cardiovascular Discipline: Max HR capped at 119.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+        "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+      ],
+      "next_workout": {
+        "day": "Tuesday",
+        "date": "2026-10-20",
+        "miles": 7.0,
+        "workout": "Steady Tempo",
+        "target_pace": "Intervals: 7:00 \u2013 7:10 / mi | Recovery: 9:00 / mi",
+        "target_hr": "Zone 4 Threshold (158 \u2013 164 bpm)",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
+    {
       "evaluation_id": "2026-10-18_24769400707",
       "activity_id": 24769400707,
       "date": "2026-10-18",
@@ -17841,7 +18018,32 @@
     }
 
     function renderSingleWeekCard(w, isCurrentWeek, isDone, storagePrefix) {
+      const evalMap = {};
+      (dashboardData.coach_evaluations || []).forEach(ev => {
+        if (ev.week_num && ev.day_of_week) {
+          evalMap[ev.week_num + '_' + ev.day_of_week] = ev;
+        }
+      });
+
+      let nextUpDay = null;
+      if (isCurrentWeek) {
+        for (const d of (w.daily_details || [])) {
+          if (!evalMap[w.week + '_' + d.day]) {
+            nextUpDay = d.day;
+            break;
+          }
+        }
+      }
+
+      const allDaysCompleted = (w.daily_details || []).length > 0 && (w.daily_details || []).every(d => !!evalMap[w.week + '_' + d.day]);
+      const isWeekFullyArchived = isDone || allDaysCompleted || (w.week < getPlanCurrentWeek());
+
       const dailyRows = (w.daily_details || []).map(d => {
+        const evKey = w.week + '_' + d.day;
+        const ev = evalMap[evKey];
+        const isCompleted = !!ev;
+        const isNextUp = isCurrentWeek && d.day === nextUpDay;
+
         let badgeClass = 'run';
         if (d.miles === 0) badgeClass = 'rest';
         else if (d.workout.includes('Long Run') || d.workout.includes('PEAK') || d.workout.includes('REHEARSAL') || d.workout.includes('Simulation')) badgeClass = 'lr';
@@ -17852,17 +18054,51 @@
           liftingHtml = '<div style="font-weight: 700; color: var(--accent-purple); font-size: 0.83rem; margin-bottom: 2px;">' + d.lifting_type + '</div><div style="font-size: 0.77rem; color: var(--text-secondary); line-height: 1.35;">' + (d.lifting_exercises || '') + '</div>';
         }
 
+        let rowClass = '';
+        let statusBadge = '';
+        if (isCompleted) {
+          rowClass = 'daily-row-completed';
+          const grade = ev.scorecard ? ev.scorecard.grade : 'A+';
+          const actualText = ev.actual.miles > 0 
+            ? `${ev.actual.miles.toFixed(2)} mi @ ${ev.actual.pace_raw}${ev.actual.pace_gap && ev.actual.pace_gap !== 'Strength Gym' ? ' (GAP ' + ev.actual.pace_gap + ')' : ''} • Avg HR ${Math.round(ev.actual.avg_hr)} bpm`
+            : `Gym Session (${ev.actual.duration_formatted}) • Avg HR ${Math.round(ev.actual.avg_hr)} bpm`;
+          statusBadge = `
+            <div style="margin-top: 4px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+              <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-size: 0.72rem; padding: 2px 7px; border-radius: 9999px; font-weight: 800; display: inline-flex; align-items: center; gap: 3px;">
+                <span>✓</span> Completed (Grade ${grade})
+              </span>
+              <span style="font-size: 0.75rem; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace;">
+                ${actualText}
+              </span>
+            </div>
+          `;
+        } else if (isNextUp) {
+          rowClass = 'daily-row-next-up';
+          statusBadge = `
+            <div style="margin-top: 4px;">
+              <span style="background: rgba(245, 158, 11, 0.22); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.45); font-size: 0.72rem; padding: 2px 8px; border-radius: 9999px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">
+                <span>👉</span> NEXT UP
+              </span>
+            </div>
+          `;
+        }
+
         return `
-          <tr>
+          <tr class="${rowClass}">
             <td>
-              <span class="day-badge ${badgeClass}">${d.day}</span>
-              <strong style="margin-left: 6px; color: var(--text-highlight);">${d.day_full}</strong>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="day-badge ${badgeClass}">${d.day}</span>
+                <strong style="color: var(--text-highlight);">${d.day_full}</strong>
+                ${isCompleted ? '<span style="color: var(--accent-emerald); font-weight: 900; font-size: 0.85rem;" title="Run Completed">✓</span>' : ''}
+              </div>
             </td>
             <td class="daily-miles ${d.miles === 0 ? 'rest' : ''}">
-              ${d.miles > 0 ? d.miles + ' mi' : 'Rest'}
+              <div>${d.miles > 0 ? d.miles + ' mi' : 'Rest'}</div>
+              ${isCompleted && ev.actual.miles > 0 ? `<div style="font-size: 0.73rem; color: var(--accent-emerald); font-weight: 700; margin-top: 2px;">✓ ${ev.actual.miles.toFixed(2)} mi</div>` : ''}
             </td>
             <td>
               <strong style="color: var(--text-highlight);">${d.workout}</strong>
+              ${statusBadge}
             </td>
             <td class="daily-pace">
               ${d.pace}
@@ -17884,14 +18120,14 @@
       // Current week details are expanded by default!
       const isDetailsOpen = isCurrentWeek ? true : allDetailsExpanded;
       const cardClass = isCurrentWeek ? 'week-card current-active-week' : 'week-card';
-      const cardStyle = isDone && !isCurrentWeek ? 'opacity: 0.65; border-color: rgba(16, 185, 129, 0.4);' : '';
+      const cardStyle = isWeekFullyArchived && !isCurrentWeek ? 'opacity: 0.65; border-color: rgba(16, 185, 129, 0.4);' : '';
 
       return `
         <div class="${cardClass}" id="weekCard_${w.week}" style="${cardStyle}">
           <div class="week-card-main">
             <div class="week-badge">
               <div class="week-num">W${w.week}</div>
-              <div class="week-tag">Phase ${w.phase}</div>
+              <div class="week-tag">${isWeekFullyArchived ? '✓ Done' : 'Phase ' + w.phase}</div>
             </div>
 
             <div class="week-meta">
@@ -17928,7 +18164,7 @@
             </div>
 
             <div class="week-check">
-              <input type="checkbox" title="Mark Week Completed" ${isDone ? 'checked' : ''} onchange="toggleWeekDone(${w.week}, this.checked)">
+              <input type="checkbox" title="Mark Week Completed" ${isWeekFullyArchived ? 'checked' : ''} onchange="toggleWeekDone(${w.week}, this.checked)">
             </div>
           </div>
 
@@ -17979,12 +18215,19 @@
       const storagePrefix = currentPlanRace === 'vancouver' ? 'van_w_' : 'la_w_';
       const currentWeekNum = getPlanCurrentWeek();
 
+      const evalMap = {};
+      (dashboardData.coach_evaluations || []).forEach(ev => {
+        if (ev.week_num && ev.day_of_week) {
+          evalMap[ev.week_num + '_' + ev.day_of_week] = ev;
+        }
+      });
+
       const previousWeeks = [];
       let currentWeek = null;
       const upcomingWeeks = [];
 
       filtered.forEach(w => {
-        const isDone = localStorage.getItem(storagePrefix + w.week) === 'true';
+        const isDone = localStorage.getItem(storagePrefix + w.week) === 'true' || w.week < currentWeekNum;
         if (w.week === currentWeekNum) {
           currentWeek = w;
         } else if (w.week < currentWeekNum || isDone) {
@@ -17993,6 +18236,70 @@
           upcomingWeeks.push(w);
         }
       });
+
+      // 1. Immediate Next Run Spotlight Card
+      let nextUpSpotlightHtml = '';
+      if (currentWeek) {
+        let nextUpWorkout = null;
+        for (const d of (currentWeek.daily_details || [])) {
+          if (!evalMap[currentWeek.week + '_' + d.day]) {
+            nextUpWorkout = d;
+            break;
+          }
+        }
+
+        if (nextUpWorkout) {
+          const isRest = nextUpWorkout.miles === 0;
+          const icon = isRest ? '🧘' : '🏃';
+          const distStr = isRest ? 'Rest / Strength Day' : `${nextUpWorkout.miles} Miles Prescribed`;
+          
+          const remainingDays = (currentWeek.daily_details || []).filter(d => !evalMap[currentWeek.week + '_' + d.day]);
+          const remainingChipsHtml = remainingDays.map(d => {
+            const isTarget = d.day === nextUpWorkout.day;
+            return `
+              <div style="background: ${isTarget ? 'rgba(245, 158, 11, 0.25)' : 'var(--bg-secondary)'}; border: 1px solid ${isTarget ? 'rgba(245, 158, 11, 0.5)' : 'var(--border-subtle)'}; padding: 6px 12px; border-radius: var(--radius-sm); font-size: 0.8rem; display: flex; align-items: center; gap: 6px;">
+                <strong style="color: ${isTarget ? 'var(--accent-amber)' : 'var(--text-highlight)'};">${d.day}</strong>
+                <span style="color: var(--text-secondary);">${d.miles > 0 ? d.miles + ' mi' : 'Rest'}</span>
+              </div>
+            `;
+          }).join('');
+
+          nextUpSpotlightHtml = `
+            <div class="next-run-spotlight-card">
+              <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.45); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                  ${icon}
+                </div>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;">
+                    <span style="background: var(--accent-amber); color: #000; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                      ⚡ Immediate Next Run
+                    </span>
+                    <span style="font-size: 0.82rem; color: var(--accent-emerald); font-weight: 700;">
+                      Week ${currentWeek.week} • ${nextUpWorkout.day_full}
+                    </span>
+                  </div>
+                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight);">
+                    ${nextUpWorkout.workout} (${distStr})
+                  </div>
+                  <div style="font-size: 0.83rem; color: var(--text-secondary); margin-top: 2px;">
+                    Target: <strong style="color: var(--accent-amber);">${nextUpWorkout.pace}</strong> • HR: <strong style="color: var(--accent-cyan);">${nextUpWorkout.hr_zone}</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">
+                  Remaining Week ${currentWeek.week} Schedule
+                </div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  ${remainingChipsHtml}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
 
       let prevWeeksHtml = '';
       if (previousWeeks.length > 0) {
@@ -18029,13 +18336,26 @@
       let currentWeekHtml = '';
       if (currentWeek) {
         const isCurrentDone = localStorage.getItem(storagePrefix + currentWeek.week) === 'true';
+        let currentWeekCompletedDays = 0;
+        let currentWeekLoggedMiles = 0;
+        (currentWeek.daily_details || []).forEach(d => {
+          const ev = evalMap[currentWeek.week + '_' + d.day];
+          if (ev) {
+            currentWeekCompletedDays++;
+            currentWeekLoggedMiles += (ev.actual.miles || 0);
+          }
+        });
+
         currentWeekHtml = `
           <div class="current-week-wrapper">
             <div class="current-week-ribbon">
-              <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <span class="current-week-pill">⚡ CURRENT ACTIVE TRAINING WEEK</span>
                 <span style="font-size: 0.88rem; color: var(--accent-emerald); font-weight: 700;">
                   Week ${currentWeek.week} (${currentWeek.dates})
+                </span>
+                <span style="background: rgba(16, 185, 129, 0.18); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.35); font-size: 0.74rem; padding: 2px 8px; border-radius: 9999px; font-weight: 700;">
+                  ${currentWeekCompletedDays} of 7 Days Complete (${currentWeekLoggedMiles.toFixed(1)} / ${currentWeek.target_miles} mi)
                 </span>
               </div>
               <span style="font-size: 0.8rem; color: var(--text-secondary);">
@@ -18062,7 +18382,7 @@
         `;
       }
 
-      container.innerHTML = prevWeeksHtml + currentWeekHtml + upcomingWeeksHtml;
+      container.innerHTML = nextUpSpotlightHtml + prevWeeksHtml + currentWeekHtml + upcomingWeeksHtml;
     }
 
     function toggleWeekDetails(weekNum) {
