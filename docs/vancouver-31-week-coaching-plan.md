@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 4 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **131.24 Miles** (25 workout(s) verified)  
-> **Most Recent Session**: Tuesday, 2026-10-20 — **6.83 mi** • **Grade A+**  
-> **Up Next**: Wednesday, 2026-10-21 — **9.0 mi Aerobic Base** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 4 Active (Day 3 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **139.78 Miles** (26 workout(s) verified)  
+> **Most Recent Session**: Wednesday, 2026-10-21 — **8.54 mi** • **Grade A+**  
+> **Up Next**: Thursday, 2026-10-22 — **0 mi Rest from Running • Upper Body & Core Strength** (Upper Body & Core Strength (No Running))
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-10-21** | Wed | Week 4: Aerobic Base | 9.0 mi | **8.54 mi** | 8:46 / mi | **8:39 / mi** | 144 / 154.0 bpm | 174.9 spm | +390 ft | 144 bpm HR; 1 strides down to N/A; +390ft climb. | **A+** |
 | **2026-10-20** | Tue | Week 4: Steady Tempo | 7.0 mi | **6.83 mi** | 8:36 / mi | **8:29 / mi** | 147 / 170.0 bpm | 175.7 spm | +285 ft | 147 bpm HR; 2 strides down to N/A; +285ft climb. | **A+** |
 | **2026-10-19** | Mon | Week 4: Rest from Running • 🧘 Core & Pelvic Hip Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 82 / 119.0 bpm | N/A | 0 ft | Heavy legs (12:48): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 119.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-10-18** | Sun | Week 3: Recovery | 5.0 mi | **5.05 mi** | 9:19 / mi | **9:17 / mi** | 131 / 143.0 bpm | 173.5 spm | +282 ft | 131 bpm HR; 1 strides down to N/A; +282ft climb. | **A+** |
@@ -376,7 +377,7 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 
 ---
 
-### Week 04: Oct 19 - Oct 25 — Target: 38 Miles (Phase 1) — ⚡ ACTIVE (Day 2 of 7 Complete • 6.83 mi logged)
+### Week 04: Oct 19 - Oct 25 — Target: 38 Miles (Phase 1) — ⚡ ACTIVE (Day 3 of 7 Complete • 15.37 mi logged)
 > **Anchor Long Run**: 12 miles easy conversational (8:45-9:05/mi)  
 > **Midweek Quality Session**: 7 miles with 20 min steady state @ 7:45/mi (AeT)  
 > **Milestone / Proxy Checkpoint**: First Aerobic Decoupling test on 12-miler (< 6%).  
@@ -387,21 +388,21 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
 | **Mon** ✅ | 0 mi | **LIFT ONLY** | Rest from Running • 🧘 Core & Pelvic Hip Stability | Gym (12:48) | Avg 82 bpm (<130 bpm) | 🧘 Core & Pelvic Hip Stability • Grade A+ |
 | **Tue** ✅ | **6.83 mi** *(pres: 7mi)* | **RUN ONLY** | Steady Tempo • 58:51 @ 8:36/mi (GAP: 8:29/mi) | 8:36 / mi | Avg 147 bpm (Max 170 bpm) | None • Grade A+ |
-| **Wed** 👉 | **9 mi** | **RUN ONLY** | Aerobic Base *(Next Up)* | 8:30 – 8:55 / mi | Zone 2 Aerobic Base (136 – 145 bpm) | None (Midweek Double-Digit Anchor) |
-| **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
+| **Wed** ✅ | **8.54 mi** *(pres: 9mi)* | **RUN ONLY** | Aerobic Base • 75:00 @ 8:46/mi (GAP: 8:39/mi) | 8:46 / mi | Avg 144 bpm (Max 154 bpm) | None • Grade A+ |
+| **Thu** 👉 | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength *(Next Up)* | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
 | **Fri** | **5 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
 | **Sat** | **12 mi** | **RUN ONLY** | Long Run | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)** — ✅ **COMPLETED (Grade A+)**:
-  - *Actual Execution (2026-10-19)*: **12:48** dedicated heavy leg strength routine (13 sets, 169 reps).
-  - *Exercises Executed*: Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and heavy calf raises.
+- **Monday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-19)*: **12:48** dedicated core and pelvic hip pre-hab routine (13 sets, 169 reps).
+  - *Exercises Executed*: Copenhagen adductor planks, side planks with leg lift, single-leg RDLs, banded glutes.
   - *Heart Rate & Zero-Double-Days Adherence*: Avg HR **82.0 bpm** (Peak **119.0 bpm**, cleanly respecting the <130 bpm strength ceiling). Zero running logged.
   - *Training Stimulus*: Aerobic TE **0.4** | Anaerobic TE **0.2** (pure neuromuscular stimulus with zero aerobic depletion).
-  - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
+  - *Strategic Purpose*: Single-leg pelvic stability and eccentric resilience with zero heavy leg soreness.
   - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
-  - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
+  - *Strength Prescription*: Copenhagen Adductor Planks (3x20s/side), Side Planks with Leg Lift (3x30s), Single-Leg RDLs (light dumbbell, 3x8/leg), Banded Glute Bridges (3x12). Zero heavy eccentric leg loading.
 - **Tuesday (7.0 mi • Steady Tempo)** — ✅ **COMPLETED (Grade A+)**:
   - *Actual Execution (2026-10-20)*: **6.83 mi** in **58:51** (8:36 / mi, **8:29 / mi GAP**). Volume adherence: 97.6% of target.
   - *Heart Rate & Metabolic Control*: Avg HR **147.0 bpm** (Max HR: 170.0 bpm).
@@ -409,13 +410,17 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Training Stimulus*: Aerobic TE **4.3** | Anaerobic TE **2.3**.
   - *Strategic Purpose*: Lactate threshold velocity expansion and clearance rate.
   - *Running Prescription*: Quality catalyst session: 7mi (steady tempo). Maintain relaxed shoulders and snappy cadence (180 spm).
-- **Wednesday (9.0 mi • Aerobic Base)**:
+- **Wednesday (9.0 mi • Aerobic Base)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-21)*: **8.54 mi** in **75:00** (8:46 / mi, **8:39 / mi GAP**). Volume adherence: 94.9% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **144.0 bpm** (Max HR: 154.0 bpm).
+  - *Elevation & Topography*: +390 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **4.2** | Anaerobic TE **0.3**.
   - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
   - *Running Prescription*: Midweek double-digit aerobic anchor: 9mi (aerobic base). Crucial stamina builder for Vancouver's undulating profile.
-- **Thursday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)**:
-  - *Strategic Purpose*: Targeted neuromuscular recruitment and eccentric resilience without running impact.
-  - *Running Prescription*: Non-running day: Hip stability, glute activation, and rotational core. Strengthens adductors and gluteus medius to stabilize pelvis and protect IT bands during high marathon mileage without heavy leg fatigue.
-  - *Strength Prescription*: Copenhagen Adductor Planks (3x20s/side), Side Planks with Leg Lift (3x30s), Single-Leg RDLs (light dumbbell, 3x8/leg), Banded Glute Bridges (3x12). Zero heavy eccentric leg loading.
+- **Thursday (0 mi • Rest from Running • Upper Body & Core Strength)**:
+  - *Strategic Purpose*: Upper body posture and anti-extension core endurance.
+  - *Running Prescription*: Non-running day: Upper Body Push/Pull + Anti-Extension Core. Zero heavy leg loading ensures legs stay 100% fresh for Friday shakeout and Saturday long run anchor. Zero running.
+  - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
 - **Friday (5.0 mi • Easy Pre-Long Run Shakeout)**:
   - *Strategic Purpose*: Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.
   - *Running Prescription*: Relaxed conversational recovery run on flat terrain. Relaxed conversational recovery run on flat terrain. Promotes light capillary circulation, activates motor pathways, and leaves legs 100% fresh for tomorrow's anchor. ZERO lifting.

@@ -1,5 +1,67 @@
 [
   {
+    "evaluation_id": "2026-10-21_24809323628",
+    "activity_id": 24809323628,
+    "date": "2026-10-21",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 4,
+    "day_of_week": "Wed",
+    "day_full": "Wednesday",
+    "prescribed": {
+      "miles": 9.0,
+      "workout": "Aerobic Base",
+      "target_pace": "8:30 \u2013 8:55 / mi",
+      "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 8.54,
+      "duration_formatted": "75:00",
+      "duration_seconds": 4500.2,
+      "pace_raw": "8:46 / mi",
+      "pace_gap": "8:39 / mi",
+      "avg_hr": 144.0,
+      "max_hr": 154.0,
+      "avg_cadence": 174.9,
+      "max_cadence": 192.0,
+      "elevation_gain_ft": 390.4,
+      "elevation_loss_ft": 410.1,
+      "aerobic_te": 4.199999809265137,
+      "anaerobic_te": 0.30000001192092896,
+      "ground_contact_time_ms": 251.7,
+      "strides_gct_ms": 251.7,
+      "vertical_ratio_pct": 8.26,
+      "strides_vr_pct": 8.26,
+      "avg_power_w": 326.0,
+      "max_power_w": 469.0
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 94.9,
+      "pace_adherence": "Raw 8:46 / mi | Grade-Adjusted 8:39 / mi",
+      "hr_compliance": "Avg HR 144 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Evaluation for Week 4 Wednesday: 8.54 miles at 8:46 / mi (GAP: 8:39 / mi) with an average heart rate of 144 bpm (Grade: A+).",
+    "key_takeaways": [
+      "Adherence: Completed 8.54 mi vs 9.0 mi prescribed (94.9% volume precision).",
+      "Metabolic Control: Averaged 144 bpm heart rate (workout ceiling: 145 bpm).",
+      "Topography Management: Handled +390 ft of climb with appropriate effort modulation.",
+      "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+    ],
+    "next_workout": {
+      "day": "Thursday",
+      "date": "2026-10-22",
+      "miles": 0,
+      "workout": "Rest from Running \u2022 Upper Body & Core Strength",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting_rule": "Upper Body & Core Strength (No Running)"
+    }
+  },
+  {
     "evaluation_id": "2026-10-20_24797875278",
     "activity_id": 24797875278,
     "date": "2026-10-20",
