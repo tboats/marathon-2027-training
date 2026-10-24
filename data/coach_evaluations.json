@@ -1,5 +1,67 @@
 [
   {
+    "evaluation_id": "2026-10-24_24837764170",
+    "activity_id": 24837764170,
+    "date": "2026-10-24",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 4,
+    "day_of_week": "Sat",
+    "day_full": "Saturday",
+    "prescribed": {
+      "miles": 12.0,
+      "workout": "Long Run",
+      "target_pace": "8:40 \u2013 9:15 / mi",
+      "target_hr": "Zone 2 (138 \u2013 146 bpm)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 12.47,
+      "duration_formatted": "111:04",
+      "duration_seconds": 6664.8,
+      "pace_raw": "8:54 / mi",
+      "pace_gap": "8:51 / mi",
+      "avg_hr": 138.0,
+      "max_hr": 151.0,
+      "avg_cadence": 177.8,
+      "max_cadence": 192.0,
+      "elevation_gain_ft": 465.9,
+      "elevation_loss_ft": 465.9,
+      "aerobic_te": 4.300000190734863,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": 249.9,
+      "strides_gct_ms": 249.9,
+      "vertical_ratio_pct": 8.18,
+      "strides_vr_pct": 8.18,
+      "avg_power_w": 319.0,
+      "max_power_w": 438.0
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 103.9,
+      "pace_adherence": "Raw 8:54 / mi | Grade-Adjusted 8:51 / mi",
+      "hr_compliance": "Avg HR 138 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Evaluation for Week 4 Saturday: 12.47 miles at 8:54 / mi (GAP: 8:51 / mi) with an average heart rate of 138 bpm (Grade: A+).",
+    "key_takeaways": [
+      "Adherence: Completed 12.47 mi vs 12.0 mi prescribed (103.9% volume precision).",
+      "Metabolic Control: Averaged 138 bpm heart rate (workout ceiling: 145 bpm).",
+      "Topography Management: Handled +466 ft of climb with appropriate effort modulation.",
+      "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+    ],
+    "next_workout": {
+      "day": "Sunday",
+      "date": "2026-10-25",
+      "miles": 5.0,
+      "workout": "Recovery",
+      "target_pace": "9:15 \u2013 9:45 / mi",
+      "target_hr": "Zone 1 (< 135 bpm)",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-10-23_24830691811",
     "activity_id": 24830691811,
     "date": "2026-10-23",
