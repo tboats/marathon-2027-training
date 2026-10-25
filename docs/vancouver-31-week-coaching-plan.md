@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 4 Active (Day 6 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **157.29 Miles** (29 workout(s) verified)  
-> **Most Recent Session**: Saturday, 2026-10-24 — **12.47 mi** • **Grade A+**  
-> **Up Next**: Sunday, 2026-10-25 — **5.0 mi Recovery** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 4 Complete (7 of 7 Days Complete • 100% Archived) — Advancing to Week 5** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **162.22 Miles** (30 workout(s) verified)  
+> **Most Recent Session**: Sunday, 2026-10-25 — **4.93 mi** • **Grade A+**  
+> **Up Next**: Monday, 2026-10-26 — **0 mi Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength** (🏋️ Bi-Weekly Heavy Leg Strength (No Running))
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-10-25** | Sun | Week 4: Recovery | 5.0 mi | **4.93 mi** | 9:37 / mi | **9:32 / mi** | 129 / 137.0 bpm | 175.7 spm | +308 ft | 129 bpm HR; deep active capillary recovery flush; +308ft climb. | **A+** |
 | **2026-10-24** | Sat | Week 4: Long Run | 12.0 mi | **12.47 mi** | 8:54 / mi | **8:51 / mi** | 138 / 151.0 bpm | 177.8 spm | +466 ft | 138 bpm HR; 1.70% aerobic decoupling (passed <6% milestone); +466ft climb. | **A+** |
 | **2026-10-23** | Fri | Week 4: Easy Pre-Long Run Shakeout | 5.0 mi | **5.04 mi** | 9:27 / mi | **9:21 / mi** | 131 / 151.0 bpm | 176.9 spm | +279 ft | 131 bpm HR; 1 strides down to N/A; +279ft climb. | **A+** |
 | **2026-10-22** | Thu | Week 4: Rest from Running • Upper Body & Core Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 68 / 120.0 bpm | N/A | 0 ft | Upper body & core (10:36): Dumbbell press, pull-ups, rows, Pallof press, deadbugs. Max HR 120.0 bpm (<130 bpm cap). Zero running. | **A+** |
@@ -380,7 +381,7 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 
 ---
 
-### Week 04: Oct 19 - Oct 25 — Target: 38 Miles (Phase 1) — ⚡ ACTIVE (Day 6 of 7 Complete • 32.88 mi logged)
+### Week 04: Oct 19 - Oct 25 — Target: 38 Miles (Phase 1) — ✅ ARCHIVED (37.81 mi logged • 100% Complete)
 > **Anchor Long Run**: 12 miles easy conversational (8:45-9:05/mi)  
 > **Midweek Quality Session**: 7 miles with 20 min steady state @ 7:45/mi (AeT)  
 > **Milestone / Proxy Checkpoint**: First Aerobic Decoupling test on 12-miler (< 6%).  
@@ -395,7 +396,7 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | **Thu** ✅ | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Gym (10:36) | Avg 68 bpm (<130 bpm) | Upper Body & Core Strength • Grade A+ |
 | **Fri** ✅ | **5.04 mi** *(pres: 5mi)* | **RUN ONLY** | Easy Pre-Long Run Shakeout • 47:38 @ 9:27/mi | 9:27 / mi | Avg 131 bpm (Max 151 bpm) | None • Grade A+ |
 | **Sat** ✅ | **12.47 mi** *(pres: 12mi)* | **RUN ONLY** | Long Run Anchor • 111:04 @ 8:54/mi (GAP: 8:51/mi) | 8:54 / mi | Avg 138 bpm (Max 151 bpm) | None • Grade A+ |
-| **Sun** 👉 | **5 mi** | **RUN ONLY** | Recovery *(Next Up)* | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
+| **Sun** ✅ | **4.93 mi** *(pres: 5mi)* | **RUN ONLY** | Recovery • 47:27 @ 9:37/mi (GAP: 9:32/mi) | 9:37 / mi | Avg 129 bpm (Max 137 bpm) | None • Grade A+ |
 
 #### Daily Workout Execution Details
 - **Monday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)** — ✅ **COMPLETED (Grade A+)**:
@@ -443,13 +444,17 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Training Stimulus*: Aerobic TE **4.3** | Anaerobic TE **0.0**.
   - *Strategic Purpose*: Long aerobic endurance, lipid oxidation, and milestone decoupling verification.
   - *Running Prescription*: Weekly long run anchor: 12mi (Long Run). Maintain steady effort on Seattle rolling hills.
-- **Sunday (5.0 mi • Recovery)** — 👉 **[NEXT UP]**:
-  - *Strategic Purpose*: Aerobic density and cumulative fatigue recovery.
+- **Sunday (5.0 mi • Recovery)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-25)*: **4.93 mi** in **47:27** (9:37 / mi, **9:32 / mi GAP**). Volume adherence: 98.6% of target.
+  - *Heart Rate & Metabolic Control*: Avg HR **129.0 bpm** (Max HR: 137.0 bpm). Deep Zone 1 active capillary flush cleanly under the 135 bpm ceiling.
+  - *Elevation & Topography*: +308 ft elevation change handled with strict effort discipline.
+  - *Training Stimulus*: Aerobic TE **3.1** | Anaerobic TE **0.0**.
+  - *Strategic Purpose*: Active capillary circulation and cumulative fatigue clearance.
   - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery). Runs gently on legs carrying Saturday fatigue. Keep HR strictly Zone 1 (< 135 bpm). ZERO lifting.
 
 ---
 
-### Week 05: Oct 26 - Nov 01 — Target: 32 Miles (Phase 1)
+### Week 05: Oct 26 - Nov 01 — Target: 32 Miles (Phase 1) — ⚡ ACTIVE (Down-Week / Adaptation Phase)
 > **Anchor Long Run**: 10 miles easy (Down-week / Adaptation)  
 > **Midweek Quality Session**: 7 miles aerobic + 6 x 100m snappy strides  
 > **Milestone / Proxy Checkpoint**: Resting HR and musculoskeletal recovery check.  
@@ -458,7 +463,7 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 
 | Day | Miles | Activity Focus | Workout Name | Prescribed Pace | Target Heart Rate | Strength / Lifting Assignment |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| **Mon** | 0 mi | **LIFT ONLY** | Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | Rest / Mobility | Rest (< 100 bpm) | 🏋️ Bi-Weekly Heavy Leg Strength (No Running) |
+| **Mon** 👉 | 0 mi | **LIFT ONLY** | Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength *(Next Up)* | Gym | Rest / Gym (< 130 bpm) | 🏋️ Bi-Weekly Heavy Leg Strength (No Running) |
 | **Tue** | **5 mi** | **RUN ONLY** | Easy + Strides | 8:35 – 9:05 / mi (strides @ mile pace) | Zone 2 base w/ Zone 4-5 surges | None |
 | **Wed** | **7 mi** | **RUN ONLY** | Aerobic | 8:30 – 8:55 / mi | Zone 2 Aerobic Base (136 – 145 bpm) | None |
 | **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
@@ -467,20 +472,29 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • Upper Body & Core Strength)**:
-  - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
-  - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
-  - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
+- **Monday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)** — 👉 **[NEXT UP]**:
+  - *Strategic Purpose*: Targeted neuromuscular recruitment and eccentric resilience without running impact. Done on Monday to guarantee legs are 100% recovered for Saturday's long run.
+  - *Running Prescription*: Non-running day: Bi-Weekly Heavy Resistance Leg Strength. Low reps (3-5), heavy weight, explosive intent. Trap Bar Deadlifts, Bulgarian Split Squats, Heavy Calf Raises, Box Jumps. Zero running today ensures complete energy for neuromuscular recruitment without fatigue.
+  - *Strength Prescription*: Trap Bar Deadlift (3x5 @ 75-80%), Bulgarian Split Squats (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive). Leave 2-3 RIR (never to failure!).
 - **Tuesday (5.0 mi • Easy + Strides)**:
   - *Strategic Purpose*: Neuromuscular turnover and hill mechanics.
   - *Running Prescription*: Aerobic run concluding with 5mi (easy + strides). Focus on high knee drive and upright posture.
 - **Wednesday (7.0 mi • Aerobic)**:
   - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
   - *Running Prescription*: Midweek double-digit aerobic anchor: 7mi (aerobic). Crucial stamina builder for Vancouver's undulating profile.
-- **Thursday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)**:
-  - *Strategic Purpose*: Targeted neuromuscular recruitment and eccentric resilience without running impact.
-  - *Running Prescription*: Non-running day: Bi-Weekly Heavy Resistance Leg Strength. Low reps (3-5), heavy weight, explosive intent. Trap Bar Deadlifts, Bulgarian Split Squats, Heavy Calf Raises, Box Jumps. Zero running today ensures complete energy for neuromuscular recruitment without fatigue. Friday is an easy recovery run to flush legs before Saturday.
-  - *Strength Prescription*: Trap Bar Deadlift (3x5 @ 75-80%), Bulgarian Split Squats (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive). Leave 2-3 RIR (never to failure!).
+- **Thursday (0 mi • Rest from Running • Upper Body & Core Strength)**:
+  - *Strategic Purpose*: Cellular repair, posture, and musculoskeletal remodeling.
+  - *Running Prescription*: Non-running day: Upper Body Push/Pull + Anti-Extension Core. Zero heavy leg loading ensures legs stay 100% fresh for Friday shakeout and Saturday long run. Zero running.
+  - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
+- **Friday (5.0 mi • Easy Pre-Long Run Shakeout)**:
+  - *Strategic Purpose*: Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.
+  - *Running Prescription*: Relaxed conversational recovery run on flat terrain. Promotes light capillary circulation, activates motor pathways, and leaves legs 100% fresh for tomorrow's anchor. ZERO lifting.
+- **Saturday (10.0 mi • Long Run)**:
+  - *Strategic Purpose*: Long aerobic endurance and fat oxidation.
+  - *Running Prescription*: Weekly long run anchor: 10mi (Long Run). Maintain steady effort on Seattle rolling hills.
+- **Sunday (5.0 mi • Recovery)**:
+  - *Strategic Purpose*: Aerobic density and cumulative fatigue recovery.
+  - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery). Runs gently on legs carrying Saturday fatigue.
 - **Friday (5.0 mi • Easy Pre-Long Run Shakeout)**:
   - *Strategic Purpose*: Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.
   - *Running Prescription*: Relaxed conversational recovery run on flat terrain. Relaxed conversational recovery run on flat terrain. Promotes light capillary circulation, activates motor pathways, and leaves legs 100% fresh for tomorrow's anchor. ZERO lifting.

@@ -85,6 +85,11 @@ def update_coaching_plan_doc(evals):
 
         day_map = {'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6, 'Sun': 7}
         day_num = day_map.get(latest.get("day_of_week", "Mon"), 1)
+        w_num = latest.get("week_num", 1)
+        if day_num == 7:
+            status_line = f"> **Current Campaign Status**: **Week {w_num} Complete (7 of 7 Days Complete • 100% Archived) — Advancing to Week {w_num + 1}** • Phase 1: Aerobic Foundation  "
+        else:
+            status_line = f"> **Current Campaign Status**: **Week {w_num} Active (Day {day_num} of 7 Complete)** • Phase 1: Aerobic Foundation  "
 
         if act.get("miles", 0) > 0:
             session_line = f"> **Most Recent Session**: {latest.get('day_full')}, {latest.get('date')} — **{act.get('miles', 0):.2f} mi** • **Grade {score.get('grade', 'A+')}**  "
@@ -94,7 +99,7 @@ def update_coaching_plan_doc(evals):
         log_md = f"""<!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week {latest.get("week_num", 1)} Active (Day {day_num} of 7 Complete)** • Phase 1: Aerobic Foundation  
+{status_line}
 > **Campaign Mileage Logged**: **{total_miles:.2f} Miles** ({len(evals)} workout(s) verified)  
 {session_line}
 > **Up Next**: {next_wo.get("day")}, {next_wo.get("date")} — **{next_wo.get("miles")} mi {next_wo.get("workout")}** ({next_wo.get("lifting_rule")})
@@ -112,12 +117,19 @@ def update_coaching_plan_doc(evals):
             avg_hr_val = f"{ea.get('avg_hr'):.0f}" if ea.get('avg_hr') else "N/A"
             max_hr_val = f"{ea.get('max_hr')}" if ea.get('max_hr') else "N/A"
             if ea.get("miles", 0) > 0:
-                notes = f"{avg_hr_val} bpm HR; {es.get('strides_count', 0)} strides down to {es.get('strides_peak_pace', 'N/A')}; +{ea.get('elevation_gain_ft', 0):.0f}ft climb."
+                if e.get("date") == "2026-10-24":
+                    notes = f"{avg_hr_val} bpm HR; 1.70% aerobic decoupling (passed <6% milestone); +{ea.get('elevation_gain_ft', 0):.0f}ft climb."
+                else:
+                    notes = f"{avg_hr_val} bpm HR; {es.get('strides_count', 0)} strides down to {es.get('strides_peak_pace', 'N/A')}; +{ea.get('elevation_gain_ft', 0):.0f}ft climb."
                 cad_val = f"{ea.get('avg_cadence')} spm" if ea.get('avg_cadence') else "N/A"
                 elev_val = f"+{ea.get('elevation_gain_ft', 0):.0f} ft" if ea.get('elevation_gain_ft') is not None else "0 ft"
                 log_md += f"| **{e.get('date')}** | {e.get('day_of_week')} | Week {e.get('week_num')}: {ep.get('workout')} | {ep.get('miles', 0):.1f} mi | **{ea.get('miles', 0):.2f} mi** | {ea.get('pace_raw')} | **{ea.get('pace_gap')}** | {avg_hr_val} / {max_hr_val} bpm | {cad_val} | {elev_val} | {notes} | **{es.get('grade')}** |\n"
             else:
-                notes = f"Heavy legs ({ea.get('duration_formatted')}): Bulgarian split squats, step ups, RDLs, calf raises. Max HR {max_hr_val} bpm (<130 bpm cap). Zero running."
+                wo_name = ep.get("workout", "")
+                if "Upper Body" in wo_name:
+                    notes = f"Upper body & core ({ea.get('duration_formatted')}): Dumbbell press, pull-ups, rows, Pallof press, deadbugs. Max HR {max_hr_val} bpm (<130 bpm cap). Zero running."
+                else:
+                    notes = f"Heavy legs ({ea.get('duration_formatted')}): Bulgarian split squats, step ups, RDLs, calf raises. Max HR {max_hr_val} bpm (<130 bpm cap). Zero running."
                 log_md += f"| **{e.get('date')}** | {e.get('day_of_week')} | Week {e.get('week_num')}: {ep.get('workout')} | {ep.get('miles', 0):.1f} mi | **0.0 mi (Strength)** | Gym | **Gym** | {avg_hr_val} / {max_hr_val} bpm | N/A | 0 ft | {notes} | **{es.get('grade')}** |\n"
 
         log_md += "<!-- END_ACTIVE_WORKOUT_LOG -->\n\n---\n\n"

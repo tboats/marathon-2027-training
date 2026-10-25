@@ -2061,8 +2061,21 @@ def generate():
       // 1. Try to find the latest week logged in coach evaluations
       if (dashboardData.coach_evaluations && dashboardData.coach_evaluations.length > 0) {{
         const sorted = [...dashboardData.coach_evaluations].sort((a,b) => (b.date || '').localeCompare(a.date || ''));
-        for (const ev of sorted) {{
-          if (ev.week_num) return ev.week_num;
+        const latest = sorted[0];
+        if (latest && latest.week_num) {{
+          const wNum = latest.week_num;
+          // Check if all 7 daily workouts for this week are completed
+          const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+          const completedDays = new Set(
+            dashboardData.coach_evaluations
+              .filter(e => e.week_num === wNum)
+              .map(e => e.day_of_week)
+          );
+          const allCompleted = weekDays.every(d => completedDays.has(d));
+          if (allCompleted && wNum < 31) {{
+            return wNum + 1; // Week is 100% complete, advance to next week!
+          }}
+          return wNum;
         }}
       }}
       // 2. Date calculation: Vancouver plan started on Monday Sep 28, 2026

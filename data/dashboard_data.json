@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-10-24T13:24:44.364138",
+    "generated_at": "2026-10-25T10:04:40.110170",
     "total_historical_runs": 404,
     "dataset_date_range": "2025-03-02 to 2026-10-18",
     "current_date": "2026-09-27",
@@ -13951,6 +13951,68 @@
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-10-25_24848501407",
+      "activity_id": 24848501407,
+      "date": "2026-10-25",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 4,
+      "day_of_week": "Sun",
+      "day_full": "Sunday",
+      "prescribed": {
+        "miles": 5.0,
+        "workout": "Recovery",
+        "target_pace": "9:15 \u2013 9:45 / mi",
+        "target_hr": "Zone 1 (< 135 bpm)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 4.93,
+        "duration_formatted": "47:27",
+        "duration_seconds": 2847.5,
+        "pace_raw": "9:37 / mi",
+        "pace_gap": "9:32 / mi",
+        "avg_hr": 129.0,
+        "max_hr": 137.0,
+        "avg_cadence": 175.7,
+        "max_cadence": 226.0,
+        "elevation_gain_ft": 308.4,
+        "elevation_loss_ft": 318.2,
+        "aerobic_te": 3.0999999046325684,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": 258.0,
+        "strides_gct_ms": 258.0,
+        "vertical_ratio_pct": 8.62,
+        "strides_vr_pct": 8.62,
+        "avg_power_w": 300.0,
+        "max_power_w": 392.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 98.6,
+        "pace_adherence": "Raw 9:37 / mi | Grade-Adjusted 9:32 / mi",
+        "hr_compliance": "Avg HR 129 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 4 Sunday: 4.93 miles at 9:37 / mi (GAP: 9:32 / mi) with an average heart rate of 129 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 4.93 mi vs 5.0 mi prescribed (98.6% volume precision).",
+        "Metabolic Control: Averaged 129 bpm heart rate (workout ceiling: 138 bpm).",
+        "Topography Management: Handled +308 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "next_workout": {
+        "day": "Monday",
+        "date": "2026-10-26",
+        "miles": 0,
+        "workout": "Rest from Running \u2022 \ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength",
+        "target_pace": "Rest / Mobility",
+        "target_hr": "Rest (< 100 bpm)",
+        "lifting_rule": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+      }
+    },
     {
       "evaluation_id": "2026-10-24_24837764170",
       "activity_id": 24837764170,
