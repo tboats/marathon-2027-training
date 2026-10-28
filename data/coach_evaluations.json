@@ -57,8 +57,10 @@
       "date": "2026-10-27",
       "miles": 5.0,
       "workout": "Easy + Strides",
-      "target_pace": "8:35 \u2013 9:05 / mi (strides @ mile pace)",
-      "target_hr": "Zone 2 base w/ Zone 4-5 surges",
+      "target_pace": "Base: 8:35 \u2013 9:05 / mi | 6 Strides: 5:30 \u2013 5:50 / mi (~20-22s / 100m)",
+      "target_hr": "Zone 2 Base (136 \u2013 144 bpm) | Strides: Walk-back to < 125 bpm",
+      "purpose": "Neuromuscular turnover, motor unit recruitment, and running economy on fresh legs.",
+      "description": "1. Continuous Base: 4.4 mi continuous easy aerobic running at 8:35\u20139:05/mi in Zone 2 (136\u2013144 bpm). Settle into a relaxed conversational rhythm.\\n2. Snappy Strides: Over the final 0.6 mi on a flat, unobstructed stretch, execute 6 x 100m smooth accelerations reaching mile speed (5:30\u20135:50/mi, ~20\u201322s per 100m).\\n3. Recovery: Walk back for 45\u201360 sec between each stride to allow heart rate to drop below 125 bpm before launching the next rep. Do not rush into the next stride.\\n4. Form Focus: Tall posture, high knee drive, relaxed shoulders/jaw, light midfoot ground strike.",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },

@@ -177,6 +177,43 @@ def generate_coach_tab_html(evals):
         </div>
         """
 
+    # Next Workout Preview Formatting
+    desc_raw = next_wo.get('description', '')
+    desc_steps = [s.strip() for s in desc_raw.split('\\n') if s.strip()] if desc_raw else []
+    desc_steps_html = "".join(f"<div style='margin-bottom: 3px;'>{s}</div>" for s in desc_steps)
+    desc_block = f"""
+      <div style="margin-top: 10px; padding: 10px 14px; background: rgba(15, 23, 42, 0.7); border-radius: 6px; border-left: 3px solid var(--accent-blue); font-size: 0.83rem; color: var(--text-primary); line-height: 1.5;">
+        <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 800; color: var(--accent-blue); margin-bottom: 4px; letter-spacing: 0.04em;">📋 Exact Step-by-Step Execution Protocol</div>
+        {desc_steps_html}
+      </div>
+    """ if desc_steps_html else ""
+
+    next_wo_card_html = f"""
+    <!-- Next Workout Preview Card -->
+    <div style="background: rgba(56, 189, 248, 0.08); padding: 16px 20px; border-radius: var(--radius-sm); border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 6px;">
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 800; letter-spacing: 0.05em;">👉 Up Next: {next_wo.get('day')} ({next_wo.get('date')})</div>
+        <div style="background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.35); padding: 3px 10px; border-radius: 4px; font-size: 0.78rem; color: var(--accent-purple); font-weight: 700;">
+          ⚡ {next_wo.get('lifting_rule')}
+        </div>
+      </div>
+      <div style="font-size: 1.25rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 8px;">
+        {next_wo.get('miles')} mi • {next_wo.get('workout')}
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; background: rgba(15, 23, 42, 0.6); padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.15);">
+        <div style="font-size: 0.84rem; color: var(--text-secondary);">
+          ⏱️ <strong style="color: var(--accent-amber);">Prescribed Pacing:</strong><br>
+          <span style="color: var(--text-highlight); font-weight: 600;">{next_wo.get('target_pace')}</span>
+        </div>
+        <div style="font-size: 0.84rem; color: var(--text-secondary);">
+          ❤️ <strong style="color: var(--accent-cyan);">Target Heart Rate:</strong><br>
+          <span style="color: var(--text-highlight); font-weight: 600;">{next_wo.get('target_hr')}</span>
+        </div>
+      </div>
+      {desc_block}
+    </div>
+    """
+
     html = f"""
     <!-- TAB: COACH'S LOG & DEBRIEFS -->
     <section id="tab-coach" class="tab-content">
@@ -229,17 +266,7 @@ def generate_coach_tab_html(evals):
           </ul>
         </div>
 
-        <!-- Next Workout Preview -->
-        <div style="background: rgba(56, 189, 248, 0.08); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid rgba(56, 189, 248, 0.25); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <div>
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: {next_wo.get('day')} ({next_wo.get('date')})</div>
-            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight);">{next_wo.get('miles')} mi • {next_wo.get('workout')}</div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">Target: {next_wo.get('target_pace')} • HR: {next_wo.get('target_hr')}</div>
-          </div>
-          <div style="background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.35); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--accent-purple); font-weight: 700;">
-            ⚡ {next_wo.get('lifting_rule')}
-          </div>
-        </div>
+        {next_wo_card_html}
       </div>
 
       <!-- PAST WORKOUTS TABLE -->
@@ -296,6 +323,10 @@ def generate_vancouver_command_center_html(evals):
         left_sub = f"{act.get('miles', 0):.2f} mi @ {act.get('pace_raw')} (GAP: {act.get('pace_gap')})"
         left_desc = f"HR: <strong>{act.get('avg_hr')} bpm</strong> • Climb: <strong>+{act.get('elevation_gain_ft', 0):.0f} ft</strong> • Strides: <strong>{score.get('strides_count', 0)} executed (peak {score.get('strides_peak_pace', 'fast')})</strong>."
 
+    desc_raw_cc = next_wo.get('description', '')
+    desc_preview = "<br>".join(line.strip() for line in desc_raw_cc.split('\\n')[:2] if line.strip()) if desc_raw_cc else ""
+    desc_preview_html = f'<div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.4; border-top: 1px dashed var(--border-color); padding-top: 6px;">{desc_preview}</div>' if desc_preview else ""
+
     return f"""
     <!-- ACTIVE COACHING COMMAND CENTER WIDGET -->
     <div class="card" style="border: 2px solid rgba(16, 185, 129, 0.45); background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(22, 32, 50, 0.95) 100%); margin-bottom: 24px;">
@@ -319,7 +350,7 @@ def generate_vancouver_command_center_html(evals):
         <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-emerald);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">{left_title}</span>
-            <span style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); font-weight: 800; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">Grade {grade}</span>
+            <span style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">{next_wo.get('lifting_rule')}</span>
           </div>
           <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
             {left_sub}
@@ -335,12 +366,14 @@ def generate_vancouver_command_center_html(evals):
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700;">Up Next: {next_wo.get('day')} ({next_wo.get('date')})</span>
             <span style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">{next_wo.get('lifting_rule')}</span>
           </div>
-          <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
+          <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight); margin-bottom: 4px;">
             {next_wo.get('miles')} mi • {next_wo.get('workout')}
           </div>
-          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
-            Prescribed Pace: <strong>{next_wo.get('target_pace')}</strong> • Target HR: <strong>{next_wo.get('target_hr')}</strong>.
+          <div style="font-size: 0.83rem; color: var(--text-secondary); line-height: 1.45;">
+            ⏱️ <strong>Pace:</strong> <span style="color: var(--accent-amber); font-weight: 600;">{next_wo.get('target_pace')}</span><br>
+            ❤️ <strong>HR Zone:</strong> <span style="color: var(--accent-cyan); font-weight: 600;">{next_wo.get('target_hr')}</span>
           </div>
+          {desc_preview_html}
         </div>
       </div>
     </div>

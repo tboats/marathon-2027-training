@@ -2184,7 +2184,7 @@ def generate():
             </td>
             <td>
               <div class="daily-purpose">🎯 <strong>Purpose:</strong> ${{d.purpose}}</div>
-              <div class="daily-instruction">${{d.description}}</div>
+              <div class="daily-instruction" style="line-height: 1.5; margin-top: 4px;">${{(d.description || '').split('\\n').filter(s => s.trim().length > 0).map(s => `<div style="margin-bottom: 3px;">${{s.trim()}}</div>`).join('') || d.description}}</div>
             </td>
           </tr>
         `;
@@ -2337,38 +2337,68 @@ def generate():
             `;
           }}).join('');
 
+          const descFormatted = (nextUpWorkout.description || '')
+            .split('\\n')
+            .filter(line => line.trim().length > 0)
+            .map(line => `<div style="margin-bottom: 4px;">${{line.trim()}}</div>`)
+            .join('');
+
           nextUpSpotlightHtml = `
-            <div class="next-run-spotlight-card">
-              <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-                <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.45); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
-                  ${{icon}}
+            <div class="next-run-spotlight-card" style="display: block; padding: 18px 22px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                  <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.45); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                    ${{icon}}
+                  </div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px; flex-wrap: wrap;">
+                      <span style="background: var(--accent-amber); color: #000; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
+                        ⚡ Immediate Next Session
+                      </span>
+                      <span style="font-size: 0.85rem; color: var(--accent-emerald); font-weight: 700;">
+                        Week ${{currentWeek.week}} • ${{nextUpWorkout.day_full}}
+                      </span>
+                      <span style="background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem;">
+                        ${{nextUpWorkout.lifting_type || 'RUN ONLY — ZERO LIFTING'}}
+                      </span>
+                    </div>
+                    <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-highlight);">
+                      ${{nextUpWorkout.workout}} (${{distStr}})
+                    </div>
+                  </div>
                 </div>
+
                 <div>
-                  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;">
-                    <span style="background: var(--accent-amber); color: #000; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
-                      ⚡ Immediate Next Run
-                    </span>
-                    <span style="font-size: 0.82rem; color: var(--accent-emerald); font-weight: 700;">
-                      Week ${{currentWeek.week}} • ${{nextUpWorkout.day_full}}
-                    </span>
+                  <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">
+                    Remaining Week ${{currentWeek.week}} Schedule
                   </div>
-                  <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-highlight);">
-                    ${{nextUpWorkout.workout}} (${{distStr}})
-                  </div>
-                  <div style="font-size: 0.83rem; color: var(--text-secondary); margin-top: 2px;">
-                    Target: <strong style="color: var(--accent-amber);">${{nextUpWorkout.pace}}</strong> • HR: <strong style="color: var(--accent-cyan);">${{nextUpWorkout.hr_zone}}</strong>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    ${{remainingChipsHtml}}
                   </div>
                 </div>
               </div>
 
-              <div>
-                <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 700; margin-bottom: 6px;">
-                  Remaining Week ${{currentWeek.week}} Schedule
+              <!-- Prescriptive Pacing & HR Zone Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; background: rgba(15, 23, 42, 0.75); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 12px;">
+                <div>
+                  <div style="font-size: 0.73rem; text-transform: uppercase; font-weight: 800; color: var(--accent-amber); margin-bottom: 2px; letter-spacing: 0.03em;">⏱️ Exact Prescribed Pacing Protocol</div>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-highlight);">${{nextUpWorkout.pace}}</div>
                 </div>
-                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                  ${{remainingChipsHtml}}
+                <div>
+                  <div style="font-size: 0.73rem; text-transform: uppercase; font-weight: 800; color: var(--accent-cyan); margin-bottom: 2px; letter-spacing: 0.03em;">❤️ Target Heart Rate & Recovery Ceiling</div>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-highlight);">${{nextUpWorkout.hr_zone}}</div>
                 </div>
               </div>
+
+              <!-- Step-by-Step Execution Protocol -->
+              ${{descFormatted ? `
+                <div style="background: rgba(22, 32, 50, 0.95); padding: 12px 16px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-amber); font-size: 0.86rem; color: var(--text-primary); line-height: 1.55;">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--accent-amber); margin-bottom: 6px; letter-spacing: 0.04em;">
+                    📋 Step-by-Step Workout Execution Protocol
+                  </div>
+                  ${{descFormatted}}
+                </div>
+              ` : ''}}
             </div>
           `;
         }}

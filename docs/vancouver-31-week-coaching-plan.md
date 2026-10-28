@@ -465,7 +465,7 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | Day | Miles | Activity Focus | Workout Name | Prescribed Pace | Target Heart Rate | Strength / Lifting Assignment |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
 | **Mon** ✅ | 0 mi | **LIFT ONLY** | Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | Gym (13:39) | Avg 70 bpm (<130 bpm) | 🏋️ Bi-Weekly Heavy Leg Strength • Grade A+ |
-| **Tue** 👉 | **5 mi** | **RUN ONLY** | Easy + Strides *(Next Up)* | 8:35 – 9:05 / mi (strides @ mile pace) | Zone 2 base w/ Zone 4-5 surges | None |
+| **Tue** 👉 | **5 mi** | **RUN ONLY** | Easy + 6 x 100m Strides *(Next Up)* | Base: 8:35–9:05/mi • Strides: 5:30–5:50/mi (~20-22s/100m) | Zone 2 Base (136–144 bpm) • Strides: Walk-back (< 125 bpm) | None |
 | **Wed** | **7 mi** | **RUN ONLY** | Aerobic | 8:30 – 8:55 / mi | Zone 2 Aerobic Base (136 – 145 bpm) | None |
 | **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
 | **Fri** | **5 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
@@ -478,9 +478,13 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Exercises Executed*: Trap bar deadlifts, Bulgarian split squats, standing heavy calf raises, explosive box jumps.
   - *Heart Rate & Zero-Double-Days Adherence*: Avg HR **70.0 bpm** (Peak **125.0 bpm**, cleanly respecting the <130 bpm ceiling). Zero running logged.
   - *Strategic Advantage*: Moving heavy lifting to Monday gives legs a full 4.5 days of recovery before Saturday's long run.
-- **Tuesday (5.0 mi • Easy + Strides)** — 👉 **[NEXT UP]**:
-  - *Strategic Purpose*: Neuromuscular turnover, motor unit recruitment, and stride efficiency on fresh legs.
-  - *Running Prescription*: **4.25 – 4.5 miles** continuous easy running at **8:35 – 9:05 / mi** (Zone 2: 136 – 145 bpm), followed by **6 x 100m snappy strides** (~20–25s accelerations up to 5k/mile race pace, focus on tall posture, high knees, light foot strikes, with full walk-back recovery between reps).
+- **Tuesday (5.0 mi • Easy + 6 x 100m Strides)** — 👉 **[NEXT UP]**:
+  - *Strategic Purpose*: Neuromuscular turnover, motor unit recruitment, and running economy on fresh legs.
+  - *Exact Step-by-Step Execution Protocol*:
+    1. **Continuous Base (Miles 0.0 – 4.4)**: 4.4 miles continuous easy aerobic running at **8:35 – 9:05 / mi** in **Zone 2 (136 – 144 bpm)**. Settle into a relaxed conversational rhythm.
+    2. **6 x 100m Snappy Strides (Miles 4.4 – 5.0)**: Over the final 0.6 miles on a flat, unobstructed stretch, execute **6 x 100m smooth accelerations** reaching mile speed (**5:30 – 5:50 / mi**, approximately **20–22 seconds per 100m**).
+    3. **Walk-Back Recovery**: Walk back for **45–60 seconds** between each stride to allow heart rate to drop below **125 bpm** before launching the next rep. Do not rush into the next stride; preserve neuromuscular quality.
+    4. **Form Cues**: Tall posture, high knee drive, relaxed shoulders and jaw, light midfoot ground strike.
   - *Lifting Assignment*: **RUN ONLY — ZERO LIFTING**.
 - **Wednesday (7.0 mi • Aerobic)**:
   - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.

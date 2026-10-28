@@ -389,104 +389,156 @@ def get_vancouver_daily_details(week_num, week_dict):
 
         if 'Rest' in d_desc:
             miles = 0
-            workout_name = "Rest & Recovery"
-            pace_str = "Rest / Mobility"
-            hr_zone_str = "Rest (< 100 bpm)"
-            purpose_str = "Cellular repair and musculoskeletal remodeling."
-            desc_str = "Non-running day. Foam roll calves, hamstrings, and IT bands. Hydrate with electrolytes."
+            if d_abbr == 'Mon':
+                workout_name = "Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength" if week_num % 2 == 1 else "Rest from Running • 🧘 Core & Pelvic Hip Stability"
+                pace_str = "Rest / Gym"
+                hr_zone_str = "Rest / Gym (< 130 bpm ceiling)"
+                purpose_str = "Targeted neuromuscular recruitment and eccentric resilience without running impact."
+                if week_num % 2 == 1:
+                    desc_str = "Non-running day: Heavy Resistance Lower-Body (low reps 3–5, 75–80% 1RM, explosive intent: Trap bar deadlifts 3x5, Bulgarian split squats 3x6/leg, standing heavy calf raises 3x10, box jumps 3x5). Done on Monday to guarantee legs are 100% recovered for Saturday's long run. Zero running today."
+                else:
+                    desc_str = "Non-running day: Core & Pelvic Hip Stability (Copenhagen adductor planks 3x20s/side, side planks with leg lift 3x30s, single-leg RDLs 3x8/leg, banded glute bridges 3x12). Zero running today."
+            elif d_abbr == 'Thu':
+                workout_name = "Rest from Running • Upper Body & Core Strength"
+                pace_str = "Rest / Gym"
+                hr_zone_str = "Rest / Gym (< 130 bpm ceiling)"
+                purpose_str = "Upper body posture, anti-extension core endurance, and quad recovery."
+                desc_str = "Non-running day: Upper Body Push/Pull + Anti-Extension Core (Dumbbell bench/overhead press 3x8, pull-ups/lat pulldowns 3x8, cable rows 3x10, Pallof press 3x12/side, deadbugs 3x10/side). Zero heavy leg loading ensures legs stay 100% fresh for Friday shakeout and Saturday long run. Zero running today."
+            else:
+                workout_name = "Rest & Recovery"
+                pace_str = "Rest / Mobility"
+                hr_zone_str = "Rest (< 100 bpm)"
+                purpose_str = "Cellular repair and musculoskeletal remodeling."
+                desc_str = "Non-running day. Foam roll calves, hamstrings, and IT bands. Hydrate with electrolytes."
         elif 'mi' in d_desc:
             try:
                 m_part = d_desc.split('mi')[0].strip()
-                # could be "6" or "5.5"
                 miles = float(m_part)
                 workout_name = d_desc.split('(', 1)[1].replace(')', '').strip().title() if '(' in d_desc else d_desc
             except:
                 miles = 0
 
-        # Refine specific days
-        if d_abbr == 'Tue':
-            if 'Time Trial' in d_desc or 'TT' in d_desc:
-                pace_str = "Goal 5k Pace: 6:50 – 6:55 / mi"
-                hr_zone_str = "Zone 5 (> 168 bpm)"
-                purpose_str = "Maximal aerobic capacity (VO2max) and threshold benchmark test."
-                desc_str = "2 miles warm-up, 5k (3.1 miles) all-out time trial effort, 2.9 miles cool-down. Benchmark 1 fitness test."
-            elif 'Interval' in d_desc or 'tempo' in d_desc.lower() or 'cruise' in d_desc.lower() or 'T-intervals' in d_desc:
-                pace_str = "Intervals: 7:00 – 7:10 / mi | Recovery: 9:00 / mi"
-                hr_zone_str = "Zone 4 Threshold (158 – 164 bpm)"
-                purpose_str = "Lactate threshold velocity expansion and clearance rate."
-                desc_str = f"Quality catalyst session: {d_desc}. Maintain relaxed shoulders and snappy cadence (180 spm)."
-            elif 'strides' in d_desc.lower() or 'surges' in d_desc.lower():
-                pace_str = "8:35 – 9:05 / mi (strides @ mile pace)"
-                hr_zone_str = "Zone 2 base w/ Zone 4-5 surges"
-                purpose_str = "Neuromuscular turnover and hill mechanics."
-                desc_str = f"Aerobic run concluding with {d_desc}. Focus on high knee drive and upright posture."
-            else:
-                pace_str = "8:35 – 9:00 / mi"
-                hr_zone_str = "Zone 2 (136 – 144 bpm)"
-                purpose_str = "Aerobic base and running efficiency."
-                desc_str = f"Steady aerobic run: {d_desc}."
+            # Refine specific running days
+            if d_abbr == 'Tue':
+                if 'Time Trial' in d_desc or 'TT' in d_desc:
+                    pace_str = "Warmup/Cool: 8:45 – 9:15 / mi | 5K All-Out TT: 6:50 – 6:55 / mi (Sub-21:30 Goal)"
+                    hr_zone_str = "Warmup: Zone 2 (< 144 bpm) | 5K TT: Zone 5 (> 168 bpm)"
+                    purpose_str = "Maximal aerobic capacity (VO2max) and threshold benchmark test."
+                    desc_str = "1. Warm-Up: 2.0 mi progressive easy jog with 4 x 20-second strides.\\n2. 5K Benchmark: 3.1 miles all-out time trial effort (target: sub-21:30, 6:50–6:55/mi average). Flat course or track required.\\n3. Cool-Down: 2.9 miles very easy recovery jog."
+                elif 'Interval' in d_desc or 'tempo' in d_desc.lower() or 'cruise' in d_desc.lower() or 'T-intervals' in d_desc:
+                    pace_str = "Warmup/Cool: 8:40 – 9:10 / mi | Threshold Reps: 7:00 – 7:10 / mi | Recovery Jogs: 9:00 / mi"
+                    hr_zone_str = "Warmup: Zone 2 (136–144 bpm) | Threshold: Zone 4 (158 – 164 bpm) | Recovery: < 140 bpm"
+                    purpose_str = "Lactate threshold velocity expansion and clearance rate."
+                    desc_str = f"1. Warm-Up: 1.5 – 2.0 mi progressive easy jog (9:15 down to 8:40/mi, HR < 142 bpm) + 5 min dynamic mobility.\\n2. Quality Work: {d_desc} at strict lactate threshold pace (7:00–7:10/mi, HR 158–164 bpm). Maintain relaxed shoulders, snappy 180 spm cadence.\\n3. Recovery Jogs: 400m / 2:00 easy jog at 9:00/mi between reps. Let HR drop under 140 bpm.\\n4. Cool-Down: 1.0 – 1.5 mi very easy flush jog at 9:00–9:30/mi back to base."
+                elif 'strides' in d_desc.lower() or 'surges' in d_desc.lower():
+                    base_miles = round(miles - 0.6, 1)
+                    pace_str = f"Base: 8:35 – 9:05 / mi | 6 Strides: 5:30 – 5:50 / mi (~20-22s / 100m)"
+                    hr_zone_str = "Zone 2 Base (136 – 144 bpm) | Strides: Walk-back to < 125 bpm"
+                    purpose_str = "Neuromuscular turnover, motor unit recruitment, and running economy on fresh legs."
+                    desc_str = (
+                        f"1. Continuous Base: {base_miles} mi continuous easy aerobic running at 8:35–9:05/mi in Zone 2 (136–144 bpm). Settle into a relaxed conversational rhythm.\\n"
+                        f"2. Snappy Strides: Over the final 0.6 mi on a flat, unobstructed stretch, execute 6 x 100m smooth accelerations reaching mile speed (5:30–5:50/mi, ~20–22s per 100m).\\n"
+                        f"3. Recovery: Walk back for 45–60 sec between each stride to allow heart rate to drop below 125 bpm before launching the next rep. Do not rush into the next stride.\\n"
+                        f"4. Form Focus: Tall posture, high knee drive, relaxed shoulders/jaw, light midfoot ground strike."
+                    )
+                else:
+                    pace_str = "8:35 – 9:00 / mi continuous"
+                    hr_zone_str = "Zone 2 (136 – 144 bpm)"
+                    purpose_str = "Aerobic base and running efficiency."
+                    desc_str = f"Steady continuous aerobic run: {d_desc}. Maintain smooth cadence (176–180 spm) and strictly cap HR at 144 bpm."
 
-        elif d_abbr == 'Wed':
-            pace_str = "8:30 – 8:55 / mi"
-            hr_zone_str = "Zone 2 Aerobic Base (136 – 145 bpm)"
-            purpose_str = "Mitochondrial density, capillary bed expansion, and fatigue resistance."
-            desc_str = f"Midweek double-digit aerobic anchor: {d_desc}. Crucial stamina builder for Vancouver's undulating profile."
+            elif d_abbr == 'Wed':
+                pace_str = "8:30 – 8:55 / mi continuous"
+                hr_zone_str = "Zone 2 Aerobic Base (136 – 145 bpm strict ceiling)"
+                purpose_str = "Mitochondrial density, capillary bed expansion, and fatigue resistance."
+                desc_str = (
+                    f"1. First 2 Miles: Settle into continuous Zone 2 at 8:45–8:55/mi (HR 136–140 bpm).\\n"
+                    f"2. Main Miles: Cruise at 8:30–8:45/mi on flats and downhills. On rolling Seattle climbs, surrender pace and cap HR strictly at 145 bpm.\\n"
+                    f"3. Final 0.5 Mile: Ease into a relaxed cool-down flush at 9:00/mi. Midweek endurance anchor: {d_desc}."
+                )
 
-        elif d_abbr == 'Thu':
-            pace_str = "9:00 – 9:30 / mi"
-            hr_zone_str = "Zone 1 / Low Zone 2 (< 138 bpm)"
-            purpose_str = "Metabolic byproduct flushing and active recovery."
-            desc_str = f"Gentle recovery jog: {d_desc}. Keep stride light, cadence relaxed, and effort conversational."
+            elif d_abbr == 'Thu':
+                pace_str = "9:00 – 9:30 / mi continuous"
+                hr_zone_str = "Zone 1 / Low Zone 2 (< 138 bpm ceiling)"
+                purpose_str = "Metabolic byproduct flushing and active recovery."
+                desc_str = f"Gentle recovery jog: {d_desc}. Keep stride light, cadence relaxed, and effort conversational."
 
-        elif d_abbr == 'Sat':
-            if week_num == 31:
-                pace_str = "9:30 / mi shakeout"
-                hr_zone_str = "Zone 1 (< 130 bpm)"
-                purpose_str = "Pre-race nervous system activation."
-                desc_str = "3 miles very light shakeout with 4 x 20-second strides in Vancouver. Rest and carbo-load."
-            elif 'Dress Rehearsal' in d_desc or 'MP' in d_desc:
-                pace_str = "Easy: 8:40 / mi | MP Blocks: 7:26 / mi"
-                hr_zone_str = "Zone 2 base progressing to Zone 3 (151–155 bpm) at MP"
-                purpose_str = "Marathon pace economy and in-race fueling dress rehearsal."
-                desc_str = f"Marathon Anchor: {d_desc}. Take gel every 35–40 minutes with water. Practice wearing race kit."
-            elif 'Simulation' in d_desc:
-                pace_str = "8:30 – 8:50 / mi (surge climbs @ 8:15, cruise flats @ 7:45)"
-                hr_zone_str = "Zone 2-3 (140 – 152 bpm)"
-                purpose_str = "Vancouver course terrain simulation (Camosun climb + Marine Drive descent + Seawall flat)."
-                desc_str = f"Peak simulation: {d_desc}. Practice climbing on effort rather than forcing GPS pace, followed by relaxed quad-friendly descending."
-            else:
-                pace_str = "8:40 – 9:15 / mi"
-                hr_zone_str = "Zone 2 (138 – 146 bpm)"
-                purpose_str = "Long aerobic endurance and fat oxidation."
-                fueling_note = " 🥣 FUELING: Pre-run carbs 45-60 min before (toast/banana + espresso); 1 gel every 40-45 mins with water to train gut." if week_num >= 7 else " ☕ FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins)."
-                desc_str = f"Weekly long run anchor: {d_desc}. Maintain steady effort on Seattle rolling hills.{fueling_note}"
+            elif d_abbr == 'Fri':
+                pace_str = "9:00 – 9:30 / mi continuous"
+                hr_zone_str = "Zone 1 / Low Zone 2 (< 138 bpm ceiling, avg ~130 bpm)"
+                purpose_str = "Capillary flushing and neuromuscular priming for Saturday's anchor."
+                desc_str = (
+                    f"1. Route: Choose flat terrain (avoid heavy hill climbs).\\n"
+                    f"2. Effort: Relaxed conversational recovery run: {d_desc}. Keep stride light and cadence snappy (175–180 spm).\\n"
+                    f"3. Heart Rate: Strictly under 138 bpm. ZERO lifting today — preserve 100% of leg glycogen for Saturday."
+                )
 
-        elif d_abbr == 'Sun':
-            if week_num == 31:
-                miles = 28.2 # 2mi warmup + 26.2mi race
-                workout_name = "🌟 BMO Vancouver Marathon 2027"
-                pace_str = "7:26 / mi (3:15:00 Goal)"
-                hr_zone_str = "Zone 3 Aerobic Threshold (151 – 156 bpm)"
-                desc_str = ('Race Morning: Wake up 3.5h before start. Light 2mi warmup shakeout at Queen Elizabeth Park (elevation 152m).\\n'
-                            'Km 0–8 (Miles 1–5): Gentle descent out of QE Park into Dunbar. Settle into disciplined 7:28–7:30/mi rhythm.\\n'
-                            'Km 9–10 (Mile 6): Camosun Street Hill climb (~177 ft vertical rise). SURRENDER PACE, HOLD EFFORT! Run by HR (< 158 bpm, ~8:10/mi). Your Seattle training makes this routine.\\n'
-                            'Km 10–16 (Miles 6.5–10): Pacific Spirit Park & UBC campus. Regroup into 7:24–7:26/mi cruise.\\n'
-                            'Km 16–18 (Miles 10–11.5): Big descent down NW Marine Drive (-250 ft drop to sea level). Lean forward, light feet (cadence >180 spm), protect your quads!\\n'
-                            'Km 18–31 (Miles 11.5–19.5): Spanish Banks, Point Grey & Kitsilano. The metronome miles: lock into 7:24–7:26/mi. Gel every 35 mins with water.\\n'
-                            'Km 31–32 (Miles 19.5–20): Burrard Bridge climb. Drive knees over the crest into West End.\\n'
-                            'Km 32–40 (Miles 20–25): Stanley Park Seawall flat loop. 9 km of flat ocean-side running. Hold your 7:24/mi line; mental grit wins the race here.\\n'
-                            'Km 40–42.2 (Miles 25–26.2): Exit seawall onto West Pender Street rise. Empty the tank at 7:15/mi into the downtown Vancouver finish line for 3:14:xx!')
-                purpose_str = "Race day execution: The culmination of 31 weeks of disciplined training!"
-            elif 'Half Marathon' in d_desc:
-                pace_str = "Goal Half Marathon Pace: 7:05 – 7:08 / mi"
-                hr_zone_str = "Zone 4 Threshold (160 – 166 bpm)"
-                purpose_str = "Benchmark 3: Validate 3:15 marathon fitness with a sub-1:33:30 half marathon."
-                desc_str = "Half Marathon Tune-Up Race. 2mi warm-up, 13.1mi race execution (< 1:33:30), 2.9mi cool-down. Confirms VDOT 50.5."
-            else:
-                pace_str = "9:15 – 9:45 / mi"
-                hr_zone_str = "Zone 1 (< 135 bpm)"
-                purpose_str = "Aerobic density and cumulative fatigue recovery."
-                desc_str = f"Gentle Sunday recovery shakeout: {d_desc}. Runs gently on legs carrying Saturday fatigue."
+            elif d_abbr == 'Sat':
+                if week_num == 31:
+                    pace_str = "9:30 / mi shakeout"
+                    hr_zone_str = "Zone 1 (< 130 bpm)"
+                    purpose_str = "Pre-race nervous system activation."
+                    desc_str = "3 miles very light shakeout with 4 x 20-second strides in Vancouver. Rest and carbo-load."
+                elif 'Dress Rehearsal' in d_desc or 'MP' in d_desc:
+                    pace_str = "Easy: 8:40 – 8:55 / mi | MP Blocks: 7:26 / mi"
+                    hr_zone_str = "Zone 2 (138–146 bpm) / MP Zone 3 (151–155 bpm)"
+                    purpose_str = "Marathon pace economy and in-race fueling dress rehearsal."
+                    desc_str = (
+                        f"1. Warm-in Miles: Settle into relaxed Zone 2 at 8:40–8:55/mi.\\n"
+                        f"2. Marathon Pace Blocks: Lock into goal Vancouver MP (7:26/mi) with metronome cadence (180+ spm, HR 151–155 bpm).\\n"
+                        f"3. Fueling & Gear: Practice taking energy gel every 35–40 minutes with water. Wear complete race kit and race shoes."
+                    )
+                elif 'Simulation' in d_desc:
+                    pace_str = "Easy Cruise: 8:30 – 8:50 / mi | Climbs: 8:15 / mi effort | Flats: 7:45 / mi"
+                    hr_zone_str = "Zone 2–3 (140 – 152 bpm)"
+                    purpose_str = "Vancouver course terrain simulation (Camosun climb + Marine Drive descent + Seawall flat)."
+                    desc_str = (
+                        f"1. Simulated Climbing: Run rolling terrain; on steep climbs, maintain consistent effort (HR < 156 bpm) rather than forcing pace.\\n"
+                        f"2. Simulated Descending: On downhills, lean slightly forward from ankles with high cadence (>180 spm) to spare quads.\\n"
+                        f"3. Fueling: 1 gel every 40 minutes with water."
+                    )
+                else:
+                    pace_str = "8:40 – 9:15 / mi continuous"
+                    hr_zone_str = "Zone 2 (138 – 146 bpm strict ceiling)"
+                    purpose_str = "Long aerobic endurance and fat oxidation."
+                    fueling_note = " 🥣 FUELING: Pre-run carbs 45-60 min before (toast/banana + espresso); 1 gel every 40-45 mins with water to train gut." if week_num >= 7 else " ☕ FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins)."
+                    desc_str = (
+                        f"1. Miles 0.0 – 2.0: Warm-in cruise at 9:00–9:15/mi (Low Zone 2: 136–140 bpm).\\n"
+                        f"2. Main Miles: Settle into 8:40–8:55/mi (Zone 2: 140–146 bpm). Cap HR strictly at 146 bpm on hills.\\n"
+                        f"3. Final Miles: Maintain relaxed shoulders and upright posture through completion. {d_desc}.{fueling_note}"
+                    )
+
+            elif d_abbr == 'Sun':
+                if week_num == 31:
+                    miles = 28.2 # 2mi warmup + 26.2mi race
+                    workout_name = "🌟 BMO Vancouver Marathon 2027"
+                    pace_str = "7:26 / mi (3:15:00 Goal)"
+                    hr_zone_str = "Zone 3 Aerobic Threshold (151 – 156 bpm)"
+                    desc_str = ('Race Morning: Wake up 3.5h before start. Light 2mi warmup shakeout at Queen Elizabeth Park (elevation 152m).\\n'
+                                'Km 0–8 (Miles 1–5): Gentle descent out of QE Park into Dunbar. Settle into disciplined 7:28–7:30/mi rhythm.\\n'
+                                'Km 9–10 (Mile 6): Camosun Street Hill climb (~177 ft vertical rise). SURRENDER PACE, HOLD EFFORT! Run by HR (< 158 bpm, ~8:10/mi). Your Seattle training makes this routine.\\n'
+                                'Km 10–16 (Miles 6.5–10): Pacific Spirit Park & UBC campus. Regroup into 7:24–7:26/mi cruise.\\n'
+                                'Km 16–18 (Miles 10–11.5): Big descent down NW Marine Drive (-250 ft drop to sea level). Lean forward, light feet (cadence >180 spm), protect your quads!\\n'
+                                'Km 18–31 (Miles 11.5–19.5): Spanish Banks, Point Grey & Kitsilano. The metronome miles: lock into 7:24–7:26/mi. Gel every 35 mins with water.\\n'
+                                'Km 31–32 (Miles 19.5–20): Burrard Bridge climb. Drive knees over the crest into West End.\\n'
+                                'Km 32–40 (Miles 20–25): Stanley Park Seawall flat loop. 9 km of flat ocean-side running. Hold your 7:24/mi line; mental grit wins the race here.\\n'
+                                'Km 40–42.2 (Miles 25–26.2): Exit seawall onto West Pender Street rise. Empty the tank at 7:15/mi into the downtown Vancouver finish line for 3:14:xx!')
+                    purpose_str = "Race day execution: The culmination of 31 weeks of disciplined training!"
+                elif 'Half Marathon' in d_desc:
+                    pace_str = "Goal Half Marathon Pace: 7:05 – 7:08 / mi"
+                    hr_zone_str = "Zone 4 Threshold (160 – 166 bpm)"
+                    purpose_str = "Benchmark 3: Validate 3:15 marathon fitness with a sub-1:33:30 half marathon."
+                    desc_str = "Half Marathon Tune-Up Race. 2mi warm-up, 13.1mi race execution (< 1:33:30), 2.9mi cool-down. Confirms VDOT 50.5."
+                else:
+                    pace_str = "9:15 – 9:45 / mi continuous"
+                    hr_zone_str = "Zone 1 (< 135 bpm ceiling, avg ~128–130 bpm)"
+                    purpose_str = "Active capillary circulation and cumulative fatigue clearance."
+                    desc_str = (
+                        f"1. Route: Flat route preferred (avoid steep Seattle grades).\\n"
+                        f"2. Pace: 9:15–9:45/mi. Absolutely no rushing; this is active therapy for legs carrying Saturday fatigue.\\n"
+                        f"3. Heart Rate: Strictly under 135 bpm. If HR climbs above 135 bpm on a hill, walk until it drops.\\n"
+                        f"4. Lifting: RUN ONLY — ZERO LIFTING."
+                    )
 
         days.append({
             'day': d_abbr,
