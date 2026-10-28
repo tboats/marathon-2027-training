@@ -1,5 +1,68 @@
 [
   {
+    "evaluation_id": "2026-10-26_24864041413",
+    "activity_id": 24864041413,
+    "date": "2026-10-26",
+    "activity_name": "Strength",
+    "race_plan": "vancouver",
+    "week_num": 5,
+    "day_of_week": "Mon",
+    "day_full": "Monday",
+    "prescribed": {
+      "miles": 0.0,
+      "workout": "Rest from Running \u2022 \ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+    },
+    "actual": {
+      "miles": 0.0,
+      "duration_formatted": "13:39",
+      "duration_seconds": 819.5,
+      "pace_raw": "Strength Gym",
+      "pace_gap": "Strength Gym",
+      "avg_hr": 70.0,
+      "max_hr": 125.0,
+      "avg_cadence": null,
+      "max_cadence": null,
+      "elevation_gain_ft": 0.0,
+      "elevation_loss_ft": 0.0,
+      "aerobic_te": 0.30000001192092896,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": null,
+      "strides_gct_ms": null,
+      "vertical_ratio_pct": null,
+      "strides_vr_pct": null,
+      "avg_power_w": null,
+      "max_power_w": null,
+      "total_sets": 13,
+      "total_reps": 226
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.0,
+      "pace_adherence": "Gym Strength Session (Zero Running)",
+      "hr_compliance": "Max HR 125.0 bpm (Cleanly below 130 bpm cap)",
+      "strides_count": 0,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Flawless execution of Week 5 Monday: 13:39 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+    "key_takeaways": [
+      "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+      "Cardiovascular Discipline: Max HR capped at 125.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+      "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+    ],
+    "next_workout": {
+      "day": "Tuesday",
+      "date": "2026-10-27",
+      "miles": 5.0,
+      "workout": "Easy + Strides",
+      "target_pace": "8:35 \u2013 9:05 / mi (strides @ mile pace)",
+      "target_hr": "Zone 2 base w/ Zone 4-5 surges",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-10-25_24848501407",
     "activity_id": 24848501407,
     "date": "2026-10-25",
