@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 5 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **167.42 Miles** (32 workout(s) verified)  
-> **Most Recent Session**: Tuesday, 2026-10-27 — **5.20 mi** • **Grade A+**  
-> **Up Next**: Wednesday, 2026-10-28 — **7.0 mi Aerobic** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 5 Active (Day 3 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **174.50 Miles** (33 workout(s) verified)  
+> **Most Recent Session**: Wednesday, 2026-10-28 — **7.08 mi** • **Grade A+**  
+> **Up Next**: Thursday, 2026-10-29 — **0 mi Rest from Running • Upper Body & Core Strength** (Upper Body & Core Strength (No Running))
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-10-28** | Wed | Week 5: Aerobic | 7.0 mi | **7.08 mi** | 8:58 / mi | **8:50 / mi** | 140 / 149.0 bpm | 177.1 spm | +289 ft | 140 bpm HR; 1 strides down to N/A; +289ft climb. | **A+** |
 | **2026-10-27** | Tue | Week 5: Easy + Strides | 5.0 mi | **5.20 mi** | 9:05 / mi | **8:54 / mi** | 141 / 162.0 bpm | 175.1 spm | +305 ft | 141 bpm HR; 6 strides down to 5:11 / mi (cadence up to 223 spm); +305ft climb. | **A+** |
 | **2026-10-26** | Mon | Week 5: Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 70 / 125.0 bpm | N/A | 0 ft | Heavy legs (13:39): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 125.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-10-25** | Sun | Week 4: Recovery | 5.0 mi | **4.93 mi** | 9:37 / mi | **9:32 / mi** | 129 / 137.0 bpm | 175.7 spm | +308 ft | 129 bpm HR; 1 strides down to N/A; +308ft climb. | **A+** |
@@ -467,8 +468,8 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
 | **Mon** ✅ | 0 mi | **LIFT ONLY** | Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | Gym (13:39) | Avg 70 bpm (<130 bpm) | 🏋️ Bi-Weekly Heavy Leg Strength • Grade A+ |
 | **Tue** ✅ | **5.20 mi** *(pres: 5mi)* | **RUN ONLY** | Easy + 6 x 100m Strides • 47:13 @ 9:05/mi | 9:05 / mi (GAP 8:54) | Avg 141 bpm (Max 162 bpm) | None • Grade A+ |
-| **Wed** 👉 | **7 mi** | **RUN ONLY** | Aerobic *(Next Up)* | 8:30 – 8:55 / mi continuous | Zone 2 Aerobic Base (136 – 145 bpm strict ceiling) | None (RUN ONLY — ZERO LIFTING) |
-| **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
+| **Wed** ✅ | **7.08 mi** *(pres: 7mi)* | **RUN ONLY** | Aerobic • 63:32 @ 8:58/mi | 8:58 / mi (GAP 8:50) | Avg 140 bpm (Max 149 bpm) | None • Grade A+ |
+| **Thu** 👉 | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength *(Next Up)* | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
 | **Fri** | **5 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
 | **Sat** | **10 mi** | **RUN ONLY** | Long Run | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
@@ -487,10 +488,13 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Training Stimulus*: Aerobic TE **3.5** | Anaerobic TE **2.2**.
   - *Strategic Purpose*: Neuromuscular turnover, motor unit recruitment, and running economy on fresh legs.
   - *Prescribed Execution*: Base: 8:35 – 9:05 / mi | 6 Strides: 5:30 – 5:50 / mi (~20-22s / 100m). Zone 2 Base (136 – 144 bpm) | Strides: Walk-back to < 125 bpm. Zero lifting.
-- **Wednesday (7.0 mi • Aerobic)** — 👉 **[NEXT UP]**:
-  - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
-  - *Running Prescription*: Midweek aerobic anchor: 7mi (aerobic @ 8:30 – 8:55 / mi). Crucial stamina builder for Vancouver's undulating profile.
-- **Thursday (0 mi • Rest from Running • Upper Body & Core Strength)**:
+- **Wednesday (7.0 mi • Aerobic)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-10-28)*: **7.08 mi** in **63:32** (8:58 / mi, **8:50 / mi GAP**). Volume precision: 101.2%.
+  - *Heart Rate & Aerobic Decoupling*: Avg HR **140.0 bpm** (Max HR: 149.0 bpm, held strictly below 145 bpm target ceiling). Zero aerobic decoupling.
+  - *Cadence & Topography*: Average cadence **177.1 spm**; handled **+289 ft** elevation gain with clean effort pacing.
+  - *Training Stimulus*: Aerobic TE **3.8** | Anaerobic TE **0.0** (pure aerobic base builder).
+  - *Prescribed Execution*: 8:30 – 8:55 / mi continuous | Zone 2 Aerobic Base (136 – 145 bpm strict ceiling). Zero lifting.
+- **Thursday (0 mi • Rest from Running • Upper Body & Core Strength)** — 👉 **[NEXT UP]**:
   - *Strategic Purpose*: Cellular repair, posture, and musculoskeletal remodeling.
   - *Running Prescription*: Non-running day: Upper Body Push/Pull + Anti-Extension Core. Zero heavy leg loading ensures legs stay 100% fresh for Friday shakeout and Saturday long run. Zero running.
   - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
