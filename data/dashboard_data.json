@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-10-30T20:11:21.860292",
-    "total_historical_runs": 412,
-    "dataset_date_range": "2025-03-02 to 2026-10-30",
+    "generated_at": "2026-10-31T09:15:13.864180",
+    "total_historical_runs": 413,
+    "dataset_date_range": "2025-03-02 to 2026-10-31",
     "current_date": "2026-09-27",
     "target_race_name": "BMO Vancouver Marathon 2027",
     "target_race_date": "2027-05-02",
@@ -5876,12 +5876,12 @@
     },
     {
       "month": "2026-10",
-      "total_miles": 154.4,
-      "run_count": 22,
+      "total_miles": 164.5,
+      "run_count": 23,
       "longest_mile": 12.5,
-      "total_elevation_ft": 8088.0,
+      "total_elevation_ft": 8619.0,
       "avg_ft_per_mile": 52.4,
-      "avg_pace_min_mile": 8.97,
+      "avg_pace_min_mile": 8.98,
       "avg_gap_pace_min_mile": 8.67,
       "avg_hr": 140.0,
       "avg_cadence_spm": 177.0,
@@ -7182,18 +7182,18 @@
     },
     {
       "date": "2026-10-26",
-      "run_count": 3,
-      "total_miles": 17.4,
-      "total_elevation_ft": 910.0,
+      "run_count": 4,
+      "total_miles": 27.5,
+      "total_elevation_ft": 1441.0,
       "avg_hr": 140.0,
       "avg_cadence_spm": 177.0,
-      "avg_pace": 9.1,
-      "avg_gap_pace": 8.79,
-      "avg_ef": 1.264,
-      "avg_gap_ef": 1.308,
-      "vdot": 32.2,
+      "avg_pace": 9.08,
+      "avg_gap_pace": 8.77,
+      "avg_ef": 1.266,
+      "avg_gap_ef": 1.31,
+      "vdot": 32.3,
       "decoupling_pct": null,
-      "rolling_4w_mpw": 31.5
+      "rolling_4w_mpw": 34.0
     }
   ],
   "daily_time_series": [
@@ -13376,27 +13376,24 @@
       "gap_ef": 1.293,
       "vdot": 31.8,
       "decoupling_pct": null
+    },
+    {
+      "date": "2026-10-31",
+      "run_id": "24918811046_ACTIVITY",
+      "distance_miles": 10.12,
+      "duration_seconds": 5479.5,
+      "pace_min_mile": 9.02,
+      "gap_pace_min_mile": 8.71,
+      "avg_hr": 140.0,
+      "elevation_gain_ft": 531.0,
+      "elevation_ft_per_mile": 52.4,
+      "ef": 1.274,
+      "gap_ef": 1.319,
+      "vdot": 32.6,
+      "decoupling_pct": null
     }
   ],
   "recent_runs": [
-    {
-      "run_id": "2026-09-06_14-06-53",
-      "date": "2026-09-06",
-      "start_time": "2026-09-06T14:06:57",
-      "distance_meters": 16262.2,
-      "distance_miles": 10.1,
-      "duration_seconds": 5831.0,
-      "pace_min_mile": 9.62,
-      "elevation_gain_ft": 531.0,
-      "elevation_ft_per_mile": 52.6,
-      "gap_pace_min_mile": 9.31,
-      "avg_hr": 138.1,
-      "max_hr": 154,
-      "avg_cadence_spm": 176.0,
-      "ef": 1.212,
-      "gap_ef": 1.252,
-      "decoupling_pct": null
-    },
     {
       "run_id": "2026-09-07_23-27-28",
       "date": "2026-09-07",
@@ -14098,9 +14095,91 @@
       "ef": 1.25,
       "gap_ef": 1.293,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "24918811046_ACTIVITY",
+      "date": "2026-10-31",
+      "start_time": "2026-10-31T14:02:00Z",
+      "distance_meters": 16293.5,
+      "distance_miles": 10.12,
+      "duration_seconds": 5479.5,
+      "pace_min_mile": 9.02,
+      "elevation_gain_ft": 531.0,
+      "elevation_ft_per_mile": 52.4,
+      "gap_pace_min_mile": 8.71,
+      "avg_hr": 140.0,
+      "max_hr": 162,
+      "avg_cadence_spm": 177.0,
+      "ef": 1.274,
+      "gap_ef": 1.319,
+      "decoupling_pct": null
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-10-31_24918811046",
+      "activity_id": 24918811046,
+      "date": "2026-10-31",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 5,
+      "day_of_week": "Sat",
+      "day_full": "Saturday",
+      "prescribed": {
+        "miles": 10.0,
+        "workout": "Long Run",
+        "target_pace": "8:40 \u2013 9:15 / mi continuous",
+        "target_hr": "Zone 2 (138 \u2013 146 bpm strict ceiling)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 10.12,
+        "duration_formatted": "91:13",
+        "duration_seconds": 5473.7,
+        "pace_raw": "9:00 / mi",
+        "pace_gap": "8:54 / mi",
+        "avg_hr": 136.0,
+        "max_hr": 144.0,
+        "avg_cadence": 178.7,
+        "max_cadence": 197.0,
+        "elevation_gain_ft": 446.2,
+        "elevation_loss_ft": 439.6,
+        "aerobic_te": 4.099999904632568,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": 250.2,
+        "strides_gct_ms": 250.2,
+        "vertical_ratio_pct": 8.23,
+        "strides_vr_pct": 8.23,
+        "avg_power_w": 317.0,
+        "max_power_w": 415.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 101.2,
+        "pace_adherence": "Raw 9:00 / mi | Grade-Adjusted 8:54 / mi",
+        "hr_compliance": "Avg HR 136 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 5 Saturday: 10.12 miles at 9:00 / mi (GAP: 8:54 / mi) with an average heart rate of 136 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 10.12 mi vs 10.0 mi prescribed (101.2% volume precision).",
+        "Metabolic Control: Averaged 136 bpm heart rate (workout ceiling: 145 bpm).",
+        "Topography Management: Handled +446 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "next_workout": {
+        "day": "Sunday",
+        "date": "2026-11-01",
+        "miles": 5.0,
+        "workout": "Recovery",
+        "target_pace": "9:15 \u2013 9:45 / mi continuous",
+        "target_hr": "Zone 1 (< 135 bpm ceiling, avg ~128\u2013130 bpm)",
+        "purpose": "Active capillary circulation and cumulative fatigue clearance.",
+        "description": "1. Route: Flat route preferred (avoid steep Seattle grades).\\n2. Pace: 9:15\u20139:45/mi. Absolutely no rushing; this is active therapy for legs carrying Saturday fatigue.\\n3. Heart Rate: Strictly under 135 bpm. If HR climbs above 135 bpm on a hill, walk until it drops.\\n4. Lifting: RUN ONLY \u2014 ZERO LIFTING.",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
     {
       "evaluation_id": "2026-10-30_24910702839",
       "activity_id": 24910702839,
