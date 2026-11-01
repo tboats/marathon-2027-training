@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-10-31T09:15:13.864180",
-    "total_historical_runs": 413,
-    "dataset_date_range": "2025-03-02 to 2026-10-31",
+    "generated_at": "2026-11-01T11:21:26.535470",
+    "total_historical_runs": 414,
+    "dataset_date_range": "2025-03-02 to 2026-11-01",
     "current_date": "2026-09-27",
     "target_race_name": "BMO Vancouver Marathon 2027",
     "target_race_date": "2027-05-02",
@@ -5887,6 +5887,20 @@
       "avg_cadence_spm": 177.0,
       "avg_ef": 1.278,
       "avg_gap_ef": 1.323
+    },
+    {
+      "month": "2026-11",
+      "total_miles": 5.0,
+      "run_count": 1,
+      "longest_mile": 5.0,
+      "total_elevation_ft": 265.0,
+      "avg_ft_per_mile": 52.5,
+      "avg_pace_min_mile": 9.51,
+      "avg_gap_pace_min_mile": 9.21,
+      "avg_hr": 140.0,
+      "avg_cadence_spm": 177.0,
+      "avg_ef": 1.208,
+      "avg_gap_ef": 1.249
     }
   ],
   "weekly_time_series": [
@@ -7182,18 +7196,18 @@
     },
     {
       "date": "2026-10-26",
-      "run_count": 4,
-      "total_miles": 27.5,
-      "total_elevation_ft": 1441.0,
+      "run_count": 5,
+      "total_miles": 32.5,
+      "total_elevation_ft": 1706.0,
       "avg_hr": 140.0,
       "avg_cadence_spm": 177.0,
-      "avg_pace": 9.08,
-      "avg_gap_pace": 8.77,
-      "avg_ef": 1.266,
-      "avg_gap_ef": 1.31,
-      "vdot": 32.3,
+      "avg_pace": 9.16,
+      "avg_gap_pace": 8.86,
+      "avg_ef": 1.255,
+      "avg_gap_ef": 1.298,
+      "vdot": 31.9,
       "decoupling_pct": null,
-      "rolling_4w_mpw": 34.0
+      "rolling_4w_mpw": 35.3
     }
   ],
   "daily_time_series": [
@@ -13391,27 +13405,24 @@
       "gap_ef": 1.319,
       "vdot": 32.6,
       "decoupling_pct": null
+    },
+    {
+      "date": "2026-11-01",
+      "run_id": "24930519807_ACTIVITY",
+      "distance_miles": 5.05,
+      "duration_seconds": 2882.7,
+      "pace_min_mile": 9.51,
+      "gap_pace_min_mile": 9.21,
+      "avg_hr": 140.0,
+      "elevation_gain_ft": 265.0,
+      "elevation_ft_per_mile": 52.4,
+      "ef": 1.208,
+      "gap_ef": 1.249,
+      "vdot": 30.4,
+      "decoupling_pct": null
     }
   ],
   "recent_runs": [
-    {
-      "run_id": "2026-09-07_23-27-28",
-      "date": "2026-09-07",
-      "start_time": "2026-09-07T23:27:32",
-      "distance_meters": 9839.1,
-      "distance_miles": 6.11,
-      "duration_seconds": 3327.0,
-      "pace_min_mile": 9.07,
-      "elevation_gain_ft": 404.0,
-      "elevation_ft_per_mile": 66.0,
-      "gap_pace_min_mile": 8.68,
-      "avg_hr": 142.0,
-      "max_hr": 158,
-      "avg_cadence_spm": 176.0,
-      "ef": 1.25,
-      "gap_ef": 1.305,
-      "decoupling_pct": null
-    },
     {
       "run_id": "2026-09-10_01-45-44",
       "date": "2026-09-10",
@@ -14113,9 +14124,91 @@
       "ef": 1.274,
       "gap_ef": 1.319,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "24930519807_ACTIVITY",
+      "date": "2026-11-01",
+      "start_time": "2026-11-01T14:53:01Z",
+      "distance_meters": 8128.0,
+      "distance_miles": 5.05,
+      "duration_seconds": 2882.7,
+      "pace_min_mile": 9.51,
+      "elevation_gain_ft": 265.0,
+      "elevation_ft_per_mile": 52.4,
+      "gap_pace_min_mile": 9.21,
+      "avg_hr": 140.0,
+      "max_hr": 162,
+      "avg_cadence_spm": 177.0,
+      "ef": 1.208,
+      "gap_ef": 1.249,
+      "decoupling_pct": null
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-11-01_24930519807",
+      "activity_id": 24930519807,
+      "date": "2026-11-01",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 5,
+      "day_of_week": "Sun",
+      "day_full": "Sunday",
+      "prescribed": {
+        "miles": 5.0,
+        "workout": "Recovery",
+        "target_pace": "9:15 \u2013 9:45 / mi continuous",
+        "target_hr": "Zone 1 (< 135 bpm ceiling, avg ~128\u2013130 bpm)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 5.05,
+        "duration_formatted": "47:58",
+        "duration_seconds": 2878.2,
+        "pace_raw": "9:29 / mi",
+        "pace_gap": "9:25 / mi",
+        "avg_hr": 127.0,
+        "max_hr": 137.0,
+        "avg_cadence": 175.6,
+        "max_cadence": 188.0,
+        "elevation_gain_ft": 259.2,
+        "elevation_loss_ft": 252.6,
+        "aerobic_te": 3.0,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": 257.1,
+        "strides_gct_ms": 257.1,
+        "vertical_ratio_pct": 8.54,
+        "strides_vr_pct": 8.54,
+        "avg_power_w": 303.0,
+        "max_power_w": 377.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 101.0,
+        "pace_adherence": "Raw 9:29 / mi | Grade-Adjusted 9:25 / mi",
+        "hr_compliance": "Avg HR 127 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 5 Sunday: 5.05 miles at 9:29 / mi (GAP: 9:25 / mi) with an average heart rate of 127 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 5.05 mi vs 5.0 mi prescribed (101.0% volume precision).",
+        "Metabolic Control: Averaged 127 bpm heart rate (workout ceiling: 138 bpm).",
+        "Topography Management: Handled +259 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "next_workout": {
+        "day": "Monday",
+        "date": "2026-11-02",
+        "miles": 0,
+        "workout": "Rest from Running \u2022 \ud83e\uddd8 Core & Pelvic Hip Stability",
+        "target_pace": "Rest / Gym",
+        "target_hr": "Rest / Gym (< 130 bpm ceiling)",
+        "purpose": "Targeted neuromuscular recruitment and eccentric resilience without running impact.",
+        "description": "Non-running day: Hip stability, glute activation, and rotational core. Strengthens adductors and gluteus medius to stabilize pelvis and protect IT bands during high marathon mileage with zero heavy leg soreness.",
+        "lifting_rule": "\ud83e\uddd8 Core & Pelvic Hip Stability (No Running)"
+      }
+    },
     {
       "evaluation_id": "2026-10-31_24918811046",
       "activity_id": 24918811046,
