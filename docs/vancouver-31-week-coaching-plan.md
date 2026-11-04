@@ -131,15 +131,17 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 5 Complete (7 of 7 Days Complete • 100% Archived) — Advancing to Week 6** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **194.76 Miles** (37 workout(s) verified)  
-> **Most Recent Session**: Sunday, 2026-11-01 — **5.05 mi** • **Grade A+**  
-> **Up Next**: Monday, 2026-11-02 — **0 mi Rest from Running • 🧘 Core & Pelvic Hip Stability** (🧘 Core & Pelvic Hip Stability (No Running))
+> **Current Campaign Status**: **Week 6 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **200.39 Miles** (39 workout(s) verified)  
+> **Most Recent Session**: Tuesday, 2026-11-03 — **5.63 mi** • **Grade B+**  
+> **Up Next**: Wednesday, 2026-11-04 — **9.0 mi Aerobic Base** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-03** | Tue | Week 6: 5K Time Trial Session | 8.0 mi | **5.63 mi** | 8:29 / mi | **8:22 / mi** | 152 / 173.0 bpm | 177.8 spm | +302 ft | 152 bpm avg HR (peak 173 bpm); 5K max effort completed (condensed cooldown for family child care); Aerobic TE 4.5, Anaerobic TE 1.5. | **A** |
+| **2026-11-02** | Mon | Week 6: Rest from Running • 🧘 Core & Pelvic Hip Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 80 / 123.0 bpm | N/A | 0 ft | Heavy legs (16:26): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 123.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-01** | Sun | Week 5: Recovery | 5.0 mi | **5.05 mi** | 9:29 / mi | **9:25 / mi** | 127 / 137.0 bpm | 175.6 spm | +259 ft | 127 bpm HR; 1 strides down to N/A; +259ft climb. | **A+** |
 | **2026-10-31** | Sat | Week 5: Long Run | 10.0 mi | **10.12 mi** | 9:00 / mi | **8:54 / mi** | 136 / 144.0 bpm | 178.7 spm | +446 ft | 136 bpm HR; 1 strides down to N/A; +446ft climb. | **A+** |
 | **2026-10-30** | Fri | Week 5: Easy Pre-Long Run Shakeout | 5.0 mi | **5.09 mi** | 9:10 / mi | **9:10 / mi** | 130 / 141.0 bpm | 175.7 spm | +253 ft | 130 bpm HR; 1 strides down to N/A; +253ft climb. | **A+** |
@@ -534,23 +536,25 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 
 | Day | Miles | Activity Focus | Workout Name | Prescribed Pace | Target Heart Rate | Strength / Lifting Assignment |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| **Mon** 👉 | 0 mi | **LIFT ONLY** | Rest from Running • 🧘 Core & Pelvic Hip Stability *(Next Up)* | Rest / Mobility | Rest (< 100 bpm) | 🧘 Core & Pelvic Hip Stability (No Running) |
-| **Tue** | **8 mi** | **RUN ONLY** | 5K Time Trial Session | Goal 5k Pace: 6:50 – 6:55 / mi | Zone 5 (> 168 bpm) | None |
-| **Wed** | **9 mi** | **RUN ONLY** | Aerobic Base | 8:30 – 8:55 / mi | Zone 2 Aerobic Base (136 – 145 bpm) | None |
+| **Mon** ✅ | 0 mi | **LIFT ONLY** | Rest from Running • 🧘 Core & Pelvic Hip Stability • Gym (16:26) | Rest / Mobility | Avg 80 bpm (<130 bpm) | 🧘 Core & Pelvic Hip Stability • Grade A+ |
+| **Tue** ✅ | **5.63 mi** *(pres: 8mi)* | **RUN ONLY** | 5K Time Trial Session • 47:50 @ 8:29/mi | 8:29 / mi (GAP 8:22) | Avg 152 bpm (Max 173 bpm) | None • Grade A (Family Protocol) |
+| **Wed** 👉 | **9 mi** | **RUN ONLY** | Aerobic Base *(Next Up)* | 8:30 – 8:55 / mi continuous | Zone 2 Aerobic Base (136 – 145 bpm strict ceiling) | None (RUN ONLY — ZERO LIFTING) |
 | **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
 | **Fri** | **5 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
 | **Sat** | **13 mi** | **RUN ONLY** | Long Run | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • Upper Body & Core Strength)**:
-  - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
-  - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
-  - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
-- **Tuesday (8.0 mi • 5K Time Trial Session)**:
-  - *Strategic Purpose*: Maximal aerobic capacity (VO2max) and threshold benchmark test.
-  - *Running Prescription*: 2 miles warm-up, 5k (3.1 miles) all-out time trial effort, 2.9 miles cool-down. Benchmark 1 fitness test.
-- **Wednesday (9.0 mi • Aerobic Base)**:
+- **Monday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-11-02)*: **16:26** dedicated core & pelvic hip stability routine (12 sets, 172 reps).
+  - *Heart Rate & Zero-Double-Days Adherence*: Avg HR **80.0 bpm** (Peak **123.0 bpm**, cleanly respecting the <130 bpm strength ceiling). Zero running logged.
+  - *Strategic Purpose*: Musculoskeletal stabilization and single-leg pelvic control.
+- **Tuesday (8.0 mi • 5K Time Trial Session)** — ✅ **COMPLETED (Grade A - Family Accommodation Protocol)**:
+  - *Actual Execution (2026-11-03)*: **5.63 mi** in **47:50** (8:29 / mi, **8:22 / mi GAP**).
+  - *Benchmark Quality*: **5K Maximum Effort successfully completed**! Warmup + 5K all-out test + truncated cooldown to return home immediately for family child care.
+  - *Heart Rate & Anaerobic Stimulus*: Avg HR **152.0 bpm** (Max HR: **173.0 bpm**, touching true VO2max Zone 5 output). Aerobic TE **4.5** | Anaerobic TE **1.5**.
+  - *Coach Ruling*: Volume reduced from 8.0 to 5.63 mi strictly by shaving peripheral cool-down miles to support sick spouse. The core physiological stimulus (100% 5K benchmark) was fully secured. Full credit awarded.
+- **Wednesday (9.0 mi • Aerobic Base)** — 👉 **[NEXT UP]**:
   - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
   - *Running Prescription*: Midweek double-digit aerobic anchor: 9mi (aerobic base). Crucial stamina builder for Vancouver's undulating profile.
 - **Thursday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)**:

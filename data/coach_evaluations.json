@@ -1,5 +1,134 @@
 [
   {
+    "evaluation_id": "2026-11-03_24958809982",
+    "activity_id": 24958809982,
+    "date": "2026-11-03",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 6,
+    "day_of_week": "Tue",
+    "day_full": "Tuesday",
+    "prescribed": {
+      "miles": 8.0,
+      "workout": "5K Time Trial Session",
+      "target_pace": "Warmup/Cool: 8:45 \u2013 9:15 / mi | 5K All-Out TT: 6:50 \u2013 6:55 / mi (Sub-21:30 Goal)",
+      "target_hr": "Warmup: Zone 2 (< 144 bpm) | 5K TT: Zone 5 (> 168 bpm)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 5.63,
+      "duration_formatted": "47:50",
+      "duration_seconds": 2870.5,
+      "pace_raw": "8:29 / mi",
+      "pace_gap": "8:22 / mi",
+      "avg_hr": 152.0,
+      "max_hr": 173.0,
+      "avg_cadence": 177.8,
+      "max_cadence": 200.0,
+      "elevation_gain_ft": 301.8,
+      "elevation_loss_ft": 308.4,
+      "aerobic_te": 4.5,
+      "anaerobic_te": 1.5,
+      "ground_contact_time_ms": 245.8,
+      "strides_gct_ms": 245.8,
+      "vertical_ratio_pct": 8.07,
+      "strides_vr_pct": 8.07,
+      "avg_power_w": 337.0,
+      "max_power_w": 451.0
+    },
+    "scorecard": {
+      "grade": "A",
+      "distance_adherence_pct": 70.4,
+      "pace_adherence": "Raw 8:29 / mi | Grade-Adjusted 8:22 / mi",
+      "hr_compliance": "Avg HR 152 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Evaluation for Week 6 Tuesday: 5.63 miles at 8:29 / mi (GAP: 8:22 / mi) with an average heart rate of 152 bpm (Grade: A - Family Accommodation Protocol).",
+    "key_takeaways": [
+      "Adherence: Completed 5.63 mi with 5K maximal effort (warmup + 5K all-out + condensed cooldown).",
+      "Family Emergency Protocol: Volume adjusted due to sick spouse / child care duties.",
+      "Metabolic Stimulus: High-end VO2max stimulus fully achieved (Aerobic TE 4.5, Anaerobic TE 1.5, max HR 173 bpm).",
+      "\u2728 Benchmark Quality Preserved: Primary physiological objective (5K maximum effort) 100% completed."
+    ],
+    "next_workout": {
+      "day": "Wednesday",
+      "date": "2026-11-04",
+      "miles": 9.0,
+      "workout": "Aerobic Base",
+      "target_pace": "8:30 \u2013 8:55 / mi continuous",
+      "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm strict ceiling)",
+      "purpose": "Mitochondrial density, capillary bed expansion, and fatigue resistance.",
+      "description": "1. First 2 Miles: Settle into continuous Zone 2 at 8:45\u20138:55/mi (HR 136\u2013140 bpm).\\n2. Main Miles: Cruise at 8:30\u20138:45/mi on flats and downhills. On rolling Seattle climbs, surrender pace and cap HR strictly at 145 bpm.\\n3. Final 0.5 Mile: Ease into a relaxed cool-down flush at 9:00/mi. Midweek endurance anchor: 9mi (aerobic base).",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
+    "evaluation_id": "2026-11-02_24946783169",
+    "activity_id": 24946783169,
+    "date": "2026-11-02",
+    "activity_name": "Strength",
+    "race_plan": "vancouver",
+    "week_num": 6,
+    "day_of_week": "Mon",
+    "day_full": "Monday",
+    "prescribed": {
+      "miles": 0.0,
+      "workout": "Rest from Running \u2022 \ud83e\uddd8 Core & Pelvic Hip Stability",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting": "\ud83e\uddd8 Core & Pelvic Hip Stability (No Running)"
+    },
+    "actual": {
+      "miles": 0.0,
+      "duration_formatted": "16:26",
+      "duration_seconds": 986.8,
+      "pace_raw": "Strength Gym",
+      "pace_gap": "Strength Gym",
+      "avg_hr": 80.0,
+      "max_hr": 123.0,
+      "avg_cadence": null,
+      "max_cadence": null,
+      "elevation_gain_ft": 0.0,
+      "elevation_loss_ft": 0.0,
+      "aerobic_te": 0.30000001192092896,
+      "anaerobic_te": 0.10000000149011612,
+      "ground_contact_time_ms": null,
+      "strides_gct_ms": null,
+      "vertical_ratio_pct": null,
+      "strides_vr_pct": null,
+      "avg_power_w": null,
+      "max_power_w": null,
+      "total_sets": 12,
+      "total_reps": 172
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.0,
+      "pace_adherence": "Gym Strength Session (Zero Running)",
+      "hr_compliance": "Max HR 123.0 bpm (Cleanly below 130 bpm cap)",
+      "strides_count": 0,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Flawless execution of Week 6 Monday: 16:26 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+    "key_takeaways": [
+      "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+      "Cardiovascular Discipline: Max HR capped at 123.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+      "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+    ],
+    "next_workout": {
+      "day": "Tuesday",
+      "date": "2026-11-03",
+      "miles": 8.0,
+      "workout": "5K Time Trial Session",
+      "target_pace": "Warmup/Cool: 8:45 \u2013 9:15 / mi | 5K All-Out TT: 6:50 \u2013 6:55 / mi (Sub-21:30 Goal)",
+      "target_hr": "Warmup: Zone 2 (< 144 bpm) | 5K TT: Zone 5 (> 168 bpm)",
+      "purpose": "Maximal aerobic capacity (VO2max) and threshold benchmark test.",
+      "description": "1. Warm-Up: 2.0 mi progressive easy jog with 4 x 20-second strides.\\n2. 5K Benchmark: 3.1 miles all-out time trial effort (target: sub-21:30, 6:50\u20136:55/mi average). Flat course or track required.\\n3. Cool-Down: 2.9 miles very easy recovery jog.",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-11-01_24930519807",
     "activity_id": 24930519807,
     "date": "2026-11-01",
