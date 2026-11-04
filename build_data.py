@@ -333,7 +333,27 @@ def build_dataset():
         'execution_verdict': 'Superb negative split pacing. The course had ~950 ft of elevation gain (36.3 ft/mi) with zero net drop. On flat terrain, your 3:34:04 corresponds to a 3:27:44 (VDOT 47.1), which significantly narrows the true fitness gap to 3:15 down to ~12.5 minutes!'
     }
 
-    # 5. LA Marathon 2027 Target Specification
+    # 5b. Benchmark Race / Time Trial Performances
+    benchmark_performances = [
+        {
+            'date': '2025-11-30',
+            'event': 'Seattle Marathon 2025',
+            'distance_str': '26.22 mi',
+            'time_str': '3:34:04',
+            'flat_time_str': '3:27:44',
+            'vdot': 47.1,
+            'notes': 'Official baseline race. +950 ft elevation climb. Flat course equivalent 3:27:44.'
+        },
+        {
+            'date': '2026-11-03',
+            'event': 'Week 6 Benchmark 5K TT',
+            'distance_str': '5,000m (3.107 mi)',
+            'time_str': '21:48',
+            'flat_time_str': '21:48',
+            'vdot': 47.2,
+            'notes': 'Week 6 Fitness Check. 7:01/mi average pace. VDOT 47.2 corresponds to 3:21:45 marathon fitness.'
+        }
+    ]
     la_target = {
         'race': 'Los Angeles Marathon 2027 (ASICS LA Marathon)',
         'date': '2027-03-07',
@@ -458,12 +478,12 @@ def build_dataset():
             'short_desc': 'Jack Daniels VDOT score derived from tune-up race performances (5k, 10k, Half Marathon).',
             'formula': 'Daniels VDOT Lookup Table',
             'seattle_baseline': 45.5,
-            'current_value': 47.0,
+            'current_value': 47.2,
             'target_value': 50.5,
             'threshold_good': 49.0,
             'threshold_great': 50.5,
-            'why_it_matters': 'Objective race benchmarks: Week 10 (10k < 43:00) and Week 17 (Half Marathon < 1:33:30) confirm 3:15 fitness before race day without guessing.',
-            'tracking_frequency': 'Milestone check-ins at Weeks 5, 10, and 17'
+            'why_it_matters': 'Objective race benchmarks: Week 6 (5k TT 21:48 = VDOT 47.2), Week 10 (10k < 43:00) and Week 17 (Half Marathon < 1:33:30) confirm 3:15 fitness before race day without guessing.',
+            'tracking_frequency': 'Milestone check-ins at Weeks 6, 10, and 17'
         },
         {
             'id': 'volume_mp_density',
@@ -823,6 +843,7 @@ def build_dataset():
         'vancouver_weekly_plan': vancouver_weekly_plan,
         'strength_training_guide': strength_training_guide,
         'monthly_history': monthly_summary,
+        'benchmark_performances': benchmark_performances,
         'weekly_time_series': weekly_time_series,
         'daily_time_series': daily_time_series,
         'recent_runs': run_records[-40:],

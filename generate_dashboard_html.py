@@ -1415,7 +1415,7 @@ def generate():
             <span>❤️</span> Heart Rate & Cadence
           </button>
           <button class="metric-btn" id="tsBtn_vdot" onclick="setTsMetric('vdot')">
-            <span>🎯</span> Estimated Daniels VDOT
+            <span>🎯</span> Daniels VDOT (Benchmarks & Cruise)
           </button>
           <button class="metric-btn" id="tsBtn_volume" onclick="setTsMetric('volume')">
             <span>📊</span> Mileage & Rolling 4W MPW
@@ -2904,17 +2904,55 @@ def generate():
         if (badgeEl) {{ badgeEl.innerText = 'Heart Rate'; badgeEl.style.color = 'var(--accent-rose)'; }}
         if (descEl) descEl.innerText = 'Cardiovascular demand across runs. Tracks cardiac efficiency as pace quickens without driving HR into threshold zones.';
       }} else if (currentTsMetric === 'vdot') {{
-        chartLabel = isWeekly ? 'Weekly Estimated Daniels VDOT' : 'Per-Run Estimated Daniels VDOT';
+        chartLabel = isWeekly ? 'Weekly Cruise Aerobic Demand (VO2)' : 'Per-Run Cruise Aerobic Demand (VO2)';
         chartColor = '#06b6d4';
         chartFillBg = 'rgba(6, 182, 212, 0.08)';
-        yAxisTitle = 'Daniels VDOT Score';
+        yAxisTitle = 'Daniels VDOT / VO2 Score';
         targetGoal = 50.6;
         targetLabel = '3:15 Target VDOT (50.6)';
         values = rawData.map(d => d.vdot || (isWeekly ? d.avg_vdot : null));
 
-        if (headingEl) headingEl.innerText = '🎯 Proxy Indicator Time Series: Daniels VDOT Aerobic Power Score';
-        if (badgeEl) {{ badgeEl.innerText = 'Daniels VDOT'; badgeEl.style.color = 'var(--accent-cyan)'; }}
-        if (descEl) descEl.innerText = 'Empirical Jack Daniels VDOT score calculated from workout Grade-Adjusted Pace. The Seattle 2025 baseline was 47.1 (flat eq), with the 3:15 target at 50.6.';
+        // Add True Benchmark Race / TT Performance points
+        const benchmarks = dashboardData.benchmark_performances || [];
+        const benchMap = {{}};
+        benchmarks.forEach(b => {{
+          // Match against labels (YYYY-MM-DD)
+          benchMap[b.date] = b;
+        }});
+
+        const benchmarkValues = labels.map((dt, idx) => {{
+          // Direct date match or check if inside weekly bucket
+          if (benchMap[dt]) return benchMap[dt].vdot;
+          if (isWeekly) {{
+            // check if any benchmark falls within this week (dt to dt + 6 days)
+            const dObj = new Date(dt);
+            const dEnd = new Date(dObj.getTime() + 7 * 86400000);
+            for (const b of benchmarks) {{
+              const bDate = new Date(b.date);
+              if (bDate >= dObj && bDate < dEnd) return b.vdot;
+            }}
+          }}
+          return null;
+        }});
+
+        secondaryDataset = {{
+          label: '⭐ Verified Race & TT Benchmark VDOT',
+          data: benchmarkValues,
+          borderColor: '#f59e0b',
+          backgroundColor: '#f59e0b',
+          borderWidth: 0,
+          pointRadius: 7,
+          pointHoverRadius: 9,
+          pointBackgroundColor: '#f59e0b',
+          pointBorderColor: '#ffffff',
+          pointBorderWidth: 2,
+          showLine: false,
+          fill: false
+        }};
+
+        if (headingEl) headingEl.innerText = '🎯 Proxy Indicator: Jack Daniels VDOT & Race Fitness Trajectory';
+        if (badgeEl) {{ badgeEl.innerText = 'VDOT 47.2 (W6 5K TT)'; badgeEl.style.color = 'var(--accent-amber)'; }}
+        if (descEl) descEl.innerText = 'True VDOT is established from maximum race & benchmark efforts (⭐ Orange Points: Seattle Marathon = 47.1, Week 6 5K TT = 47.2). The cyan line represents average training cruise aerobic demand (VO2), climbing toward the 50.6 marathon goal line.';
       }} else if (currentTsMetric === 'volume') {{
         chartLabel = isWeekly ? 'Weekly Mileage' : 'Daily Run Miles';
         chartColor = '#f59e0b';
