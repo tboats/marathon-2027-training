@@ -542,7 +542,7 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | **Wed** ✅ | **9.02 mi** *(pres: 9mi)* | **RUN ONLY** | Aerobic Base • 79:45 @ 8:50/mi | 8:50 / mi (GAP 8:44) | Avg 137 bpm (Max 147 bpm) | None • Grade A+ |
 | **Thu** 👉 | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength *(Next Up)* | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
 | **Fri** | **5 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
-| **Sat** | **13 mi** | **RUN ONLY** | Long Run | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
+| **Sat** | **13.1 mi** | **RUN ONLY** | Long Run • 🎯 Official Half Marathon Threshold | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
@@ -568,9 +568,13 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 - **Friday (5.0 mi • Easy Pre-Long Run Shakeout)**:
   - *Strategic Purpose*: Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.
   - *Running Prescription*: Relaxed conversational recovery run on flat terrain. Relaxed conversational recovery run on flat terrain. Promotes light capillary circulation, activates motor pathways, and leaves legs 100% fresh for tomorrow's anchor. ZERO lifting.
-- **Saturday (13.0 mi • Long Run)**:
-  - *Strategic Purpose*: Long aerobic endurance and fat oxidation.
-  - *Running Prescription*: Weekly long run anchor: 13mi (Long Run). Maintain steady effort on Seattle rolling hills.
+- **Saturday (13.1 mi • Long Run • 🎯 Official Half Marathon Distance Threshold)**:
+  - *Strategic Purpose*: Long aerobic endurance, fat oxidation, and mental milestone: crossing the official 13.1-mile Half Marathon threshold.
+  - *Running Prescription*: Weekly long run anchor: 13.1mi (Long Run @ 8:40 – 9:15 / mi). Maintain steady effort on Seattle rolling hills. Keep HR strictly in Zone 2 (< 146 bpm).
+  - *Step-by-Step Protocol*:
+    1. **Miles 0.0 – 2.0 (Warm-in)**: 9:00 – 9:15 / mi in low Zone 2 (136 – 140 bpm).
+    2. **Miles 2.0 – 11.0 (Cruising Engine)**: Settle into 8:45 – 9:00 / mi (Zone 2: 140 – 145 bpm). Cap HR strictly at 146 bpm on hills.
+    3. **Miles 11.0 – 13.1 (Strong Finish)**: Hold relaxed form and tall posture across the 13.1-mile half marathon milestone mark. Zero lifting.
 - **Sunday (5.0 mi • Recovery)**:
   - *Strategic Purpose*: Aerobic density and cumulative fatigue recovery.
   - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery). Runs gently on legs carrying Saturday fatigue.
