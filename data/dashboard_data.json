@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-11-04T18:01:01.082608",
+    "generated_at": "2026-11-05T21:45:51.195897",
     "total_historical_runs": 416,
     "dataset_date_range": "2025-03-02 to 2026-11-04",
     "current_date": "2026-09-27",
@@ -14210,6 +14210,71 @@
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-11-05_24982167320",
+      "activity_id": 24982167320,
+      "date": "2026-11-05",
+      "activity_name": "Strength",
+      "race_plan": "vancouver",
+      "week_num": 6,
+      "day_of_week": "Thu",
+      "day_full": "Thursday",
+      "prescribed": {
+        "miles": 0.0,
+        "workout": "Rest from Running \u2022 Upper Body & Core Strength",
+        "target_pace": "Rest / Strength",
+        "target_hr": "Rest / Gym (< 130 bpm)",
+        "lifting": "Upper Body & Core Strength (No Running)"
+      },
+      "actual": {
+        "miles": 0.0,
+        "duration_formatted": "17:26",
+        "duration_seconds": 1046.6,
+        "pace_raw": "Strength Gym",
+        "pace_gap": "Strength Gym",
+        "avg_hr": 79.0,
+        "max_hr": 120.0,
+        "avg_cadence": null,
+        "max_cadence": null,
+        "elevation_gain_ft": 0.0,
+        "elevation_loss_ft": 0.0,
+        "aerobic_te": 0.30000001192092896,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": null,
+        "strides_gct_ms": null,
+        "vertical_ratio_pct": null,
+        "strides_vr_pct": null,
+        "avg_power_w": null,
+        "max_power_w": null,
+        "total_sets": 13,
+        "total_reps": 227
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 100.0,
+        "pace_adherence": "Gym Strength Session (Zero Running)",
+        "hr_compliance": "Max HR 120.0 bpm (Cleanly below 130 bpm cap)",
+        "strides_count": 0,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Flawless execution of Week 6 Thursday: 17:26 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+      "key_takeaways": [
+        "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+        "Cardiovascular Discipline: Max HR capped at 120.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+        "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+      ],
+      "next_workout": {
+        "day": "Friday",
+        "date": "2026-11-06",
+        "miles": 5.0,
+        "workout": "Easy Pre-Long Run Shakeout",
+        "target_pace": "9:00 \u2013 9:30 / mi continuous",
+        "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
+        "purpose": "Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.",
+        "description": "Relaxed conversational recovery run on flat terrain. Promotes light capillary circulation, activates motor pathways, and leaves legs 100% fresh for tomorrow anchor. ZERO lifting.",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
     {
       "evaluation_id": "2026-11-04_24970371836",
       "activity_id": 24970371836,
