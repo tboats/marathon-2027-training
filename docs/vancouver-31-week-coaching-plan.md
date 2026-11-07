@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 6 Active (Day 5 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **214.41 Miles** (42 workout(s) verified)  
-> **Most Recent Session**: Friday, 2026-11-06 — **5.00 mi** • **Grade A+**  
-> **Up Next**: Saturday, 2026-11-07 — **13.0 mi Long Run** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 6 Active (Day 6 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **227.57 Miles** (43 workout(s) verified)  
+> **Most Recent Session**: Saturday, 2026-11-07 — **13.16 mi** • **Grade A+**  
+> **Up Next**: Sunday, 2026-11-08 — **5.0 mi Recovery** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-07** | Sat | Week 6: Long Run | 13.0 mi | **13.16 mi** | 8:56 / mi | **8:52 / mi** | 135 / 154.0 bpm | 176.7 spm | +505 ft | 135 bpm HR; 1 strides down to N/A; +505ft climb. | **A+** |
 | **2026-11-06** | Fri | Week 6: Easy Pre-Long Run Shakeout | 5.0 mi | **5.00 mi** | 9:35 / mi | **9:31 / mi** | 128 / 145.0 bpm | 171.9 spm | +253 ft | 128 bpm HR; 1 strides down to N/A; +253ft climb. | **A+** |
 | **2026-11-05** | Thu | Week 6: Rest from Running • Upper Body & Core Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 79 / 120.0 bpm | N/A | 0 ft | Upper body & core (17:26): Dumbbell press, pull-ups, rows, Pallof press, deadbugs. Max HR 120.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-04** | Wed | Week 6: Aerobic Base | 9.0 mi | **9.02 mi** | 8:50 / mi | **8:44 / mi** | 137 / 147.0 bpm | 179.4 spm | +545 ft | 137 bpm HR; 1 strides down to N/A; +545ft climb. | **A+** |
@@ -544,8 +545,8 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | **Wed** ✅ | **9.02 mi** *(pres: 9mi)* | **RUN ONLY** | Aerobic Base • 79:45 @ 8:50/mi | 8:50 / mi (GAP 8:44) | Avg 137 bpm (Max 147 bpm) | None • Grade A+ |
 | **Thu** ✅ | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength • Gym (17:26) | Rest / Strength | Avg 79 bpm (<130 bpm) | Upper Body & Core Strength • Grade A+ |
 | **Fri** ✅ | **5.00 mi** *(pres: 5mi)* | **RUN ONLY** | Easy Pre-Long Run Shakeout • 48:01 @ 9:35/mi | 9:35 / mi (GAP 9:31) | Avg 128 bpm (Max 145 bpm) | None • Grade A+ |
-| **Sat** 👉 | **13.1 mi** | **RUN ONLY** | Long Run • 🎯 Official Half Marathon Threshold *(Next Up)* | 8:40 – 9:15 / mi continuous | Zone 2 (138 – 146 bpm strict ceiling) | None (RUN ONLY — ZERO LIFTING) |
-| **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
+| **Sat** ✅ | **13.16 mi** *(pres: 13.1mi)* | **RUN ONLY** | Long Run • 🎯 Official Half Marathon Threshold • 117:37 @ 8:56/mi | 8:56 / mi (GAP 8:52) | Avg 135 bpm (Max 154 bpm) | None • Grade A+ |
+| **Sun** 👉 | **5 mi** | **RUN ONLY** | Recovery *(Next Up)* | 9:15 – 9:45 / mi continuous | Zone 1 (< 135 bpm ceiling, avg ~128–130 bpm) | None (RUN ONLY — ZERO LIFTING) |
 
 #### Daily Workout Execution Details
 - **Monday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)** — ✅ **COMPLETED (Grade A+)**:
@@ -573,16 +574,20 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Cadence & Topography*: Average cadence **171.9 spm**; handled **+253 ft** of elevation change with relaxed conversational cruise.
   - *Training Stimulus*: Aerobic TE **3.0** | Anaerobic TE **0.0** (clean regenerative shakeout priming legs for Saturday).
   - *Prescribed Execution*: 5.0 mi continuous @ 9:00 – 9:30 / mi in Zone 1 / Low Zone 2 (< 138 bpm). Zero lifting.
-- **Saturday (13.1 mi • Long Run • 🎯 Official Half Marathon Distance Threshold)** — 👉 **[NEXT UP]**:
-  - *Strategic Purpose*: Long aerobic endurance, fat oxidation, and mental milestone: crossing the official 13.1-mile Half Marathon threshold.
-  - *Running Prescription*: Weekly long run anchor: 13.1mi (Long Run @ 8:40 – 9:15 / mi). Maintain steady effort on Seattle rolling hills. Keep HR strictly in Zone 2 (< 146 bpm).
-  - *Step-by-Step Protocol*:
-    1. **Miles 0.0 – 2.0 (Warm-in)**: 9:00 – 9:15 / mi in low Zone 2 (136 – 140 bpm).
-    2. **Miles 2.0 – 11.0 (Cruising Engine)**: Settle into 8:45 – 9:00 / mi (Zone 2: 140 – 145 bpm). Cap HR strictly at 146 bpm on hills.
-    3. **Miles 11.0 – 13.15 (Milestone Finish)**: Hold relaxed form and tall posture across the 13.1-mile half marathon milestone mark. Zero lifting.
-- **Sunday (5.0 mi • Recovery)**:
-  - *Strategic Purpose*: Aerobic density and cumulative fatigue recovery.
-  - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery). Runs gently on legs carrying Saturday fatigue.
+- **Saturday (13.1 mi • Long Run • 🎯 Official Half Marathon Distance Threshold)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-11-07)*: **13.16 mi** in **117:37** (8:56 / mi, **8:52 / mi GAP**). Volume precision: 100.5%.
+  - *Half Marathon Benchmark Reached*: Officially crossed the 13.1-mile threshold (21.19 km) for the first time in the Vancouver 2027 build!
+  - *Heart Rate & Decoupling*: Avg HR **135.0 bpm** (Max HR: 154.0 bpm, held with pristine aerobic control in Zone 2).
+  - *Cadence & Topography*: Average cadence **176.7 spm** (Max: 198 spm); absorbed **+505 ft** of elevation gain with smooth, relaxed turnover.
+  - *Training Stimulus*: Aerobic TE **4.3** | Anaerobic TE **0.0** (elite long-range glycogen economy and muscular endurance stimulus).
+  - *Prescribed Execution*: 13.1mi continuous @ 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm strict ceiling). Zero lifting.
+- **Sunday (5.0 mi • Recovery)** — 👉 **[NEXT UP]**:
+  - *Strategic Purpose*: Active capillary circulation and cumulative fatigue clearance.
+  - *Exact Step-by-Step Execution Protocol*:
+    1. **Route Selection**: Flat route preferred (avoid steep Seattle grades).
+    2. **Pace**: 9:15 – 9:45 / mi continuous. Absolutely no rushing; active therapy for legs carrying today's half marathon volume.
+    3. **Heart Rate Ceiling**: Strictly under 135 bpm (target average ~128–130 bpm). If HR climbs above 135 bpm on a roller, walk until it drops.
+    4. **Lifting Assignment**: **RUN ONLY — ZERO LIFTING**. Zero strength work. Full rest afterwards to prepare for Week 6 archive.
 
 ---
 
