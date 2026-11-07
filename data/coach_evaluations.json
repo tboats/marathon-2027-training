@@ -1,5 +1,69 @@
 [
   {
+    "evaluation_id": "2026-11-06_24992613601",
+    "activity_id": 24992613601,
+    "date": "2026-11-06",
+    "activity_name": "Seattle Running",
+    "race_plan": "vancouver",
+    "week_num": 6,
+    "day_of_week": "Fri",
+    "day_full": "Friday",
+    "prescribed": {
+      "miles": 5.0,
+      "workout": "Easy Pre-Long Run Shakeout",
+      "target_pace": "9:00 \u2013 9:30 / mi continuous",
+      "target_hr": "Zone 1 / Low Zone 2 (< 138 bpm)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 5.0,
+      "duration_formatted": "48:01",
+      "duration_seconds": 2881.3,
+      "pace_raw": "9:35 / mi",
+      "pace_gap": "9:31 / mi",
+      "avg_hr": 128.0,
+      "max_hr": 145.0,
+      "avg_cadence": 171.9,
+      "max_cadence": 184.0,
+      "elevation_gain_ft": 252.6,
+      "elevation_loss_ft": 285.4,
+      "aerobic_te": 3.0,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": 262.2,
+      "strides_gct_ms": 262.2,
+      "vertical_ratio_pct": 8.69,
+      "strides_vr_pct": 8.69,
+      "avg_power_w": 307.0,
+      "max_power_w": 420.0
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.1,
+      "pace_adherence": "Raw 9:35 / mi | Grade-Adjusted 9:31 / mi",
+      "hr_compliance": "Avg HR 128 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Evaluation for Week 6 Friday: 5.00 miles at 9:35 / mi (GAP: 9:31 / mi) with an average heart rate of 128 bpm (Grade: A+).",
+    "key_takeaways": [
+      "Adherence: Completed 5.00 mi vs 5.0 mi prescribed (100.1% volume precision).",
+      "Metabolic Control: Averaged 128 bpm heart rate (workout ceiling: 138 bpm).",
+      "Topography Management: Handled +253 ft of climb with appropriate effort modulation.",
+      "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+    ],
+    "next_workout": {
+      "day": "Saturday",
+      "date": "2026-11-07",
+      "miles": 13.0,
+      "workout": "Long Run",
+      "target_pace": "8:40 \u2013 9:15 / mi continuous",
+      "target_hr": "Zone 2 (138 \u2013 146 bpm strict ceiling)",
+      "purpose": "Long aerobic endurance and fat oxidation.",
+      "description": "1. Miles 0.0 \u2013 2.0: Warm-in cruise at 9:00\u20139:15/mi (Low Zone 2: 136\u2013140 bpm).\\n2. Main Miles: Settle into 8:40\u20138:55/mi (Zone 2: 140\u2013146 bpm). Cap HR strictly at 146 bpm on hills.\\n3. Final Miles: Maintain relaxed shoulders and upright posture through completion. 13mi (Long Run). \u2615 FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins).",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-11-05_24982167320",
     "activity_id": 24982167320,
     "date": "2026-11-05",
