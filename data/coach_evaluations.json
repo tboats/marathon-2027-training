@@ -60,7 +60,7 @@
       "target_pace": "Warmup/Cool: 8:40 \u2013 9:10 / mi | Threshold Reps: 7:00 \u2013 7:10 / mi | Recovery Jogs: 9:00 / mi",
       "target_hr": "Warmup: Zone 2 (136\u2013144 bpm) | Threshold: Zone 4 (158 \u2013 164 bpm) | Recovery: < 140 bpm",
       "purpose": "Lactate threshold velocity expansion and clearance rate.",
-      "description": "1. Warm-Up: 1.5 \u2013 2.0 mi progressive easy jog (9:15 down to 8:40/mi, HR < 142 bpm) + 5 min dynamic mobility.\\n2. Quality Work: 8mi (cruise intervals) at strict lactate threshold pace (7:00\u20137:10/mi, HR 158\u2013164 bpm). Maintain relaxed shoulders, snappy 180 spm cadence.\\n3. Recovery Jogs: 400m / 2:00 easy jog at 9:00/mi between reps. Let HR drop under 140 bpm.\\n4. Cool-Down: 1.0 \u2013 1.5 mi very easy flush jog at 9:00\u20139:30/mi back to base.",
+      "description": "1. Warm-Up: 1.5 \u2013 2.0 mi progressive easy jog (9:15 down to 8:40/mi, HR < 142 bpm) + 5 min dynamic mobility.\n2. Quality Work: 8mi (cruise intervals) at strict lactate threshold pace (7:00\u20137:10/mi, HR 158\u2013164 bpm). Maintain relaxed shoulders, snappy 180 spm cadence.\n3. Recovery Jogs: 400m / 2:00 easy jog at 9:00/mi between reps. Let HR drop under 140 bpm.\n4. Cool-Down: 1.0 \u2013 1.5 mi very easy flush jog at 9:00\u20139:30/mi back to base.",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -188,7 +188,7 @@
       "target_pace": "9:15 \u2013 9:45 / mi continuous",
       "target_hr": "Zone 1 (< 135 bpm ceiling, avg ~128\u2013130 bpm)",
       "purpose": "Active capillary circulation and cumulative fatigue clearance.",
-      "description": "1. Route: Flat route preferred (avoid steep Seattle grades).\\n2. Pace: 9:15\u20139:45/mi. Absolutely no rushing; this is active therapy for legs carrying Saturday fatigue.\\n3. Heart Rate: Strictly under 135 bpm. If HR climbs above 135 bpm on a hill, walk until it drops.\\n4. Lifting: RUN ONLY \u2014 ZERO LIFTING.",
+      "description": "1. Route: Flat route preferred (avoid steep Seattle grades).\n2. Pace: 9:15\u20139:45/mi. Absolutely no rushing; this is active therapy for legs carrying Saturday fatigue.\n3. Heart Rate: Strictly under 135 bpm. If HR climbs above 135 bpm on a hill, walk until it drops.\n4. Lifting: RUN ONLY \u2014 ZERO LIFTING.",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -252,7 +252,7 @@
       "target_pace": "8:40 \u2013 9:15 / mi continuous",
       "target_hr": "Zone 2 (138 \u2013 146 bpm strict ceiling)",
       "purpose": "Long aerobic endurance and fat oxidation.",
-      "description": "1. Miles 0.0 \u2013 2.0: Warm-in cruise at 9:00\u20139:15/mi (Low Zone 2: 136\u2013140 bpm).\\n2. Main Miles: Settle into 8:40\u20138:55/mi (Zone 2: 140\u2013146 bpm). Cap HR strictly at 146 bpm on hills.\\n3. Final Miles: Maintain relaxed shoulders and upright posture through completion. 13mi (Long Run). \u2615 FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins).",
+      "description": "1. Miles 0.0 \u2013 2.0: Warm-in cruise at 9:00\u20139:15/mi (Low Zone 2: 136\u2013140 bpm).\n2. Main Miles: Settle into 8:40\u20138:55/mi (Zone 2: 140\u2013146 bpm). Cap HR strictly at 146 bpm on hills.\n3. Final Miles: Maintain relaxed shoulders and upright posture through completion. 13mi (Long Run). \u2615 FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins).",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -445,7 +445,7 @@
       "target_pace": "8:30 \u2013 8:55 / mi continuous",
       "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm strict ceiling)",
       "purpose": "Mitochondrial density, capillary bed expansion, and fatigue resistance.",
-      "description": "1. First 2 Miles: Settle into continuous Zone 2 at 8:45\u20138:55/mi (HR 136\u2013140 bpm).\\n2. Main Miles: Cruise at 8:30\u20138:45/mi on flats and downhills. On rolling Seattle climbs, surrender pace and cap HR strictly at 145 bpm.\\n3. Final 0.5 Mile: Ease into a relaxed cool-down flush at 9:00/mi. Midweek endurance anchor: 9mi (aerobic base).",
+      "description": "1. First 2 Miles: Settle into continuous Zone 2 at 8:45\u20138:55/mi (HR 136\u2013140 bpm).\n2. Main Miles: Cruise at 8:30\u20138:45/mi on flats and downhills. On rolling Seattle climbs, surrender pace and cap HR strictly at 145 bpm.\n3. Final 0.5 Mile: Ease into a relaxed cool-down flush at 9:00/mi. Midweek endurance anchor: 9mi (aerobic base).",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -510,7 +510,7 @@
       "target_pace": "Warmup/Cool: 8:45 \u2013 9:15 / mi | 5K All-Out TT: 6:50 \u2013 6:55 / mi (Sub-21:30 Goal)",
       "target_hr": "Warmup: Zone 2 (< 144 bpm) | 5K TT: Zone 5 (> 168 bpm)",
       "purpose": "Maximal aerobic capacity (VO2max) and threshold benchmark test.",
-      "description": "1. Warm-Up: 2.0 mi progressive easy jog with 4 x 20-second strides.\\n2. 5K Benchmark: 3.1 miles all-out time trial effort (target: sub-21:30, 6:50\u20136:55/mi average). Flat course or track required.\\n3. Cool-Down: 2.9 miles very easy recovery jog.",
+      "description": "1. Warm-Up: 2.0 mi progressive easy jog with 4 x 20-second strides.\n2. 5K Benchmark: 3.1 miles all-out time trial effort (target: sub-21:30, 6:50\u20136:55/mi average). Flat course or track required.\n3. Cool-Down: 2.9 miles very easy recovery jog.",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -638,7 +638,7 @@
       "target_pace": "9:15 \u2013 9:45 / mi continuous",
       "target_hr": "Zone 1 (< 135 bpm ceiling, avg ~128\u2013130 bpm)",
       "purpose": "Active capillary circulation and cumulative fatigue clearance.",
-      "description": "1. Route: Flat route preferred (avoid steep Seattle grades).\\n2. Pace: 9:15\u20139:45/mi. Absolutely no rushing; this is active therapy for legs carrying Saturday fatigue.\\n3. Heart Rate: Strictly under 135 bpm. If HR climbs above 135 bpm on a hill, walk until it drops.\\n4. Lifting: RUN ONLY \u2014 ZERO LIFTING.",
+      "description": "1. Route: Flat route preferred (avoid steep Seattle grades).\n2. Pace: 9:15\u20139:45/mi. Absolutely no rushing; this is active therapy for legs carrying Saturday fatigue.\n3. Heart Rate: Strictly under 135 bpm. If HR climbs above 135 bpm on a hill, walk until it drops.\n4. Lifting: RUN ONLY \u2014 ZERO LIFTING.",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -702,7 +702,7 @@
       "target_pace": "8:40 \u2013 9:15 / mi continuous",
       "target_hr": "Zone 2 (138 \u2013 146 bpm strict ceiling)",
       "purpose": "Long aerobic endurance and fat oxidation.",
-      "description": "1. Miles 0.0 \u2013 2.0: Warm-in cruise at 9:00\u20139:15/mi (Low Zone 2: 136\u2013140 bpm).\\n2. Main Miles: Settle into 8:40\u20138:55/mi (Zone 2: 140\u2013146 bpm). Cap HR strictly at 146 bpm on hills.\\n3. Final Miles: Maintain relaxed shoulders and upright posture through completion. 10mi (Long Run). \u2615 FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins).",
+      "description": "1. Miles 0.0 \u2013 2.0: Warm-in cruise at 9:00\u20139:15/mi (Low Zone 2: 136\u2013140 bpm).\n2. Main Miles: Settle into 8:40\u20138:55/mi (Zone 2: 140\u2013146 bpm). Cap HR strictly at 146 bpm on hills.\n3. Final Miles: Maintain relaxed shoulders and upright posture through completion. 10mi (Long Run). \u2615 FUELING: Fasted on espresso/water is optimal for aerobic base adaptation (under 90 mins).",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -895,7 +895,7 @@
       "target_pace": "8:30 \u2013 8:55 / mi continuous",
       "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm strict ceiling)",
       "purpose": "Mitochondrial density, capillary bed expansion, and fatigue resistance.",
-      "description": "1. First 2 Miles: Settle into continuous Zone 2 at 8:45\u20138:55/mi (HR 136\u2013140 bpm).\\n2. Main Miles: Cruise at 8:30\u20138:45/mi on flats and downhills. On rolling Seattle climbs, surrender pace and cap HR strictly at 145 bpm.\\n3. Final 0.5 Mile: Ease into a relaxed cool-down flush at 9:00/mi. Midweek endurance anchor: 7mi (aerobic).",
+      "description": "1. First 2 Miles: Settle into continuous Zone 2 at 8:45\u20138:55/mi (HR 136\u2013140 bpm).\n2. Main Miles: Cruise at 8:30\u20138:45/mi on flats and downhills. On rolling Seattle climbs, surrender pace and cap HR strictly at 145 bpm.\n3. Final 0.5 Mile: Ease into a relaxed cool-down flush at 9:00/mi. Midweek endurance anchor: 7mi (aerobic).",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },
@@ -960,7 +960,7 @@
       "target_pace": "Base: 8:35 \u2013 9:05 / mi | 6 Strides: 5:30 \u2013 5:50 / mi (~20-22s / 100m)",
       "target_hr": "Zone 2 Base (136 \u2013 144 bpm) | Strides: Walk-back to < 125 bpm",
       "purpose": "Neuromuscular turnover, motor unit recruitment, and running economy on fresh legs.",
-      "description": "1. Continuous Base: 4.4 mi continuous easy aerobic running at 8:35\u20139:05/mi in Zone 2 (136\u2013144 bpm). Settle into a relaxed conversational rhythm.\\n2. Snappy Strides: Over the final 0.6 mi on a flat, unobstructed stretch, execute 6 x 100m smooth accelerations reaching mile speed (5:30\u20135:50/mi, ~20\u201322s per 100m).\\n3. Recovery: Walk back for 45\u201360 sec between each stride to allow heart rate to drop below 125 bpm before launching the next rep. Do not rush into the next stride.\\n4. Form Focus: Tall posture, high knee drive, relaxed shoulders/jaw, light midfoot ground strike.",
+      "description": "1. Continuous Base: 4.4 mi continuous easy aerobic running at 8:35\u20139:05/mi in Zone 2 (136\u2013144 bpm). Settle into a relaxed conversational rhythm.\n2. Snappy Strides: Over the final 0.6 mi on a flat, unobstructed stretch, execute 6 x 100m smooth accelerations reaching mile speed (5:30\u20135:50/mi, ~20\u201322s per 100m).\n3. Recovery: Walk back for 45\u201360 sec between each stride to allow heart rate to drop below 125 bpm before launching the next rep. Do not rush into the next stride.\n4. Form Focus: Tall posture, high knee drive, relaxed shoulders/jaw, light midfoot ground strike.",
       "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
     }
   },

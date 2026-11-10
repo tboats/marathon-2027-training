@@ -385,7 +385,7 @@ def evaluate_run(activity, details=None, splits=None):
             "target_pace": next_day.get("pace", ""),
             "target_hr": next_day.get("hr_zone", ""),
             "purpose": next_day.get("purpose", ""),
-            "description": next_day.get("description", ""),
+            "description": next_day.get("description", "").replace("\\n", "\n"),
             "lifting_rule": next_day.get("lifting_type") or "RUN ONLY — ZERO LIFTING"
         }
 
@@ -502,7 +502,7 @@ def evaluate_strength(activity):
             "target_pace": next_day.get("pace", ""),
             "target_hr": next_day.get("hr_zone", ""),
             "purpose": next_day.get("purpose", ""),
-            "description": next_day.get("description", ""),
+            "description": next_day.get("description", "").replace("\\n", "\n"),
             "lifting_rule": next_day.get("lifting_type") or "RUN ONLY — ZERO LIFTING"
         }
 

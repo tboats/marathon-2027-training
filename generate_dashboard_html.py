@@ -1957,6 +1957,17 @@ def generate():
       }}
     }}
 
+    function formatWorkoutDesc(desc) {{
+      if (!desc) return '';
+      return (desc + '')
+        .replace(/\\\\n/g, '\\n')
+        .split(/\\r?\\n|\\\\n/)
+        .map(s => s.trim())
+        .filter(s => s.length > 0)
+        .map(s => `<div style="margin-bottom: 3px;">${{s}}</div>`)
+        .join('');
+    }}
+
     function renderPhaseFilterPills() {{
       const container = document.getElementById('phaseFilterBar');
       if (!container) return;
@@ -2184,7 +2195,7 @@ def generate():
             </td>
             <td>
               <div class="daily-purpose">🎯 <strong>Purpose:</strong> ${{d.purpose}}</div>
-              <div class="daily-instruction" style="line-height: 1.5; margin-top: 4px;">${{(d.description || '').split('\\n').filter(s => s.trim().length > 0).map(s => `<div style="margin-bottom: 3px;">${{s.trim()}}</div>`).join('') || d.description}}</div>
+              <div class="daily-instruction" style="line-height: 1.5; margin-top: 4px;">${{formatWorkoutDesc(d.description)}}</div>
             </td>
           </tr>
         `;
@@ -2337,11 +2348,7 @@ def generate():
             `;
           }}).join('');
 
-          const descFormatted = (nextUpWorkout.description || '')
-            .split('\\n')
-            .filter(line => line.trim().length > 0)
-            .map(line => `<div style="margin-bottom: 4px;">${{line.trim()}}</div>`)
-            .join('');
+          const descFormatted = formatWorkoutDesc(nextUpWorkout.description);
 
           nextUpSpotlightHtml = `
             <div class="next-run-spotlight-card" style="display: block; padding: 18px 22px;">

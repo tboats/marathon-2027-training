@@ -179,7 +179,7 @@ def generate_coach_tab_html(evals):
 
     # Next Workout Preview Formatting
     desc_raw = next_wo.get('description', '')
-    desc_steps = [s.strip() for s in desc_raw.split('\\n') if s.strip()] if desc_raw else []
+    desc_steps = [s.strip() for s in desc_raw.replace('\\n', '\n').split('\n') if s.strip()] if desc_raw else []
     desc_steps_html = "".join(f"<div style='margin-bottom: 3px;'>{s}</div>" for s in desc_steps)
     desc_block = f"""
       <div style="margin-top: 10px; padding: 10px 14px; background: rgba(15, 23, 42, 0.7); border-radius: 6px; border-left: 3px solid var(--accent-blue); font-size: 0.83rem; color: var(--text-primary); line-height: 1.5;">
@@ -324,7 +324,7 @@ def generate_vancouver_command_center_html(evals):
         left_desc = f"HR: <strong>{act.get('avg_hr')} bpm</strong> • Climb: <strong>+{act.get('elevation_gain_ft', 0):.0f} ft</strong> • Strides: <strong>{score.get('strides_count', 0)} executed (peak {score.get('strides_peak_pace', 'fast')})</strong>."
 
     desc_raw_cc = next_wo.get('description', '')
-    desc_preview = "<br>".join(line.strip() for line in desc_raw_cc.split('\\n')[:2] if line.strip()) if desc_raw_cc else ""
+    desc_preview = "<br>".join(line.strip() for line in desc_raw_cc.replace('\\n', '\n').split('\n')[:2] if line.strip()) if desc_raw_cc else ""
     desc_preview_html = f'<div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.4; border-top: 1px dashed var(--border-color); padding-top: 6px;">{desc_preview}</div>' if desc_preview else ""
 
     return f"""
