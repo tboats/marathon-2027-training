@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-11-07T10:22:44.514634",
-    "total_historical_runs": 418,
-    "dataset_date_range": "2025-03-02 to 2026-11-07",
+    "generated_at": "2026-11-09T23:22:44.817935",
+    "total_historical_runs": 419,
+    "dataset_date_range": "2025-03-02 to 2026-11-08",
     "current_date": "2026-09-27",
     "target_race_name": "BMO Vancouver Marathon 2027",
     "target_race_date": "2027-05-02",
@@ -5890,17 +5890,17 @@
     },
     {
       "month": "2026-11",
-      "total_miles": 37.9,
-      "run_count": 5,
+      "total_miles": 42.9,
+      "run_count": 6,
       "longest_mile": 13.2,
-      "total_elevation_ft": 1985.0,
+      "total_elevation_ft": 2249.0,
       "avg_ft_per_mile": 52.4,
-      "avg_pace_min_mile": 9.03,
-      "avg_gap_pace_min_mile": 8.72,
+      "avg_pace_min_mile": 9.15,
+      "avg_gap_pace_min_mile": 8.84,
       "avg_hr": 140.0,
       "avg_cadence_spm": 177.0,
-      "avg_ef": 1.268,
-      "avg_gap_ef": 1.312
+      "avg_ef": 1.246,
+      "avg_gap_ef": 1.289
     }
   ],
   "benchmark_performances": [
@@ -7231,18 +7231,18 @@
     },
     {
       "date": "2026-11-02",
-      "run_count": 4,
-      "total_miles": 32.8,
-      "total_elevation_ft": 1720.0,
+      "run_count": 5,
+      "total_miles": 37.8,
+      "total_elevation_ft": 1984.0,
       "avg_hr": 140.0,
       "avg_cadence_spm": 177.0,
-      "avg_pace": 8.98,
-      "avg_gap_pace": 8.68,
-      "avg_ef": 1.282,
-      "avg_gap_ef": 1.327,
-      "vdot": 32.8,
+      "avg_pace": 9.2,
+      "avg_gap_pace": 8.9,
+      "avg_ef": 1.254,
+      "avg_gap_ef": 1.297,
+      "vdot": 31.8,
       "decoupling_pct": null,
-      "rolling_4w_mpw": 34.8
+      "rolling_4w_mpw": 36.0
     }
   ],
   "daily_time_series": [
@@ -13515,27 +13515,24 @@
       "gap_ef": 1.33,
       "vdot": 33.0,
       "decoupling_pct": null
+    },
+    {
+      "date": "2026-11-08",
+      "run_id": "25010774252_ACTIVITY",
+      "distance_miles": 5.03,
+      "duration_seconds": 3042.4,
+      "pace_min_mile": 10.08,
+      "gap_pace_min_mile": 9.78,
+      "avg_hr": 140.0,
+      "elevation_gain_ft": 264.0,
+      "elevation_ft_per_mile": 52.4,
+      "ef": 1.14,
+      "gap_ef": 1.176,
+      "vdot": 28.2,
+      "decoupling_pct": null
     }
   ],
   "recent_runs": [
-    {
-      "run_id": "2026-09-16_00-35-11",
-      "date": "2026-09-16",
-      "start_time": "2026-09-16T00:35:15",
-      "distance_meters": 5219.2,
-      "distance_miles": 3.24,
-      "duration_seconds": 1744.0,
-      "pace_min_mile": 8.96,
-      "elevation_gain_ft": 560.0,
-      "elevation_ft_per_mile": 172.6,
-      "gap_pace_min_mile": 7.96,
-      "avg_hr": 144.8,
-      "max_hr": 165,
-      "avg_cadence_spm": 175.0,
-      "ef": 1.24,
-      "gap_ef": 1.397,
-      "decoupling_pct": null
-    },
     {
       "run_id": "2026-09-18_00-42-28",
       "date": "2026-09-18",
@@ -14237,9 +14234,156 @@
       "ef": 1.285,
       "gap_ef": 1.33,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "25010774252_ACTIVITY",
+      "date": "2026-11-08",
+      "start_time": "2026-11-08T14:41:54Z",
+      "distance_meters": 8093.0,
+      "distance_miles": 5.03,
+      "duration_seconds": 3042.4,
+      "pace_min_mile": 10.08,
+      "elevation_gain_ft": 264.0,
+      "elevation_ft_per_mile": 52.4,
+      "gap_pace_min_mile": 9.78,
+      "avg_hr": 140.0,
+      "max_hr": 162,
+      "avg_cadence_spm": 177.0,
+      "ef": 1.14,
+      "gap_ef": 1.176,
+      "decoupling_pct": null
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-11-09_25026384799",
+      "activity_id": 25026384799,
+      "date": "2026-11-09",
+      "activity_name": "Strength",
+      "race_plan": "vancouver",
+      "week_num": 7,
+      "day_of_week": "Mon",
+      "day_full": "Monday",
+      "prescribed": {
+        "miles": 0.0,
+        "workout": "Rest from Running \u2022 \ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength",
+        "target_pace": "Rest / Strength",
+        "target_hr": "Rest / Gym (< 130 bpm)",
+        "lifting": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+      },
+      "actual": {
+        "miles": 0.0,
+        "duration_formatted": "16:13",
+        "duration_seconds": 973.8,
+        "pace_raw": "Strength Gym",
+        "pace_gap": "Strength Gym",
+        "avg_hr": 71.0,
+        "max_hr": 120.0,
+        "avg_cadence": null,
+        "max_cadence": null,
+        "elevation_gain_ft": 0.0,
+        "elevation_loss_ft": 0.0,
+        "aerobic_te": 0.20000000298023224,
+        "anaerobic_te": 0.10000000149011612,
+        "ground_contact_time_ms": null,
+        "strides_gct_ms": null,
+        "vertical_ratio_pct": null,
+        "strides_vr_pct": null,
+        "avg_power_w": null,
+        "max_power_w": null,
+        "total_sets": 13,
+        "total_reps": 257
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 100.0,
+        "pace_adherence": "Gym Strength Session (Zero Running)",
+        "hr_compliance": "Max HR 120.0 bpm (Cleanly below 130 bpm cap)",
+        "strides_count": 0,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Flawless execution of Week 7 Monday: 16:13 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+      "key_takeaways": [
+        "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+        "Cardiovascular Discipline: Max HR capped at 120.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+        "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+      ],
+      "next_workout": {
+        "day": "Tuesday",
+        "date": "2026-11-10",
+        "miles": 8.0,
+        "workout": "Cruise Intervals",
+        "target_pace": "Warmup/Cool: 8:40 \u2013 9:10 / mi | Threshold Reps: 7:00 \u2013 7:10 / mi | Recovery Jogs: 9:00 / mi",
+        "target_hr": "Warmup: Zone 2 (136\u2013144 bpm) | Threshold: Zone 4 (158 \u2013 164 bpm) | Recovery: < 140 bpm",
+        "purpose": "Lactate threshold velocity expansion and clearance rate.",
+        "description": "1. Warm-Up: 1.5 \u2013 2.0 mi progressive easy jog (9:15 down to 8:40/mi, HR < 142 bpm) + 5 min dynamic mobility.\\n2. Quality Work: 8mi (cruise intervals) at strict lactate threshold pace (7:00\u20137:10/mi, HR 158\u2013164 bpm). Maintain relaxed shoulders, snappy 180 spm cadence.\\n3. Recovery Jogs: 400m / 2:00 easy jog at 9:00/mi between reps. Let HR drop under 140 bpm.\\n4. Cool-Down: 1.0 \u2013 1.5 mi very easy flush jog at 9:00\u20139:30/mi back to base.",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
+    {
+      "evaluation_id": "2026-11-08_25010774252",
+      "activity_id": 25010774252,
+      "date": "2026-11-08",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 6,
+      "day_of_week": "Sun",
+      "day_full": "Sunday",
+      "prescribed": {
+        "miles": 5.0,
+        "workout": "Recovery",
+        "target_pace": "9:15 \u2013 9:45 / mi continuous",
+        "target_hr": "Zone 1 (< 135 bpm ceiling, avg ~128\u2013130 bpm)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 5.03,
+        "duration_formatted": "50:39",
+        "duration_seconds": 3039.4,
+        "pace_raw": "10:04 / mi",
+        "pace_gap": "9:51 / mi",
+        "avg_hr": 126.0,
+        "max_hr": 140.0,
+        "avg_cadence": 173.0,
+        "max_cadence": 187.0,
+        "elevation_gain_ft": 285.4,
+        "elevation_loss_ft": 301.8,
+        "aerobic_te": 2.9000000953674316,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": 264.0,
+        "strides_gct_ms": 264.0,
+        "vertical_ratio_pct": 8.95,
+        "strides_vr_pct": 8.95,
+        "avg_power_w": 293.0,
+        "max_power_w": 372.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 100.6,
+        "pace_adherence": "Raw 10:04 / mi | Grade-Adjusted 9:51 / mi",
+        "hr_compliance": "Avg HR 126 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 6 Sunday: 5.03 miles at 10:04 / mi (GAP: 9:51 / mi) with an average heart rate of 126 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 5.03 mi vs 5.0 mi prescribed (100.6% volume precision).",
+        "Metabolic Control: Averaged 126 bpm heart rate (workout ceiling: 138 bpm).",
+        "Topography Management: Handled +285 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "next_workout": {
+        "day": "Monday",
+        "date": "2026-11-09",
+        "miles": 0,
+        "workout": "Rest from Running \u2022 \ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength",
+        "target_pace": "Rest / Gym",
+        "target_hr": "Rest / Gym (< 130 bpm ceiling)",
+        "purpose": "Targeted neuromuscular recruitment and eccentric resilience without running impact.",
+        "description": "Non-running day: Bi-Weekly Heavy Resistance Leg Strength. Low reps (3-5), heavy weight, explosive intent. Trap Bar Deadlifts, Split Squats / Step-Ups, Heavy Calf Raises, Box Jumps. Monday placement protects the Saturday long run with 120 hours of recovery. Tuesday hill surges act as a light dynamic flush.",
+        "lifting_rule": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+      }
+    },
     {
       "evaluation_id": "2026-11-07_25000372351",
       "activity_id": 25000372351,
