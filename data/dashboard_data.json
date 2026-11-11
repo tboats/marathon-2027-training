@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-11-09T23:34:58.424947",
-    "total_historical_runs": 419,
-    "dataset_date_range": "2025-03-02 to 2026-11-08",
+    "generated_at": "2026-11-10T21:16:38.491548",
+    "total_historical_runs": 420,
+    "dataset_date_range": "2025-03-02 to 2026-11-11",
     "current_date": "2026-09-27",
     "target_race_name": "BMO Vancouver Marathon 2027",
     "target_race_date": "2027-05-02",
@@ -5890,17 +5890,17 @@
     },
     {
       "month": "2026-11",
-      "total_miles": 42.9,
-      "run_count": 6,
+      "total_miles": 50.5,
+      "run_count": 7,
       "longest_mile": 13.2,
-      "total_elevation_ft": 2249.0,
+      "total_elevation_ft": 2648.0,
       "avg_ft_per_mile": 52.4,
-      "avg_pace_min_mile": 9.15,
-      "avg_gap_pace_min_mile": 8.84,
+      "avg_pace_min_mile": 9.09,
+      "avg_gap_pace_min_mile": 8.78,
       "avg_hr": 140.0,
       "avg_cadence_spm": 177.0,
-      "avg_ef": 1.246,
-      "avg_gap_ef": 1.289
+      "avg_ef": 1.256,
+      "avg_gap_ef": 1.3
     }
   ],
   "benchmark_performances": [
@@ -7243,6 +7243,21 @@
       "vdot": 31.8,
       "decoupling_pct": null,
       "rolling_4w_mpw": 36.0
+    },
+    {
+      "date": "2026-11-09",
+      "run_count": 1,
+      "total_miles": 7.6,
+      "total_elevation_ft": 399.0,
+      "avg_hr": 140.0,
+      "avg_cadence_spm": 177.0,
+      "avg_pace": 8.74,
+      "avg_gap_pace": 8.43,
+      "avg_ef": 1.316,
+      "avg_gap_ef": 1.363,
+      "vdot": 34.0,
+      "decoupling_pct": null,
+      "rolling_4w_mpw": 28.9
     }
   ],
   "daily_time_series": [
@@ -13530,27 +13545,24 @@
       "gap_ef": 1.176,
       "vdot": 28.2,
       "decoupling_pct": null
+    },
+    {
+      "date": "2026-11-11",
+      "run_id": "25038200694_ACTIVITY",
+      "distance_miles": 7.61,
+      "duration_seconds": 3990.6,
+      "pace_min_mile": 8.74,
+      "gap_pace_min_mile": 8.43,
+      "avg_hr": 140.0,
+      "elevation_gain_ft": 399.0,
+      "elevation_ft_per_mile": 52.4,
+      "ef": 1.316,
+      "gap_ef": 1.363,
+      "vdot": 34.0,
+      "decoupling_pct": null
     }
   ],
   "recent_runs": [
-    {
-      "run_id": "2026-09-18_00-42-28",
-      "date": "2026-09-18",
-      "start_time": "2026-09-18T00:42:32",
-      "distance_meters": 5677.5,
-      "distance_miles": 3.53,
-      "duration_seconds": 1848.0,
-      "pace_min_mile": 8.73,
-      "elevation_gain_ft": 177.0,
-      "elevation_ft_per_mile": 50.1,
-      "gap_pace_min_mile": 8.44,
-      "avg_hr": 141.8,
-      "max_hr": 154,
-      "avg_cadence_spm": 176.0,
-      "ef": 1.3,
-      "gap_ef": 1.345,
-      "decoupling_pct": null
-    },
     {
       "run_id": "2026-09-19_01-34-38",
       "date": "2026-09-19",
@@ -14252,9 +14264,91 @@
       "ef": 1.14,
       "gap_ef": 1.176,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "25038200694_ACTIVITY",
+      "date": "2026-11-11",
+      "start_time": "2026-11-11T01:21:59Z",
+      "distance_meters": 12250.7,
+      "distance_miles": 7.61,
+      "duration_seconds": 3990.6,
+      "pace_min_mile": 8.74,
+      "elevation_gain_ft": 399.0,
+      "elevation_ft_per_mile": 52.4,
+      "gap_pace_min_mile": 8.43,
+      "avg_hr": 140.0,
+      "max_hr": 162,
+      "avg_cadence_spm": 177.0,
+      "ef": 1.316,
+      "gap_ef": 1.363,
+      "decoupling_pct": null
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-11-10_25038200694",
+      "activity_id": 25038200694,
+      "date": "2026-11-10",
+      "activity_name": "Seattle Running",
+      "race_plan": "vancouver",
+      "week_num": 7,
+      "day_of_week": "Tue",
+      "day_full": "Tuesday",
+      "prescribed": {
+        "miles": 8.0,
+        "workout": "Cruise Intervals",
+        "target_pace": "Warmup/Cool: 8:40 \u2013 9:10 / mi | Threshold Reps: 7:00 \u2013 7:10 / mi | Recovery Jogs: 9:00 / mi",
+        "target_hr": "Warmup: Zone 2 (136\u2013144 bpm) | Threshold: Zone 4 (158 \u2013 164 bpm) | Recovery: < 140 bpm",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 7.61,
+        "duration_formatted": "66:22",
+        "duration_seconds": 3982.5,
+        "pace_raw": "8:43 / mi",
+        "pace_gap": "8:36 / mi",
+        "avg_hr": 147.0,
+        "max_hr": 167.0,
+        "avg_cadence": 177.6,
+        "max_cadence": 214.0,
+        "elevation_gain_ft": 311.7,
+        "elevation_loss_ft": 305.1,
+        "aerobic_te": 4.699999809265137,
+        "anaerobic_te": 2.0999999046325684,
+        "ground_contact_time_ms": 250.4,
+        "strides_gct_ms": 222.0,
+        "vertical_ratio_pct": 8.27,
+        "strides_vr_pct": 6.96,
+        "avg_power_w": 334.0,
+        "max_power_w": 486.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 95.2,
+        "pace_adherence": "Raw 8:43 / mi | Grade-Adjusted 8:36 / mi",
+        "hr_compliance": "Avg HR 147 bpm (Zone 2 compliant)",
+        "strides_count": 4,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 7 Tuesday: 7.61 miles at 8:43 / mi (GAP: 8:36 / mi) with an average heart rate of 147 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 7.61 mi vs 8.0 mi prescribed (95.2% volume precision).",
+        "Metabolic Control: Averaged 147 bpm heart rate (workout ceiling: 168 bpm).",
+        "Topography Management: Handled +312 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "next_workout": {
+        "day": "Wednesday",
+        "date": "2026-11-11",
+        "miles": 9.0,
+        "workout": "Aerobic Base",
+        "target_pace": "8:30 \u2013 8:55 / mi continuous",
+        "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm strict ceiling)",
+        "purpose": "Mitochondrial density, capillary bed expansion, and fatigue resistance.",
+        "description": "1. First 2 Miles: Settle into continuous Zone 2 at 8:45\u20138:55/mi (HR 136\u2013140 bpm).\n2. Main Miles: Cruise at 8:30\u20138:45/mi on flats and downhills. On rolling Seattle climbs, surrender pace and cap HR strictly at 145 bpm.\n3. Final 0.5 Mile: Ease into a relaxed cool-down flush at 9:00/mi. Midweek endurance anchor: 9mi (aerobic base).",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
     {
       "evaluation_id": "2026-11-09_25026384799",
       "activity_id": 25026384799,
