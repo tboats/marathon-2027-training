@@ -10,6 +10,7 @@ import os
 import sys
 import json
 import re
+import glob
 import argparse
 from datetime import datetime, timezone, timedelta
 import dateutil.parser
@@ -146,8 +147,11 @@ def update_coaching_plan_doc(evals):
             if target in content:
                 content = content.replace(target, log_md + '## 5. The Master 31-Week Daily Calendar (All 217 Days)')
 
-        # Mark completed daily workouts in the specific week's calendar section
+        # Mark completed daily workouts in the specific week's calendar section (protects archived weeks from overwrite)
+        _, _, active_week_num = get_vancouver_workout_for_date(datetime.now().strftime("%Y-%m-%d"))
         for e in evals:
+            if e.get('week_num') != active_week_num:
+                continue
             dow = e.get('day_full')
             w_num = e.get('week_num', 1)
             ep = e.get('prescribed', {})
@@ -173,14 +177,30 @@ def update_coaching_plan_doc(evals):
                 week_block = content[w_start:w_end]
                 
                 if ea.get("miles", 0) > 0:
-                    day_pattern = rf"- \*\*{dow} \({ep.get('miles', 0):.1f} mi • [^)]+\)\*\*:"
-                    if f"Actual Execution ({date_val})" not in week_block and re.search(day_pattern, week_block):
-                        day_replacement = f"""- **{dow} ({ep.get('miles', 0):.1f} mi • {ep.get('workout')})** — ✅ **COMPLETED (Grade {grade_val})**:
+                    day_pattern_uncompleted = rf"- \*\*{dow} \({ep.get('miles', 0):.1f} mi • [^)]+\)\*:"
+                    day_pattern_completed = rf"- \*\*{dow} \({ep.get('miles', 0):.1f} mi • [^)]+\)\*\* — ✅ \*\*COMPLETED[^\n]+(?:\n  - [^\n]+)*"
+                    day_replacement = f"""- **{dow} ({ep.get('miles', 0):.1f} mi • {ep.get('workout')})** — ✅ **COMPLETED (Grade {grade_val})**:
   - *Actual Execution ({date_val})*: **{ea.get('miles')} mi** in **{ea.get('duration_formatted')}** ({ea.get('pace_raw')}, **{ea.get('pace_gap')} GAP**). Volume adherence: {es.get('distance_adherence_pct')}% of target.
   - *Heart Rate & Metabolic Control*: Avg HR **{ea.get('avg_hr')} bpm** (Max HR: {ea.get('max_hr')} bpm).
   - *Elevation & Topography*: +{ea.get('elevation_gain_ft', 0):.0f} ft elevation change handled with strict effort discipline.
   - *Training Stimulus*: Aerobic TE **{aerobic_te_val}** | Anaerobic TE **{anaerobic_te_val}**."""
-                        new_week_block = re.sub(day_pattern, day_replacement, week_block, count=1)
+                    if e.get("intervals_breakdown"):
+                        ib = e["intervals_breakdown"]
+                        rep_rows = "\n".join(
+                            f"    - **Rep {r['rep_num']} ({r['distance_miles']} mi)**: **{r['pace_formatted']}** ({r['duration_formatted']}) | HR: **{r['avg_hr']} bpm** (Peak {r['max_hr']}) | Cadence: **{r.get('avg_cadence') or 'N/A'} spm** | GCT: **{r.get('gct_ms') or 'N/A'} ms** • VR: **{r.get('vertical_ratio_pct') or 'N/A'}%**"
+                            for r in ib.get("reps", [])
+                        )
+                        rec_rows = "\n".join(
+                            f"    - *Recovery after Rep {rc['after_rep']}*: {rc['duration_formatted']} ({rc['distance_miles']} mi) | HR floor: **{rc['min_hr']} bpm** ({'-' + str(rc['hr_drop_bpm']) + ' bpm drop' if rc['hr_drop_bpm'] else 'N/A'})"
+                            for rc in ib.get("recoveries", [])
+                        )
+                        day_replacement += f"\n  - *Interval Reps Breakdown ({ib.get('total_reps')}x Reps @ avg {ib.get('avg_rep_pace_formatted')}, avg HR {ib.get('avg_rep_hr')} bpm)*:\n{rep_rows}\n  - *Recovery Intervals Telemetry*:\n{rec_rows}"
+
+                    if f"Actual Execution ({date_val})" in week_block and re.search(day_pattern_completed, week_block):
+                        new_week_block = re.sub(day_pattern_completed, day_replacement, week_block, count=1)
+                        content = content[:w_start] + new_week_block + content[w_end:]
+                    elif f"Actual Execution ({date_val})" not in week_block and re.search(day_pattern_uncompleted, week_block):
+                        new_week_block = re.sub(day_pattern_uncompleted, day_replacement, week_block, count=1)
                         content = content[:w_start] + new_week_block + content[w_end:]
                 else:
                     day_pattern = rf"- \*\*{dow} \(0(?:\\.0)? mi • Rest from Running • [^)]+\)\*\*:"
@@ -198,6 +218,114 @@ def update_coaching_plan_doc(evals):
         print(f"📝 Synchronized coaching plan document: {os.path.basename(COACHING_DOC_PATH)}")
     except Exception as e:
         print(f"⚠️ Warning updating coaching doc: {e}")
+
+def extract_intervals(splits, act_id=None):
+    """
+    Extracts structured interval reps and recoveries from Garmin lapDTOs and local FIT records.
+    """
+    if not splits or "lapDTOs" not in splits:
+        return None
+    laps = splits["lapDTOs"]
+    if len(laps) < 3:
+        return None
+
+    fit_data = {}
+    if act_id:
+        fit_matches = glob.glob(f"../../**/manual/{act_id}*.fit", recursive=True) + glob.glob(f"{MANUAL_FIT_DIR}/{act_id}*.fit")
+        if fit_matches and os.path.exists(fit_matches[0]):
+            try:
+                from fitparse import FitFile
+                ff = FitFile(fit_matches[0])
+                fit_laps = [l.get_values() for l in ff.get_messages("lap")]
+                records = [r.get_values() for r in ff.get_messages("record")]
+                for i, fl in enumerate(fit_laps):
+                    st = fl.get("start_time")
+                    dur = fl.get("total_timer_time", 0)
+                    if st and dur:
+                        et = st + timedelta(seconds=dur)
+                        recs = [r for r in records if r.get("timestamp") and st <= r["timestamp"] <= et]
+                        cads = [r["cadence"] * 2 for r in recs if r.get("cadence")]
+                        pwrs = [r["power"] for r in recs if r.get("power")]
+                        gcts = [r.get("stance_time") for r in recs if r.get("stance_time")]
+                        fit_data[i] = {
+                            "avg_cadence": round(sum(cads) / len(cads), 1) if cads else None,
+                            "max_cadence": max(cads) if cads else None,
+                            "avg_power": round(sum(pwrs) / len(pwrs)) if pwrs else None,
+                            "avg_gct": round(sum(gcts) / len(gcts), 1) if gcts else None,
+                        }
+            except Exception:
+                pass
+
+    reps = []
+    for i, lap in enumerate(laps):
+        dist_m = lap.get("distance", 0)
+        dist_mi = dist_m / 1609.344
+        dur_s = lap.get("duration", 0)
+        pace_s = (dur_s / dist_mi) if dist_mi > 0 else 9999
+        # Quality rep criteria: >= 0.35 mi (600m+) and pace faster than 8:00/mi
+        if dist_mi >= 0.35 and pace_s < 480:
+            reps.append((i, lap, dist_mi, dur_s, pace_s))
+
+    if len(reps) < 2:
+        return None
+
+    rep_results = []
+    for rep_num, (lap_i, lap, d_mi, dur_s, pace_s) in enumerate(reps, 1):
+        pm = int(pace_s // 60)
+        ps = int(pace_s % 60)
+        ahr = lap.get("averageHR")
+        mhr = lap.get("maxHR")
+        vr = round(float(lap.get("verticalRatio")), 2) if lap.get("verticalRatio") else None
+        dyn = fit_data.get(lap_i, {})
+        rep_results.append({
+            "rep_num": rep_num,
+            "lap_index": lap_i,
+            "distance_miles": round(d_mi, 2),
+            "duration_formatted": f"{int(dur_s // 60)}:{int(dur_s % 60):02d}",
+            "duration_seconds": round(dur_s, 1),
+            "pace_formatted": f"{pm}:{ps:02d} / mi",
+            "pace_seconds": round(pace_s, 1),
+            "avg_hr": round(float(ahr), 1) if ahr else None,
+            "max_hr": round(float(mhr), 1) if mhr else None,
+            "avg_cadence": dyn.get("avg_cadence"),
+            "max_cadence": dyn.get("max_cadence"),
+            "gct_ms": dyn.get("avg_gct"),
+            "vertical_ratio_pct": vr,
+            "power_w": dyn.get("avg_power")
+        })
+
+    rec_results = []
+    for r_idx in range(len(reps) - 1):
+        curr_i = reps[r_idx][0]
+        next_i = reps[r_idx + 1][0]
+        inter_laps = laps[curr_i + 1: next_i]
+        rec_dur = sum(l.get("duration", 0) for l in inter_laps)
+        rec_dist = sum(l.get("distance", 0) for l in inter_laps) / 1609.344
+        hrs = [l.get("averageHR") for l in inter_laps if l.get("averageHR")]
+        min_hr = min(hrs) if hrs else None
+        prior_max = reps[r_idx][1].get("maxHR")
+        hr_drop = round(prior_max - min_hr, 1) if (prior_max and min_hr) else None
+        rec_results.append({
+            "after_rep": r_idx + 1,
+            "duration_formatted": f"{int(rec_dur // 60)}:{int(rec_dur % 60):02d}",
+            "duration_seconds": round(rec_dur, 1),
+            "distance_miles": round(rec_dist, 2),
+            "min_hr": round(float(min_hr), 1) if min_hr else None,
+            "hr_drop_bpm": hr_drop
+        })
+
+    avg_pace_s = sum(r["pace_seconds"] for r in rep_results) / len(rep_results)
+    avg_pace_m = int(avg_pace_s // 60)
+    avg_pace_rem = int(avg_pace_s % 60)
+
+    return {
+        "reps": rep_results,
+        "recoveries": rec_results,
+        "total_reps": len(rep_results),
+        "total_rep_distance": round(sum(r["distance_miles"] for r in rep_results), 2),
+        "avg_rep_pace_formatted": f"{avg_pace_m}:{avg_pace_rem:02d} / mi",
+        "avg_rep_hr": round(sum(r["avg_hr"] for r in rep_results if r["avg_hr"]) / len([r for r in rep_results if r["avg_hr"]]), 1)
+    }
 
 def evaluate_run(activity, details=None, splits=None):
     """
@@ -393,6 +521,19 @@ def evaluate_run(activity, details=None, splits=None):
     ss = int(dur_s % 60)
     duration_formatted = f"{mm}:{ss:02d}"
 
+    intervals_breakdown = extract_intervals(splits, act_id=act_id)
+    takeaways = [
+        f"Adherence: Completed {dist_mi:.2f} mi vs {prescribed_miles:.1f} mi prescribed ({dist_adherence:.1f}% volume precision).",
+        f"Metabolic Control: Averaged {avg_hr:.0f} bpm heart rate (workout ceiling: {hr_ceiling} bpm).",
+        f"Topography Management: Handled +{elev_gain:.0f} ft of climb with appropriate effort modulation."
+    ]
+    if intervals_breakdown:
+        takeaways.insert(0, f"⚡ Quality Intervals: {intervals_breakdown['total_reps']} reps executed averaging {intervals_breakdown['avg_rep_pace_formatted']} at {intervals_breakdown['avg_rep_hr']} bpm avg HR.")
+    if deductions:
+        takeaways.extend([f"⚠️ Coach Deduction: {d[0]}" for d in deductions])
+    else:
+        takeaways.append("✨ Perfect Disciplined Execution: Zero pacing, HR, or distance deductions.")
+
     eval_record = {
         "evaluation_id": f"{date_str}_{act_id}",
         "activity_id": act_id,
@@ -439,11 +580,8 @@ def evaluate_run(activity, details=None, splits=None):
             "strides_peak_pace": strides_peak_pace
         },
         "executive_summary": f"Evaluation for Week {week_num} {datetime.strptime(date_str, '%Y-%m-%d').strftime('%A')}: {dist_mi:.2f} miles at {raw_pace_str} (GAP: {gap_pace_str}) with an average heart rate of {avg_hr:.0f} bpm (Grade: {grade}).",
-        "key_takeaways": [
-            f"Adherence: Completed {dist_mi:.2f} mi vs {prescribed_miles:.1f} mi prescribed ({dist_adherence:.1f}% volume precision).",
-            f"Metabolic Control: Averaged {avg_hr:.0f} bpm heart rate (workout ceiling: {hr_ceiling} bpm).",
-            f"Topography Management: Handled +{elev_gain:.0f} ft of climb with appropriate effort modulation."
-        ] + ([f"⚠️ Coach Deduction: {d[0]}" for d in deductions] if deductions else ["✨ Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."]),
+        "key_takeaways": takeaways,
+        "intervals_breakdown": intervals_breakdown,
         "next_workout": next_workout_obj
     }
 
@@ -683,6 +821,13 @@ def fast_sync(force_id=None, days_lookback=3, auto_push=False):
         new_evals_added += 1
 
         print(f"  🎯 Grade: {eval_record['scorecard']['grade']} | Focus: {eval_record['prescribed']['workout']} | Moving: {eval_record['actual']['duration_formatted']} | HR: {eval_record['actual']['avg_hr']} bpm")
+        if eval_record.get("intervals_breakdown"):
+            ib = eval_record["intervals_breakdown"]
+            print(f"  ⚡ Quality Intervals: {ib['total_reps']} reps @ avg {ib['avg_rep_pace_formatted']} (avg HR {ib['avg_rep_hr']} bpm)")
+            for r in ib.get("reps", []):
+                cad_s = f" | Cad {r['avg_cadence']:.0f} spm" if r.get('avg_cadence') else ""
+                gct_s = f" | GCT {r['gct_ms']:.0f} ms" if r.get('gct_ms') else ""
+                print(f"     • Rep {r['rep_num']}: {r['pace_formatted']} ({r['duration_formatted']}) | HR {r['avg_hr']} bpm (peak {r['max_hr']}){cad_s}{gct_s}")
 
     if new_evals_added > 0 or force_id:
         # Sort chronologically reverse (newest first)

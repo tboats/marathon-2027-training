@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-11-10T21:16:38.491548",
+    "generated_at": "2026-11-10T21:35:37.518473",
     "total_historical_runs": 420,
     "dataset_date_range": "2025-03-02 to 2026-11-11",
     "current_date": "2026-09-27",
@@ -14332,11 +14332,110 @@
       },
       "executive_summary": "Evaluation for Week 7 Tuesday: 7.61 miles at 8:43 / mi (GAP: 8:36 / mi) with an average heart rate of 147 bpm (Grade: A+).",
       "key_takeaways": [
+        "\u26a1 Quality Intervals: 4 reps executed averaging 7:11 / mi at 159.5 bpm avg HR.",
         "Adherence: Completed 7.61 mi vs 8.0 mi prescribed (95.2% volume precision).",
         "Metabolic Control: Averaged 147 bpm heart rate (workout ceiling: 168 bpm).",
         "Topography Management: Handled +312 ft of climb with appropriate effort modulation.",
         "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
       ],
+      "intervals_breakdown": {
+        "reps": [
+          {
+            "rep_num": 1,
+            "lap_index": 2,
+            "distance_miles": 1.0,
+            "duration_formatted": "7:05",
+            "duration_seconds": 425.8,
+            "pace_formatted": "7:05 / mi",
+            "pace_seconds": 425.8,
+            "avg_hr": 158.0,
+            "max_hr": 162.0,
+            "avg_cadence": 191.2,
+            "max_cadence": 198,
+            "gct_ms": 219.8,
+            "vertical_ratio_pct": 6.87,
+            "power_w": 406
+          },
+          {
+            "rep_num": 2,
+            "lap_index": 5,
+            "distance_miles": 1.0,
+            "duration_formatted": "7:12",
+            "duration_seconds": 432.6,
+            "pace_formatted": "7:12 / mi",
+            "pace_seconds": 432.6,
+            "avg_hr": 158.0,
+            "max_hr": 167.0,
+            "avg_cadence": 189.5,
+            "max_cadence": 200,
+            "gct_ms": 222.5,
+            "vertical_ratio_pct": 6.98,
+            "power_w": 394
+          },
+          {
+            "rep_num": 3,
+            "lap_index": 8,
+            "distance_miles": 1.0,
+            "duration_formatted": "7:08",
+            "duration_seconds": 428.7,
+            "pace_formatted": "7:08 / mi",
+            "pace_seconds": 428.7,
+            "avg_hr": 161.0,
+            "max_hr": 167.0,
+            "avg_cadence": 188.8,
+            "max_cadence": 196,
+            "gct_ms": 221.4,
+            "vertical_ratio_pct": 6.93,
+            "power_w": 383
+          },
+          {
+            "rep_num": 4,
+            "lap_index": 11,
+            "distance_miles": 1.0,
+            "duration_formatted": "7:17",
+            "duration_seconds": 437.9,
+            "pace_formatted": "7:17 / mi",
+            "pace_seconds": 437.9,
+            "avg_hr": 161.0,
+            "max_hr": 165.0,
+            "avg_cadence": 188.2,
+            "max_cadence": 196,
+            "gct_ms": 224.3,
+            "vertical_ratio_pct": 7.05,
+            "power_w": 367
+          }
+        ],
+        "recoveries": [
+          {
+            "after_rep": 1,
+            "duration_formatted": "1:46",
+            "duration_seconds": 106.6,
+            "distance_miles": 0.16,
+            "min_hr": 146.0,
+            "hr_drop_bpm": 16.0
+          },
+          {
+            "after_rep": 2,
+            "duration_formatted": "2:06",
+            "duration_seconds": 126.0,
+            "distance_miles": 0.17,
+            "min_hr": 146.0,
+            "hr_drop_bpm": 21.0
+          },
+          {
+            "after_rep": 3,
+            "duration_formatted": "1:43",
+            "duration_seconds": 103.4,
+            "distance_miles": 0.15,
+            "min_hr": 149.0,
+            "hr_drop_bpm": 18.0
+          }
+        ],
+        "total_reps": 4,
+        "total_rep_distance": 4.0,
+        "avg_rep_pace_formatted": "7:11 / mi",
+        "avg_rep_hr": 159.5
+      },
       "next_workout": {
         "day": "Wednesday",
         "date": "2026-11-11",

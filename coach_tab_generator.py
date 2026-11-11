@@ -177,6 +177,64 @@ def generate_coach_tab_html(evals):
         </div>
         """
 
+    # Interval Reps Table Formatting
+    intervals_table_html = ""
+    ib = latest.get("intervals_breakdown")
+    if ib and ib.get("reps"):
+        rep_rows = "".join(f"""
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <td style="padding: 8px 10px; font-weight: 700; color: var(--accent-amber);">Rep {r['rep_num']}</td>
+            <td style="padding: 8px 10px;">{r['distance_miles']} mi</td>
+            <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--text-highlight);">{r['pace_formatted']}</td>
+            <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace;">{r['duration_formatted']}</td>
+            <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace;">{r['avg_hr']} bpm <span style="color: var(--text-muted); font-size: 0.75rem;">(peak {r['max_hr']})</span></td>
+            <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace;">{r.get('avg_cadence') or '--'} spm</td>
+            <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace; color: var(--accent-emerald);">{r.get('gct_ms') or '--'} ms</td>
+            <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace;">{r.get('vertical_ratio_pct') or '--'}%</td>
+          </tr>
+        """ for r in ib["reps"])
+
+        rec_chips = "".join(f"""
+          <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-subtle); padding: 6px 12px; border-radius: 6px; font-size: 0.8rem;">
+            <strong style="color: var(--accent-cyan);">After Rep {rc['after_rep']}:</strong> {rc['duration_formatted']} ({rc['distance_miles']} mi) • HR floor: <strong>{rc['min_hr']} bpm</strong> <span style="color: var(--accent-emerald); font-weight: 700;">(-{rc['hr_drop_bpm']} bpm)</span>
+          </div>
+        """ for rc in ib.get("recoveries", []))
+
+        intervals_table_html = f"""
+        <!-- INTERVAL REPS FORENSIC BREAKDOWN -->
+        <div style="background: var(--bg-card); padding: 16px; border-radius: var(--radius-sm); border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="font-size: 0.95rem; font-weight: 800; color: var(--accent-amber); display: flex; align-items: center; gap: 8px;">
+              <span>⚡</span> Quality Rep-by-Rep Breakdown ({ib['total_reps']} Reps • Avg Pace: {ib['avg_rep_pace_formatted']} • Avg HR: {ib['avg_rep_hr']} bpm)
+            </div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">Target: 7:00–7:10 / mi</span>
+          </div>
+          <div style="overflow-x: auto; margin-bottom: 12px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.83rem; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.73rem; text-transform: uppercase;">
+                  <th style="padding: 6px 10px;">Rep</th>
+                  <th style="padding: 6px 10px;">Dist</th>
+                  <th style="padding: 6px 10px;">Pace</th>
+                  <th style="padding: 6px 10px;">Time</th>
+                  <th style="padding: 6px 10px;">Avg / Max HR</th>
+                  <th style="padding: 6px 10px;">Cadence</th>
+                  <th style="padding: 6px 10px;">GCT</th>
+                  <th style="padding: 6px 10px;">Vert Ratio</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rep_rows}
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.04em;">🔄 Recovery Intervals & Cardiac Drop:</div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            {rec_chips}
+          </div>
+        </div>
+        """
+
     # Next Workout Preview Formatting
     desc_raw = next_wo.get('description', '')
     desc_steps = [s.strip() for s in desc_raw.replace('\\n', '\n').split('\n') if s.strip()] if desc_raw else []
@@ -251,6 +309,8 @@ def generate_coach_tab_html(evals):
 
         <!-- Metric Grid -->
         {metric_grid_html}
+
+        {intervals_table_html}
 
         <!-- Executive Debrief -->
         <div style="background: var(--bg-card); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 16px;">

@@ -626,8 +626,15 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Heart Rate & Metabolic Control*: Avg HR **147.0 bpm** (Max HR: 167.0 bpm).
   - *Elevation & Topography*: +312 ft elevation change handled with strict effort discipline.
   - *Training Stimulus*: Aerobic TE **4.7** | Anaerobic TE **2.1**.
-  - *Strategic Purpose*: Lactate threshold velocity expansion and clearance rate.
-  - *Running Prescription*: Quality catalyst session: 8mi (cruise intervals). Maintain relaxed shoulders and snappy cadence (180 spm).
+  - *Interval Reps Breakdown (4x Reps @ avg 7:11 / mi, avg HR 159.5 bpm)*:
+    - **Rep 1 (1.0 mi)**: **7:05 / mi** (7:05) | HR: **158.0 bpm** (Peak 162.0) | Cadence: **191.2 spm** | GCT: **219.8 ms** • VR: **6.87%**
+    - **Rep 2 (1.0 mi)**: **7:12 / mi** (7:12) | HR: **158.0 bpm** (Peak 167.0) | Cadence: **189.5 spm** | GCT: **222.5 ms** • VR: **6.98%**
+    - **Rep 3 (1.0 mi)**: **7:08 / mi** (7:08) | HR: **161.0 bpm** (Peak 167.0) | Cadence: **188.8 spm** | GCT: **221.4 ms** • VR: **6.93%**
+    - **Rep 4 (1.0 mi)**: **7:17 / mi** (7:17) | HR: **161.0 bpm** (Peak 165.0) | Cadence: **188.2 spm** | GCT: **224.3 ms** • VR: **7.05%**
+  - *Recovery Intervals Telemetry*:
+    - *Recovery after Rep 1*: 1:46 (0.16 mi) | HR floor: **146.0 bpm** (-16.0 bpm drop)
+    - *Recovery after Rep 2*: 2:06 (0.17 mi) | HR floor: **146.0 bpm** (-21.0 bpm drop)
+    - *Recovery after Rep 3*: 1:43 (0.15 mi) | HR floor: **149.0 bpm** (-18.0 bpm drop)
 - **Wednesday (9.0 mi • Aerobic Base)**:
   - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
   - *Running Prescription*: Midweek double-digit aerobic anchor: 9mi (aerobic base). Crucial stamina builder for Vancouver's undulating profile.
