@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 7 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **240.21 Miles** (46 workout(s) verified)  
-> **Most Recent Session**: Tuesday, 2026-11-10 — **7.61 mi** • **Grade A+**  
-> **Up Next**: Wednesday, 2026-11-11 — **9.0 mi Aerobic Base** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 7 Active (Day 3 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **240.21 Miles** (47 workout(s) verified)  
+> **Most Recent Session**: Wednesday, 2026-11-11 — **🏋️ Heavy Leg Strength Routine (23:10)** • **Grade A+**  
+> **Up Next**: Thursday, 2026-11-12 — **0 mi Rest from Running • Upper Body & Core Strength** (Upper Body & Core Strength (No Running))
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-11** | Wed | Week 7: Aerobic Base | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 71 / 121.0 bpm | N/A | 0 ft | Heavy legs (23:10): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 121.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-10** | Tue | Week 7: Cruise Intervals | 8.0 mi | **7.61 mi** | 8:43 / mi | **8:36 / mi** | 147 / 167.0 bpm | 177.6 spm | +312 ft | 147 bpm HR; 4 strides down to N/A; +312ft climb. | **A+** |
 | **2026-11-09** | Mon | Week 7: Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 71 / 120.0 bpm | N/A | 0 ft | Heavy legs (16:13): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 120.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-08** | Sun | Week 6: Recovery | 5.0 mi | **5.03 mi** | 10:04 / mi | **9:51 / mi** | 126 / 140.0 bpm | 173.0 spm | +285 ft | 126 bpm HR; 1 strides down to N/A; +285ft climb. | **A+** |
@@ -627,6 +628,14 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
   - *Elevation & Topography*: +312 ft elevation change handled with strict effort discipline.
   - *Training Stimulus*: Aerobic TE **4.7** | Anaerobic TE **2.1**.
   - *Interval Reps Breakdown (4x Reps @ avg 7:11 / mi, avg HR 159.5 bpm)*:
+    - **Rep 1 (1.0 mi)**: **7:05 / mi** (7:05) | HR: **158.0 bpm** (Peak 162.0) | Cadence: **191.2 spm** | GCT: **219.8 ms** • VR: **6.87%**
+    - **Rep 2 (1.0 mi)**: **7:12 / mi** (7:12) | HR: **158.0 bpm** (Peak 167.0) | Cadence: **189.5 spm** | GCT: **222.5 ms** • VR: **6.98%**
+    - **Rep 3 (1.0 mi)**: **7:08 / mi** (7:08) | HR: **161.0 bpm** (Peak 167.0) | Cadence: **188.8 spm** | GCT: **221.4 ms** • VR: **6.93%**
+    - **Rep 4 (1.0 mi)**: **7:17 / mi** (7:17) | HR: **161.0 bpm** (Peak 165.0) | Cadence: **188.2 spm** | GCT: **224.3 ms** • VR: **7.05%**
+  - *Recovery Intervals Telemetry*:
+    - *Recovery after Rep 1*: 1:46 (0.16 mi) | HR floor: **146.0 bpm** (-16.0 bpm drop)
+    - *Recovery after Rep 2*: 2:06 (0.17 mi) | HR floor: **146.0 bpm** (-21.0 bpm drop)
+    - *Recovery after Rep 3*: 1:43 (0.15 mi) | HR floor: **149.0 bpm** (-18.0 bpm drop)
     - **Rep 1 (1.0 mi)**: **7:05 / mi** (7:05) | HR: **158.0 bpm** (Peak 162.0) | Cadence: **191.2 spm** | GCT: **219.8 ms** • VR: **6.87%**
     - **Rep 2 (1.0 mi)**: **7:12 / mi** (7:12) | HR: **158.0 bpm** (Peak 167.0) | Cadence: **189.5 spm** | GCT: **222.5 ms** • VR: **6.98%**
     - **Rep 3 (1.0 mi)**: **7:08 / mi** (7:08) | HR: **161.0 bpm** (Peak 167.0) | Cadence: **188.8 spm** | GCT: **221.4 ms** • VR: **6.93%**
