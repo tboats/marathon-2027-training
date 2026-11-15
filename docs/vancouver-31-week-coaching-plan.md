@@ -682,91 +682,84 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 
 ---
 
-### Week 08: Nov 16 - Nov 22 — Target: 44 Miles (Phase 2)
-> **Anchor Long Run**: 15 miles progressive (finish last 3mi @ 7:50/mi)  
-> **Midweek Quality Session**: 8 miles total: 25 min continuous Tempo @ 7:15/mi (158-162 bpm)  
-> **Milestone / Proxy Checkpoint**: Measure decoupling on 15 miles (Target < 5.5%).  
-> **Structure**: `Mon: Rest (Core) | Tue: 8mi (Tempo Run) | Wed: 10mi (Aerobic Base) | Thu: Rest (Upper Body) | Fri: 6mi (Easy Pre-Long Run Shakeout) | Sat: 15mi (Long Run) | Sun: 5mi (Recovery)`  
-> **Arithmetic Breakdown**: `8 + 10 + 6 + 15 + 5 = 44 mi`
+### Week 08: Nov 16 - Nov 22 — Target: 35 Miles (Phase 2 — 🌴 Maui Travel Adjustment)
+> **Anchor Long Run**: 14–15 miles aerobic in Maui (sunrise start, strict HR < 146 bpm)  
+> **Midweek Quality Session**: 8 miles total: 25 min continuous Tempo @ 7:15/mi (Tue in Seattle before flight)  
+> **Milestone / Proxy Checkpoint**: Heat & humidity HR discipline in Maui (target < 146 bpm on Long Run).  
+> **Structure**: `Mon: Rest (Core + Opt Upper) | Tue: 8mi (Tempo Run) | Wed: Rest (Travel to Maui) | Thu: Rest (Maui) | Fri: 8mi (Aerobic Base) | Sat: 14mi (Long Run) | Sun: 5mi (Recovery)`  
+> **Arithmetic Breakdown**: `8 + 8 + 14 + 5 = 35 mi (Maui travel adjustment)`
 
 | Day | Miles | Activity Focus | Workout Name | Prescribed Pace | Target Heart Rate | Strength / Lifting Assignment |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| **Mon** | 0 mi | **LIFT ONLY** | Rest from Running • 🧘 Core & Pelvic Hip Stability | Rest / Mobility | Rest (< 100 bpm) | 🧘 Core & Pelvic Hip Stability (No Running) |
-| **Tue** | **8 mi** | **RUN ONLY** | Tempo Run | Intervals: 7:00 – 7:10 / mi | Recovery: 9:00 / mi | Zone 4 Threshold (158 – 164 bpm) | None |
-| **Wed** | **10 mi** | **RUN ONLY** | Aerobic Base | 8:30 – 8:55 / mi | Zone 2 Aerobic Base (136 – 145 bpm) | None |
-| **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
-| **Fri** | **6 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
-| **Sat** | **15 mi** | **RUN ONLY** | Long Run | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
-| **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
+| **Mon** | 0 mi | **LIFT ONLY** | Rest from Running • 🧘 Core & Pelvic Stability (+ Opt. Upper Body) | Rest / Gym | Rest (< 130 bpm) | 🧘 Core & Pelvic Stability + Opt. Upper Body (No Running) |
+| **Tue** | **8 mi** | **RUN ONLY** | Tempo Run (Seattle) | Warm/Cool: 8:40–9:10/mi • Tempo: 7:15/mi | Zone 4 Threshold (158–162 bpm) | None |
+| **Wed** | 0 mi | **TRAVEL REST** | Rest & Travel (Flight to Maui) | Rest | Rest (< 100 bpm) | None (Travel Day) |
+| **Thu** | 0 mi | **REST** | Rest & Travel Recovery (Maui) | Rest / Mobility | Rest (< 100 bpm) | None (Maui Recovery) |
+| **Fri** | **8 mi** | **RUN ONLY** | Aerobic Base (Maui) | 8:45 – 9:25 / mi (humidity adj.) | Zone 2 Aerobic Base (136 – 145 bpm) | None |
+| **Sat** | **14 mi** | **RUN ONLY** | Long Run (Maui Sunrise) | 8:50 – 9:35 / mi (humidity adj.) | Zone 2 (138 – 146 bpm strict ceiling) | None |
+| **Sun** | **5 mi** | **RUN ONLY** | Recovery (Maui) | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • Upper Body & Core Strength)**:
-  - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
-  - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
-  - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
+- **Monday (0 mi • Rest from Running • 🧘 Core & Pelvic Stability + Opt. Upper Body)**:
+  - *Strategic Purpose*: Pelvis stabilization and getting upper body push/pull done before flying since Thu 11/19 is a travel rest day.
+  - *Strength Prescription*: Copenhagen Adductor Planks (3x20s/side), Side Planks (3x30s), Single-Leg RDLs (3x8/leg), Banded Glute Bridges (3x12) + Optional Dumbbell Bench/Overhead Press & Pull-ups (3x8). Zero running.
 - **Tuesday (8.0 mi • Tempo Run)**:
-  - *Strategic Purpose*: Lactate threshold velocity expansion and clearance rate.
-  - *Running Prescription*: Quality catalyst session: 8mi (tempo run). Maintain relaxed shoulders and snappy cadence (180 spm).
-- **Wednesday (10.0 mi • Aerobic Base)**:
-  - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
-  - *Running Prescription*: Midweek double-digit aerobic anchor: 10mi (aerobic base). Crucial stamina builder for Vancouver's undulating profile.
-- **Thursday (0 mi • Rest from Running • 🧘 Core & Pelvic Hip Stability)**:
-  - *Strategic Purpose*: Targeted neuromuscular recruitment and eccentric resilience without running impact.
-  - *Running Prescription*: Non-running day: Hip stability, glute activation, and rotational core. Strengthens adductors and gluteus medius to stabilize pelvis and protect IT bands during high marathon mileage without heavy leg fatigue.
-  - *Strength Prescription*: Copenhagen Adductor Planks (3x20s/side), Side Planks with Leg Lift (3x30s), Single-Leg RDLs (light dumbbell, 3x8/leg), Banded Glute Bridges (3x12). Zero heavy eccentric leg loading.
-- **Friday (6.0 mi • Easy Pre-Long Run Shakeout)**:
-  - *Strategic Purpose*: Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.
-  - *Running Prescription*: Relaxed conversational recovery run on flat terrain. Relaxed conversational recovery run on flat terrain. Promotes light capillary circulation, activates motor pathways, and leaves legs 100% fresh for tomorrow's anchor. ZERO lifting.
-- **Saturday (15.0 mi • Long Run)**:
-  - *Strategic Purpose*: Long aerobic endurance and fat oxidation.
-  - *Running Prescription*: Weekly long run anchor: 15mi (Long Run). Maintain steady effort on Seattle rolling hills.
-- **Sunday (5.0 mi • Recovery)**:
+  - *Strategic Purpose*: Lactate threshold velocity expansion in cool Seattle weather before flying to Maui.
+  - *Running Prescription*: 8mi total with 25 min continuous Tempo @ 7:15/mi (HR 158–162 bpm). Maintain relaxed shoulders and snappy cadence (180 spm).
+- **Wednesday (0 mi • Rest & Travel — Flight to Maui)**:
+  - *Strategic Purpose*: Travel recovery and hydration. Zero running, zero lifting.
+- **Thursday (0 mi • Rest & Travel Recovery — Maui)**:
+  - *Strategic Purpose*: Jet lag / travel recovery before resuming Maui runs. Light walking or beach mobility only.
+- **Friday (8.0 mi • Aerobic Base — Maui)**:
+  - *Strategic Purpose*: Aerobic base restoration on fresh legs after 2 rest days.
+  - *Running Prescription*: Run at sunrise (6:00–6:30 AM). Keep HR strictly 136–145 bpm, allowing pace to slow 20–40s/mi in tropical humidity. ZERO lifting.
+- **Saturday (14.0 mi • Long Run — Maui Sunrise)**:
+  - *Strategic Purpose*: Long aerobic endurance and fat oxidation in warm-weather conditions.
+  - *Running Prescription*: Sunrise start (6:00 AM) with pre-run carbs + electrolytes. Cap HR strictly at 146 bpm regardless of pace (trim to 13 mi if heat spikes HR early).
+- **Sunday (5.0 mi • Recovery — Maui)**:
   - *Strategic Purpose*: Aerobic density and cumulative fatigue recovery.
-  - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery). Runs gently on legs carrying Saturday fatigue.
+  - *Running Prescription*: Gentle flat coastal recovery shakeout (< 135 bpm).
 
 ---
 
-### Week 09: Nov 23 - Nov 29 — Target: 42 Miles (Phase 2)
-> **Anchor Long Run**: 14 miles easy aerobic (Thanksgiving consolidation)  
-> **Midweek Quality Session**: 8 miles aerobic + 8 x 100m flat strides  
-> **Milestone / Proxy Checkpoint**: Post-run recovery readiness and joint integrity.  
-> **Structure**: `Mon: Rest (Legs 1/2w) | Tue: 8mi (Aerobic) | Wed: 9mi (Steady Aerobic) | Thu: Rest (Upper Body) | Fri: 6mi (Easy Pre-Long Run Shakeout) | Sat: 14mi (Long Run) | Sun: 5mi (Recovery)`  
-> **Arithmetic Breakdown**: `8 + 9 + 6 + 14 + 5 = 42 mi`
+### Week 09: Nov 23 - Nov 29 — Target: 40 Miles (Phase 2 — Maui Return & Thanksgiving)
+> **Anchor Long Run**: 14 miles easy aerobic (Thanksgiving consolidation in Seattle)  
+> **Midweek Quality Session**: 8 miles aerobic + 8 x 100m flat strides (Tue in Maui)  
+> **Milestone / Proxy Checkpoint**: Post-travel recovery readiness and smooth return to Seattle hills.  
+> **Structure**: `Mon: Rest (Bodyweight Leg/Core) | Tue: 8mi (Aerobic + Strides) | Wed: 7mi (Steady Aerobic) | Thu: Rest (Thanksgiving / Upper Body) | Fri: 6mi (Easy) | Sat: 14mi (Long Run) | Sun: 5mi (Recovery)`  
+> **Arithmetic Breakdown**: `8 + 7 + 6 + 14 + 5 = 40 mi (Maui return)`
 
 | Day | Miles | Activity Focus | Workout Name | Prescribed Pace | Target Heart Rate | Strength / Lifting Assignment |
 | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| **Mon** | 0 mi | **LIFT ONLY** | Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength | Rest / Mobility | Rest (< 100 bpm) | 🏋️ Bi-Weekly Heavy Leg Strength (No Running) |
-| **Tue** | **8 mi** | **RUN ONLY** | Aerobic + Strides | 8:35 – 9:05 / mi (strides @ mile pace) | Zone 2 base w/ Zone 4-5 surges | None |
-| **Wed** | **9 mi** | **RUN ONLY** | Steady Aerobic | 8:30 – 8:55 / mi | Zone 2 Aerobic Base (136 – 145 bpm) | None |
-| **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core Strength | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
-| **Fri** | **6 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
-| **Sat** | **14 mi** | **RUN ONLY** | Long Run | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
-| **Sun** | **5 mi** | **RUN ONLY** | Recovery | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
+| **Mon** | 0 mi | **LIFT ONLY** | Rest from Running • 🧘 Bodyweight Leg & Core Stability (Maui) | Rest / Mobility | Rest (< 130 bpm) | 🧘 Bodyweight Leg & Core Stability (No Running) |
+| **Tue** | **8 mi** | **RUN ONLY** | Aerobic + Strides (Maui) | 8:35 – 9:05 / mi (strides @ mile pace) | Zone 2 base w/ Zone 4-5 surges | None |
+| **Wed** | **7 mi** | **RUN ONLY** | Steady Aerobic (Maui Travel Home) | 8:35 – 9:15 / mi (humidity adj.) | Zone 2 Aerobic Base (136 – 145 bpm) | None |
+| **Thu** | 0 mi | **LIFT ONLY** | Rest from Running • Upper Body & Core (Thanksgiving) | Rest / Strength | Rest / Gym (< 130 bpm) | Upper Body & Core Strength (No Running) |
+| **Fri** | **6 mi** | **RUN ONLY** | Easy Pre-Long Run Shakeout (Seattle) | 9:00 – 9:30 / mi | Zone 1 / Low Zone 2 (< 138 bpm) | None |
+| **Sat** | **14 mi** | **RUN ONLY** | Long Run (Seattle) | 8:40 – 9:15 / mi | Zone 2 (138 – 146 bpm) | None |
+| **Sun** | **5 mi** | **RUN ONLY** | Recovery (Seattle) | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • Upper Body & Core Strength)**:
-  - *Strategic Purpose*: Cellular repair and musculoskeletal remodeling.
-  - *Running Prescription*: Non-running day: Upper Body Push/Pull + Core stability. Keep effort controlled (RIR 2-3). 15 min foam rolling. Keeps legs fresh for Tuesday quality run. Zero running.
-  - *Strength Prescription*: Dumbbell Bench/Overhead Press (3x8), Pull-ups or Lat Pulldowns (3x8), Cable Rows (3x10), Pallof Press (3x12/side), Deadbugs (3x10/side). No heavy leg loading.
-- **Tuesday (8.0 mi • Aerobic + Strides)**:
-  - *Strategic Purpose*: Neuromuscular turnover and hill mechanics.
-  - *Running Prescription*: Aerobic run concluding with 8mi (aerobic + strides). Focus on high knee drive and upright posture.
-- **Wednesday (9.0 mi • Steady Aerobic)**:
-  - *Strategic Purpose*: Mitochondrial density, capillary bed expansion, and fatigue resistance.
-  - *Running Prescription*: Midweek double-digit aerobic anchor: 9mi (steady aerobic). Crucial stamina builder for Vancouver's undulating profile.
-- **Thursday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)**:
-  - *Strategic Purpose*: Targeted neuromuscular recruitment and eccentric resilience without running impact.
-  - *Running Prescription*: Non-running day: Bi-Weekly Heavy Resistance Leg Strength. Low reps (3-5), heavy weight, explosive intent. Trap Bar Deadlifts, Bulgarian Split Squats, Heavy Calf Raises, Box Jumps. Zero running today ensures complete energy for neuromuscular recruitment without fatigue. Friday is an easy recovery run to flush legs before Saturday.
-  - *Strength Prescription*: Trap Bar Deadlift (3x5 @ 75-80%), Bulgarian Split Squats (3x6/leg with dumbbells), Standing Heavy Calf Raises (3x10), Box Jumps (3x5 explosive). Leave 2-3 RIR (never to failure!).
+- **Monday (0 mi • Rest from Running • 🧘 Bodyweight Leg & Core Stability — Maui)**:
+  - *Strategic Purpose*: Hotel/condo-friendly neuromuscular recruitment and pelvic stability without gym equipment.
+  - *Strength Prescription*: Bodyweight Bulgarian Split Squats (3x8/leg), Single-Leg RDLs (3x10/leg), Single-Leg Calf Raises (3x12/leg), Planks & Side Planks (3x30s). Zero running.
+- **Tuesday (8.0 mi • Aerobic + Strides — Maui)**:
+  - *Strategic Purpose*: Neuromuscular turnover and economy on your last full morning in Maui.
+  - *Running Prescription*: 7.4 mi Zone 2 aerobic base followed by 6–8 x 100m smooth strides.
+- **Wednesday (7.0 mi • Steady Aerobic — Maui Travel Home)**:
+  - *Strategic Purpose*: Midweek aerobic volume before flying home to Seattle.
+  - *Running Prescription*: Early morning run in Maui before heading to the airport (6–9 mi flexible; 7.0 mi target). Keep HR < 145 bpm and hydrate well before flying.
+- **Thursday (0 mi • Rest from Running • Upper Body & Core — Thanksgiving)**:
+  - *Strategic Purpose*: Upper body maintenance and travel recovery back in Seattle. Zero running.
 - **Friday (6.0 mi • Easy Pre-Long Run Shakeout)**:
   - *Strategic Purpose*: Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.
-  - *Running Prescription*: Relaxed conversational recovery run on flat terrain. Relaxed conversational recovery run on flat terrain. Promotes light capillary circulation, activates motor pathways, and leaves legs 100% fresh for tomorrow's anchor. ZERO lifting.
+  - *Running Prescription*: Relaxed conversational recovery run on flat Seattle terrain. ZERO lifting.
 - **Saturday (14.0 mi • Long Run)**:
-  - *Strategic Purpose*: Long aerobic endurance and fat oxidation.
-  - *Running Prescription*: Weekly long run anchor: 14mi (Long Run). Maintain steady effort on Seattle rolling hills.
+  - *Strategic Purpose*: Long aerobic endurance and fat oxidation back on Seattle rolling hills.
+  - *Running Prescription*: Weekly long run anchor: 14mi (Long Run). Maintain steady Zone 2 effort (138–146 bpm).
 - **Sunday (5.0 mi • Recovery)**:
   - *Strategic Purpose*: Aerobic density and cumulative fatigue recovery.
-  - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery). Runs gently on legs carrying Saturday fatigue.
+  - *Running Prescription*: Gentle Sunday recovery shakeout: 5mi (recovery) under 135 bpm.
 
 ---
 

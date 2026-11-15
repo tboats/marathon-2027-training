@@ -127,20 +127,20 @@ def get_vancouver_weekly_plan():
             'proxy_checkpoint': 'HR recovery rate between 1-mile cruise intervals. 🥣 FUELING MILESTONE: Begin pre-run carb fueling on Saturday long runs (14+ mi) to train gut and spare muscle.'
         },
         {
-            'week': 8, 'phase': 2, 'dates': 'Nov 16 - Nov 22', 'target_miles': 44,
-            'long_run': '15 miles progressive (finish last 3mi @ 7:50/mi)',
-            'midweek_key': '8 miles total: 25 min continuous Tempo @ 7:15/mi (158-162 bpm)',
-            'structure': 'Mon: Rest | Tue: 8mi (tempo run) | Wed: 10mi (aerobic base) | Thu: 6mi (easy) | Fri: Rest | Sat: 15mi (Long Run) | Sun: 5mi (recovery)',
-            'breakdown': '8 + 10 + 6 + 15 + 5 = 44 mi',
-            'proxy_checkpoint': 'Measure decoupling on 15 miles (Target < 5.5%).'
+            'week': 8, 'phase': 2, 'dates': 'Nov 16 - Nov 22', 'target_miles': 35,
+            'long_run': '14–15 miles aerobic in Maui (sunrise, strict HR < 146 bpm)',
+            'midweek_key': '8 miles total: 25 min continuous Tempo @ 7:15/mi (Tue in Seattle before flight)',
+            'structure': 'Mon: Rest | Tue: 8mi (tempo run) | Wed: Rest (Travel to Maui) | Thu: Rest (Maui) | Fri: 8mi (aerobic base) | Sat: 14mi (Long Run) | Sun: 5mi (recovery)',
+            'breakdown': '8 + 8 + 14 + 5 = 35 mi (Maui travel adjustment)',
+            'proxy_checkpoint': 'Heat & humidity HR discipline in Maui (target < 146 bpm on Long Run).'
         },
         {
-            'week': 9, 'phase': 2, 'dates': 'Nov 23 - Nov 29', 'target_miles': 42,
-            'long_run': '14 miles easy aerobic (Thanksgiving consolidation)',
-            'midweek_key': '8 miles aerobic + 8 x 100m flat strides',
-            'structure': 'Mon: Rest | Tue: 8mi (aerobic + strides) | Wed: 9mi (steady aerobic) | Thu: 6mi (easy) | Fri: Rest | Sat: 14mi (Long Run) | Sun: 5mi (recovery)',
-            'breakdown': '8 + 9 + 6 + 14 + 5 = 42 mi',
-            'proxy_checkpoint': 'Post-run recovery readiness and joint integrity.'
+            'week': 9, 'phase': 2, 'dates': 'Nov 23 - Nov 29', 'target_miles': 40,
+            'long_run': '14 miles easy aerobic (Thanksgiving consolidation in Seattle)',
+            'midweek_key': '8 miles aerobic + 8 x 100m flat strides (Tue in Maui)',
+            'structure': 'Mon: Rest | Tue: 8mi (aerobic + strides) | Wed: 7mi (steady aerobic) | Thu: 6mi (easy) | Fri: Rest | Sat: 14mi (Long Run) | Sun: 5mi (recovery)',
+            'breakdown': '8 + 7 + 6 + 14 + 5 = 40 mi (Maui return)',
+            'proxy_checkpoint': 'Post-travel recovery readiness and smooth return to Seattle hills.'
         },
         {
             'week': 10, 'phase': 2, 'dates': 'Nov 30 - Dec 06', 'target_miles': 46,
@@ -551,4 +551,65 @@ def get_vancouver_daily_details(week_num, week_dict):
             'description': desc_str
         })
 
-    return apply_lifting_schedule(week_num, days, total_weeks=31)
+    enriched = apply_lifting_schedule(week_num, days, total_weeks=31)
+
+    # Custom Maui Vacation Adjustments (Nov 18 - Nov 25, 2026)
+    if week_num == 8:
+        for d in enriched:
+            if d['day'] == 'Mon':
+                d['lifting_type'] = '🧘 Core & Pelvic Stability + Optional Upper Body (No Running)'
+                d['lifting_exercises'] = 'Copenhagen Adductor Planks (3x20s/side), Side Planks (3x30s), Single-Leg RDLs (3x8/leg), Banded Glute Bridges (3x12) + Optional Dumbbell Press/Pull-ups (3x8) since Thu 11/19 is a travel rest day.'
+                d['description'] = 'Non-running day: Core & pelvic hip stability. Optional upper body push/pull today to cover Thursday travel rest day. Zero running.'
+            elif d['day'] == 'Wed':
+                d['miles'] = 0
+                d['workout'] = 'Rest & Travel (Flight to Maui)'
+                d['pace'] = 'Rest'
+                d['hr_zone'] = 'Rest (< 100 bpm)'
+                d['purpose'] = 'Travel recovery and hydration.'
+                d['description'] = 'Travel day to Maui (11/18). Complete rest — zero running, zero lifting. Hydrate well on the flight and stretch calves/ankles upon arrival.'
+            elif d['day'] == 'Thu':
+                d['miles'] = 0
+                d['lifting_type'] = None
+                d['lifting_exercises'] = None
+                d['workout'] = 'Rest & Travel Recovery (Maui)'
+                d['pace'] = 'Rest / Mobility'
+                d['hr_zone'] = 'Rest (< 100 bpm)'
+                d['purpose'] = 'Jet lag / travel recovery before resuming Maui runs.'
+                d['description'] = 'Full rest day in Maui (11/19) — zero running, zero lifting. Light walking or beach mobility only.'
+            elif d['day'] == 'Fri':
+                d['workout'] = 'Aerobic Base (Maui)'
+                d['pace'] = '8:45 – 9:25 / mi (adjust for humidity)'
+                d['hr_zone'] = 'Zone 2 Aerobic Base (136 – 145 bpm strict ceiling)'
+                d['purpose'] = 'Aerobic base restoration in Maui after 2 travel rest days.'
+                d['description'] = (
+                    '1. Sunrise Start: Run early (6:00–6:30 AM) before tropical heat builds.\n'
+                    '2. Heart Rate First: Keep HR strictly between 136–145 bpm, letting pace slow 20–40s/mi in humidity.\n'
+                    '3. Fresh Legs: Smooth 8.0-mile aerobic cruise off 2 rest days. ZERO lifting.'
+                )
+            elif d['day'] == 'Sat':
+                d['workout'] = 'Long Run (Maui)'
+                d['pace'] = '8:50 – 9:35 / mi (adjust for humidity)'
+                d['hr_zone'] = 'Zone 2 (138 – 146 bpm strict ceiling)'
+                d['description'] = (
+                    '1. Sunrise Start: Begin at 6:00 AM with pre-run carbs + electrolytes; carry water/gels every 35–40 min.\n'
+                    '2. HR Discipline: Cap HR strictly at 146 bpm regardless of pace.\n'
+                    '3. Flexible Distance: Target 14.0 mi (or trim to 13.0 mi if tropical heat spikes HR early).'
+                )
+    elif week_num == 9:
+        for d in enriched:
+            if d['day'] == 'Mon':
+                d['lifting_type'] = '🧘 Bodyweight Leg & Core Stability (Maui)'
+                d['lifting_exercises'] = 'Bodyweight Bulgarian Split Squats (3x8/leg), Single-Leg RDLs (3x10/leg), Single-Leg Calf Raises (3x12/leg), Planks & Side Planks (3x30s). Zero gym equipment required.'
+                d['workout'] = 'Rest from Running • 🧘 Bodyweight Leg & Core Stability'
+                d['description'] = 'Non-running day in Maui: Hotel/condo-friendly bodyweight single-leg stability and core work. Protects Saturday long run without needing a gym.'
+            elif d['day'] == 'Tue':
+                d['workout'] = 'Aerobic + Strides (Maui)'
+            elif d['day'] == 'Wed':
+                d['workout'] = 'Steady Aerobic (Maui Travel Home)'
+                d['description'] = (
+                    '1. Early Start: Run before heading to the airport (6–9 mi flexible; 7.0 mi target).\n'
+                    '2. HR Control: Keep effort steady in Zone 2 (< 145 bpm) in Maui humidity.\n'
+                    '3. Travel Prep: Hydrate with electrolytes before the flight back to Seattle.'
+                )
+
+    return enriched
