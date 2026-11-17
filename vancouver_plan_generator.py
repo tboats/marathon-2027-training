@@ -425,11 +425,21 @@ def get_vancouver_daily_details(week_num, week_dict):
                     hr_zone_str = "Warmup: Zone 2 (< 144 bpm) | 5K TT: Zone 5 (> 168 bpm)"
                     purpose_str = "Maximal aerobic capacity (VO2max) and threshold benchmark test."
                     desc_str = "1. Warm-Up: 2.0 mi progressive easy jog with 4 x 20-second strides.\n2. 5K Benchmark: 3.1 miles all-out time trial effort (target: sub-21:30, 6:50–6:55/mi average). Flat course or track required.\n3. Cool-Down: 2.9 miles very easy recovery jog."
-                elif 'Interval' in d_desc or 'tempo' in d_desc.lower() or 'cruise' in d_desc.lower() or 'T-intervals' in d_desc:
+                elif 'Interval' in d_desc or 'cruise' in d_desc.lower() or 'T-intervals' in d_desc or 'intervals' in d_desc.lower() or '2x' in d_desc.lower() or '3x' in d_desc.lower():
                     pace_str = "Warmup/Cool: 8:40 – 9:10 / mi | Threshold Reps: 7:00 – 7:10 / mi | Recovery Jogs: 9:00 / mi"
                     hr_zone_str = "Warmup: Zone 2 (136–144 bpm) | Threshold: Zone 4 (158 – 164 bpm) | Recovery: < 140 bpm"
                     purpose_str = "Lactate threshold velocity expansion and clearance rate."
                     desc_str = f"1. Warm-Up: 1.5 – 2.0 mi progressive easy jog (9:15 down to 8:40/mi, HR < 142 bpm) + 5 min dynamic mobility.\n2. Quality Work: {d_desc} at strict lactate threshold pace (7:00–7:10/mi, HR 158–164 bpm). Maintain relaxed shoulders, snappy 180 spm cadence.\n3. Recovery Jogs: 400m / 2:00 easy jog at 9:00/mi between reps. Let HR drop under 140 bpm.\n4. Cool-Down: 1.0 – 1.5 mi very easy flush jog at 9:00–9:30/mi back to base."
+                elif 'tempo' in d_desc.lower():
+                    midweek_detail = week_dict.get('midweek_key', d_desc)
+                    pace_str = "Warmup/Cool: 8:40 – 9:10 / mi | Continuous Tempo: 7:15 / mi"
+                    hr_zone_str = "Warmup: Zone 2 (136–144 bpm) | Continuous Tempo: Zone 4 (158 – 162 bpm)"
+                    purpose_str = "Sustained lactate threshold clearance and aerobic power."
+                    desc_str = (
+                        f"1. Warm-Up: 2.0 – 2.5 mi progressive easy jog (9:15 down to 8:40/mi, HR < 142 bpm) + 5 min dynamic mobility.\n"
+                        f"2. Continuous Tempo: {midweek_detail}. Zero recovery stops—lock into an even, rhythmic threshold cruise with relaxed shoulders and 180+ spm cadence.\n"
+                        f"3. Cool-Down: 2.0 – 2.5 mi easy flush jog at 9:00–9:30/mi back to base."
+                    )
                 elif 'strides' in d_desc.lower() or 'surges' in d_desc.lower():
                     base_miles = round(miles - 0.6, 1)
                     pace_str = f"Base: 8:35 – 9:05 / mi | 6 Strides: 5:30 – 5:50 / mi (~20-22s / 100m)"
