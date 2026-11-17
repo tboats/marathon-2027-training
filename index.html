@@ -20370,12 +20370,27 @@
     }
 
     function getPlanCurrentWeek() {
-      // 1. Try to find the latest week logged in coach evaluations
+      // Date calculation: Vancouver plan started on Monday Sep 28, 2026
+      const planStart = new Date(2026, 8, 28);
+      const now = new Date();
+      const diffTime = now - planStart;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      let dateWeek = 3;
+      if (diffDays >= 0) {
+        const w = Math.floor(diffDays / 7) + 1;
+        if (w >= 1 && w <= 31) dateWeek = w;
+      }
+
+      // Check latest week logged in coach evaluations
       if (dashboardData.coach_evaluations && dashboardData.coach_evaluations.length > 0) {
         const sorted = [...dashboardData.coach_evaluations].sort((a,b) => (b.date || '').localeCompare(a.date || ''));
         const latest = sorted[0];
         if (latest && latest.week_num) {
           const wNum = latest.week_num;
+          // If the calendar date has already advanced past the latest logged week, move to dateWeek
+          if (dateWeek > wNum) {
+            return dateWeek;
+          }
           // Check if all 7 daily workouts for this week are completed
           const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
           const completedDays = new Set(
@@ -20390,16 +20405,7 @@
           return wNum;
         }
       }
-      // 2. Date calculation: Vancouver plan started on Monday Sep 28, 2026
-      const planStart = new Date(2026, 8, 28);
-      const now = new Date();
-      const diffTime = now - planStart;
-      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      if (diffDays >= 0) {
-        const w = Math.floor(diffDays / 7) + 1;
-        if (w >= 1 && w <= 31) return w;
-      }
-      return 3;
+      return dateWeek;
     }
 
     function renderSingleWeekCard(w, isCurrentWeek, isDone, storagePrefix) {
