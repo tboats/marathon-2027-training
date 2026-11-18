@@ -131,15 +131,17 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 7 Complete (7 of 7 Days Complete • 100% Archived) — Advancing to Week 8** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **259.28 Miles** (50 workout(s) verified)  
-> **Most Recent Session**: Sunday, 2026-11-15 — **5.00 mi** • **Grade A+**  
-> **Up Next**: Monday, 2026-11-16 — **0 mi Rest from Running • 🧘 Core & Pelvic Hip Stability** (🧘 Core & Pelvic Hip Stability (No Running))
+> **Current Campaign Status**: **Week 8 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **266.96 Miles** (52 workout(s) verified)  
+> **Most Recent Session**: Tuesday, 2026-11-17 — **7.68 mi** • **Grade A+**  
+> **Up Next**: Wednesday, 2026-11-18 — **0 mi Rest & Travel (Flight to Maui)** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-17** | Tue | Week 8: Tempo Run | 8.0 mi | **7.68 mi** | 8:40 / mi | **8:34 / mi** | 141 / 164.0 bpm | 176.5 spm | +292 ft | 141 bpm HR; 1 strides down to N/A; +292ft climb. | **A+** |
+| **2026-11-16** | Mon | Week 8: Rest from Running • 🧘 Core & Pelvic Hip Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 64 / 117.0 bpm | N/A | 0 ft | Heavy legs (15:09): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 117.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-15** | Sun | Week 7: Recovery | 5.0 mi | **5.00 mi** | 10:11 / mi | **9:55 / mi** | 125 / 147.0 bpm | 173.2 spm | +410 ft | 125 bpm HR; 1 strides down to N/A; +410ft climb. | **A+** |
 | **2026-11-14** | Sat | Week 7: Long Run | 14.0 mi | **14.07 mi** | 9:08 / mi | **9:04 / mi** | 134 / 148.0 bpm | 175.9 spm | +505 ft | 134 bpm HR; 1 strides down to N/A; +505ft climb. | **A+** |
 | **2026-11-13** | Fri | Week 7: Easy Pre-Long Run Shakeout | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 85 / 137.0 bpm | N/A | 0 ft | Heavy legs (15:25): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 137.0 bpm (<130 bpm cap). Zero running. | **A** |
@@ -700,7 +702,11 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery (Maui) | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • 🧘 Core & Pelvic Stability + Opt. Upper Body)**:
+- **Monday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-11-16)*: **15:09** dedicated heavy leg strength routine (9 sets, 144 reps).
+  - *Exercises Executed*: Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and heavy calf raises.
+  - *Heart Rate & Zero-Double-Days Adherence*: Avg HR **64.0 bpm** (Peak **117.0 bpm**, cleanly respecting the <130 bpm strength ceiling). Zero running logged.
+  - *Training Stimulus*: Aerobic TE **0.2** | Anaerobic TE **0.0** (pure neuromuscular stimulus with zero aerobic depletion).
   - *Strategic Purpose*: Pelvis stabilization and getting upper body push/pull done before flying since Thu 11/19 is a travel rest day.
   - *Strength Prescription*: Copenhagen Adductor Planks (3x20s/side), Side Planks (3x30s), Single-Leg RDLs (3x8/leg), Banded Glute Bridges (3x12) + Optional Dumbbell Bench/Overhead Press & Pull-ups (3x8). Zero running.
 - **Tuesday (8.0 mi • Tempo Run)**:
