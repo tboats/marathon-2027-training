@@ -753,14 +753,18 @@ def fast_sync(force_id=None, days_lookback=3, auto_push=False):
                     with open(os.path.join(TOKENSTORE, "oauth2_token.json"), "w") as f:
                         json.dump(tokens["oauth2"], f)
                 else:
-                    with open(os.path.join(TOKENSTORE, "oauth2_token.json"), "w") as f:
+                    with open(os.path.join(TOKENSTORE, "garmin_tokens.json"), "w") as f:
                         json.dump(tokens, f)
         except Exception as e:
             print(f"⚠️ Failed to parse GARMIN_TOKENS secret: {e}")
     else:
         print("ℹ️ Note: GARMIN_TOKENS environment variable is empty or not provided.")
 
-    if not os.path.exists(TOKENSTORE) or not os.path.exists(os.path.join(TOKENSTORE, "oauth1_token.json")):
+    has_tokens = os.path.exists(TOKENSTORE) and (
+        os.path.exists(os.path.join(TOKENSTORE, "garmin_tokens.json"))
+        or os.path.exists(os.path.join(TOKENSTORE, "oauth1_token.json"))
+    )
+    if not has_tokens:
         print(f"❌ OAuth tokenstore not found at {TOKENSTORE}.")
         if not sys.stdin.isatty():
             print("   In GitHub Actions CI, ensure GARMIN_TOKENS is configured under:")
