@@ -131,15 +131,17 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 8 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **266.96 Miles** (52 workout(s) verified)  
-> **Most Recent Session**: Tuesday, 2026-11-17 — **7.68 mi** • **Grade A+**  
-> **Up Next**: Wednesday, 2026-11-18 — **0 mi Rest & Travel (Flight to Maui)** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 8 Active (Day 5 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **274.96 Miles** (54 workout(s) verified)  
+> **Most Recent Session**: Friday, 2026-11-20 — **8.00 mi** • **Grade A+**  
+> **Up Next**: Saturday, 2026-11-21 — **14.0 mi Long Run (Maui)** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-20** | Fri | Week 8: Aerobic Base (Maui) | 8.0 mi | **8.00 mi** | 9:17 / mi | **9:19 / mi** | 129 / 148.0 bpm | 168.6 spm | +246 ft | 129 bpm HR; 1 strides down to N/A; +246ft climb. | **A+** |
+| **2026-11-19** | Thu | Week 8: Rest & Travel Recovery (Maui) | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 90 / 122.0 bpm | N/A | 0 ft | Heavy legs (14:16): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 122.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-17** | Tue | Week 8: Tempo Run | 8.0 mi | **7.68 mi** | 8:40 / mi | **8:34 / mi** | 141 / 164.0 bpm | 176.5 spm | +292 ft | 141 bpm HR; 1 strides down to N/A; +292ft climb. | **A+** |
 | **2026-11-16** | Mon | Week 8: Rest from Running • 🧘 Core & Pelvic Hip Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 64 / 117.0 bpm | N/A | 0 ft | Heavy legs (15:09): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 117.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-15** | Sun | Week 7: Recovery | 5.0 mi | **5.00 mi** | 10:11 / mi | **9:55 / mi** | 125 / 147.0 bpm | 173.2 spm | +410 ft | 125 bpm HR; 1 strides down to N/A; +410ft climb. | **A+** |

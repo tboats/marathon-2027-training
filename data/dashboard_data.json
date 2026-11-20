@@ -13624,24 +13624,6 @@
   ],
   "recent_runs": [
     {
-      "run_id": "2026-09-23_00-38-51",
-      "date": "2026-09-23",
-      "start_time": "2026-09-23T00:38:55",
-      "distance_meters": 5688.6,
-      "distance_miles": 3.53,
-      "duration_seconds": 1820.0,
-      "pace_min_mile": 8.58,
-      "elevation_gain_ft": 173.0,
-      "elevation_ft_per_mile": 48.9,
-      "gap_pace_min_mile": 8.3,
-      "avg_hr": 147.5,
-      "max_hr": 164,
-      "avg_cadence_spm": 177.0,
-      "ef": 1.271,
-      "gap_ef": 1.315,
-      "decoupling_pct": null
-    },
-    {
       "run_id": "2026-09-23_01-10-43",
       "date": "2026-09-23",
       "start_time": "2026-09-23T01:10:47",
@@ -14342,9 +14324,157 @@
       "ef": 1.322,
       "gap_ef": 1.371,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "25143264437_ACTIVITY",
+      "date": "2026-11-20",
+      "start_time": "2026-11-20T15:22:49Z",
+      "distance_meters": 12874.7,
+      "distance_miles": 8.0,
+      "duration_seconds": 4457.8,
+      "pace_min_mile": 9.29,
+      "elevation_gain_ft": 246.0,
+      "elevation_ft_per_mile": 30.8,
+      "gap_pace_min_mile": 9.32,
+      "avg_hr": 129.0,
+      "max_hr": 148,
+      "avg_cadence_spm": 169.0,
+      "ef": 1.343,
+      "gap_ef": 1.339,
+      "decoupling_pct": null
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-11-20_25143264437",
+      "activity_id": 25143264437,
+      "date": "2026-11-20",
+      "activity_name": "Maui County Running",
+      "race_plan": "vancouver",
+      "week_num": 8,
+      "day_of_week": "Fri",
+      "day_full": "Friday",
+      "prescribed": {
+        "miles": 8.0,
+        "workout": "Aerobic Base (Maui)",
+        "target_pace": "8:45 \u2013 9:25 / mi (adjust for humidity)",
+        "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm strict ceiling)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 8.0,
+        "duration_formatted": "74:17",
+        "duration_seconds": 4457.8,
+        "pace_raw": "9:17 / mi",
+        "pace_gap": "9:19 / mi",
+        "avg_hr": 129.0,
+        "max_hr": 148.0,
+        "avg_cadence": 168.6,
+        "max_cadence": 181.0,
+        "elevation_gain_ft": 246.1,
+        "elevation_loss_ft": 223.1,
+        "aerobic_te": 3.5,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": 259.9,
+        "strides_gct_ms": 259.9,
+        "vertical_ratio_pct": 8.53,
+        "strides_vr_pct": 8.53,
+        "avg_power_w": 308.0,
+        "max_power_w": 409.0
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 100.0,
+        "pace_adherence": "Raw 9:17 / mi | Grade-Adjusted 9:19 / mi",
+        "hr_compliance": "Avg HR 129 bpm (Zone 2 compliant)",
+        "strides_count": 1,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 8 Friday: 8.00 miles at 9:17 / mi (GAP: 9:19 / mi) with an average heart rate of 129 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 8.00 mi vs 8.0 mi prescribed (100.0% volume precision).",
+        "Metabolic Control: Averaged 129 bpm heart rate (workout ceiling: 145 bpm).",
+        "Topography Management: Handled +246 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "intervals_breakdown": null,
+      "next_workout": {
+        "day": "Saturday",
+        "date": "2026-11-21",
+        "miles": 14.0,
+        "workout": "Long Run (Maui)",
+        "target_pace": "8:50 \u2013 9:35 / mi (adjust for humidity)",
+        "target_hr": "Zone 2 (138 \u2013 146 bpm strict ceiling)",
+        "purpose": "Long aerobic endurance and fat oxidation.",
+        "description": "1. Sunrise Start: Begin at 6:00 AM with pre-run carbs + electrolytes; carry water/gels every 35\u201340 min.\n2. HR Discipline: Cap HR strictly at 146 bpm regardless of pace.\n3. Flexible Distance: Target 14.0 mi (or trim to 13.0 mi if tropical heat spikes HR early).",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
+    {
+      "evaluation_id": "2026-11-19_25136617974",
+      "activity_id": 25136617974,
+      "date": "2026-11-19",
+      "activity_name": "Strength",
+      "race_plan": "vancouver",
+      "week_num": 8,
+      "day_of_week": "Thu",
+      "day_full": "Thursday",
+      "prescribed": {
+        "miles": 0.0,
+        "workout": "Rest & Travel Recovery (Maui)",
+        "target_pace": "Rest / Strength",
+        "target_hr": "Rest / Gym (< 130 bpm)",
+        "lifting": "\ud83c\udfcb\ufe0f Bi-Weekly Heavy Leg Strength (No Running)"
+      },
+      "actual": {
+        "miles": 0.0,
+        "duration_formatted": "14:16",
+        "duration_seconds": 856.7,
+        "pace_raw": "Strength Gym",
+        "pace_gap": "Strength Gym",
+        "avg_hr": 90.0,
+        "max_hr": 122.0,
+        "avg_cadence": null,
+        "max_cadence": null,
+        "elevation_gain_ft": 0.0,
+        "elevation_loss_ft": 0.0,
+        "aerobic_te": 0.5,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": null,
+        "strides_gct_ms": null,
+        "vertical_ratio_pct": null,
+        "strides_vr_pct": null,
+        "avg_power_w": null,
+        "max_power_w": null,
+        "total_sets": 13,
+        "total_reps": 133
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 100.0,
+        "pace_adherence": "Gym Strength Session (Zero Running)",
+        "hr_compliance": "Max HR 122.0 bpm (Cleanly below 130 bpm cap)",
+        "strides_count": 0,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Flawless execution of Week 8 Thursday: 14:16 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+      "key_takeaways": [
+        "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+        "Cardiovascular Discipline: Max HR capped at 122.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+        "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+      ],
+      "next_workout": {
+        "day": "Friday",
+        "date": "2026-11-20",
+        "miles": 8.0,
+        "workout": "Aerobic Base (Maui)",
+        "target_pace": "8:45 \u2013 9:25 / mi (adjust for humidity)",
+        "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm strict ceiling)",
+        "purpose": "Aerobic base restoration in Maui after 2 travel rest days.",
+        "description": "1. Sunrise Start: Run early (6:00\u20136:30 AM) before tropical heat builds.\n2. Heart Rate First: Keep HR strictly between 136\u2013145 bpm, letting pace slow 20\u201340s/mi in humidity.\n3. Fresh Legs: Smooth 8.0-mile aerobic cruise off 2 rest days. ZERO lifting.",
+        "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+      }
+    },
     {
       "evaluation_id": "2026-11-17_25115384690",
       "activity_id": 25115384690,
