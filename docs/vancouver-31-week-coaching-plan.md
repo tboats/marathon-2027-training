@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 8 Active (Day 5 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **274.96 Miles** (54 workout(s) verified)  
-> **Most Recent Session**: Friday, 2026-11-20 — **8.00 mi** • **Grade A+**  
-> **Up Next**: Saturday, 2026-11-21 — **14.0 mi Long Run (Maui)** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 8 Active (Day 6 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **288.09 Miles** (55 workout(s) verified)  
+> **Most Recent Session**: Saturday, 2026-11-21 — **13.13 mi** • **Grade A+**  
+> **Up Next**: Sunday, 2026-11-22 — **5.0 mi Recovery** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-21** | Sat | Week 8: Long Run (Maui) | 14.0 mi | **13.13 mi** | 8:58 / mi | **8:56 / mi** | 137 / 155.0 bpm | 174.1 spm | +413 ft | 137 bpm HR; 1 strides down to N/A; +413ft climb. | **A+** |
 | **2026-11-20** | Fri | Week 8: Aerobic Base (Maui) | 8.0 mi | **8.00 mi** | 9:17 / mi | **9:19 / mi** | 129 / 148.0 bpm | 168.6 spm | +246 ft | 129 bpm HR; 1 strides down to N/A; +246ft climb. | **A+** |
 | **2026-11-19** | Thu | Week 8: Rest & Travel Recovery (Maui) | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 90 / 122.0 bpm | N/A | 0 ft | Heavy legs (14:16): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 122.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-17** | Tue | Week 8: Tempo Run | 8.0 mi | **7.68 mi** | 8:40 / mi | **8:34 / mi** | 141 / 164.0 bpm | 176.5 spm | +292 ft | 141 bpm HR; 1 strides down to N/A; +292ft climb. | **A+** |

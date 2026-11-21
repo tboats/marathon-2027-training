@@ -1,5 +1,70 @@
 [
   {
+    "evaluation_id": "2026-11-21_25154904035",
+    "activity_id": 25154904035,
+    "date": "2026-11-21",
+    "activity_name": "Maui County Running",
+    "race_plan": "vancouver",
+    "week_num": 8,
+    "day_of_week": "Sat",
+    "day_full": "Saturday",
+    "prescribed": {
+      "miles": 14.0,
+      "workout": "Long Run (Maui)",
+      "target_pace": "8:50 \u2013 9:35 / mi (adjust for humidity)",
+      "target_hr": "Zone 2 (138 \u2013 146 bpm strict ceiling)",
+      "lifting": "None (Running Only)"
+    },
+    "actual": {
+      "miles": 13.13,
+      "duration_formatted": "117:43",
+      "duration_seconds": 7063.8,
+      "pace_raw": "8:58 / mi",
+      "pace_gap": "8:56 / mi",
+      "avg_hr": 137.0,
+      "max_hr": 155.0,
+      "avg_cadence": 174.1,
+      "max_cadence": 188.0,
+      "elevation_gain_ft": 413.4,
+      "elevation_loss_ft": 400.3,
+      "aerobic_te": 4.599999904632568,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": 254.2,
+      "strides_gct_ms": 254.2,
+      "vertical_ratio_pct": 8.3,
+      "strides_vr_pct": 8.3,
+      "avg_power_w": 324.0,
+      "max_power_w": 466.0
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 93.8,
+      "pace_adherence": "Raw 8:58 / mi | Grade-Adjusted 8:56 / mi",
+      "hr_compliance": "Avg HR 137 bpm (Zone 2 compliant)",
+      "strides_count": 1,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Evaluation for Week 8 Saturday: 13.13 miles at 8:58 / mi (GAP: 8:56 / mi) with an average heart rate of 137 bpm (Grade: A+).",
+    "key_takeaways": [
+      "Adherence: Completed 13.13 mi vs 14.0 mi prescribed (93.8% volume precision).",
+      "Metabolic Control: Averaged 137 bpm heart rate (workout ceiling: 145 bpm).",
+      "Topography Management: Handled +413 ft of climb with appropriate effort modulation.",
+      "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+    ],
+    "intervals_breakdown": null,
+    "next_workout": {
+      "day": "Sunday",
+      "date": "2026-11-22",
+      "miles": 5.0,
+      "workout": "Recovery",
+      "target_pace": "9:15 \u2013 9:45 / mi continuous",
+      "target_hr": "Zone 1 (< 135 bpm ceiling, avg ~128\u2013130 bpm)",
+      "purpose": "Active capillary circulation and cumulative fatigue clearance.",
+      "description": "1. Route: Flat route preferred (avoid steep Seattle grades).\n2. Pace: 9:15\u20139:45/mi. Absolutely no rushing; this is active therapy for legs carrying Saturday fatigue.\n3. Heart Rate: Strictly under 135 bpm. If HR climbs above 135 bpm on a hill, walk until it drops.\n4. Lifting: RUN ONLY \u2014 ZERO LIFTING.",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-11-20_25143264437",
     "activity_id": 25143264437,
     "date": "2026-11-20",
