@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 9 Active (Day 1 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **293.13 Miles** (57 workout(s) verified)  
-> **Most Recent Session**: Monday, 2026-11-23 — **🏋️ Heavy Leg Strength Routine (17:31)** • **Grade A+**  
-> **Up Next**: Tuesday, 2026-11-24 — **8.0 mi Aerobic + Strides (Maui)** (RUN ONLY — ZERO LIFTING)
+> **Current Campaign Status**: **Week 9 Active (Day 2 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **301.17 Miles** (58 workout(s) verified)  
+> **Most Recent Session**: Tuesday, 2026-11-24 — **8.04 mi** • **Grade A+**  
+> **Up Next**: Wednesday, 2026-11-25 — **7.0 mi Steady Aerobic (Maui Travel Home)** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-24** | Tue | Week 9: Aerobic + Strides (Maui) | 8.0 mi | **8.04 mi** | 9:11 / mi | **9:11 / mi** | 134 / 162 bpm | 172.1 spm | +243 ft | 134 bpm HR; 8 strides down to 5:09 / mi (cadence up to 233 spm); +243ft climb. | **A+** |
 | **2026-11-23** | Mon | Week 9: Rest from Running • 🧘 Bodyweight Leg & Core Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 86 / 119.0 bpm | N/A | 0 ft | Heavy legs (17:31): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 119.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-22** | Sun | Week 8: Recovery | 5.0 mi | **5.04 mi** | 9:31 / mi | **9:26 / mi** | 130 / 140.0 bpm | 172.9 spm | +203 ft | 130 bpm HR; 1 strides down to N/A; +203ft climb. | **A+** |
 | **2026-11-21** | Sat | Week 8: Long Run (Maui) | 14.0 mi | **13.13 mi** | 8:58 / mi | **8:56 / mi** | 137 / 155.0 bpm | 174.1 spm | +413 ft | 137 bpm HR; 1 strides down to N/A; +413ft climb. | **A+** |
