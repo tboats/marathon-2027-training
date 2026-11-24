@@ -131,15 +131,16 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 8 Complete (7 of 7 Days Complete • 100% Archived) — Advancing to Week 9** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **293.13 Miles** (56 workout(s) verified)  
-> **Most Recent Session**: Sunday, 2026-11-22 — **5.04 mi** • **Grade A+**  
-> **Up Next**: Monday, 2026-11-23 — **0 mi Rest from Running • 🧘 Bodyweight Leg & Core Stability** (🧘 Bodyweight Leg & Core Stability (Maui))
+> **Current Campaign Status**: **Week 9 Active (Day 1 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **293.13 Miles** (57 workout(s) verified)  
+> **Most Recent Session**: Monday, 2026-11-23 — **🏋️ Heavy Leg Strength Routine (17:31)** • **Grade A+**  
+> **Up Next**: Tuesday, 2026-11-24 — **8.0 mi Aerobic + Strides (Maui)** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-23** | Mon | Week 9: Rest from Running • 🧘 Bodyweight Leg & Core Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 86 / 119.0 bpm | N/A | 0 ft | Heavy legs (17:31): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 119.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-22** | Sun | Week 8: Recovery | 5.0 mi | **5.04 mi** | 9:31 / mi | **9:26 / mi** | 130 / 140.0 bpm | 172.9 spm | +203 ft | 130 bpm HR; 1 strides down to N/A; +203ft climb. | **A+** |
 | **2026-11-21** | Sat | Week 8: Long Run (Maui) | 14.0 mi | **13.13 mi** | 8:58 / mi | **8:56 / mi** | 137 / 155.0 bpm | 174.1 spm | +413 ft | 137 bpm HR; 1 strides down to N/A; +413ft climb. | **A+** |
 | **2026-11-20** | Fri | Week 8: Aerobic Base (Maui) | 8.0 mi | **8.00 mi** | 9:17 / mi | **9:19 / mi** | 129 / 148.0 bpm | 168.6 spm | +246 ft | 129 bpm HR; 1 strides down to N/A; +246ft climb. | **A+** |
@@ -750,7 +751,11 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 | **Sun** | **5 mi** | **RUN ONLY** | Recovery (Seattle) | 9:15 – 9:45 / mi | Zone 1 (< 135 bpm) | None |
 
 #### Daily Workout Execution Details
-- **Monday (0 mi • Rest from Running • 🧘 Bodyweight Leg & Core Stability — Maui)**:
+- **Monday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-11-23)*: **17:31** dedicated heavy leg strength routine (15 sets, 39 reps).
+  - *Exercises Executed*: Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and heavy calf raises.
+  - *Heart Rate & Zero-Double-Days Adherence*: Avg HR **86.0 bpm** (Peak **119.0 bpm**, cleanly respecting the <130 bpm strength ceiling). Zero running logged.
+  - *Training Stimulus*: Aerobic TE **0.4** | Anaerobic TE **0.0** (pure neuromuscular stimulus with zero aerobic depletion).
   - *Strategic Purpose*: Hotel/condo-friendly neuromuscular recruitment and pelvic stability without gym equipment.
   - *Strength Prescription*: Bodyweight Bulgarian Split Squats (3x8/leg), Single-Leg RDLs (3x10/leg), Single-Leg Calf Raises (3x12/leg), Planks & Side Planks (3x30s). Zero running.
 - **Tuesday (8.0 mi • Aerobic + Strides — Maui)**:

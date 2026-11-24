@@ -1,5 +1,70 @@
 [
   {
+    "evaluation_id": "2026-11-23_25174275199",
+    "activity_id": 25174275199,
+    "date": "2026-11-23",
+    "activity_name": "Strength",
+    "race_plan": "vancouver",
+    "week_num": 9,
+    "day_of_week": "Mon",
+    "day_full": "Monday",
+    "prescribed": {
+      "miles": 0.0,
+      "workout": "Rest from Running \u2022 \ud83e\uddd8 Bodyweight Leg & Core Stability",
+      "target_pace": "Rest / Strength",
+      "target_hr": "Rest / Gym (< 130 bpm)",
+      "lifting": "\ud83e\uddd8 Bodyweight Leg & Core Stability (Maui)"
+    },
+    "actual": {
+      "miles": 0.0,
+      "duration_formatted": "17:31",
+      "duration_seconds": 1051.5,
+      "pace_raw": "Strength Gym",
+      "pace_gap": "Strength Gym",
+      "avg_hr": 86.0,
+      "max_hr": 119.0,
+      "avg_cadence": null,
+      "max_cadence": null,
+      "elevation_gain_ft": 0.0,
+      "elevation_loss_ft": 0.0,
+      "aerobic_te": 0.4000000059604645,
+      "anaerobic_te": 0.0,
+      "ground_contact_time_ms": null,
+      "strides_gct_ms": null,
+      "vertical_ratio_pct": null,
+      "strides_vr_pct": null,
+      "avg_power_w": null,
+      "max_power_w": null,
+      "total_sets": 15,
+      "total_reps": 39
+    },
+    "scorecard": {
+      "grade": "A+",
+      "distance_adherence_pct": 100.0,
+      "pace_adherence": "Gym Strength Session (Zero Running)",
+      "hr_compliance": "Max HR 119.0 bpm (Cleanly below 130 bpm cap)",
+      "strides_count": 0,
+      "strides_peak_pace": "N/A"
+    },
+    "executive_summary": "Flawless execution of Week 9 Monday: 17:31 heavy leg strength session (Bulgarian split squats, step ups, RDLs, calf raises). Zero running logged, strictly honoring the Zero-Double-Days mandate.",
+    "key_takeaways": [
+      "Zero-Double-Days Adherence: 100% compliant. Dedicated strength routine on scheduled non-running day.",
+      "Cardiovascular Discipline: Max HR capped at 119.0 bpm (well below 130 bpm ceiling), ensuring pure neuromuscular loading without aerobic depletion.",
+      "Targeted Muscle Chains: Executed Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and calf raises to build single-leg pelvis stability and eccentric resilience."
+    ],
+    "next_workout": {
+      "day": "Tuesday",
+      "date": "2026-11-24",
+      "miles": 8.0,
+      "workout": "Aerobic + Strides (Maui)",
+      "target_pace": "Base: 8:35 \u2013 9:05 / mi | 6 Strides: 5:30 \u2013 5:50 / mi (~20-22s / 100m)",
+      "target_hr": "Zone 2 Base (136 \u2013 144 bpm) | Strides: Walk-back to < 125 bpm",
+      "purpose": "Neuromuscular turnover, motor unit recruitment, and running economy on fresh legs.",
+      "description": "1. Continuous Base: 7.4 mi continuous easy aerobic running at 8:35\u20139:05/mi in Zone 2 (136\u2013144 bpm). Settle into a relaxed conversational rhythm.\n2. Snappy Strides: Over the final 0.6 mi on a flat, unobstructed stretch, execute 6 x 100m smooth accelerations reaching mile speed (5:30\u20135:50/mi, ~20\u201322s per 100m).\n3. Recovery: Walk back for 45\u201360 sec between each stride to allow heart rate to drop below 125 bpm before launching the next rep. Do not rush into the next stride.\n4. Form Focus: Tall posture, high knee drive, relaxed shoulders/jaw, light midfoot ground strike.",
+      "lifting_rule": "RUN ONLY \u2014 ZERO LIFTING"
+    }
+  },
+  {
     "evaluation_id": "2026-11-22_25165290124",
     "activity_id": 25165290124,
     "date": "2026-11-22",
