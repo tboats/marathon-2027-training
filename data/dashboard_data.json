@@ -13635,6 +13635,21 @@
       "gap_ef": 1.29,
       "vdot": null,
       "decoupling_pct": null
+    },
+    {
+      "date": "2026-11-25",
+      "run_id": "25196725266_ACTIVITY",
+      "distance_miles": 7.08,
+      "duration_seconds": 3712.6,
+      "pace_min_mile": 8.74,
+      "gap_pace_min_mile": 8.74,
+      "avg_hr": 137,
+      "elevation_gain_ft": 180.4,
+      "elevation_ft_per_mile": 25.5,
+      "ef": 1.344,
+      "gap_ef": 1.344,
+      "vdot": null,
+      "decoupling_pct": null
     }
   ],
   "recent_runs": [
@@ -14375,9 +14390,92 @@
       "ef": 1.29,
       "gap_ef": 1.29,
       "decoupling_pct": null
+    },
+    {
+      "run_id": "25196725266_ACTIVITY",
+      "date": "2026-11-25",
+      "start_time": "2026-11-25T05:29:24",
+      "distance_meters": 11395.1,
+      "distance_miles": 7.08,
+      "duration_seconds": 3712.6,
+      "pace_min_mile": 8.74,
+      "elevation_gain_ft": 180.4,
+      "elevation_ft_per_mile": 25.5,
+      "gap_pace_min_mile": 8.74,
+      "avg_hr": 137,
+      "max_hr": 149,
+      "avg_cadence_spm": 174.7,
+      "ef": 1.344,
+      "gap_ef": 1.344,
+      "decoupling_pct": null
     }
   ],
   "coach_evaluations": [
+    {
+      "evaluation_id": "2026-11-25_25196725266",
+      "activity_id": 25196725266,
+      "date": "2026-11-25",
+      "activity_name": "Maui County Running",
+      "race_plan": "vancouver",
+      "week_num": 9,
+      "day_of_week": "Wed",
+      "day_full": "Wednesday",
+      "prescribed": {
+        "miles": 7.0,
+        "workout": "Steady Aerobic (Maui Travel Home)",
+        "target_pace": "8:30 \u2013 8:55 / mi continuous",
+        "target_hr": "Zone 2 Aerobic Base (136 \u2013 145 bpm strict ceiling)",
+        "lifting": "None (Running Only)"
+      },
+      "actual": {
+        "miles": 7.08,
+        "duration_formatted": "61:52",
+        "duration_seconds": 3712.6,
+        "pace_raw": "8:44 / mi",
+        "pace_gap": "8:44 / mi",
+        "avg_hr": 137,
+        "max_hr": 149,
+        "avg_cadence": 174.7,
+        "max_cadence": 181.0,
+        "elevation_gain_ft": 180.4,
+        "elevation_loss_ft": 177.2,
+        "aerobic_te": 3.8,
+        "anaerobic_te": 0.0,
+        "ground_contact_time_ms": 251.9,
+        "strides_gct_ms": null,
+        "vertical_ratio_pct": 8.18,
+        "strides_vr_pct": null,
+        "avg_power_w": 326,
+        "max_power_w": 407
+      },
+      "scorecard": {
+        "grade": "A+",
+        "distance_adherence_pct": 101.2,
+        "pace_adherence": "Raw 8:44 / mi | Grade-Adjusted 8:44 / mi",
+        "hr_compliance": "Avg HR 137 bpm (Zone 2 compliant)",
+        "strides_count": 0,
+        "strides_peak_pace": "N/A"
+      },
+      "executive_summary": "Evaluation for Week 9 Wednesday: 7.08 miles at 8:44 / mi (GAP: 8:44 / mi) with an average heart rate of 137 bpm (Grade: A+).",
+      "key_takeaways": [
+        "Adherence: Completed 7.08 mi vs 7.0 mi prescribed (101.2% volume precision).",
+        "Metabolic Control: Averaged 137 bpm heart rate (workout ceiling: 145 bpm).",
+        "Topography Management: Handled +180 ft of climb with appropriate effort modulation.",
+        "\u2728 Perfect Disciplined Execution: Zero pacing, HR, or distance deductions."
+      ],
+      "intervals_breakdown": null,
+      "next_workout": {
+        "day": "Thursday",
+        "date": "2026-11-26",
+        "miles": 0,
+        "workout": "Rest from Running \u2022 Upper Body & Core Strength",
+        "target_pace": "Rest / Strength",
+        "target_hr": "Rest / Gym (< 130 bpm)",
+        "purpose": "Upper body muscular endurance and core stability without leg fatigue.",
+        "description": "Non-running day: Upper Body Push/Pull + Anti-Extension Core. Zero heavy leg loading ensures legs stay 100% fresh for Friday shakeout and Saturday long run anchor. Zero running.",
+        "lifting_rule": "Upper Body & Core Strength (No Running)"
+      }
+    },
     {
       "evaluation_id": "2026-11-24_25185842880",
       "activity_id": 25185842880,
