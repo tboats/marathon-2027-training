@@ -17,7 +17,7 @@ Runbook for syncing Garmin Connect activities, generating forensic coaching eval
 
 ## 1. Environment & Prerequisites
 
-- **Python Dependencies**: Always run Garmin scripts with `uv run --with garminconnect --with fitparse python3 ...` (system `python3` does not have `garminconnect` or `fitparse`).
+- **Python Dependencies**: Always run Garmin scripts with `uv run --with garminconnect==0.2.8 --with fitparse python3 ...` (pinned to `0.2.8` to match `requirements.txt` and long-lived Garth OAuth1/OAuth2 tokens).
 - **Garmin Auth**: Uses saved OAuth tokens at `~/.garminconnect_tokens` (or the `GARMIN_TOKENS` environment variable if running in CI/cloud).
 - **Repositories**:
   - **Heatmap Repo** (if present in workspace): `Projects/running-heatmap/repo` (`origin`: `tboats/garmin_heatmap`)
@@ -32,7 +32,7 @@ When the user finishes a run or strength session and asks to sync/update:
 ### Step 1: Sync Running Heatmap (if `Projects/running-heatmap/repo` exists)
 
 ```bash
-cd Projects/running-heatmap/repo && uv run --with garminconnect --with fitparse python3 sync_garmin.py --auto-push
+cd Projects/running-heatmap/repo && uv run --with garminconnect==0.2.8 --with fitparse python3 sync_garmin.py --auto-push
 ```
 
 This downloads new `.fit` routes into `data/runs.json`, refreshes `data/segments.json`, and pushes to `tboats/garmin_heatmap`.
@@ -40,7 +40,7 @@ This downloads new `.fit` routes into `data/runs.json`, refreshes `data/segments
 ### Step 2: Sync, Evaluate & Rebuild Marathon Dashboard
 
 ```bash
-cd Projects/la-marathon-2027/repo && uv run --with garminconnect --with fitparse python3 sync_and_eval.py --auto-push
+cd Projects/la-marathon-2027/repo && uv run --with garminconnect==0.2.8 --with fitparse python3 sync_and_eval.py --auto-push
 ```
 
 What `sync_and_eval.py --auto-push` automatically executes:
