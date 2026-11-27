@@ -131,15 +131,17 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 <!-- BEGIN_ACTIVE_WORKOUT_LOG -->
 ## 4. Active Campaign Execution & Live Workout Log
 
-> **Current Campaign Status**: **Week 9 Active (Day 3 of 7 Complete)** • Phase 1: Aerobic Foundation  
-> **Campaign Mileage Logged**: **308.25 Miles** (59 workout(s) verified)  
-> **Most Recent Session**: Wednesday, 2026-11-25 — **7.08 mi** • **Grade A+**  
-> **Up Next**: Thursday, 2026-11-26 — **0 mi Rest from Running • Upper Body & Core Strength** (Upper Body & Core Strength (No Running))
+> **Current Campaign Status**: **Week 9 Active (Day 5 of 7 Complete)** • Phase 1: Aerobic Foundation  
+> **Campaign Mileage Logged**: **314.45 Miles** (61 workout(s) verified)  
+> **Most Recent Session**: Friday, 2026-11-27 — **6.20 mi** • **Grade A+**  
+> **Up Next**: Saturday, 2026-11-28 — **14.0 mi Long Run** (RUN ONLY — ZERO LIFTING)
 
 ### Completed Workouts Ledger
 
 | Date | Day | Scheduled Session | Prescribed | Actual Dist | Raw Pace | GAP Pace | Avg / Max HR | Cadence | Elev Gain | Key Telemetry & Coach Notes | Grade |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **2026-11-27** | Fri | Week 9: Easy Pre-Long Run Shakeout | 6.0 mi | **6.20 mi** | 9:46 / mi | **9:24 / mi** | 127 / 143.0 bpm | 172.3 spm | +505 ft | 127 bpm HR; 1 strides down to N/A; +505ft climb. | **A+** |
+| **2026-11-26** | Thu | Week 9: Rest from Running • Upper Body & Core Strength | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 83 / 125.0 bpm | N/A | 0 ft | Upper body & core (15:44): Dumbbell press, pull-ups, rows, Pallof press, deadbugs. Max HR 125.0 bpm (<130 bpm cap). Zero running. | **A+** |
 | **2026-11-25** | Wed | Week 9: Steady Aerobic (Maui Travel Home) | 7.0 mi | **7.08 mi** | 8:44 / mi | **8:44 / mi** | 137 / 149 bpm | 174.7 spm | +180 ft | 137 bpm HR; 0 strides down to N/A; +180ft climb. | **A+** |
 | **2026-11-24** | Tue | Week 9: Aerobic + Strides (Maui) | 8.0 mi | **8.04 mi** | 9:11 / mi | **9:11 / mi** | 134 / 162 bpm | 172.1 spm | +243 ft | 134 bpm HR; 8 strides down to 5:09 / mi (cadence up to 233 spm); +243ft climb. | **A+** |
 | **2026-11-23** | Mon | Week 9: Rest from Running • 🧘 Bodyweight Leg & Core Stability | 0.0 mi | **0.0 mi (Strength)** | Gym | **Gym** | 86 / 119.0 bpm | N/A | 0 ft | Heavy legs (17:31): Bulgarian split squats, step ups, RDLs, calf raises. Max HR 119.0 bpm (<130 bpm cap). Zero running. | **A+** |
@@ -766,7 +768,11 @@ You are acting as Tom's personal high-performance marathon coach and daily accou
 - **Wednesday (7.0 mi • Steady Aerobic — Maui Travel Home)**:
   - *Strategic Purpose*: Midweek aerobic volume before flying home to Seattle.
   - *Running Prescription*: Early morning run in Maui before heading to the airport (6–9 mi flexible; 7.0 mi target). Keep HR < 145 bpm and hydrate well before flying.
-- **Thursday (0 mi • Rest from Running • Upper Body & Core — Thanksgiving)**:
+- **Thursday (0 mi • Rest from Running • 🏋️ Bi-Weekly Heavy Leg Strength)** — ✅ **COMPLETED (Grade A+)**:
+  - *Actual Execution (2026-11-26)*: **15:44** dedicated heavy leg strength routine (13 sets, 178 reps).
+  - *Exercises Executed*: Bulgarian split squats, step ups, Romanian deadlifts (RDLs), and heavy calf raises.
+  - *Heart Rate & Zero-Double-Days Adherence*: Avg HR **83.0 bpm** (Peak **125.0 bpm**, cleanly respecting the <130 bpm strength ceiling). Zero running logged.
+  - *Training Stimulus*: Aerobic TE **0.4** | Anaerobic TE **0.0** (pure neuromuscular stimulus with zero aerobic depletion).
   - *Strategic Purpose*: Upper body maintenance and travel recovery back in Seattle. Zero running.
 - **Friday (6.0 mi • Easy Pre-Long Run Shakeout)**:
   - *Strategic Purpose*: Gentle active recovery shakeout on fresh legs, priming for Saturday long run anchor.
